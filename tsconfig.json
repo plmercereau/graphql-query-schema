@@ -32,7 +32,9 @@
     "sourceMap": true
   },
   "include": [
-    "src"
+    "src",
+    "tests/generate.ts",
+    "tests/generate.ts"
   ],
   "exclude": [
     "node_modules",

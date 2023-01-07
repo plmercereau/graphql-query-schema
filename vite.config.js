@@ -23,17 +23,7 @@ export default defineConfig({
         })
     ],
     test: {
-        globals: true,
-        environment: 'jsdom',
-        reporters: 'verbose',
-        include: [
-            `${PWD}/src/**/*.{spec,test}.{ts,tsx}`,
-            `${PWD}/tests/**/*.{spec,test}.{ts,tsx}`
-        ],
-        coverage: {
-            enabled: process.env.CI === 'true',
-            reporter: ['json']
-        }
+        dir: 'tests'
     },
     build: {
         sourcemap: true,
