@@ -1,7 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
-    "composite": false,
     "declaration": true,
     "declarationMap": true,
     "strict": true,
@@ -15,33 +14,14 @@
     "types": [
       "node"
     ],
-    "lib": [
-      "es5",
-      "dom",
-      "es2015.promise",
-      "es2015.symbol",
-      "es2015.iterable",
-      "es2015.collection",
-      "es2015.symbol.wellknown",
-      "es2015.core",
-      "es2017.object",
-      "es2017.string"
-    ],
-    "resolveJsonModule": true,
     "esModuleInterop": true,
     "sourceMap": true
   },
   "include": [
-    "src",
-    "tests/generate.ts",
-    "tests/generate.ts"
+    "src"
   ],
   "exclude": [
     "node_modules",
-    "**/*/dist",
-    "**/*/build",
-    "**/*/.next",
-    "**/*/__tests__",
-    "**/*/__mocks__"
+    "dist",
   ]
 }
