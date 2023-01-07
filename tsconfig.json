@@ -18,6 +18,7 @@
     "sourceMap": true
   },
   "include": [
+    "codegen.ts",
     "src"
   ],
   "exclude": [

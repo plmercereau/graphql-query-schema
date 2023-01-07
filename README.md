@@ -24,22 +24,20 @@ pnpm run test
 
 ```ts
 const res = await client.query
-    .todos({
-        createdAt: true,
-        contents: true,
-        user: { displayName: true }
-    })
-    .run()
+  .todos({
+    createdAt: true,
+    contents: true,
+    user: { displayName: true }
+  })
+  .run()
 
 res.map(({ createdAt, contents, user: { displayName } }) => {
-    console.log(
-        `${displayName} created the following todo at ${createdAt}: ${contents}`
-    )
+  console.log(`${displayName} created the following todo at ${createdAt}: ${contents}`)
 })
 ```
 
 ### to try
 
--   required fields e.g. userId when inserting a todo
--   subscriptions
--   other todos in the code
+- required fields e.g. userId when inserting a todo
+- subscriptions
+- other todos in the code

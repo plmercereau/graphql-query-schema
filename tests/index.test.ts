@@ -1,5 +1,5 @@
 import { Client } from '../src'
-import * as schema from './schema'
+import * as schema from '../schemas/nhost'
 
 import { describe, expect, it } from 'vitest'
 
@@ -48,7 +48,9 @@ describe('main', () => {
           createdAt: true,
           contents: true,
           _limit: 2,
-          _where: { createdAt: { _lte: new Date(2023, 1, 5).toISOString() } },
+          _where: {
+            createdAt: { _lte: new Date(2023, 1, 5).toISOString() }
+          },
           _order_by: [{ createdAt: schema.Order_By.Asc }]
         })
         .toRawGraphQL()

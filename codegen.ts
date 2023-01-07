@@ -1,5 +1,6 @@
-import { CodegenConfig, generate } from '@graphql-codegen/cli'
+import { CodegenConfig } from '@graphql-codegen/cli'
 
+// TODO convert to config.yaml
 const config: CodegenConfig = {
     schema: [
         {
@@ -11,12 +12,15 @@ const config: CodegenConfig = {
         }
     ],
     generates: {
-        './tests/schema.ts': {
+        './schemas/nhost.ts': {
             plugins: [
                 'typescript',
                 {
                     add: {
-                        content: `export type JSONValue = string | number | boolean | { [x: string]: JSONValue } | Array<JSONValue>;\n`
+                        content: [
+                            '',
+                            'export type JSONValue = string | number | boolean | { [x: string]: JSONValue } | Array<JSONValue>;\n'
+                        ]
                     }
                 }
             ],
@@ -37,4 +41,4 @@ const config: CodegenConfig = {
     }
 }
 
-generate(config, true)
+export default config
