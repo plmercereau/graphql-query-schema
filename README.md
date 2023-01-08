@@ -39,23 +39,26 @@ res.map(({ createdAt, contents, user: { displayName } }) => {
 ## Limitations
 
 - `declarationKind` should be `class`
-- Not tested with other naming conventions
+- Not tested with additional settings e.g. naming conventions. Recommended: generate a separate file if you need to codegen for another use
 - Swapi: Note on `extends Node` before `Node` is defined: `ReferenceError: Cannot access 'Node' before initialization`
   - -> graphql-codegen PR
 
 ### to do
 
 - Typed node document
-- Custom result e.g. nested / not nested, `_` or `__` or nothing, etc.
+- Custom argument transformer e.g. nested / not nested, `_` or `__` or nothing, etc.
 - Monorepo
 - Graphql-query (+ subscriptions)
 - Required fields e.g. userId when inserting a todo
-- Test one to two more public APIs
+- Test with other Hasura settings e.g. naming conventions
 - Test typings
 - Urql?
 - Apollo?
 - GraphQL variables
 - CI
+- Find a name
 - Changesets
+- make public
+- codesandbox examples
 - Support any graphql-codegen naming convention
 - Try with `abstract class`

@@ -84,7 +84,7 @@ type ResultFields<
 > = UnwrapArray<Select> extends undefined
   ? Element
   : WrapArray<
-      NonNullable<Element>, // * KEEP
+      NonNullable<Element>, // * Keep NonNullable ?
       OmitByValue<
         {
           [k in keyof Select]: k extends keyof UnwrapArray<Element>
