@@ -22,7 +22,7 @@ type RequireAtLeastOne<T> = {
   [K in keyof T]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<keyof T, K>>>
 }[keyof T]
 
-type Parameters<
+type AllParameters<
   Schema extends Record<string, any>,
   OperationType extends OperationTypes,
   Element extends Record<string, any>,
@@ -31,7 +31,7 @@ type Parameters<
     [key in keyof Element]: UnwrapArray<Element[key]> extends object
       ?
           | true
-          | Parameters<
+          | AllParameters<
               Schema,
               OperationType,
               UnwrapArray<Element[key]>,
@@ -73,6 +73,7 @@ type ResultFields<
 type OperationFactory<
   Schema extends Record<string, any>,
   OperationType extends OperationTypes,
+  TransformerName extends keyof TransformersFactory<any>,
   Operations extends Record<string, any> = Omit<
     Schema[`${string & OperationType}_Root`]['prototype'],
     '__typename'
@@ -81,20 +82,18 @@ type OperationFactory<
   [name in keyof Operations]: <
     Operation extends Operations[name],
     Element extends UnwrapArray<Operation>,
-    Params extends Parameters<
+    Params extends AllParameters<
       Schema,
       OperationType,
       Element,
       Schema[`${OperationType}_Root${Capitalize<string & name>}Args`]['prototype']
     >,
     ExactParams extends Exactly<Params, ExactParams>,
-    Result extends WrapArray<Operation, ResultFields<ExactParams, Element>>
+    Result extends WrapArray<Operation, ResultFields<ExactParams, Element>>,
+    Transformer extends TransformersFactory<Result>[TransformerName]
   >(
     params: ExactParams
-  ) => {
-    run: () => Promise<Result>
-    toRawGraphQL: () => string
-  }
+  ) => ReturnType<Transformer>
 }>
 
 type ClientConstructorParams<Schema = Record<string, any>> = {
@@ -103,77 +102,99 @@ type ClientConstructorParams<Schema = Record<string, any>> = {
   headers?: HeadersInit
 }
 
-const proxyConstructor = <Schema extends Record<string, any>>(
-  operation: 'Queries' | 'Mutations',
-  params?: ClientConstructorParams<Schema>
-): OperationFactory<Schema, 'Query'> => {
-  return new Proxy({} as any, {
-    get(_, prop: string) {
-      const operationTypes: Record<typeof operation, string> = {
-        Mutations: 'Mutation',
-        Queries: 'Query'
-      }
-      const operationType = operationTypes[operation]
-
-      const toJson = (values: Record<string, any>, property?: string) => {
-        const __args: Record<string, any> = {}
-        const select: Record<string, any> = {}
-        Object.keys(values).forEach((key) => {
-          if (key.startsWith(argPrefix) && key !== '__typename') {
-            __args[key.slice(1)] = values[key]
-          } else {
-            if (typeof values[key] === 'object') {
-              select[key] = toJson(values[key])
-            } else {
-              select[key] = values[key]
-            }
-          }
-        })
-        return { ...select, __args }
-      }
-
-      return (input: Record<string, any>) => {
-        const toRawGraphQL = () =>
-          jsonToGraphQLQuery(
-            {
-              [operationType.toLowerCase()]: {
-                [prop]: toJson(input, prop)
-              }
-            },
-            { pretty: true }
-          )
-
-        return {
-          run: async () => {
-            if (!params?.url) {
-              throw new Error('Missing url')
-            }
-            const query = await fetch(params.url, {
-              method: 'POST',
-              headers: params.headers,
-              body: JSON.stringify({ query: toRawGraphQL() })
-            })
-            if (!query.ok) {
-              throw new Error(query.statusText)
-            }
-            const { data, errors } = await query.json()
-            if (errors) {
-              throw new Error(errors[0].message)
-            }
-            return data[prop]
-          },
-          toRawGraphQL
-        }
+const toJson = (values: Record<string, any>) => {
+  const __args: Record<string, any> = {}
+  const select: Record<string, any> = {}
+  Object.keys(values).forEach((key) => {
+    if (key.startsWith(argPrefix) && key !== '__typename') {
+      __args[key.slice(1)] = values[key]
+    } else {
+      if (typeof values[key] === 'object') {
+        select[key] = toJson(values[key])
+      } else {
+        select[key] = values[key]
       }
     }
   })
+  return { ...select, __args }
 }
+
+const toRawGraphQL = (opType: OperationTypes, rootOperation: string, params: any) => {
+  return jsonToGraphQLQuery(
+    {
+      [opType.toLowerCase()]: {
+        [rootOperation]: toJson(params)
+      }
+    },
+    { pretty: true }
+  )
+}
+
+type TransformersFactory<Result> = {
+  fetch: Transformer<{
+    run: () => Promise<Result>
+    toRawGraphQL: () => string
+  }>
+}
+
+type Transformer<ReturnType> = (
+  operation: OperationTypes,
+  property: string,
+  input: any,
+  ...other: any
+) => ReturnType
+
+const fetchTransformer: TransformersFactory<any>['fetch'] = <Schema, Result>(
+  operation: OperationTypes,
+  property: string,
+  input: any,
+  params: ClientConstructorParams<Schema>
+): {
+  run: () => Promise<Result>
+  toRawGraphQL: () => string
+} => {
+  const graphqlQuery = toRawGraphQL(operation, property, input)
+
+  return {
+    run: async () => {
+      if (!params?.url) {
+        throw new Error('Missing url')
+      }
+      const query = await fetch(params.url, {
+        method: 'POST',
+        headers: params.headers,
+        body: JSON.stringify({ query: graphqlQuery })
+      })
+      if (!query.ok) {
+        throw new Error(query.statusText)
+      }
+      const { data, errors } = await query.json()
+      if (errors) {
+        throw new Error(errors[0].message)
+      }
+      return data[property]
+    },
+    toRawGraphQL: () => graphqlQuery
+  }
+}
+
+const proxyConstructor = <Schema extends Record<string, any>>(
+  operation: OperationTypes,
+  transformer: Transformer<any>,
+  ...args: any
+): OperationFactory<Schema, 'Query', any> =>
+  new Proxy({} as any, {
+    get(_, prop: string) {
+      return (input: Record<string, any>) => transformer(operation, prop, input, ...args)
+    }
+  })
+
 export class Client<Schema extends Record<string, any>> {
-  query: OperationFactory<Schema, 'Query'>
-  mutation: OperationFactory<Schema, 'Mutation'>
+  query: OperationFactory<Schema, 'Query', 'fetch'>
+  mutation: OperationFactory<Schema, 'Mutation', 'fetch'>
 
   constructor(params?: ClientConstructorParams<Schema>) {
-    this.query = proxyConstructor('Queries', params)
-    this.mutation = proxyConstructor('Mutations', params)
+    this.query = proxyConstructor('Query', fetchTransformer, params)
+    this.mutation = proxyConstructor('Mutation', fetchTransformer, params)
   }
 }

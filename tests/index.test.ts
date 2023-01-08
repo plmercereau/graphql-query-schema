@@ -12,7 +12,7 @@ const client = new Client({
 })
 
 describe('main', () => {
-  it('single todo with all the fields', () => {
+  it('single todo with one field', () => {
     expect(
       client.query.todo({ _id: '6503ef87-d0c2-47a5-80a2-d664a5ae23c1', id: true }).toRawGraphQL()
     ).toMatchInlineSnapshot(`
