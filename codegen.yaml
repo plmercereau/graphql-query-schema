@@ -2,7 +2,7 @@ config:
   # ! This is the only required configuration
   declarationKind: 'class'
 generates:
-  ./schemas/nhost.ts:
+  ./schemas/hasura.ts:
     schema:
       - http://localhost:1337/v1/graphql:
           headers:
@@ -27,5 +27,9 @@ generates:
       - 'typescript'
   ./schemas/swapi.ts:
     schema: https://swapi-graphql.netlify.app/.netlify/functions/index
+    plugins:
+      - 'typescript'
+  ./schemas/spacex.ts:
+    schema: https://api.spacex.land/graphql/
     plugins:
       - 'typescript'

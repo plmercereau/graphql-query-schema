@@ -1,7 +1,6 @@
-import fetch from 'cross-fetch'
 import { beforeAll, describe, expect, it } from 'vitest'
 import { Client } from '../src'
-import * as schema from '../schemas/nhost'
+import * as schema from '../schemas/hasura'
 
 const client = new Client({
   schema,
@@ -11,7 +10,7 @@ const client = new Client({
   }
 })
 
-describe('main', () => {
+describe('Hasura', () => {
   let userId: string
   beforeAll(async () => {
     const result = await client.fetch({

@@ -1,5 +1,5 @@
 import { Client } from '../src'
-import * as schema from '../schemas/nhost'
+import * as schema from '../schemas/hasura'
 
 import { describe, expect, it } from 'vitest'
 

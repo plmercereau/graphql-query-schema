@@ -7,7 +7,7 @@ const client = new Client({
   url: 'https://swapi-graphql.netlify.app/.netlify/functions/index'
 })
 
-describe('main', () => {
+describe('Swapi', () => {
   it('should get a single file', async () => {
     const result = await client.query.film({ _id: 'ZmlsbXM6MQ==', title: true }).run()
     expect(result).toMatchInlineSnapshot(`
