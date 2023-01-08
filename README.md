@@ -38,17 +38,17 @@ res.map(({ createdAt, contents, user: { displayName } }) => {
 
 ### to do
 
-- required fields e.g. userId when inserting a todo
-- test one to two more public APIs
-- graphql-query (+subscriptions)
-- urql?
-- apollo?
-- typed node document
+- Support any graphql-codegen naming convention
+- Try with `abstract class`
+- Typed node document
+- Monorepo
+- Graphql-query (+ subscriptions)
+- Required fields e.g. userId when inserting a todo
+- Test one to two more public APIs
+- Test typings
+- Urql?
+- Apollo?
 - GraphQL variables
-- custom result e.g. nested / not nested, `_` or `__` or nothing, etc.
-- support any graphql-codegen naming convention
-- try with `abstract class`
-- monorepo
+- Custom result e.g. nested / not nested, `_` or `__` or nothing, etc.
 - CI
-- changesets
-- test typings
+- Changesets
