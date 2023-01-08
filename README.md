@@ -36,11 +36,17 @@ res.map(({ createdAt, contents, user: { displayName } }) => {
 })
 ```
 
+## Limitations
+
+- `declarationKind` should be `class`
+- Not tested with other naming conventions
+- Swapi: Note on `extends Node` before `Node` is defined: `ReferenceError: Cannot access 'Node' before initialization`
+  - -> graphql-codegen PR
+
 ### to do
 
-- Support any graphql-codegen naming convention
-- Try with `abstract class`
 - Typed node document
+- Custom result e.g. nested / not nested, `_` or `__` or nothing, etc.
 - Monorepo
 - Graphql-query (+ subscriptions)
 - Required fields e.g. userId when inserting a todo
@@ -49,9 +55,7 @@ res.map(({ createdAt, contents, user: { displayName } }) => {
 - Urql?
 - Apollo?
 - GraphQL variables
-- Custom result e.g. nested / not nested, `_` or `__` or nothing, etc.
 - CI
 - Changesets
-
-- Swapi: Note on `extends Node` before `Node` is defined: `ReferenceError: Cannot access 'Node' before initialization`
-  - -> graphql-codegen PR
+- Support any graphql-codegen naming convention
+- Try with `abstract class`
