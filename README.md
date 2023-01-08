@@ -52,3 +52,6 @@ res.map(({ createdAt, contents, user: { displayName } }) => {
 - Custom result e.g. nested / not nested, `_` or `__` or nothing, etc.
 - CI
 - Changesets
+
+- Swapi: Note on `extends Node` before `Node` is defined: `ReferenceError: Cannot access 'Node' before initialization`
+  - -> graphql-codegen PR

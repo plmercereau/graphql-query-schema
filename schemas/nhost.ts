@@ -12,7 +12,7 @@ export class Scalars {
   Int: number;
   Float: number;
   bigint: number;
-  bytea: any;
+  bytea: string;
   citext: string;
   jsonb: JSONValue;
   timestamptz: string;

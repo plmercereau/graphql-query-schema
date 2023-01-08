@@ -16,11 +16,16 @@ generates:
         timestamptz: 'string'
         json: 'JSONValue'
         jsonb: 'JSONValue'
+        bytea: 'string'
     plugins:
       - 'typescript'
       - add:
           content: 'export type JSONValue = string | number | boolean | { [x: string]: JSONValue } | Array<JSONValue>;'
   ./schemas/countries.ts:
     schema: https://countries.trevorblades.com/graphql
+    plugins:
+      - 'typescript'
+  ./schemas/swapi.ts:
+    schema: https://swapi-graphql.netlify.app/.netlify/functions/index
     plugins:
       - 'typescript'

@@ -1,0 +1,95 @@
+import { describe, expect, it } from 'vitest'
+import { Client } from '../src'
+import * as schema from '../schemas/swapi'
+
+const client = new Client({
+  schema,
+  url: 'https://swapi-graphql.netlify.app/.netlify/functions/index'
+})
+
+describe('main', () => {
+  it('should get a single file', async () => {
+    const result = await client.query.film({ _id: 'ZmlsbXM6MQ==', title: true }).run()
+    expect(result).toMatchInlineSnapshot(`
+      {
+        "title": "A New Hope",
+      }
+    `)
+  })
+
+  it('should fetch several files', async () => {
+    const result = await client.query
+      .allFilms({
+        _before: 'ZmlsbXM6MQ==',
+        edges: {
+          node: {
+            characterConnection: { totalCount: true },
+            director: true,
+            title: true
+          }
+        }
+      })
+      .run()
+
+    expect(result).toMatchInlineSnapshot(`
+      {
+        "edges": [
+          {
+            "node": {
+              "characterConnection": {
+                "totalCount": 18,
+              },
+              "director": "George Lucas",
+              "title": "A New Hope",
+            },
+          },
+          {
+            "node": {
+              "characterConnection": {
+                "totalCount": 16,
+              },
+              "director": "Irvin Kershner",
+              "title": "The Empire Strikes Back",
+            },
+          },
+          {
+            "node": {
+              "characterConnection": {
+                "totalCount": 20,
+              },
+              "director": "Richard Marquand",
+              "title": "Return of the Jedi",
+            },
+          },
+          {
+            "node": {
+              "characterConnection": {
+                "totalCount": 34,
+              },
+              "director": "George Lucas",
+              "title": "The Phantom Menace",
+            },
+          },
+          {
+            "node": {
+              "characterConnection": {
+                "totalCount": 40,
+              },
+              "director": "George Lucas",
+              "title": "Attack of the Clones",
+            },
+          },
+          {
+            "node": {
+              "characterConnection": {
+                "totalCount": 34,
+              },
+              "director": "George Lucas",
+              "title": "Revenge of the Sith",
+            },
+          },
+        ],
+      }
+    `)
+  })
+})

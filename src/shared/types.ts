@@ -25,18 +25,32 @@ type OperationSuffix<Schema extends GenericSchema> = Schema['Query'] extends obj
   ? ''
   : Schema['Query_Root'] extends object
   ? '_Root'
+  : Schema['Root'] extends object
+  ? ''
   : never
 
 type RootOperation<
   Schema extends GenericSchema,
   OperationType extends OperationTypes
-> = Schema[`${OperationType}${OperationSuffix<Schema>}`]['prototype']
+> = Schema[OperationType] extends object
+  ? Schema[OperationType]['prototype']
+  : Schema[`${OperationType}_Root`] extends object
+  ? Schema[`${OperationType}_Root`]['prototype']
+  : Schema['Root'] extends object
+  ? OperationType extends 'Query'
+    ? Schema['Root']['prototype']
+    : never
+  : never
 
-type FieldType<
+type FieldArgs<
   Schema extends GenericSchema,
   OperationType extends OperationTypes,
   FieldName extends string
-> = Schema[`${OperationType}${OperationSuffix<Schema>}${Capitalize<FieldName>}Args`]['prototype']
+> = Schema[`Root${Capitalize<FieldName>}Args`] extends object
+  ? // * Relay syntax
+    Schema[`Root${Capitalize<FieldName>}Args`]['prototype']
+  : // * Standard syntax
+    Schema[`${OperationType}${OperationSuffix<Schema>}${Capitalize<FieldName>}Args`]['prototype']
 
 type AllParameters<
   Schema extends GenericSchema,
@@ -44,28 +58,24 @@ type AllParameters<
   Element extends Record<string, any>,
   Args,
   AllFields = {
-    [key in keyof Element]: UnwrapArray<Element[key]> extends object
-      ?
-          | true
-          | AllParameters<
-              Schema,
-              OperationType,
-              UnwrapArray<Element[key]>,
-              Element[key] extends any[]
-                ? FieldType<
-                    Schema,
-                    OperationType,
-                    Required<UnwrapArray<Element[key]>>['__typename']
-                  >
-                : {}
-            >
+    [key in keyof Element]: UnwrapNullableArray<Element[key]> extends object
+      ? AllParameters<
+          Schema,
+          OperationType,
+          UnwrapNullableArray<Element[key]>,
+          Element[key] extends any[]
+            ? FieldArgs<Schema, OperationType, Required<UnwrapArray<Element[key]>>['__typename']>
+            : {}
+        >
       : true
   },
   Fields = RequireAtLeastOne<AllFields>
 > = Fields & AddPrefix<Args, typeof argPrefix>
 
+type UnwrapNullableArray<T> = NonNullable<T extends (infer E)[] ? E : NonNullable<T>>
 type UnwrapArray<T> = T extends (infer E)[] ? E : NonNullable<T>
 
+type Custom<T> = T extends (infer E)[] ? E : NonNullable<T>
 type WrapArray<T, U> = T extends any[] ? U[] : U
 
 type ResultFields<
@@ -75,11 +85,11 @@ type ResultFields<
 > = UnwrapArray<Select> extends undefined
   ? Element
   : WrapArray<
-      Element,
+      NonNullable<Element>, // * KEEP
       OmitByValue<
         {
           [k in keyof Select]: k extends keyof UnwrapArray<Element>
-            ? UnwrapArray<Element>[k] extends object
+            ? UnwrapArray<NonNullable<Element>>[k] extends object
               ? ResultFields<Select[k], UnwrapArray<Element>[k]>
               : UnwrapArray<Element>[k]
             : never
@@ -101,7 +111,7 @@ export type OperationFactory<
       Schema,
       OperationType,
       Element,
-      FieldType<Schema, OperationType, string & name>
+      FieldArgs<Schema, OperationType, string & name>
     >,
     ExactParams extends Exactly<Params, ExactParams>,
     Result extends WrapArray<Operation, ResultFields<ExactParams, Element>>,

@@ -7,7 +7,7 @@ const client = new Client({
   url: 'https://countries.trevorblades.com/graphql'
 })
 
-describe.only('main', () => {
+describe('main', () => {
   it('should select Andorra and some details', async () => {
     const result = await client.query
       .countries({
