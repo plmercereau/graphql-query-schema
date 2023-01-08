@@ -31,7 +31,10 @@ const fetchReturnTransformer: ReturnTransformersFactory<any>['fetch'] = <Schema,
       }
       const query = await fetch(params.url, {
         method: 'POST',
-        headers: params.headers,
+        headers: {
+          'Content-Type': 'application/json',
+          ...params.headers
+        },
         body: JSON.stringify({ query: graphqlQuery })
       })
       if (!query.ok) {
@@ -55,4 +58,5 @@ export class Client<Schema extends Record<string, any>> {
     this.query = proxyConstructor('Query', fetchReturnTransformer, params)
     this.mutation = proxyConstructor('Mutation', fetchReturnTransformer, params)
   }
+  // TODO client.fetch
 }

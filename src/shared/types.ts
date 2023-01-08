@@ -1,5 +1,7 @@
 import { argPrefix } from './config'
 
+type GenericSchema = Record<string, any>
+
 type OmitByValue<T, ValueType> = Pick<
   T,
   { [Key in keyof T]-?: T[Key] extends ValueType ? never : Key }[keyof T]
@@ -19,8 +21,25 @@ type RequireAtLeastOne<T> = {
   [K in keyof T]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<keyof T, K>>>
 }[keyof T]
 
+type OperationSuffix<Schema extends GenericSchema> = Schema['Query'] extends object
+  ? ''
+  : Schema['Query_Root'] extends object
+  ? '_Root'
+  : never
+
+type RootOperation<
+  Schema extends GenericSchema,
+  OperationType extends OperationTypes
+> = Schema[`${OperationType}${OperationSuffix<Schema>}`]['prototype']
+
+type FieldType<
+  Schema extends GenericSchema,
+  OperationType extends OperationTypes,
+  FieldName extends string
+> = Schema[`${OperationType}${OperationSuffix<Schema>}${Capitalize<FieldName>}Args`]['prototype']
+
 type AllParameters<
-  Schema extends Record<string, any>,
+  Schema extends GenericSchema,
   OperationType extends OperationTypes,
   Element extends Record<string, any>,
   Args,
@@ -33,9 +52,11 @@ type AllParameters<
               OperationType,
               UnwrapArray<Element[key]>,
               Element[key] extends any[]
-                ? Schema[`${OperationType}_Root${Capitalize<
+                ? FieldType<
+                    Schema,
+                    OperationType,
                     Required<UnwrapArray<Element[key]>>['__typename']
-                  >}Args`]['prototype']
+                  >
                 : {}
             >
       : true
@@ -68,13 +89,10 @@ type ResultFields<
     >
 
 export type OperationFactory<
-  Schema extends Record<string, any>,
+  Schema extends GenericSchema,
   OperationType extends OperationTypes,
   ReturnTransformerName extends keyof ReturnTransformersFactory<any>,
-  Operations extends Record<string, any> = Omit<
-    Schema[`${string & OperationType}_Root`]['prototype'],
-    '__typename'
-  >
+  Operations extends Record<string, any> = Omit<RootOperation<Schema, OperationType>, '__typename'>
 > = Required<{
   [name in keyof Operations]: <
     Operation extends Operations[name],
@@ -83,7 +101,7 @@ export type OperationFactory<
       Schema,
       OperationType,
       Element,
-      Schema[`${OperationType}_Root${Capitalize<string & name>}Args`]['prototype']
+      FieldType<Schema, OperationType, string & name>
     >,
     ExactParams extends Exactly<Params, ExactParams>,
     Result extends WrapArray<Operation, ResultFields<ExactParams, Element>>,

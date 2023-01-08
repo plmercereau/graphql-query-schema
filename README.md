@@ -36,8 +36,19 @@ res.map(({ createdAt, contents, user: { displayName } }) => {
 })
 ```
 
-### to try
+### to do
 
 - required fields e.g. userId when inserting a todo
-- subscriptions
-- other todos in the code
+- test one to two more public APIs
+- graphql-query (+subscriptions)
+- urql?
+- apollo?
+- typed node document
+- GraphQL variables
+- custom result e.g. nested / not nested, `_` or `__` or nothing, etc.
+- support any graphql-codegen naming convention
+- try with `abstract class`
+- monorepo
+- CI
+- changesets
+- test typings
