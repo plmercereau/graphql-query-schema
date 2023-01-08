@@ -13,11 +13,13 @@ type ClientConstructorParams<Schema = Record<string, any>> = {
   headers?: HeadersInit
 }
 
+type FetchWrapper = (init?: RequestInit) => Promise<Response>
+
 const fetchReturnTransformer: ReturnTransformersFactory<any>['fetch'] = <Schema, Result>(
   operation: OperationTypes,
   property: string,
   input: any,
-  params: ClientConstructorParams<Schema>
+  fetchWrapper: FetchWrapper
 ): {
   run: () => Promise<Result>
   toRawGraphQL: () => string
@@ -26,14 +28,10 @@ const fetchReturnTransformer: ReturnTransformersFactory<any>['fetch'] = <Schema,
 
   return {
     run: async () => {
-      if (!params?.url) {
-        throw new Error('Missing url')
-      }
-      const query = await fetch(params.url, {
+      const query = await fetchWrapper({
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          ...params.headers
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({ query: graphqlQuery })
       })
@@ -53,10 +51,23 @@ const fetchReturnTransformer: ReturnTransformersFactory<any>['fetch'] = <Schema,
 export class Client<Schema extends Record<string, any>> {
   query: OperationFactory<Schema, 'Query', 'fetch'>
   mutation: OperationFactory<Schema, 'Mutation', 'fetch'>
+  fetch: FetchWrapper
 
   constructor(params?: ClientConstructorParams<Schema>) {
-    this.query = proxyConstructor('Query', fetchReturnTransformer, params)
-    this.mutation = proxyConstructor('Mutation', fetchReturnTransformer, params)
+    const fetchWrapper: FetchWrapper = (init?: RequestInit) => {
+      if (!params?.url) {
+        throw new Error('Missing url')
+      }
+      return fetch(params.url, {
+        ...init,
+        headers: {
+          ...params.headers,
+          ...init?.headers
+        }
+      })
+    }
+    this.query = proxyConstructor('Query', fetchReturnTransformer, fetchWrapper)
+    this.mutation = proxyConstructor('Mutation', fetchReturnTransformer, fetchWrapper)
+    this.fetch = fetchWrapper
   }
-  // TODO client.fetch
 }

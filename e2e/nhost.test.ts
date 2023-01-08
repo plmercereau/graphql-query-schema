@@ -3,22 +3,19 @@ import { beforeAll, describe, expect, it } from 'vitest'
 import { Client } from '../src'
 import * as schema from '../schemas/nhost'
 
-const url = 'http://localhost:1337/v1/graphql'
-const headers = {
-  'x-hasura-admin-secret': 'nhost-admin-secret'
-}
 const client = new Client({
   schema,
-  url,
-  headers
+  url: 'http://localhost:1337/v1/graphql',
+  headers: {
+    'x-hasura-admin-secret': 'nhost-admin-secret'
+  }
 })
 
 describe('main', () => {
   let userId: string
   beforeAll(async () => {
-    const result = await fetch(url, {
+    const result = await client.fetch({
       method: 'POST',
-      headers,
       body: JSON.stringify({
         query: `mutation { insertUser(object: {locale: "en"} ) { id } }`
       })
