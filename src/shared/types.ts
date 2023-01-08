@@ -72,11 +72,10 @@ type AllParameters<
   Fields = RequireAtLeastOne<AllFields>
 > = Fields & AddPrefix<Args, typeof argPrefix>
 
-type UnwrapNullableArray<T> = NonNullable<T extends (infer E)[] ? E : NonNullable<T>>
+type UnwrapNullableArray<T> = NonNullable<T extends (infer E)[] ? E : T>
 type UnwrapArray<T> = T extends (infer E)[] ? E : NonNullable<T>
 
-type Custom<T> = T extends (infer E)[] ? E : NonNullable<T>
-type WrapArray<T, U> = T extends any[] ? U[] : U
+type WrapArray<T, U> = NonNullable<T> extends any[] ? U[] : U
 
 type ResultFields<
   Params,
@@ -110,7 +109,7 @@ export type OperationFactory<
     Params extends AllParameters<
       Schema,
       OperationType,
-      Element,
+      NonNullable<Element>,
       FieldArgs<Schema, OperationType, string & name>
     >,
     ExactParams extends Exactly<Params, ExactParams>,
