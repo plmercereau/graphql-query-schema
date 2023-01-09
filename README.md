@@ -45,16 +45,13 @@ res.map(({ createdAt, contents, user: { displayName } }) => {
 
 ### to do
 
-- Typed node document
 - Custom argument transformer e.g. nested / not nested, `_` or `__` or nothing, etc.
-- Monorepo
-- Graphql-query (+ subscriptions)
-- Required fields e.g. userId when inserting a todo
+- Graphql-query (+ subscriptions) / Urql / Apollo / graphql-request => typed document nodes?
+- Monorepo (only if custom graphql-request/urlq/apollo clients are required)
+- Required fields e.g. userId when inserting a todo -> isn't it something related to Hasura or Graphql-codegen?
 - Test with other Hasura settings e.g. naming conventions
-- Test typings
-- Urql?
-- Apollo?
-- GraphQL variables
+- Types testing
+- GraphQL variables?
 - CI
 - Find a name
 - Changesets

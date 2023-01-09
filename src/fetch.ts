@@ -1,31 +1,28 @@
 import fetch from 'cross-fetch'
 import {
-  OperationFactory,
   OperationTypes,
   toRawGraphQL,
   ReturnTransformersFactory,
-  proxyConstructor
+  proxyConstructor,
+  GenericClient,
+  GenericSchema,
+  toGraphQL
 } from './shared'
 
-type ClientConstructorParams<Schema = Record<string, any>> = {
-  schema?: Schema
-  url?: string
+type FetchClientConstructorParams<Schema = Record<string, any>> = {
+  schema: Schema
+  url: string
   headers?: HeadersInit
 }
 
 type FetchWrapper = (init?: RequestInit) => Promise<Response>
 
-const fetchReturnTransformer: ReturnTransformersFactory<any>['fetch'] = <Schema, Result>(
+const fetchReturnTransformer = <Result>(
   operation: OperationTypes,
   property: string,
   input: any,
   fetchWrapper: FetchWrapper
-): {
-  run: () => Promise<Result>
-  toRawGraphQL: () => string
-} => {
-  const graphqlQuery = toRawGraphQL(operation, property, input)
-
+): ReturnType<ReturnTransformersFactory<Result>['fetch']> => {
   return {
     run: async () => {
       const query = await fetchWrapper({
@@ -33,7 +30,7 @@ const fetchReturnTransformer: ReturnTransformersFactory<any>['fetch'] = <Schema,
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ query: graphqlQuery })
+        body: JSON.stringify({ query: toRawGraphQL(operation, property, input) })
       })
       if (!query.ok) {
         throw new Error(query.statusText)
@@ -44,30 +41,29 @@ const fetchReturnTransformer: ReturnTransformersFactory<any>['fetch'] = <Schema,
       }
       return data[property]
     },
-    toRawGraphQL: () => graphqlQuery
+    toString: () => toRawGraphQL(operation, property, input),
+    toGraphQL: () => toGraphQL(operation, property, input)
   }
 }
 
-export class Client<Schema extends Record<string, any>> {
-  query: OperationFactory<Schema, 'Query', 'fetch'>
-  mutation: OperationFactory<Schema, 'Mutation', 'fetch'>
-  fetch: FetchWrapper
+export class FetchClient<Schema extends GenericSchema> implements GenericClient<Schema, 'fetch'> {
+  url: string
+  headers?: HeadersInit
 
-  constructor(params?: ClientConstructorParams<Schema>) {
-    const fetchWrapper: FetchWrapper = (init?: RequestInit) => {
-      if (!params?.url) {
-        throw new Error('Missing url')
+  readonly fetch: FetchWrapper = (init?: RequestInit) =>
+    fetch(this.url, {
+      ...init,
+      headers: {
+        ...this.headers,
+        ...init?.headers
       }
-      return fetch(params.url, {
-        ...init,
-        headers: {
-          ...params.headers,
-          ...init?.headers
-        }
-      })
-    }
-    this.query = proxyConstructor('Query', fetchReturnTransformer, fetchWrapper)
-    this.mutation = proxyConstructor('Mutation', fetchReturnTransformer, fetchWrapper)
-    this.fetch = fetchWrapper
+    })
+
+  readonly query = proxyConstructor('Query', fetchReturnTransformer, this.fetch)
+  readonly mutation = proxyConstructor('Mutation', fetchReturnTransformer, this.fetch)
+
+  constructor({ url, headers }: FetchClientConstructorParams<Schema>) {
+    this.url = url
+    this.headers = headers
   }
 }

@@ -1,6 +1,8 @@
+import { TypedDocumentNode } from '@graphql-typed-document-node/core'
+
 import { argPrefix } from './config'
 
-type GenericSchema = Record<string, any>
+export type GenericSchema = Record<string, any>
 
 type OmitByValue<T, ValueType> = Pick<
   T,
@@ -120,10 +122,21 @@ export type OperationFactory<
   ) => ReturnType<ReturnTransformer>
 }>
 
+export type GenericClient<
+  Schema extends GenericSchema,
+  ReturnTransformerName extends keyof ReturnTransformersFactory<any>
+> = Readonly<{
+  [key in OperationTypes as Uncapitalize<key>]: OperationFactory<Schema, key, ReturnTransformerName>
+}>
+
 export type ReturnTransformersFactory<Result> = {
+  /** Typed Document Node client */
+  factory: ReturnTransformer<TypedDocumentNode<Result>>
+  /** Fetch client */
   fetch: ReturnTransformer<{
     run: () => Promise<Result>
-    toRawGraphQL: () => string
+    toString: () => string
+    toGraphQL: () => TypedDocumentNode<Result>
   }>
 }
 

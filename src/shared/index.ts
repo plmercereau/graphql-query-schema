@@ -1,3 +1,4 @@
+import { parse } from 'graphql'
 import { jsonToGraphQLQuery } from 'json-to-graphql-query'
 import { argPrefix } from './config'
 import { OperationTypes, ReturnTransformer } from './types'
@@ -30,6 +31,9 @@ export const toRawGraphQL = (opType: OperationTypes, rootOperation: string, para
     { pretty: true }
   )
 }
+
+export const toGraphQL = (opType: OperationTypes, rootOperation: string, params: any) =>
+  parse(toRawGraphQL(opType, rootOperation, params))
 
 export const proxyConstructor = (
   operation: OperationTypes,

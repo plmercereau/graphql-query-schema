@@ -1,8 +1,8 @@
 import { beforeAll, describe, expect, it } from 'vitest'
-import { Client } from '../src'
+import { FetchClient } from '../src'
 import * as schema from '../schemas/hasura'
 
-const client = new Client({
+const client = new FetchClient({
   schema,
   url: 'http://localhost:1337/v1/graphql',
   headers: {
@@ -31,6 +31,7 @@ describe('Hasura', () => {
         user: { email: true, id: true }
       })
       .run()
+    result
     expect(result.contents).toMatchInlineSnapshot('"test"')
     expect(result.user.id).toEqual(userId)
   })
