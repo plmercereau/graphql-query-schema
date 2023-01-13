@@ -1,9 +1,9 @@
-import { Factory } from '../src'
+import { groql } from '../src'
 import * as schema from '../schemas/hasura'
 import { print } from 'graphql'
 import { describe, expect, it } from 'vitest'
 
-const { query, mutation } = new Factory(schema)
+const { query, mutation, subscription } = groql(schema)
 
 describe('main', () => {
   it('single todo with one field', () => {
@@ -86,6 +86,30 @@ describe('main', () => {
             createdAt
             user {
               email
+            }
+          }
+        }
+      }"
+    `)
+  })
+
+  it('generate a subscription', () => {
+    const q = subscription.todos({
+      _where: { user: { roles: { role: { _eq: 'user' } } } },
+      userId: true,
+      user: { email: true, avatarUrl: true, roles_aggregate: { aggregate: { count: true } } }
+    })
+    expect(print(q)).toMatchInlineSnapshot(`
+      "subscription {
+        todos(where: {user: {roles: {role: {_eq: \\"user\\"}}}}) {
+          userId
+          user {
+            email
+            avatarUrl
+            roles_aggregate {
+              aggregate {
+                count
+              }
             }
           }
         }

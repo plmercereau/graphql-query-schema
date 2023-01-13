@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest'
-import { FetchClient } from '../src'
+import { fetchClient } from '../src'
 import * as schema from '../schemas/swapi'
 
-const client = new FetchClient({
+const client = fetchClient({
   schema,
   url: 'https://swapi-graphql.netlify.app/.netlify/functions/index'
 })

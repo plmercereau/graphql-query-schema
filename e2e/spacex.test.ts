@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest'
-import { FetchClient } from '../src'
+import { fetchClient } from '../src'
 import * as schema from '../schemas/spacex'
 
-const client = new FetchClient({
+const client = fetchClient({
   schema,
   url: 'https://api.spacex.land/graphql'
 })

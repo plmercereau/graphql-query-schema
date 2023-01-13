@@ -1,4 +1,4 @@
-import fetch from 'cross-fetch'
+import crossFetch from 'cross-fetch'
 import {
   OperationTypes,
   toRawGraphQL,
@@ -46,24 +46,28 @@ const fetchReturnTransformer = <Result>(
   }
 }
 
-export class FetchClient<Schema extends GenericSchema> implements GenericClient<Schema, 'fetch'> {
-  url: string
-  headers?: HeadersInit
-
-  readonly fetch: FetchWrapper = (init?: RequestInit) =>
-    fetch(this.url, {
+export function fetchClient<Schema extends GenericSchema>({
+  url,
+  headers
+}: FetchClientConstructorParams<Schema>): Omit<GenericClient<Schema, 'fetch'>, 'subscription'> &
+  Readonly<{
+    fetch: FetchWrapper
+    url: string
+    headers?: HeadersInit
+  }> {
+  const fetch: FetchWrapper = (init?: RequestInit) =>
+    crossFetch(url, {
       ...init,
       headers: {
-        ...this.headers,
+        ...headers,
         ...init?.headers
       }
     })
-
-  readonly query = proxyConstructor('Query', fetchReturnTransformer, this.fetch)
-  readonly mutation = proxyConstructor('Mutation', fetchReturnTransformer, this.fetch)
-
-  constructor({ url, headers }: FetchClientConstructorParams<Schema>) {
-    this.url = url
-    this.headers = headers
+  return {
+    fetch,
+    url,
+    headers,
+    query: proxyConstructor('Query', fetchReturnTransformer, fetch),
+    mutation: proxyConstructor('Mutation', fetchReturnTransformer, fetch)
   }
 }

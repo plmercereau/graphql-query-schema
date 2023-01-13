@@ -37,7 +37,7 @@ export const toGraphQL = (opType: OperationTypes, rootOperation: string, params:
 
 export const proxyConstructor = (
   operation: OperationTypes,
-  returnTransformer: ReturnTransformer<any>,
+  returnTransformer: ReturnTransformer<any, any>,
   ...args: any
 ) =>
   new Proxy({} as any, {

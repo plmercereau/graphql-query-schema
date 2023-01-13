@@ -1,8 +1,8 @@
 import { beforeAll, describe, expect, it } from 'vitest'
-import { FetchClient } from '../src'
+import { fetchClient } from '../src'
 import * as schema from '../schemas/hasura'
 
-const client = new FetchClient({
+const client = fetchClient({
   schema,
   url: 'http://localhost:1337/v1/graphql',
   headers: {

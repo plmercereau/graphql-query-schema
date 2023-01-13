@@ -20,7 +20,7 @@ It generates `tests/schema.ts`
 pnpm run test
 ```
 
-4. Play a bit with the api inside `tests/index.test.ts`:
+4. Play a bit with the api inside `e2e/hasura.test.ts`:
 
 ```ts
 const res = await client.query
@@ -45,15 +45,17 @@ res.map(({ createdAt, contents, user: { displayName } }) => {
 
 ### to do
 
+- Urql / Apollo tests
+- Types testing
 - Custom argument transformer e.g. nested / not nested, `_` or `__` or nothing, etc.
-- Graphql-query (+ subscriptions) / Urql / Apollo / graphql-request => typed document nodes?
-- Monorepo (only if custom graphql-request/urlq/apollo clients are required)
 - Required fields e.g. userId when inserting a todo -> isn't it something related to Hasura or Graphql-codegen?
 - Test with other Hasura settings e.g. naming conventions
-- Types testing
-- GraphQL variables?
+- Multiple operations
+  - Maybe: `client.query({ todos: { id: true }, users: { email: true } })`
 - CI
-- Find a name
+- Find a name: grapho is taken, graph-object? grafo? groph? **groql**?
+- GraphQL aliases?
+- GraphQL variables?
 - Changesets
 - make public
 - codesandbox examples
