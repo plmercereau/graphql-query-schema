@@ -1,27 +1,24 @@
 import { TypedDocumentNode } from '@graphql-typed-document-node/core'
 
 import { argPrefix } from './config'
+import {
+  UnwrapNullableArray,
+  UnwrapArray,
+  RequireAtLeastOne,
+  WrapArray,
+  StripImpossibleProperties,
+  Exactly,
+  FunctionWithOptionalParameter
+} from './type-helpers'
+import { VariablesTypes } from './variables'
 
 export type GenericSchema = Record<string, any>
-
-type StripImpossibleProperties<T> = Pick<
-  T,
-  { [Key in keyof T]-?: T[Key] extends never ? never : Key }[keyof T]
->
 
 export type OperationTypes = 'Query' | 'Mutation' | 'Subscription'
 
 type AddPrefix<T, P extends string> = {
   [K in keyof T as K extends string ? `${P}${K}` : never]: T[K]
 }
-
-// * See: https://stackoverflow.com/a/59230299
-type Exactly<T, U> = T & Record<Exclude<keyof U, keyof T>, never>
-
-// * See: https://learn.microsoft.com/en-us/javascript/api/@azure/keyvault-certificates/requireatleastone?view=azure-node-latest
-type RequireAtLeastOne<T> = {
-  [K in keyof T]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<keyof T, K>>>
-}[keyof T]
 
 type OperationSuffix<Schema extends GenericSchema> = Schema['Query'] extends object
   ? ''
@@ -77,23 +74,14 @@ type AllParameters<
   Fields = RequireAtLeastOne<AllFields>
 > = Fields & AddPrefix<Args, typeof argPrefix>
 
-type UnwrapNullableArray<T> = NonNullable<T extends (infer E)[] ? E : T>
-type UnwrapArray<T> = T extends (infer E)[] ? E : NonNullable<T>
-
-type WrapArray<T, U> = NonNullable<T> extends any[] ? U[] : U
-
-type ResultFields<
-  Params,
-  Element,
-  Select = Omit<Params, '__args'>
-> = UnwrapArray<Select> extends undefined
+type QueryFields<Params, Element> = UnwrapArray<Params> extends undefined
   ? Element
   : WrapArray<
       NonNullable<Element>,
       StripImpossibleProperties<{
-        [k in keyof Select]: k extends keyof UnwrapArray<Element>
+        [k in keyof Params]: k extends keyof UnwrapArray<Element>
           ? UnwrapArray<NonNullable<Element>>[k] extends object
-            ? ResultFields<Select[k], UnwrapArray<Element>[k]>
+            ? QueryFields<Params[k], UnwrapArray<Element>[k]>
             : UnwrapArray<Element>[k]
           : never
       }>
@@ -108,6 +96,10 @@ export type OperationFactory<
   [name in keyof Operations]: <
     Operation extends Operations[name],
     Element extends UnwrapArray<Operation>,
+    Scalars extends Schema['Scalars']['prototype'],
+    Scalar extends string & keyof Scalars,
+    VariablesInput extends { [key: string]: Scalar | `${Scalar}!` } | undefined,
+    Variables extends VariablesTypes<VariablesInput, Scalars, Scalar>,
     Params extends AllParameters<
       Schema,
       OperationType,
@@ -115,13 +107,14 @@ export type OperationFactory<
       FieldArgs<Schema, OperationType, string & name>
     >,
     ExactParams extends Exactly<Params, ExactParams>,
-    Result extends WrapArray<Operation, ResultFields<ExactParams, Element>>,
+    Result extends WrapArray<Operation, QueryFields<ExactParams, Element>>,
     ReturnTransformer extends ReturnTransformersFactory<
       Result,
+      Variables,
       string & name
     >[ReturnTransformerName]
   >(
-    params: ExactParams
+    params: ExactParams & { __variables?: VariablesInput }
   ) => ReturnType<ReturnTransformer>
 }>
 
@@ -132,21 +125,25 @@ export type GenericClient<
   [key in OperationTypes as Uncapitalize<key>]: OperationFactory<Schema, key, ReturnTransformerName>
 }>
 
-export type ReturnTransformersFactory<Result = any, OperationName extends string = any> = {
+export type ReturnTransformersFactory<
+  Result = any,
+  Variables = any,
+  OperationName extends string = any
+> = {
   /** Typed Document Node client */
   generic: ReturnTransformer<TypedDocumentNode<{ [key in OperationName]: Result }>, OperationName>
   /** Fetch client */
   fetch: ReturnTransformer<
     {
-      run: () => Promise<Result>
+      run: FunctionWithOptionalParameter<(variables: Variables) => Promise<Result>>
       toString: () => string
-      toGraphQL: () => TypedDocumentNode<Result>
+      toGraphQL: () => TypedDocumentNode<Result, Variables>
     },
     OperationName
   >
 }
 
-export type ReturnTransformer<ReturnType, OperationName> = (
+export type ReturnTransformer<ReturnType, _OperationName> = (
   operation: OperationTypes,
   property: string,
   input: any,

@@ -24,19 +24,22 @@ const fetchReturnTransformer = <Result>(
   fetchWrapper: FetchWrapper
 ): ReturnType<ReturnTransformersFactory<Result>['fetch']> => {
   return {
-    run: async () => {
-      const query = await fetchWrapper({
+    run: async (variables) => {
+      const query = toRawGraphQL(operation, property, input)
+      const request = await fetchWrapper({
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ query: toRawGraphQL(operation, property, input) })
+        body: JSON.stringify({ query, variables })
       })
-      if (!query.ok) {
-        throw new Error(query.statusText)
+      if (!request.ok) {
+        console.log(query)
+        throw new Error(request.statusText)
       }
-      const { data, errors } = await query.json()
+      const { data, errors } = await request.json()
       if (errors) {
+        console.log(query)
         throw new Error(errors[0].message)
       }
       return data[property]

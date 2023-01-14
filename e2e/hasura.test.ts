@@ -1,6 +1,8 @@
 import { beforeAll, describe, expect, it } from 'vitest'
-import { fetchClient } from '../src'
+import { fetchClient, variable } from '../src'
 import * as schema from '../schemas/hasura'
+import {} from 'json-to-graphql-query'
+import { VariableType } from '../src/shared'
 
 const client = fetchClient({
   schema,
@@ -31,7 +33,7 @@ describe('Hasura', () => {
         user: { email: true, id: true }
       })
       .run()
-    result
+
     expect(result.contents).toMatchInlineSnapshot('"test"')
     expect(result.user.id).toEqual(userId)
   })
@@ -55,5 +57,37 @@ describe('Hasura', () => {
         "contents": "test",
       }
     `)
+  })
+
+  it('should find a todo with a variable', async () => {
+    const contents = 'test_variable'
+    const { id } = await client.mutation
+      .insertTodo({
+        _object: { contents, userId },
+        id: true,
+        contents: true
+      })
+      .run()
+
+    const result = await client.query
+      .todos({
+        _where: {
+          id: {
+            _eq: variable('x')
+          }
+        },
+        __variables: { x: 'uuid' },
+        contents: true
+      })
+      .run({ x: id })
+    expect(result).toMatchInlineSnapshot(`
+      [
+        {
+          "contents": "test_variable",
+        },
+      ]
+    `)
+
+    await client.mutation.deleteTodo({ _id: id, id: true }).run()
   })
 })
