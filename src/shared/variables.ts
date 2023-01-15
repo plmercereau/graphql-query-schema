@@ -13,7 +13,7 @@ export class VariableType<T extends string> extends OriginalVariableType {
 export const variable = <T extends string>(variable: T): any => new VariableType(variable)
 
 type ScalarTypes<Schema extends GenericSchema> = Schema['Scalars']['prototype']
-type AllArgTypes<Schema extends GenericSchema> = Select<
+type ArgTypes<Schema extends GenericSchema> = Select<
   {
     [name in keyof Schema]: Schema[name]['prototype']
   },
@@ -28,15 +28,15 @@ type TransformGraphQLType<T, GQLType> = GQLType extends `${infer S}!`
 
 export type VariablesTypes<
   Schema extends GenericSchema,
-  Variables extends { [key: string]: Scalar | `${Scalar}!` | AllArgNames | `${AllArgNames}!` },
+  Variables extends { [key: string]: ScalarNames | `${ScalarNames}!` | ArgNames | `${ArgNames}!` },
   Scalars extends ScalarTypes<Schema> = ScalarTypes<Schema>,
-  Scalar extends string & keyof Scalars = string & keyof Scalars,
-  AllArgs extends AllArgTypes<Schema> = AllArgTypes<Schema>,
-  AllArgNames extends string & keyof AllArgs = string & keyof AllArgs
+  ScalarNames extends string & keyof Scalars = string & keyof Scalars,
+  Args extends ArgTypes<Schema> = ArgTypes<Schema>,
+  ArgNames extends string & keyof Args = string & keyof Args
 > = keyof Variables extends string
   ? MakeOptional<{
-      [key in keyof Variables]: GraphQLPredicate<Variables[key]> extends keyof AllArgs
-        ? TransformGraphQLType<AllArgs[GraphQLPredicate<Variables[key]>], Variables[key]>
+      [key in keyof Variables]: GraphQLPredicate<Variables[key]> extends keyof Args
+        ? TransformGraphQLType<Args[GraphQLPredicate<Variables[key]>], Variables[key]>
         : TransformGraphQLType<Scalars[GraphQLPredicate<Variables[key]>], Variables[key]>
     }>
   : { [key: string]: never }
@@ -44,7 +44,7 @@ export type VariablesTypes<
 export type VariablesInputType<
   Schema extends GenericSchema,
   Scalars extends ScalarTypes<Schema> = ScalarTypes<Schema>,
-  Scalar extends string & keyof Scalars = string & keyof Scalars,
-  AllArgs extends AllArgTypes<Schema> = AllArgTypes<Schema>,
-  AllArgNames extends string & keyof AllArgs = string & keyof AllArgs
-> = { [key: string]: Scalar | `${Scalar}!` | AllArgNames | `${AllArgNames}!` }
+  ScalarNames extends string & keyof Scalars = string & keyof Scalars,
+  Args extends ArgTypes<Schema> = ArgTypes<Schema>,
+  ArgNames extends string & keyof Args = string & keyof Args
+> = { [key: string]: ScalarNames | `${ScalarNames}!` | ArgNames | `${ArgNames}!` }
