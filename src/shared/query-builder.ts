@@ -28,12 +28,16 @@ const toJson = (values: Record<string, any>) => {
 }
 
 export const toRawGraphQL = (opType: OperationTypes, rootOperation: string, params: any) => {
-  const { __variables, ...parameters } = params
+  const variablesKey = `${argPrefix}variables`
+  const variables = params[variablesKey]
+  if (variables) {
+    delete params[variablesKey]
+  }
   return jsonToGraphQLQuery(
     {
       [opType.toLowerCase()]: {
-        __variables,
-        [rootOperation]: toJson(parameters)
+        __variables: variables,
+        [rootOperation]: toJson(params)
       }
     },
     { pretty: true }

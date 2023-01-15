@@ -63,15 +63,10 @@ type AllParameters<
           Schema,
           OperationType,
           UnwrapNullableArray<Element[key]>,
-          // TODO add tests to make sure it always works compared to the following commented code
-          FieldArgs<
-            Schema,
-            OperationType,
-            Required<UnwrapNullableArray<Element[key]>>['__typename']
-          >
-          // Element[key] extends any[]
-          //   ? FieldArgs<Schema, OperationType, Required<UnwrapArray<Element[key]>>['__typename']>
-          //   : {}
+          // TODO find a cleaner syntax
+          Element[key] extends any[]
+            ? FieldArgs<Schema, OperationType, Required<UnwrapArray<Element[key]>>['__typename']>
+            : {}
         >
       : true
   },
@@ -92,7 +87,7 @@ type QueryFields<Params, Element> = UnwrapArray<Params> extends undefined
     >
 
 // * See: https://stackoverflow.com/a/59230299
-type Exactly<T, U> = T & Record<Exclude<keyof U, keyof T | '__variables'>, never>
+type Exactly<T, U> = T & Record<Exclude<keyof U, keyof T | `${typeof argPrefix}variables`>, never>
 
 export type OperationFactory<
   Schema extends GenericSchema,
@@ -119,7 +114,7 @@ export type OperationFactory<
       string & name
     >[ReturnTransformerName]
   >(
-    params: ExactParams & { __variables?: VariablesInput }
+    params: ExactParams & { [key in `${typeof argPrefix}variables`]?: VariablesInput }
   ) => ReturnType<ReturnTransformer>
 }>
 

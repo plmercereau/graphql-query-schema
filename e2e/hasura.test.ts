@@ -75,7 +75,7 @@ describe('Hasura', () => {
             _eq: variable('x')
           }
         },
-        __variables: { x: 'uuid' },
+        _variables: { x: 'uuid' },
         contents: true
       })
       .run({ x: id })
