@@ -2,7 +2,6 @@ import { beforeAll, describe, expect, it } from 'vitest'
 import { fetchClient, variable } from '../src'
 import * as schema from '../schemas/hasura'
 import {} from 'json-to-graphql-query'
-import { VariableType } from '../src/shared'
 
 const client = fetchClient({
   schema,

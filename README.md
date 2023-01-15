@@ -42,6 +42,7 @@ res.map(({ createdAt, contents, user: { displayName } }) => {
 - Not tested with additional settings e.g. naming conventions. Recommended: generate a separate file if you need to codegen for another use
 - Swapi: Note on `extends Node` before `Node` is defined: `ReferenceError: Cannot access 'Node' before initialization`
   - -> graphql-codegen PR
+- Variables input is typed, but variables inside arguments are not.
 
 ### to do
 
@@ -53,9 +54,7 @@ res.map(({ createdAt, contents, user: { displayName } }) => {
 - Multiple operations
   - Maybe: `client.query({ todos: { id: true }, users: { email: true } })`
 - CI
-- Find a name: grapho is taken, graph-object? grafo? groph? **groql**?
-- GraphQL aliases?
-- GraphQL variables?
+- GraphQL aliases, unions, interfaces
 - Changesets
 - make public
 - codesandbox examples

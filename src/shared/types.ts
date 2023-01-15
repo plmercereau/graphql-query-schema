@@ -7,10 +7,9 @@ import {
   RequireAtLeastOne,
   WrapArray,
   StripImpossibleProperties,
-  Exactly,
   FunctionWithOptionalParameter
 } from './type-helpers'
-import { VariablesTypes } from './variables'
+import { VariablesInputType, VariablesTypes } from './variables'
 
 export type GenericSchema = Record<string, any>
 
@@ -64,10 +63,15 @@ type AllParameters<
           Schema,
           OperationType,
           UnwrapNullableArray<Element[key]>,
-          // TODO not nice. Maybe a better way to do this?
-          Element[key] extends any[]
-            ? FieldArgs<Schema, OperationType, Required<UnwrapArray<Element[key]>>['__typename']>
-            : {}
+          // TODO check if it works as good as the commented code
+          FieldArgs<
+            Schema,
+            OperationType,
+            Required<UnwrapNullableArray<Element[key]>>['__typename']
+          >
+          // Element[key] extends any[]
+          //   ? FieldArgs<Schema, OperationType, Required<UnwrapArray<Element[key]>>['__typename']>
+          //   : {}
         >
       : true
   },
@@ -87,6 +91,9 @@ type QueryFields<Params, Element> = UnwrapArray<Params> extends undefined
       }>
     >
 
+// * See: https://stackoverflow.com/a/59230299
+type Exactly<T, U> = T & Record<Exclude<keyof U, keyof T | '__variables'>, never>
+
 export type OperationFactory<
   Schema extends GenericSchema,
   OperationType extends OperationTypes,
@@ -96,10 +103,8 @@ export type OperationFactory<
   [name in keyof Operations]: <
     Operation extends Operations[name],
     Element extends UnwrapArray<Operation>,
-    Scalars extends Schema['Scalars']['prototype'],
-    Scalar extends string & keyof Scalars,
-    VariablesInput extends { [key: string]: Scalar | `${Scalar}!` } | undefined,
-    Variables extends VariablesTypes<VariablesInput, Scalars, Scalar>,
+    VariablesInput extends VariablesInputType<Schema>,
+    Variables extends VariablesTypes<Schema, VariablesInput>,
     Params extends AllParameters<
       Schema,
       OperationType,

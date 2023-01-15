@@ -3,9 +3,6 @@ export type StripImpossibleProperties<T> = Pick<
   { [Key in keyof T]-?: T[Key] extends never ? never : Key }[keyof T]
 >
 
-// * See: https://stackoverflow.com/a/59230299
-export type Exactly<T, U> = T & Record<Exclude<keyof U, keyof T | '__variables'>, never>
-
 // * See: https://learn.microsoft.com/en-us/javascript/api/@azure/keyvault-certificates/requireatleastone?view=azure-node-latest
 export type RequireAtLeastOne<T> = {
   [K in keyof T]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<keyof T, K>>>
@@ -28,15 +25,22 @@ export type MakeOptional<T> = {
 }
 
 /** Transform a function according to the type of its first parameter:
- * - if the first parameter is {}, the parameter is removed
- * - if the first parameter only contains optional fields, the parameter is made optional
- * - otherwise, the parameter is kept as is
+ * - if the first parameter has some required keys, it is required
+ * - otherwise, the parameter is made optional
  */
 export type FunctionWithOptionalParameter<
   T extends (arg: any) => any,
   Arg = Parameters<T>[0]
-> = keyof Arg extends never
-  ? () => ReturnType<T>
-  : keyof OmitOptionalFields<Arg> extends never
-  ? (arg?: Arg) => ReturnType<T>
-  : (arg: Arg) => ReturnType<T>
+> = keyof OmitOptionalFields<Arg> extends string
+  ? (arg: Arg) => ReturnType<T>
+  : (arg?: Arg) => ReturnType<T>
+
+/** Select only the properties of the object that matches the second generic argument */
+export type Select<T, K extends keyof any> = Pick<T, Extract<keyof T, K>>
+
+/** Gets the main GraphQL type from a GraphQL argument type e.g. `[string!]!` returns `string` */
+export type GraphQLPredicate<GQLType extends string> = GQLType extends `${infer S}!`
+  ? GraphQLPredicate<S>
+  : GQLType extends `[${infer S}]`
+  ? GraphQLPredicate<S>
+  : GQLType
