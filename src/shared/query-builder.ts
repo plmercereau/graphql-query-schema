@@ -5,7 +5,7 @@ import { OperationTypes, ReturnTransformer } from './types'
 import { VariableType as ModifiedVariableType } from './variables'
 import { VariableType } from 'json-to-graphql-query'
 
-const reservedKeys = ['__typename', '__variables']
+const reservedKeys = ['__typename']
 const toJson = (values: Record<string, any>) => {
   const __args: Record<string, any> = {}
   const select: Record<string, any> = {}
@@ -16,7 +16,6 @@ const toJson = (values: Record<string, any>) => {
       __args[key.slice(1)] = values[key]
     } else {
       if (values[key] instanceof ModifiedVariableType) {
-        console.log('VARIABLE', key)
         select[key] = new VariableType(key)
       } else if (typeof values[key] === 'object') {
         select[key] = toJson(values[key])

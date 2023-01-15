@@ -63,7 +63,7 @@ type AllParameters<
           Schema,
           OperationType,
           UnwrapNullableArray<Element[key]>,
-          // TODO check if it works as good as the commented code
+          // TODO add tests to make sure it always works compared to the following commented code
           FieldArgs<
             Schema,
             OperationType,
