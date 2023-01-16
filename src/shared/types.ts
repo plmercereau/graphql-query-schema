@@ -1,23 +1,22 @@
 import { TypedDocumentNode } from '@graphql-typed-document-node/core'
 
-import { argPrefix } from './config'
+import { AddArgPrefix, WithArgPrefix } from './config'
 import {
   UnwrapNullableArray,
   UnwrapArray,
   RequireAtLeastOne,
   WrapArray,
   StripImpossibleProperties,
-  FunctionWithOptionalParameter
+  FunctionWithOptionalParameter,
+  ToUnion,
+  IsUnion
 } from './type-helpers'
+import { UnionInput } from './unions'
 import { VariablesInputType, VariablesTypes } from './variables'
 
 export type GenericSchema = Record<string, any>
 
 export type OperationTypes = 'Query' | 'Mutation' | 'Subscription'
-
-type AddPrefix<T, P extends string> = {
-  [K in keyof T as K extends string ? `${P}${K}` : never]: T[K]
-}
 
 type OperationSuffix<Schema extends GenericSchema> = Schema['Query'] extends object
   ? ''
@@ -55,39 +54,84 @@ type FieldArgs<
 type AllParameters<
   Schema extends GenericSchema,
   OperationType extends OperationTypes,
-  Element extends Record<string, any>,
+  Element extends Record<string, any> | undefined,
   Args,
-  AllFields = {
-    [key in keyof Element]: UnwrapNullableArray<Element[key]> extends object
-      ? AllParameters<
-          Schema,
-          OperationType,
-          UnwrapNullableArray<Element[key]>,
-          // TODO find a cleaner syntax
-          Element[key] extends any[]
-            ? FieldArgs<Schema, OperationType, Required<UnwrapArray<Element[key]>>['__typename']>
-            : {}
+  Fields = IsUnion<NonNullable<Element>> extends true
+    ? AddArgPrefix<{
+        on?: RequireAtLeastOne<
+          UnionInput<{
+            [key in keyof Element]?: UnwrapNullableArray<Element[key]> extends object
+              ? AllParameters<
+                  Schema,
+                  OperationType,
+                  UnwrapNullableArray<Element[key]>,
+                  Element[key] extends any[]
+                    ? FieldArgs<
+                        Schema,
+                        OperationType,
+                        Required<UnwrapArray<Element[key]>>['__typename']
+                      >
+                    : {}
+                >
+              : // * This is the only thing that changes compared to `Fields`
+              key extends '__typename'
+              ? Element[key]
+              : true
+          }>
         >
-      : true
-  },
-  Fields = RequireAtLeastOne<AllFields>
-> = Fields & AddPrefix<Args, typeof argPrefix>
-
-type QueryFields<Params, Element> = UnwrapArray<Params> extends undefined
-  ? Element
-  : WrapArray<
-      NonNullable<Element>,
-      StripImpossibleProperties<{
-        [k in keyof Params]: k extends keyof UnwrapArray<Element>
-          ? UnwrapArray<NonNullable<Element>>[k] extends object
-            ? QueryFields<Params[k], UnwrapArray<Element>[k]>
-            : UnwrapArray<Element>[k]
-          : never
       }>
-    >
+    : RequireAtLeastOne<{
+        [key in keyof Element]?: UnwrapNullableArray<Element[key]> extends object
+          ? AllParameters<
+              Schema,
+              OperationType,
+              UnwrapNullableArray<Element[key]>,
+              Element[key] extends any[]
+                ? FieldArgs<
+                    Schema,
+                    OperationType,
+                    Required<UnwrapArray<Element[key]>>['__typename']
+                  >
+                : {}
+            >
+          : true
+      }>
+> = Fields & AddArgPrefix<Args>
+
+type QueryFields<Params, Element> = Omit<
+  UnwrapArray<Params> extends undefined
+    ? Element
+    : WrapArray<
+        NonNullable<Element>,
+        StripImpossibleProperties<{
+          [k in keyof Params]: k extends keyof UnwrapArray<Element>
+            ? UnwrapArray<NonNullable<Element>>[k] extends object
+              ? QueryFields<Params[k], UnwrapArray<Element>[k]>
+              : UnwrapArray<Element>[k]
+            : never
+        }>
+      >,
+  WithArgPrefix<'on'>
+>
+
+type UnionFields<
+  Schema extends GenericSchema,
+  Params extends AddArgPrefix<{ on?: any }> & { __typename?: string },
+  Element,
+  Fragments = NonNullable<Params[WithArgPrefix<'on'>]>
+> = WithArgPrefix<'on'> extends keyof NonNullable<Params>
+  ? Pick<Params, '__typename'> &
+      // TODO problem is here? see the pothos tests
+      ToUnion<{
+        [fragmentName in keyof Fragments]-?: QueryFields<
+          NonNullable<Fragments[fragmentName]>,
+          Schema[string & fragmentName]['prototype']
+        >
+      }>
+  : {}
 
 // * See: https://stackoverflow.com/a/59230299
-type Exactly<T, U> = T & Record<Exclude<keyof U, keyof T | `${typeof argPrefix}variables`>, never>
+type Exactly<T, U> = T & Record<Exclude<keyof U, keyof T | WithArgPrefix<'variables'>>, never>
 
 export type OperationFactory<
   Schema extends GenericSchema,
@@ -107,14 +151,17 @@ export type OperationFactory<
       FieldArgs<Schema, OperationType, string & name>
     >,
     ExactParams extends Exactly<Params, ExactParams>,
-    Result extends WrapArray<Operation, QueryFields<ExactParams, Element>>,
+    Result extends WrapArray<
+      Operation,
+      QueryFields<ExactParams, Element> & UnionFields<Schema, ExactParams, Element>
+    >,
     ReturnTransformer extends ReturnTransformersFactory<
       Result,
       Variables,
       string & name
     >[ReturnTransformerName]
   >(
-    params: ExactParams & { [key in `${typeof argPrefix}variables`]?: VariablesInput }
+    params: ExactParams & { [key in WithArgPrefix<'variables'>]?: VariablesInput }
   ) => ReturnType<ReturnTransformer>
 }>
 

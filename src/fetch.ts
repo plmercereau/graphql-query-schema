@@ -33,13 +33,10 @@ const fetchReturnTransformer = <Result>(
         },
         body: JSON.stringify({ query, variables })
       })
-      if (!request.ok) {
-        console.log(query)
-        throw new Error(request.statusText)
-      }
       const { data, errors } = await request.json()
       if (errors) {
         console.log(query)
+        console.log(errors)
         throw new Error(errors[0].message)
       }
       return data[property]

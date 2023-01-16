@@ -44,3 +44,19 @@ export type GraphQLPredicate<GQLType extends string> = GQLType extends `${infer 
   : GQLType extends `[${infer S}]`
   ? GraphQLPredicate<S>
   : GQLType
+
+export type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
+  k: infer I
+) => void
+  ? I
+  : never
+
+export type IsUnion<T> = [T] extends [UnionToIntersection<T>] ? false : true
+
+export type RequiredField<T, K extends keyof T> = T & Required<Pick<T, K>>
+
+export type ToUnion<T> = T[keyof T]
+
+export type AddPrefix<T, P extends string> = {
+  [K in keyof T as K extends string ? `${P}${K}` : never]: T[K]
+}

@@ -12,6 +12,12 @@ const toJson = (values: Record<string, any>) => {
   Object.keys(values).forEach((key) => {
     if (reservedKeys.includes(key)) {
       select[key] = values[key]
+    } else if (key === `${argPrefix}on`) {
+      select['__typename'] = true
+      select['__on'] = Object.keys(values[key]).map((fragmentName) => ({
+        __typeName: fragmentName,
+        ...toJson(values[key][fragmentName])
+      }))
     } else if (key.startsWith(argPrefix)) {
       __args[key.slice(1)] = values[key]
     } else {
