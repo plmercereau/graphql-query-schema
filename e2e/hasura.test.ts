@@ -1,7 +1,6 @@
 import { beforeAll, describe, expect, it } from 'vitest'
-import { fetchClient, variable } from '../src'
+import { enumType, fetchClient, variableType } from '../src'
 import * as schema from '../schemas/hasura'
-import {} from 'json-to-graphql-query'
 
 const client = fetchClient({
   schema,
@@ -72,7 +71,7 @@ describe('Hasura', () => {
       .todos({
         _where: {
           id: {
-            _eq: variable('x')
+            _eq: variableType('x')
           }
         },
         _variables: { x: 'uuid' },
@@ -88,5 +87,19 @@ describe('Hasura', () => {
     `)
 
     await client.mutation.deleteTodo({ _id: id, id: true }).run()
+  })
+
+  it('should work with an enum', async () => {
+    const todos = await client.query
+      .todos({
+        _where: {
+          category: { _eq: enumType(schema.Categories_Enum.Essay) }
+        },
+        contents: true,
+        category: true
+      })
+      .run()
+
+    expect(todos).toMatchInlineSnapshot('[]')
   })
 })

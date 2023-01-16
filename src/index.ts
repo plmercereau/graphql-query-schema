@@ -1,3 +1,3 @@
 export * from './fetch'
 export * from './generic'
-export { variable } from './shared'
+export { variableType, enumType } from './shared'
