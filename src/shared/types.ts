@@ -11,7 +11,7 @@ import {
   ToUnion,
   IsUnion
 } from './type-helpers'
-import { UnionInput } from './unions'
+
 import { VariablesInputType, VariablesTypes } from './variables'
 
 export type GenericSchema = Record<string, any>
@@ -54,31 +54,18 @@ type FieldArgs<
 type AllParameters<
   Schema extends GenericSchema,
   OperationType extends OperationTypes,
-  Element extends Record<string, any> | undefined,
+  Element extends Record<string, any>,
   Args,
   Fields = IsUnion<NonNullable<Element>> extends true
     ? AddArgPrefix<{
-        on?: RequireAtLeastOne<
-          UnionInput<{
-            [key in keyof Element]?: UnwrapNullableArray<Element[key]> extends object
-              ? AllParameters<
-                  Schema,
-                  OperationType,
-                  UnwrapNullableArray<Element[key]>,
-                  Element[key] extends any[]
-                    ? FieldArgs<
-                        Schema,
-                        OperationType,
-                        Required<UnwrapArray<Element[key]>>['__typename']
-                      >
-                    : {}
-                >
-              : // * This is the only thing that changes compared to `Fields`
-              key extends '__typename'
-              ? Element[key]
-              : true
-          }>
-        >
+        on: RequireAtLeastOne<{
+          [key in NonNullable<Element['__typename']>]?: AllParameters<
+            Schema,
+            OperationType,
+            Schema[key]['prototype'],
+            Args
+          >
+        }>
       }>
     : RequireAtLeastOne<{
         [key in keyof Element]?: UnwrapNullableArray<Element[key]> extends object
@@ -117,17 +104,16 @@ type QueryFields<Params, Element> = Omit<
 type UnionFields<
   Schema extends GenericSchema,
   Params extends AddArgPrefix<{ on?: any }> & { __typename?: string },
-  Element,
   Fragments = NonNullable<Params[WithArgPrefix<'on'>]>
 > = WithArgPrefix<'on'> extends keyof NonNullable<Params>
-  ? Pick<Params, '__typename'> &
-      // TODO problem is here? see the pothos tests
-      ToUnion<{
-        [fragmentName in keyof Fragments]-?: QueryFields<
-          NonNullable<Fragments[fragmentName]>,
-          Schema[string & fragmentName]['prototype']
-        >
-      }>
+  ? ToUnion<{
+      [fragmentName in keyof Fragments]: {
+        __typename: NonNullable<Schema[string & fragmentName]['prototype']['__typename']>
+      } & QueryFields<
+        NonNullable<Fragments[fragmentName]>,
+        Schema[string & fragmentName]['prototype']
+      >
+    }>
   : {}
 
 // * See: https://stackoverflow.com/a/59230299
@@ -153,7 +139,9 @@ export type OperationFactory<
     ExactParams extends Exactly<Params, ExactParams>,
     Result extends WrapArray<
       Operation,
-      QueryFields<ExactParams, Element> & UnionFields<Schema, ExactParams, Element>
+      IsUnion<NonNullable<Element>> extends true
+        ? UnionFields<Schema, ExactParams>
+        : QueryFields<ExactParams, Element>
     >,
     ReturnTransformer extends ReturnTransformersFactory<
       Result,

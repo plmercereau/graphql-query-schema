@@ -1,6 +1,7 @@
 import { beforeAll, describe, expect, it } from 'vitest'
 import { enumType, fetchClient, variableType } from '../src'
 import * as schema from '../schemas/hasura'
+import { blob } from 'stream/consumers'
 
 const client = fetchClient({
   schema,
@@ -24,6 +25,15 @@ describe('Hasura', () => {
   })
 
   it('should insert a todo', async () => {
+    const res = await client.query
+      .todos({
+        id: true,
+        contents: true,
+        user: { email: true }
+      })
+      .run()
+    res[0]
+
     const result = await client.mutation
       .insertTodo({
         _object: { contents: 'test', userId },

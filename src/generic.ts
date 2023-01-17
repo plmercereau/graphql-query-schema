@@ -14,7 +14,7 @@ const documentReturnTransformer = <Result>(
 ): ReturnType<ReturnTransformersFactory<Result>['generic']> =>
   toGraphQL(operation, property, input) as any
 
-export function groql<Schema extends GenericSchema>(
+export function groq<Schema extends GenericSchema>(
   _schema: Schema
 ): GenericClient<Schema, 'generic'> {
   return {

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { fetchClient } from '../src'
 import * as schema from '../schemas/pothos'
+import { e } from 'vitest/dist/index-761e769b'
 
 const client = fetchClient({
   schema,
@@ -18,11 +19,11 @@ describe('Pothos', () => {
       })
       .run()
     const res = result.at(0)!
-    // TODO fact should not be available here
-    res.fact
+    res.__typename
+
     if (res.__typename === 'GiraffeNumericFact') {
       res.value
-      // TODO fact should not be available here
+    } else {
       res.fact
     }
     expect(result).toMatchInlineSnapshot(`

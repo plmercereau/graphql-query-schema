@@ -1,7 +1,7 @@
 import fetch from 'cross-fetch'
 import { beforeAll, describe, expect, it } from 'vitest'
 import { GraphQLClient } from 'graphql-request'
-import { groql } from '../src'
+import { groq } from '../src'
 import * as schema from '../schemas/hasura'
 
 const url = 'http://localhost:1337/v1/graphql'
@@ -10,7 +10,7 @@ const headers = {
 }
 
 const client = new GraphQLClient(url, { headers })
-const { mutation } = groql(schema)
+const { mutation } = groq(schema)
 
 describe('Hasura with graphql-request', () => {
   let userId: string

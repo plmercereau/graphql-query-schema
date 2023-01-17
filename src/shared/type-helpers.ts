@@ -45,12 +45,14 @@ export type GraphQLPredicate<GQLType extends string> = GQLType extends `${infer 
   ? GraphQLPredicate<S>
   : GQLType
 
+// * See: https://stackoverflow.com/questions/50374908/transform-union-type-to-intersection-type/50375286#50375286
 export type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
   k: infer I
 ) => void
   ? I
   : never
 
+// * See: https://stackoverflow.com/a/53955431
 export type IsUnion<T> = [T] extends [UnionToIntersection<T>] ? false : true
 
 export type RequiredField<T, K extends keyof T> = T & Required<Pick<T, K>>

@@ -1,9 +1,9 @@
-import { groql } from '../src'
+import { groq } from '../src'
 import * as schema from '../schemas/hasura'
 import { print } from 'graphql'
 import { describe, expect, it } from 'vitest'
 
-const { query, mutation, subscription } = groql(schema)
+const { query, mutation, subscription } = groq(schema)
 
 describe('main', () => {
   it('single todo with one field', () => {
