@@ -38,25 +38,24 @@ res.map(({ createdAt, contents, user: { displayName } }) => {
 
 ## Limitations
 
-- `declarationKind` should be `class`
+- In the graphql-codegen config, `declarationKind` should be `class`
 - Not tested with additional settings e.g. naming conventions. Recommended: generate a separate file if you need to codegen for another use
 - Swapi: Note on `extends Node` before `Node` is defined: `ReferenceError: Cannot access 'Node' before initialization`
   - -> graphql-codegen PR
 - Variables input is typed, but variables inside arguments are not.
+- Remaining limitations on Unions
 
 ### to do
 
 - Urql / Apollo tests
 - Types testing
 - Custom argument transformer e.g. nested / not nested, `_` or `__` or nothing, etc.
-- Required fields e.g. userId when inserting a todo -> isn't it something related to Hasura or Graphql-codegen?
 - Test with other Hasura settings e.g. naming conventions
 - Multiple operations
   - Maybe: `client.query({ todos: { id: true }, users: { email: true } })`
 - CI
-- GraphQL aliases, unions, interfaces
-- Changesets
-- make public
-- codesandbox examples
-- Support any graphql-codegen naming convention
-- Try with `abstract class`
+- GraphQL features:
+  - aliases
+  - unions (to be finished)
+  - interfaces
+- Try other graphql-codegen naming conventions, and pick the one that renders nicest types
