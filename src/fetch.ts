@@ -18,6 +18,7 @@ type FetchClientConstructorParams<Schema = Record<string, any>> = {
 type FetchWrapper = (init?: RequestInit) => Promise<Response>
 
 const fetchReturnTransformer = <Result>(
+  schema: GenericSchema,
   operation: OperationTypes,
   property: string,
   input: any,
@@ -25,7 +26,7 @@ const fetchReturnTransformer = <Result>(
 ): ReturnType<ReturnTransformersFactory<Result>['fetch']> => {
   return {
     run: async (variables) => {
-      const query = toRawGraphQL(operation, property, input)
+      const query = toRawGraphQL(schema, operation, property, input)
       const request = await fetchWrapper({
         method: 'POST',
         headers: {
@@ -41,12 +42,13 @@ const fetchReturnTransformer = <Result>(
       }
       return data[property]
     },
-    toString: () => toRawGraphQL(operation, property, input),
-    toGraphQL: () => toGraphQL(operation, property, input)
+    toString: () => toRawGraphQL(schema, operation, property, input),
+    toGraphQL: () => toGraphQL(schema, operation, property, input)
   }
 }
 
 export function fetchClient<Schema extends GenericSchema>({
+  schema,
   url,
   headers
 }: FetchClientConstructorParams<Schema>): Omit<GenericClient<Schema, 'fetch'>, 'subscription'> &
@@ -67,7 +69,7 @@ export function fetchClient<Schema extends GenericSchema>({
     fetch,
     url,
     headers,
-    query: proxyConstructor('Query', fetchReturnTransformer, fetch),
-    mutation: proxyConstructor('Mutation', fetchReturnTransformer, fetch)
+    query: proxyConstructor(schema, 'Query', fetchReturnTransformer, fetch),
+    mutation: proxyConstructor(schema, 'Mutation', fetchReturnTransformer, fetch)
   }
 }

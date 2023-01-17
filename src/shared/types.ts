@@ -72,19 +72,22 @@ type AllParameters<
       }>
     : RequireAtLeastOne<{
         [key in keyof Element]?: UnwrapNullableArray<Element[key]> extends object
-          ? AllParameters<
-              Schema,
-              OperationType,
-              UnwrapNullableArray<Element[key]>,
-              Element[key] extends any[]
-                ? FieldArgs<
-                    Schema,
-                    OperationType,
-                    Required<UnwrapArray<Element[key]>>['__typename']
-                  >
-                : {}
-            >
-          : true
+          ? // * Accept either a list of fields or `true` to select all the fields
+            | AllParameters<
+                  Schema,
+                  OperationType,
+                  UnwrapNullableArray<Element[key]>,
+                  Element[key] extends any[]
+                    ? FieldArgs<
+                        Schema,
+                        OperationType,
+                        Required<UnwrapArray<Element[key]>>['__typename']
+                      >
+                    : {}
+                >
+              | true
+          : // * If the element key is not an object/array of objects, it's a scalar field
+            true
       }>
 > = Fields & AddArgPrefix<Args>
 
@@ -93,13 +96,23 @@ type QueryFields<Params, Element> = Omit<
     ? Element
     : WrapArray<
         NonNullable<Element>,
-        StripImpossibleProperties<{
-          [k in keyof Params]: k extends keyof UnwrapArray<Element>
-            ? UnwrapArray<NonNullable<Element>>[k] extends object
-              ? QueryFields<Params[k], UnwrapArray<Element>[k]>
-              : UnwrapArray<Element>[k]
-            : never
-        }>
+        UnwrapArray<Params> extends true
+          ? // * The parameter is `true` and the element is an object: return all the non-object (scalar) fields
+            StripImpossibleProperties<{
+              [k in keyof NonNullable<Element>]: k extends keyof UnwrapArray<Element>
+                ? UnwrapArray<NonNullable<Element>>[k] extends object
+                  ? never
+                  : UnwrapArray<Element>[k]
+                : never
+            }>
+          : // * The parameter is a list of fields and the element in an object: pick the selected fields
+            StripImpossibleProperties<{
+              [k in keyof Params]: k extends keyof UnwrapArray<Element>
+                ? UnwrapArray<NonNullable<Element>>[k] extends object
+                  ? QueryFields<Params[k], UnwrapArray<Element>[k]>
+                  : UnwrapArray<Element>[k]
+                : never
+            }>
       >,
   WithArgPrefix<'on'>
 >
@@ -182,6 +195,7 @@ export type ReturnTransformersFactory<
 }
 
 export type ReturnTransformer<ReturnType, _OperationName> = (
+  schema: GenericSchema,
   operation: OperationTypes,
   property: string,
   input: any,

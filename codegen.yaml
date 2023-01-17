@@ -1,6 +1,6 @@
 config:
-  # ! This is the only required configuration
   declarationKind: 'class'
+  module: es2015
 generates:
   ./schemas/hasura.ts:
     schema:
@@ -8,7 +8,7 @@ generates:
           headers:
             'x-hasura-admin-secret': nhost-admin-secret
     config:
-      # TODO test with different naming conventions
+      # TODO test with different Hasura naming conventions
       scalars:
         uuid: 'string'
         bigint: 'number'
@@ -18,18 +18,27 @@ generates:
         jsonb: 'JSONValue'
         bytea: 'string'
     plugins:
-      - 'typescript'
+      - typescript
+      - urql-introspection
       - add:
           content: 'export type JSONValue = string | number | boolean | { [x: string]: JSONValue } | Array<JSONValue>;'
   ./schemas/countries.ts:
     schema: https://countries.trevorblades.com/graphql
     plugins:
-      - 'typescript'
+      - typescript
+      - urql-introspection
   ./schemas/swapi.ts:
     schema: https://swapi-graphql.netlify.app/.netlify/functions/index
     plugins:
-      - 'typescript'
+      - typescript
+      - urql-introspection
+  ./schemas/pothos.ts:
+    schema: http://localhost:3000/graphql
+    plugins:
+      - typescript
+      - urql-introspection
   ./schemas/spacex.ts:
     schema: https://api.spacex.land/graphql/
     plugins:
-      - 'typescript'
+      - typescript
+      - urql-introspection

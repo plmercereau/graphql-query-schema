@@ -29,3 +29,107 @@ export class Query {
   __typename?: 'Query';
   giraffeFacts: Array<GiraffeFact>;
 };
+
+import { IntrospectionQuery } from 'graphql';
+export default {
+  "__schema": {
+    "queryType": {
+      "name": "Query"
+    },
+    "mutationType": null,
+    "subscriptionType": null,
+    "types": [
+      {
+        "kind": "UNION",
+        "name": "GiraffeFact",
+        "possibleTypes": [
+          {
+            "kind": "OBJECT",
+            "name": "GiraffeNumericFact"
+          },
+          {
+            "kind": "OBJECT",
+            "name": "GiraffeStringFact"
+          }
+        ]
+      },
+      {
+        "kind": "OBJECT",
+        "name": "GiraffeNumericFact",
+        "fields": [
+          {
+            "name": "fact",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          },
+          {
+            "name": "value",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "GiraffeStringFact",
+        "fields": [
+          {
+            "name": "fact",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "OBJECT",
+        "name": "Query",
+        "fields": [
+          {
+            "name": "giraffeFacts",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "UNION",
+                    "name": "GiraffeFact",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            "args": []
+          }
+        ],
+        "interfaces": []
+      },
+      {
+        "kind": "SCALAR",
+        "name": "Any"
+      }
+    ],
+    "directives": []
+  }
+} as unknown as IntrospectionQuery;

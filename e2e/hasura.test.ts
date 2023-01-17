@@ -112,4 +112,42 @@ describe('Hasura', () => {
 
     expect(todos).toMatchInlineSnapshot('[]')
   })
+
+  it('should work with a wildcard', async () => {
+    const todos = await client.query
+      .todos({
+        user: true
+      })
+      .run()
+
+    expect(Object.keys(todos[0].user)).toMatchInlineSnapshot(`
+      [
+        "activeMfaType",
+        "avatarUrl",
+        "createdAt",
+        "currentChallenge",
+        "defaultRole",
+        "disabled",
+        "displayName",
+        "email",
+        "emailVerified",
+        "id",
+        "isAnonymous",
+        "lastSeen",
+        "locale",
+        "metadata",
+        "newEmail",
+        "otpHash",
+        "otpHashExpiresAt",
+        "otpMethodLastUsed",
+        "passwordHash",
+        "phoneNumber",
+        "phoneNumberVerified",
+        "ticket",
+        "ticketExpiresAt",
+        "totpSecret",
+        "updatedAt",
+      ]
+    `)
+  })
 })
