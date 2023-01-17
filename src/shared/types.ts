@@ -56,16 +56,19 @@ type AllParameters<
   OperationType extends OperationTypes,
   Element extends Record<string, any>,
   Args,
-  Fields = IsUnion<NonNullable<Element>> extends true
+  Fields = IsUnion<Element> extends true
     ? AddArgPrefix<{
-        on: RequireAtLeastOne<{
+        on: // TODO require at least one typename. When using RequireAtLeastOne, the result type is not inferred correctly
+        //RequireAtLeastOne<
+        {
           [key in NonNullable<Element['__typename']>]?: AllParameters<
             Schema,
             OperationType,
             Schema[key]['prototype'],
             Args
           >
-        }>
+        }
+        //>
       }>
     : RequireAtLeastOne<{
         [key in keyof Element]?: UnwrapNullableArray<Element[key]> extends object
