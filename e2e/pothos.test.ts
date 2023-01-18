@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { fetchClient } from '../src'
 import * as schema from '../schemas/pothos'
-import { e } from 'vitest/dist/index-761e769b'
 
 const client = fetchClient({
   schema,
