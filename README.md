@@ -250,7 +250,6 @@ const { todos: bobTodos } = await client.request(todosFromUserDocument, { email:
 - Types testing
 - Custom argument transformer e.g. nested / not nested, `_` or `__` or nothing, etc.
 - Test with other Hasura settings e.g. naming conventions
-- Pick the best `grapqhl-codegen` naming convention
 - Multiple operations
   - Maybe: `client.query({ todos: { id: true }, users: { email: true } })`
 - CI
