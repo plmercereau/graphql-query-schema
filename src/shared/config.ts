@@ -1,4 +1,4 @@
-import { AddPrefix } from './type-helpers'
+import { AddPrefix, RemovePrefix } from './type-helpers'
 
 export const argsKey = '' as const
 export const argPrefix = '_' as const
@@ -26,7 +26,15 @@ export type UnwrapFields<T> = typeof fieldsKey extends ''
   ? T[typeof fieldsKey]
   : never
 
-export const unwrapParameters = (parameters: (WrapArguments<any> & WrapFields<any>) | true) => {
+export type WrapOn<T> = typeof onKey extends '' ? AddArgPrefix<T> : Wrap<T, typeof onKey>
+
+export type UnwrapOn<T> = typeof onKey extends ''
+  ? T
+  : typeof onKey extends keyof T
+  ? RemovePrefix<NonNullable<T[typeof onKey]>, typeof onKey>
+  : never
+
+export const unwrapParameters = (parameters: any) => {
   if (parameters === true) {
     return true
   }
@@ -37,39 +45,30 @@ export const unwrapParameters = (parameters: (WrapArguments<any> & WrapFields<an
     return true
   }
 
-  const fields =
-    fieldsKey && fieldsKey in parameters
-      ? parameters[fieldsKey]
-      : Object.keys(parameters).reduce<any>((acc, key) => {
-          if (!argPrefix || !key.startsWith(argPrefix)) {
-            acc[key] = parameters[key]
-          }
-          return acc
-        }, {})
+  const fields = Object.entries(
+    fieldsKey && fieldsKey in parameters ? parameters[fieldsKey] : parameters
+  ).reduce<any>((acc, [key, value]) => {
+    if (!argPrefix || !key.startsWith(argPrefix)) {
+      acc[key] = value
+    }
+    if (key === `${argPrefix}${onKey}`) {
+      acc['__on'] = value
+    }
+    return acc
+  }, {})
 
   const args =
     argsKey && argsKey in parameters
       ? Object.keys(parameters[argsKey]).reduce<Record<string, unknown>>((acc, key) => {
-          if (key === 'on') {
-            fields.__on = parameters[argsKey][key]
-            return acc
-          }
-          if (!Object.keys(fields).includes(key)) {
-            acc[key] = parameters[argsKey][key]
-          }
+          acc[key] = parameters[argsKey][key]
           return acc
         }, {})
       : Object.keys(parameters).reduce<Record<string, unknown>>((acc, key) => {
-          if (key === `${argPrefix}on`) {
-            fields.__on = parameters[key]
-            return acc
-          }
           if (key.startsWith(argPrefix)) {
             acc[key.slice(argPrefix.length)] = parameters[key]
           }
           return acc
         }, {})
-
   return {
     __args: args,
     ...fields

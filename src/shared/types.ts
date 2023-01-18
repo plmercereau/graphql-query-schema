@@ -132,14 +132,14 @@ type QueryFields<Params, Element, UnwrappedParams = UnwrapArray<Params>> = Omit<
 
 type UnionFields<
   Schema extends GenericSchema,
-  Params extends AddArgPrefix<{ on?: any }> & { __typename?: string },
-  Fragments = NonNullable<Params[OnKey]>
-> = OnKey extends keyof NonNullable<Params>
+  Params,
+  Fragments = NonNullable<UnwrapFields<NonNullable<Params>>>
+> = OnKey extends keyof Fragments
   ? ToUnion<{
-      [fragmentName in keyof Fragments]: {
+      [fragmentName in keyof Fragments[OnKey]]: {
         __typename: NonNullable<Schema[string & fragmentName]['prototype']['__typename']>
       } & QueryFields<
-        NonNullable<Fragments[fragmentName]>,
+        NonNullable<Fragments[OnKey][fragmentName]>,
         Schema[string & fragmentName]['prototype']
       >
     }>

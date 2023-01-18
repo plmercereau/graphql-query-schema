@@ -18,7 +18,6 @@ describe('Pothos', () => {
       })
       .run()
     const res = result.at(0)!
-    res.__typename
 
     if (res.__typename === 'GiraffeNumericFact') {
       res.value
