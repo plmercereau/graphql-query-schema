@@ -237,7 +237,6 @@ const { todos: bobTodos } = await client.request(todosFromUserDocument, { email:
 ## Limitations
 
 - In the graphql-codegen config, `declarationKind` should be `class`
-- The "select all scalar" feature returns an incorrect type, for instance `await client.query.todos()`.
 - Not tested with additional settings e.g. naming conventions. Recommended: generate a separate file if you need to codegen for another use
 - There is a bug in the `typescript` graphql-codegen plugin: with some schemas (not Hasura schemas), it generates classes before their parent class. It ends up in an error: `ReferenceError: Cannot access 'Node' before initialization`
   - see the Swapi code generation

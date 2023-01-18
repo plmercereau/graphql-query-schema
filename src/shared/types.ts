@@ -8,7 +8,8 @@ import {
   StripImpossibleProperties,
   FunctionWithOptionalParameter,
   ToUnion,
-  IsUnion
+  IsUnion,
+  OmitOptionalFields
 } from './type-helpers'
 
 import { VariablesInputType, VariablesTypes } from './variables'
@@ -90,14 +91,19 @@ type AllParameters<
       }
 > = Fields & AddArgPrefix<Args>
 
+type IsTrueOrHasOnlyOptionals<T> = T extends true
+  ? true
+  : keyof OmitOptionalFields<T> extends never
+  ? true
+  : false
+
 type QueryFields<Params, Element> = Omit<
   UnwrapArray<Params> extends undefined
     ? Element & { undef: true }
     : WrapArray<
         NonNullable<Element>,
-        UnwrapArray<Params> extends true
-          ? // * The parameter is `true` and the element is an object: return all the non-object (scalar) fields
-            // TODO: we should also apply this logic when no parameter is passed
+        IsTrueOrHasOnlyOptionals<UnwrapArray<Params>> extends true
+          ? // * Return all the non-object (scalar) fields
             StripImpossibleProperties<{
               [k in keyof NonNullable<Element>]: k extends keyof UnwrapArray<Element>
                 ? UnwrapArray<NonNullable<Element>>[k] extends object

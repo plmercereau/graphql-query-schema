@@ -113,12 +113,33 @@ describe('Hasura', () => {
   })
 
   it('should work with a wildcard', async () => {
+    const todos = await client.query.todos().run()
+
+    expect(Object.keys(todos[0])).toMatchInlineSnapshot(`
+      [
+        "category",
+        "contents",
+        "createdAt",
+        "id",
+        "updatedAt",
+        "userId",
+      ]
+    `)
+  })
+
+  it('should work with a nested wildcard', async () => {
     const todos = await client.query
       .todos({
+        id: true,
         user: true
       })
       .run()
-
+    expect(Object.keys(todos[0])).toMatchInlineSnapshot(`
+      [
+        "id",
+        "user",
+      ]
+    `)
     expect(Object.keys(todos[0].user)).toMatchInlineSnapshot(`
       [
         "activeMfaType",

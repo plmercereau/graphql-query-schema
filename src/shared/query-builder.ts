@@ -135,7 +135,7 @@ export const toRawGraphQL = (
   schema: GenericSchema,
   opType: OperationTypes,
   rootOperation: string,
-  params: any
+  params: any = {}
 ) => {
   const variablesKey = `${argPrefix}variables`
   const variables = params[variablesKey]
