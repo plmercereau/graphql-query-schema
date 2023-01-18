@@ -64,7 +64,7 @@ export const unwrapParameters = (parameters: any) => {
           return acc
         }, {})
       : Object.keys(parameters).reduce<Record<string, unknown>>((acc, key) => {
-          if (key.startsWith(argPrefix)) {
+          if (key.startsWith(argPrefix) && key !== `${argPrefix}${onKey}`) {
             acc[key.slice(argPrefix.length)] = parameters[key]
           }
           return acc
