@@ -169,13 +169,16 @@ export type ReturnTransformersFactory<
   OperationName extends string = any
 > = {
   /** Typed Document Node client */
-  generic: ReturnTransformer<TypedDocumentNode<{ [key in OperationName]: Result }>, OperationName>
+  generic: ReturnTransformer<
+    TypedDocumentNode<{ [key in OperationName]: Result }, Variables>,
+    OperationName
+  >
   /** Fetch client */
   fetch: ReturnTransformer<
     {
       run: FunctionWithOptionalParameter<(variables: Variables) => Promise<Result>>
       toString: () => string
-      toGraphQL: () => TypedDocumentNode<Result, Variables>
+      toGraphQL: () => TypedDocumentNode<{ [key in OperationName]: Result }, Variables>
     },
     OperationName
   >
