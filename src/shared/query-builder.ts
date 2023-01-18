@@ -14,55 +14,58 @@ import { VariableType } from 'json-to-graphql-query'
 const reservedKeys = ['__typename']
 const toJson = (
   schema: GenericSchema,
-  values: Record<string, any>,
+  values: Record<string, any> | true = true,
   typeRef?: IntrospectionTypeRef
 ) => {
   const __args: Record<string, any> = {}
   const select: Record<string, any> = {}
-  Object.keys(values).forEach((key) => {
-    if (reservedKeys.includes(key)) {
-      select[key] = values[key]
-    } else if (key === `${argPrefix}on`) {
-      select['__typename'] = true
-      select['__on'] = Object.keys(values[key]).map((fragmentName) => ({
-        __typeName: fragmentName,
-        ...toJson(
-          schema,
-          values[key][fragmentName],
-          // TODO not implemented yet: wildcard all scalar fields in unions
-          undefined
-        )
-      }))
-    } else if (key.startsWith(argPrefix)) {
-      __args[key.slice(1)] = values[key]
-    } else {
-      if (values[key] instanceof ModifiedVariableType) {
-        select[key] = new VariableType(key)
-      } else if (typeof values[key] === 'object') {
-        select[key] = toJson(
-          schema,
-          values[key],
-          getFieldTypeRefFromObjectTypeRef(schema, key, typeRef)
-        )
-      } else {
+  const keys = Object.keys(values)
+  if (values === true || keys.length === 0) {
+    const fieldType = getConcreteType(schema, typeRef)
+    if (fieldType?.kind === 'OBJECT') {
+      fieldType.fields?.forEach((field) => {
+        if (getConcreteType(schema, field.type)?.kind === 'SCALAR') {
+          select[field.name] = true
+        }
+      })
+    }
+  } else {
+    keys.forEach((key) => {
+      if (reservedKeys.includes(key)) {
         select[key] = values[key]
-        if (values[key] === true) {
+      } else if (key === `${argPrefix}on`) {
+        select['__typename'] = true
+        select['__on'] = Object.keys(values[key]).map((fragmentName) => ({
+          __typeName: fragmentName,
+          ...toJson(
+            schema,
+            values[key][fragmentName],
+            // TODO not implemented yet: wildcard all scalar fields in unions
+            undefined
+          )
+        }))
+      } else if (key.startsWith(argPrefix)) {
+        __args[key.slice(1)] = values[key]
+      } else {
+        if (values[key] instanceof ModifiedVariableType) {
+          select[key] = new VariableType(key)
+        } else if (typeof values[key] === 'object') {
+          select[key] = toJson(
+            schema,
+            values[key],
+            getFieldTypeRefFromObjectTypeRef(schema, key, typeRef)
+          )
+        } else {
           const fieldType = getConcreteType(
             schema,
             getFieldTypeRefFromObjectTypeRef(schema, key, typeRef)
           )
-          if (fieldType?.kind === 'OBJECT') {
-            select[key] = {}
-            fieldType.fields?.forEach((field) => {
-              if (getConcreteType(schema, field.type)?.kind === 'SCALAR') {
-                select[key][field.name] = true
-              }
-            })
-          }
+          select[key] = toJson(schema, values[key], fieldType)
         }
       }
-    }
-  })
+    })
+  }
+
   return { ...select, __args }
 }
 
@@ -76,7 +79,7 @@ const getFieldTypeRefFromObjectTypeRef = (
   fieldName: String,
   objectTypeRef?: IntrospectionTypeRef
 ) => {
-  const objectType = getTypeFromRef(schema, objectTypeRef)
+  const objectType = getTypeFromRef(schema, getConcreteType(schema, objectTypeRef))
   if (objectType?.kind !== 'OBJECT') {
     return undefined
   }

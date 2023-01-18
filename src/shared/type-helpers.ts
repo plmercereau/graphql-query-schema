@@ -3,6 +3,7 @@ export type StripImpossibleProperties<T> = Pick<
   { [Key in keyof T]-?: T[Key] extends never ? never : Key }[keyof T]
 >
 
+// TODO (maybe): remove
 // * See: https://learn.microsoft.com/en-us/javascript/api/@azure/keyvault-certificates/requireatleastone?view=azure-node-latest
 export type RequireAtLeastOne<T> = {
   [K in keyof T]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<keyof T, K>>>

@@ -4,7 +4,6 @@ import { AddArgPrefix, WithArgPrefix } from './config'
 import {
   UnwrapNullableArray,
   UnwrapArray,
-  RequireAtLeastOne,
   WrapArray,
   StripImpossibleProperties,
   FunctionWithOptionalParameter,
@@ -70,7 +69,7 @@ type AllParameters<
         }
         //>
       }>
-    : RequireAtLeastOne<{
+    : {
         [key in keyof Element]?: UnwrapNullableArray<Element[key]> extends object
           ? // * Accept either a list of fields or `true` to select all the fields
             | AllParameters<
@@ -88,16 +87,17 @@ type AllParameters<
               | true
           : // * If the element key is not an object/array of objects, it's a scalar field
             true
-      }>
+      }
 > = Fields & AddArgPrefix<Args>
 
 type QueryFields<Params, Element> = Omit<
   UnwrapArray<Params> extends undefined
-    ? Element
+    ? Element & { undef: true }
     : WrapArray<
         NonNullable<Element>,
         UnwrapArray<Params> extends true
           ? // * The parameter is `true` and the element is an object: return all the non-object (scalar) fields
+            // TODO: we should also apply this logic when no parameter is passed
             StripImpossibleProperties<{
               [k in keyof NonNullable<Element>]: k extends keyof UnwrapArray<Element>
                 ? UnwrapArray<NonNullable<Element>>[k] extends object
@@ -112,7 +112,7 @@ type QueryFields<Params, Element> = Omit<
                   ? QueryFields<Params[k], UnwrapArray<Element>[k]>
                   : UnwrapArray<Element>[k]
                 : never
-            }>
+            }> & { there: NonNullable<Element>['id'] }
       >,
   WithArgPrefix<'on'>
 >
@@ -165,7 +165,7 @@ export type OperationFactory<
       string & name
     >[ReturnTransformerName]
   >(
-    params: ExactParams & { [key in WithArgPrefix<'variables'>]?: VariablesInput }
+    params?: ExactParams & { [key in WithArgPrefix<'variables'>]?: VariablesInput }
   ) => ReturnType<ReturnTransformer>
 }>
 
