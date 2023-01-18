@@ -112,7 +112,7 @@ type QueryFields<Params, Element> = Omit<
                   ? QueryFields<Params[k], UnwrapArray<Element>[k]>
                   : UnwrapArray<Element>[k]
                 : never
-            }> & { there: NonNullable<Element>['id'] }
+            }>
       >,
   WithArgPrefix<'on'>
 >
