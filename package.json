@@ -44,10 +44,10 @@
     "test:watch": "vitest",
     "nhost": "nhost dev --no-browser",
     "pothos": "tsx pothos/index.ts",
-    "e2e": "start-test e2e:backend \"3000|http-get://localhost:9695\" e2e:test",
+    "e2e": "start-test backend \"3000|http-get://localhost:9695\" e2e:test",
     "e2e:test": "vitest run --dir e2e",
     "e2e:watch": "vitest --dir e2e",
-    "e2e:backend": "run-p nhost pothos"
+    "backend": "run-p nhost pothos"
   },
   "dependencies": {
     "@graphql-typed-document-node/core": "^3.1.1",

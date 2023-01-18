@@ -1,9 +1,9 @@
 # Graphql requests from an object definition
 
-1. Start Nhost locally
+1. Start the servers locally
 
 ```sh
-nhost dev
+pnpm run backend
 ```
 
 2. Generate the schema
@@ -20,7 +20,13 @@ It generates `tests/schema.ts`
 pnpm run test
 ```
 
-4. Play a bit with the api inside `e2e/hasura.test.ts`:
+4. Run the e2e tests against the servers
+
+```
+pnpm run e2e:test
+```
+
+5. Play a bit with the api inside `e2e/hasura.test.ts`:
 
 ```ts
 const res = await client.query
