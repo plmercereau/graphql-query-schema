@@ -11,9 +11,11 @@ describe('Pothos', () => {
   it('should work with unions', async () => {
     const result = await client.query
       .giraffeFacts({
-        _on: {
-          GiraffeNumericFact: { value: true },
-          GiraffeStringFact: { fact: true }
+        select: {
+          _on: {
+            GiraffeNumericFact: { select: { value: true } },
+            GiraffeStringFact: { select: { fact: true } }
+          }
         }
       })
       .run()

@@ -11,10 +11,8 @@ describe('Countries', () => {
   it('should select Andorra and some details', async () => {
     const result = await client.query
       .countries({
-        name: true,
-        capital: true,
-        continent: { code: true, name: true },
-        _filter: { code: { eq: 'AD' } }
+        select: { name: true, capital: true, continent: { select: { code: true, name: true } } },
+        variables: { filter: { code: { eq: 'AD' } } }
       })
       .run()
 

@@ -1,11 +1,11 @@
 import { AddPrefix, RemovePrefix } from './type-helpers'
 
-export const argsKey = '' as const
+export const argsKey = 'variables' as const
 export const argPrefix = '_' as const
 
-export const fieldsKey = '' as const
+export const fieldsKey = 'select' as const
 
-export const variablesKey = 'variables' as const
+export const variablesKey = 'vars' as const
 export const onKey = 'on' as const
 
 type Wrap<T, Key extends string> = { [_ in Key]?: T }

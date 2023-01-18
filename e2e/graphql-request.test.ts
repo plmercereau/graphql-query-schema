@@ -28,9 +28,10 @@ describe('Hasura with graphql-request', () => {
 
   it('should insert a todo', async () => {
     const operation = mutation.insertTodo({
-      _object: { contents: 'test', userId },
-      contents: true,
-      user: { email: true, id: true }
+      variables: {
+        object: { contents: 'test', userId }
+      },
+      select: { contents: true, user: { select: { email: true, id: true } } }
     })
     const { insertTodo } = await client.request(operation)
 
@@ -40,15 +41,17 @@ describe('Hasura with graphql-request', () => {
 
   it('should insert and remove a todo', async () => {
     const operation = mutation.insertTodo({
-      _object: { contents: 'test', userId },
-      id: true,
-      contents: true
+      variables: { object: { contents: 'test', userId } },
+      select: { contents: true, id: true }
     })
     const { insertTodo } = await client.request(operation)
     expect(insertTodo.contents).toMatchInlineSnapshot('"test"')
 
     const { deleteTodo } = await client.request(
-      mutation.deleteTodo({ _id: insertTodo.id, contents: true })
+      mutation.deleteTodo({
+        variables: { id: insertTodo.id },
+        select: { contents: true }
+      })
     )
 
     expect(deleteTodo).toMatchInlineSnapshot(`

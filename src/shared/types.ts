@@ -178,7 +178,7 @@ export type OperationFactory<
       string & name
     >[ReturnTransformerName]
   >(
-    params?: ExactParams & { [key in VariablesKey]?: VariablesInput }
+    params?: ExactParams // & { [key in VariablesKey]?: VariablesInput }
   ) => ReturnType<ReturnTransformer>
 }>
 

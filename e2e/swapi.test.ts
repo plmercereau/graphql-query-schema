@@ -9,7 +9,9 @@ const client = fetchClient({
 
 describe('Swapi', () => {
   it('should get a single file', async () => {
-    const result = await client.query.film({ _id: 'ZmlsbXM6MQ==', title: true }).run()
+    const result = await client.query
+      .film({ variables: { id: 'ZmlsbXM6MQ==' }, select: { title: true } })
+      .run()
     expect(result).toMatchInlineSnapshot(`
       {
         "title": "A New Hope",
@@ -20,12 +22,20 @@ describe('Swapi', () => {
   it('should fetch several files', async () => {
     const result = await client.query
       .allFilms({
-        _before: 'ZmlsbXM6MQ==',
-        edges: {
-          node: {
-            characterConnection: { totalCount: true },
-            director: true,
-            title: true
+        variables: { before: 'ZmlsbXM6MQ==' },
+        select: {
+          edges: {
+            select: {
+              node: {
+                select: {
+                  characterConnection: {
+                    select: { totalCount: true }
+                  },
+                  director: true,
+                  title: true
+                }
+              }
+            }
           }
         }
       })

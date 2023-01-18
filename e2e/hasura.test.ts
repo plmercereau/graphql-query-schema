@@ -26,17 +26,21 @@ describe('Hasura', () => {
   it('should insert a todo', async () => {
     const res = await client.query
       .todos({
-        id: true,
-        contents: true,
-        user: { email: true }
+        select: {
+          id: true,
+          contents: true,
+          user: { select: { email: true } }
+        }
       })
       .run()
 
     const result = await client.mutation
       .insertTodo({
-        _object: { contents: 'test', userId },
-        contents: true,
-        user: { email: true, id: true }
+        variables: { object: { contents: 'test', userId } },
+        select: {
+          contents: true,
+          user: { select: { email: true, id: true } }
+        }
       })
       .run()
 
@@ -47,15 +51,17 @@ describe('Hasura', () => {
   it('should insert and remove a todo', async () => {
     const insertResult = await client.mutation
       .insertTodo({
-        _object: { contents: 'test', userId },
-        id: true,
-        contents: true
+        variables: { object: { contents: 'test', userId } },
+        select: {
+          id: true,
+          contents: true
+        }
       })
       .run()
 
     expect(insertResult.contents).toMatchInlineSnapshot('"test"')
     const deleteResult = await client.mutation
-      .deleteTodo({ _id: insertResult.id, contents: true })
+      .deleteTodo({ variables: { id: insertResult.id }, select: { contents: true } })
       .run()
 
     expect(deleteResult).toMatchInlineSnapshot(`
@@ -69,21 +75,25 @@ describe('Hasura', () => {
     const contents = 'test_variable'
     const { id } = await client.mutation
       .insertTodo({
-        _object: { contents, userId },
-        id: true,
-        contents: true
+        variables: { object: { contents, userId } },
+        select: {
+          id: true,
+          contents: true
+        }
       })
       .run()
 
     const result = await client.query
       .todos({
-        _where: {
-          id: {
-            _eq: variableType('x')
+        variables: {
+          where: {
+            id: {
+              _eq: variableType('x')
+            }
           }
         },
-        _variables: { x: 'uuid' },
-        contents: true
+        select: { contents: true },
+        _vars: { x: 'uuid' }
       })
       .run({ x: id })
     expect(result).toMatchInlineSnapshot(`
@@ -94,17 +104,18 @@ describe('Hasura', () => {
       ]
     `)
 
-    await client.mutation.deleteTodo({ _id: id, id: true }).run()
+    await client.mutation.deleteTodo({ variables: { id }, select: { id: true } }).run()
   })
 
   it('should work with an enum', async () => {
     const todos = await client.query
       .todos({
-        _where: {
-          category: { _eq: enumType(schema.Categories_Enum.Essay) }
+        variables: {
+          where: {
+            category: { _eq: enumType(schema.Categories_Enum.Essay) }
+          }
         },
-        contents: true,
-        category: true
+        select: { contents: true, category: true }
       })
       .run()
 
@@ -129,8 +140,7 @@ describe('Hasura', () => {
   it('should work with a nested wildcard', async () => {
     const todos = await client.query
       .todos({
-        id: true,
-        user: true
+        select: { id: true, user: true }
       })
       .run()
     expect(Object.keys(todos[0])).toMatchInlineSnapshot(`
