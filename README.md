@@ -12,9 +12,7 @@ pnpm run backend
 pnpm run generate
 ```
 
-It generates `tests/schema.ts`
-
-3. Run the tests
+1. Run the tests
 
 ```
 pnpm run test
@@ -123,7 +121,7 @@ const getTodosFromUser = client.query.todos({
   }
 })
 
-const bobTodos = await getTodosFromUser({ email: 'bob@sponge.it' })
+const bobTodos = await getTodosFromUser.run({ email: 'bob@sponge.it' })
 ```
 
 ## Unions
@@ -173,7 +171,7 @@ const queryDocument = documents.query.todos({
   contents: true
 })
 
-print(queryDocument)
+console.log(print(queryDocument))
 /* returns
 {
   todos(order_by: [{createdAt: "asc"}]) {
@@ -189,7 +187,7 @@ const subscriptionDocument = documents.subscription.todos({
   contents: true
 })
 
-print(subscriptionDocument)
+console.log(print(subscriptionDocument))
 /* returns
 subscription {
   todos( where: { createdAt: { _gt: "2023-01-18T07:45:51.865Z" } } ) {
@@ -248,9 +246,11 @@ const { todos: bobTodos } = await client.request(todosFromUserDocument, { email:
 ### to do
 
 - Urql / Apollo tests
+- get rid of `variableType` and `enumType` now the schema is available on runtime
 - Types testing
 - Custom argument transformer e.g. nested / not nested, `_` or `__` or nothing, etc.
 - Test with other Hasura settings e.g. naming conventions
+- Pick the best `grapqhl-codegen` naming convention
 - Multiple operations
   - Maybe: `client.query({ todos: { id: true }, users: { email: true } })`
 - CI
