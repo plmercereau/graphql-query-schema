@@ -6,7 +6,7 @@ import {
   parse
 } from 'graphql'
 import { jsonToGraphQLQuery } from 'json-to-graphql-query'
-import { argPrefix } from './config'
+import { argPrefix, onKey, unwrapParameters, variablesKey } from './config'
 import { GenericSchema, OperationTypes, ReturnTransformer } from './types'
 import { VariableType as ModifiedVariableType } from './variables'
 import { VariableType } from 'json-to-graphql-query'
@@ -14,11 +14,11 @@ import { VariableType } from 'json-to-graphql-query'
 const reservedKeys = ['__typename']
 const toJson = (
   schema: GenericSchema,
-  values: Record<string, any> | true = true,
+  parameters: Record<string, any> | true = true,
   typeRef?: IntrospectionTypeRef
 ) => {
-  const __args: Record<string, any> = {}
   const select: Record<string, any> = {}
+  const { __args, ...values } = unwrapParameters(parameters)
   const keys = Object.keys(values)
   if (values === true || keys.length === 0) {
     const fieldType = getConcreteType(schema, typeRef)
@@ -33,7 +33,7 @@ const toJson = (
     keys.forEach((key) => {
       if (reservedKeys.includes(key)) {
         select[key] = values[key]
-      } else if (key === `${argPrefix}on`) {
+      } else if (key === '__on') {
         select['__typename'] = true
         select['__on'] = Object.keys(values[key]).map((fragmentName) => ({
           __typeName: fragmentName,
@@ -44,8 +44,6 @@ const toJson = (
             undefined
           )
         }))
-      } else if (key.startsWith(argPrefix)) {
-        __args[key.slice(1)] = values[key]
       } else {
         if (values[key] instanceof ModifiedVariableType) {
           select[key] = new VariableType(key)
@@ -137,10 +135,10 @@ export const toRawGraphQL = (
   rootOperation: string,
   params: any = {}
 ) => {
-  const variablesKey = `${argPrefix}variables`
-  const variables = params[variablesKey]
+  const varKey = `${argPrefix}${variablesKey}`
+  const variables = params[varKey]
   if (variables) {
-    delete params[variablesKey]
+    delete params[varKey]
   }
 
   const type = getConcreteType(schema, getRootOperationNode(schema, opType, rootOperation).type)

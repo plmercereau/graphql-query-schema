@@ -31,7 +31,6 @@ describe('Hasura', () => {
         user: { email: true }
       })
       .run()
-    res[0]
 
     const result = await client.mutation
       .insertTodo({

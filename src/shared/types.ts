@@ -1,6 +1,13 @@
 import { TypedDocumentNode } from '@graphql-typed-document-node/core'
 
-import { AddArgPrefix, WithArgPrefix } from './config'
+import {
+  AddArgPrefix,
+  OnKey,
+  UnwrapFields,
+  VariablesKey,
+  WrapArguments,
+  WrapFields
+} from './config'
 import {
   UnwrapNullableArray,
   UnwrapArray,
@@ -89,7 +96,7 @@ type AllParameters<
           : // * If the element key is not an object/array of objects, it's a scalar field
             true
       }
-> = Fields & AddArgPrefix<Args>
+> = WrapFields<Fields> & WrapArguments<Args>
 
 type IsTrueOrHasOnlyOptionals<T> = T extends true
   ? true
@@ -97,12 +104,12 @@ type IsTrueOrHasOnlyOptionals<T> = T extends true
   ? true
   : false
 
-type QueryFields<Params, Element> = Omit<
-  UnwrapArray<Params> extends undefined
-    ? Element & { undef: true }
+type QueryFields<Params, Element, UnwrappedParams = UnwrapArray<Params>> = Omit<
+  UnwrapFields<UnwrappedParams> | UnwrappedParams extends undefined
+    ? Element
     : WrapArray<
         NonNullable<Element>,
-        IsTrueOrHasOnlyOptionals<UnwrapArray<Params>> extends true
+        IsTrueOrHasOnlyOptionals<UnwrapFields<UnwrappedParams>> extends true
           ? // * Return all the non-object (scalar) fields
             StripImpossibleProperties<{
               [k in keyof NonNullable<Element>]: k extends keyof UnwrapArray<Element>
@@ -113,21 +120,21 @@ type QueryFields<Params, Element> = Omit<
             }>
           : // * The parameter is a list of fields and the element in an object: pick the selected fields
             StripImpossibleProperties<{
-              [k in keyof Params]: k extends keyof UnwrapArray<Element>
+              [k in keyof UnwrapFields<UnwrappedParams>]: k extends keyof UnwrapArray<Element>
                 ? UnwrapArray<NonNullable<Element>>[k] extends object
-                  ? QueryFields<Params[k], UnwrapArray<Element>[k]>
+                  ? QueryFields<UnwrapFields<UnwrappedParams>[k], UnwrapArray<Element>[k]>
                   : UnwrapArray<Element>[k]
                 : never
             }>
       >,
-  WithArgPrefix<'on'>
+  OnKey
 >
 
 type UnionFields<
   Schema extends GenericSchema,
   Params extends AddArgPrefix<{ on?: any }> & { __typename?: string },
-  Fragments = NonNullable<Params[WithArgPrefix<'on'>]>
-> = WithArgPrefix<'on'> extends keyof NonNullable<Params>
+  Fragments = NonNullable<Params[OnKey]>
+> = OnKey extends keyof NonNullable<Params>
   ? ToUnion<{
       [fragmentName in keyof Fragments]: {
         __typename: NonNullable<Schema[string & fragmentName]['prototype']['__typename']>
@@ -139,7 +146,7 @@ type UnionFields<
   : {}
 
 // * See: https://stackoverflow.com/a/59230299
-type Exactly<T, U> = T & Record<Exclude<keyof U, keyof T | WithArgPrefix<'variables'>>, never>
+type Exactly<T, U> = T & Record<Exclude<keyof U, keyof T | VariablesKey>, never>
 
 export type OperationFactory<
   Schema extends GenericSchema,
@@ -171,7 +178,7 @@ export type OperationFactory<
       string & name
     >[ReturnTransformerName]
   >(
-    params?: ExactParams & { [key in WithArgPrefix<'variables'>]?: VariablesInput }
+    params?: ExactParams & { [key in VariablesKey]?: VariablesInput }
   ) => ReturnType<ReturnTransformer>
 }>
 
