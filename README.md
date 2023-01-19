@@ -12,7 +12,7 @@ pnpm run backend
 pnpm run generate
 ```
 
-1. Run the tests
+3. Run the tests
 
 ```
 pnpm run test
@@ -219,7 +219,7 @@ const todosDocument = query.todos({
 })
 
 // the result is fully typed
-const { todos: bobTodos } = await client.request(todosDocument)
+const { todos } = await client.request(todosDocument)
 
 const todosFromUserDocument = query.todos({
   _where: { user: { email: { _eq: variableType('email') } } },
