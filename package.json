@@ -37,6 +37,7 @@
     "access": "public"
   },
   "scripts": {
+    "play": "tsx play/index.ts",
     "preinstall": "npx only-allow pnpm",
     "build": "vite build",
     "codegen": "graphql-codegen",
