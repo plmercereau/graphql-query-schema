@@ -18,6 +18,7 @@ export type NonNullType = {
 export type ObjectType<Name extends string = string> = {
   kind: 'OBJECT'
   name: Name
+  interfaces?: Readonly<Array<unknown>>
   ofType?: null
   fields?: Readonly<Array<FieldDefinition>>
 }
@@ -30,11 +31,25 @@ export type ScalarType = {
 export type UnionType = {
   kind: 'UNION'
   name: string
-  ofType?: null // TODO
+  ofType?: null // TODO check if/when this is used
   possibleTypes?: Readonly<Array<TypeRef>>
 }
 
-export type TypeRef = InputObjectType | ListType | NonNullType | ObjectType | ScalarType | UnionType
+export type EnumType = {
+  kind: 'ENUM'
+  name: string
+  ofType?: null // TODO check if/when this is used
+  enumValues?: Readonly<Array<{ name: string }>>
+}
+
+export type TypeRef =
+  | InputObjectType
+  | ListType
+  | NonNullType
+  | ObjectType
+  | ScalarType
+  | UnionType
+  | EnumType
 
 export type FieldDefinition = {
   readonly name: string
