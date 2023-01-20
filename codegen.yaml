@@ -1,6 +1,10 @@
 config:
   declarationKind: 'class'
   module: es2015
+  useTypeImports: true
+  includeScalars: true
+  includeEnums: true
+  includeInputs: true
 generates:
   ./schemas/hasura.ts:
     schema:
@@ -41,4 +45,8 @@ generates:
     schema: https://api.spacex.land/graphql/
     plugins:
       - typescript
+      - urql-introspection
+  ./wip/_schema.ts:
+    schema: https://countries.trevorblades.com/graphql
+    plugins:
       - urql-introspection

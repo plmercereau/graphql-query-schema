@@ -230,6 +230,9 @@ const todosFromUserDocument = query.todos({
 
 // the result and variables are fully typed
 const { todos: bobTodos } = await client.request(todosFromUserDocument, { email: 'bob@sponge.it' })
+
+
+const { todos: bobTodos } = await client.request(todosFromUserDocument, { where: { user: { email: { _eq: 'bob@sponge.it'  } } } })
 ```
 
 ## Limitations

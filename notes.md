@@ -1,0 +1,3 @@
+- convert all arguments as variables
+- get rid of .run() etc
+- urql PR / typescript codegen PR ? or we create our own plugin
