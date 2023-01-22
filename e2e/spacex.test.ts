@@ -7,57 +7,56 @@ const client = fetchClient({
   url: 'https://api.spacex.land/graphql'
 })
 
-describe('SpaceX', () => {
+// TODO service unavailable
+describe.skip('SpaceX', () => {
   it('Long query', async () => {
-    const result = await client.query
-      .launchesPast({
-        variables: { limit: 1 },
-        select: {
-          mission_name: true,
-          launch_date_local: true,
-          launch_site: { select: { site_name_long: true } },
-          links: { select: { article_link: true, video_link: true } },
-          rocket: {
-            select: {
-              rocket_name: true,
-              first_stage: {
-                select: {
-                  cores: {
-                    select: {
-                      flight: true,
-                      core: {
-                        select: {
-                          reuse_count: true,
-                          status: true
-                        }
+    const result = await client.query.launchesPast({
+      variables: { limit: 1 },
+      select: {
+        mission_name: true,
+        launch_date_local: true,
+        launch_site: { select: { site_name_long: true } },
+        links: { select: { article_link: true, video_link: true } },
+        rocket: {
+          select: {
+            rocket_name: true,
+            first_stage: {
+              select: {
+                cores: {
+                  select: {
+                    flight: true,
+                    core: {
+                      select: {
+                        reuse_count: true,
+                        status: true
                       }
                     }
                   }
                 }
-              },
-              second_stage: {
-                select: {
-                  payloads: {
-                    select: {
-                      payload_type: true,
-                      payload_mass_kg: true,
-                      payload_mass_lbs: true
-                    }
+              }
+            },
+            second_stage: {
+              select: {
+                payloads: {
+                  select: {
+                    payload_type: true,
+                    payload_mass_kg: true,
+                    payload_mass_lbs: true
                   }
                 }
               }
             }
-          },
-          ships: {
-            select: {
-              name: true,
-              home_port: true,
-              image: true
-            }
+          }
+        },
+        ships: {
+          select: {
+            name: true,
+            home_port: true,
+            image: true
           }
         }
-      })
-      .run()
+      }
+    })
 
     expect(result).toMatchInlineSnapshot(`
       [

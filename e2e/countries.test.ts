@@ -9,12 +9,10 @@ const client = fetchClient({
 
 describe('Countries', () => {
   it('should select Andorra and some details', async () => {
-    const result = await client.query
-      .countries({
-        select: { name: true, capital: true, continent: { select: { code: true, name: true } } },
-        variables: { filter: { code: { eq: 'AD' } } }
-      })
-      .run()
+    const result = await client.query.countries({
+      select: { name: true, capital: true, continent: { select: { code: true, name: true } } },
+      variables: { filter: { code: { eq: 'AD' } } }
+    })
 
     expect(result).toMatchInlineSnapshot(`
       [

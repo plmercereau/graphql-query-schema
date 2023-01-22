@@ -5,8 +5,7 @@ import {
   ReturnTransformersFactory,
   proxyConstructor,
   GenericClient,
-  GenericSchema,
-  toGraphQL
+  GenericSchema
 } from './shared'
 
 type FetchClientConstructorParams<Schema = Record<string, any>> = {
@@ -17,34 +16,31 @@ type FetchClientConstructorParams<Schema = Record<string, any>> = {
 
 type FetchWrapper = (init?: RequestInit) => Promise<Response>
 
-const fetchReturnTransformer = <Result>(
+const fetchReturnTransformer = async <Result>(
   schema: GenericSchema,
   operation: OperationTypes,
   property: string,
   input: any,
   fetchWrapper: FetchWrapper
 ): ReturnType<ReturnTransformersFactory<Result>['fetch']> => {
-  return {
-    run: async (variables) => {
-      const query = toRawGraphQL(schema, operation, property, input)
-      const request = await fetchWrapper({
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ query, variables })
-      })
-      const { data, errors } = await request.json()
-      if (errors) {
-        console.log(query)
-        console.log(errors)
-        throw new Error(errors[0].message)
-      }
-      return data[property]
+  const query = toRawGraphQL(schema, operation, property, input)
+  const request = await fetchWrapper({
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
     },
-    toString: () => toRawGraphQL(schema, operation, property, input),
-    toGraphQL: () => toGraphQL(schema, operation, property, input)
+    body: JSON.stringify({ query })
+  })
+  if (request.status !== 200) {
+    throw new Error(request.statusText)
   }
+  const { data, errors } = await request.json()
+  if (errors) {
+    console.log(query)
+    console.log(errors)
+    throw new Error(errors[0].message)
+  }
+  return data[property]
 }
 
 export function fetchClient<Schema extends GenericSchema>({

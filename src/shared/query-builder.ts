@@ -5,11 +5,42 @@ import {
   IntrospectionTypeRef,
   parse
 } from 'graphql'
-import { jsonToGraphQLQuery } from 'json-to-graphql-query'
-import { argPrefix, onKey, unwrapParameters, variablesKey } from './config'
+import { jsonToGraphQLQuery, VariableType } from 'json-to-graphql-query'
 import { GenericSchema, OperationTypes, ReturnTransformer } from './types'
 import { VariableType as ModifiedVariableType } from './variables'
-import { VariableType } from 'json-to-graphql-query'
+
+const unwrapParameters = (parameters: any) => {
+  if (parameters === true) {
+    return true
+  }
+  if (!parameters || typeof parameters !== 'object') {
+    throw new Error('Invalid fields')
+  }
+  if (Object.keys(parameters).length === 0) {
+    return true
+  }
+
+  const fields = Object.entries(parameters['select']).reduce<any>((acc, [key, value]) => {
+    acc[key] = value
+    return acc
+  }, {})
+
+  const args =
+    parameters['variables'] &&
+    Object.keys(parameters['variables']).reduce<Record<string, unknown>>((acc, key) => {
+      acc[key] = parameters['variables'][key]
+      return acc
+    }, {})
+
+  if (Object.keys(fields).length === 0) {
+    return true
+  }
+
+  return {
+    __args: args,
+    ...fields
+  }
+}
 
 const reservedKeys = ['__typename']
 const toJson = (
@@ -18,6 +49,7 @@ const toJson = (
   typeRef?: IntrospectionTypeRef
 ) => {
   const select: Record<string, any> = {}
+  // TODO include the code of unwrapParameters here
   const { __args, ...values } = unwrapParameters(parameters)
   const keys = Object.keys(values)
   if (values === true || keys.length === 0) {
@@ -33,17 +65,19 @@ const toJson = (
     keys.forEach((key) => {
       if (reservedKeys.includes(key)) {
         select[key] = values[key]
-      } else if (key === '__on') {
+      } else if (key === 'on') {
         select['__typename'] = true
-        select['__on'] = Object.keys(values[key]).map((fragmentName) => ({
-          __typeName: fragmentName,
-          ...toJson(
-            schema,
-            values[key][fragmentName],
-            // TODO not implemented yet: wildcard all scalar fields in unions
-            undefined
-          )
-        }))
+        select['__on'] = Object.keys(values[key]).map((fragmentName) => {
+          return {
+            __typeName: fragmentName,
+            ...toJson(
+              schema,
+              values[key][fragmentName],
+              // TODO not implemented yet: wildcard all scalar fields in unions
+              undefined
+            )
+          }
+        })
       } else {
         if (values[key] instanceof ModifiedVariableType) {
           select[key] = new VariableType(key)
@@ -135,17 +169,10 @@ export const toRawGraphQL = (
   rootOperation: string,
   params: any = {}
 ) => {
-  const varKey = `${argPrefix}${variablesKey}`
-  const variables = params[varKey]
-  if (variables) {
-    delete params[varKey]
-  }
-
   const type = getConcreteType(schema, getRootOperationNode(schema, opType, rootOperation).type)
   return jsonToGraphQLQuery(
     {
       [opType.toLowerCase()]: {
-        __variables: variables,
         [rootOperation]: toJson(schema, params, type)
       }
     },

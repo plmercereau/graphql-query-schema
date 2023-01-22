@@ -12,12 +12,12 @@ const documentReturnTransformer = <Result>(
   operation: OperationTypes,
   property: string,
   input: any
-): ReturnType<ReturnTransformersFactory<Result>['generic']> =>
+): ReturnType<ReturnTransformersFactory<Result>['document']> =>
   toGraphQL(schema, operation, property, input) as any
 
 export function groq<Schema extends GenericSchema>(
   schema: Schema
-): GenericClient<Schema, 'generic'> {
+): GenericClient<Schema, 'document'> {
   return {
     query: proxyConstructor(schema, 'Query', documentReturnTransformer),
     mutation: proxyConstructor(schema, 'Mutation', documentReturnTransformer),

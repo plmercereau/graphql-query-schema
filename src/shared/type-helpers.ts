@@ -59,11 +59,3 @@ export type IsUnion<T> = [T] extends [UnionToIntersection<T>] ? false : true
 export type RequiredField<T, K extends keyof T> = T & Required<Pick<T, K>>
 
 export type ToUnion<T> = T[keyof T]
-
-export type AddPrefix<T, P extends string> = {
-  [K in keyof T as K extends string ? `${P}${K}` : never]: T[K]
-}
-
-export type RemovePrefix<T, P extends string> = {
-  [K in keyof T as K extends `${P}${infer U}` ? U : K]: T[K]
-}

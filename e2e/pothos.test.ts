@@ -9,18 +9,16 @@ const client = fetchClient({
 
 describe('Pothos', () => {
   it('should work with unions', async () => {
-    const result = await client.query
-      .giraffeFacts({
-        select: {
-          _on: {
-            GiraffeNumericFact: { select: { value: true } },
-            GiraffeStringFact: { select: { fact: true } }
-          }
+    const result = await client.query.giraffeFacts({
+      select: {
+        on: {
+          GiraffeNumericFact: { select: { value: true } },
+          GiraffeStringFact: { select: { fact: true } }
         }
-      })
-      .run()
-    const res = result.at(0)!
+      }
+    })
 
+    const res = result.at(0)!
     if (res.__typename === 'GiraffeNumericFact') {
       res.value
     } else {

@@ -10,8 +10,6 @@ export class VariableType<T extends string> extends OriginalVariableType {
   }
 }
 
-export const variableType = <T extends string>(variable: T): any => new VariableType(variable)
-
 type ScalarTypes<Schema extends GenericSchema> = Schema['Scalars']['prototype']
 type ArgTypes<Schema extends GenericSchema> = Select<
   {

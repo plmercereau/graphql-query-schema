@@ -1,4 +1,4 @@
-import { enumType, fetchClient, variableType } from '../src'
+import { fetchClient } from '../src'
 import * as schema from '../schemas/hasura'
 const client = fetchClient({
   schema,
@@ -9,7 +9,7 @@ const client = fetchClient({
 })
 
 const main = async () => {
-  const todos = await client.query.todos({ select: { user: true } }).run()
+  const todos = await client.query.todos({ select: { user: true } })
   console.log(todos)
 }
 

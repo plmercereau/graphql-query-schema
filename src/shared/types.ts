@@ -1,19 +1,10 @@
 import { TypedDocumentNode } from '@graphql-typed-document-node/core'
 
 import {
-  AddArgPrefix,
-  OnKey,
-  UnwrapFields,
-  VariablesKey,
-  WrapArguments,
-  WrapFields
-} from './config'
-import {
   UnwrapNullableArray,
   UnwrapArray,
   WrapArray,
   StripImpossibleProperties,
-  FunctionWithOptionalParameter,
   ToUnion,
   IsUnion,
   OmitOptionalFields
@@ -33,6 +24,7 @@ type OperationSuffix<Schema extends GenericSchema> = Schema['Query'] extends obj
   ? ''
   : never
 
+// TODO get this information from the introspection schema - we'll be sure to handle any edge cases
 type RootOperation<
   Schema extends GenericSchema,
   OperationType extends OperationTypes
@@ -64,7 +56,7 @@ type AllParameters<
   Element extends Record<string, any>,
   Args,
   Fields = IsUnion<Element> extends true
-    ? AddArgPrefix<{
+    ? {
         on: // TODO require at least one typename. When using RequireAtLeastOne, the result type is not inferred correctly
         //RequireAtLeastOne<
         {
@@ -76,7 +68,7 @@ type AllParameters<
           >
         }
         //>
-      }>
+      }
     : {
         [key in keyof Element]?: UnwrapNullableArray<Element[key]> extends object
           ? // * Accept either a list of fields or `true` to select all the fields
@@ -96,7 +88,7 @@ type AllParameters<
           : // * If the element key is not an object/array of objects, it's a scalar field
             true
       }
-> = WrapFields<Fields> & WrapArguments<Args>
+> = { select: Fields } & { variables?: Args }
 
 type IsTrueOrHasOnlyOptionals<T> = T extends true
   ? true
@@ -104,12 +96,16 @@ type IsTrueOrHasOnlyOptionals<T> = T extends true
   ? true
   : false
 
-type QueryFields<Params, Element, UnwrappedParams = UnwrapArray<Params>> = Omit<
-  UnwrapFields<UnwrappedParams> | UnwrappedParams extends undefined
+type QueryFields<
+  Params extends { select: any },
+  Element,
+  UnwrappedParams extends { select: any } = UnwrapArray<Params>
+> = Omit<
+  UnwrappedParams | UnwrappedParams extends undefined
     ? Element
     : WrapArray<
         NonNullable<Element>,
-        IsTrueOrHasOnlyOptionals<UnwrapFields<UnwrappedParams>> extends true
+        IsTrueOrHasOnlyOptionals<UnwrappedParams['select']> extends true
           ? // * Return all the non-object (scalar) fields
             StripImpossibleProperties<{
               [k in keyof NonNullable<Element>]: k extends keyof UnwrapArray<Element>
@@ -120,33 +116,31 @@ type QueryFields<Params, Element, UnwrappedParams = UnwrapArray<Params>> = Omit<
             }>
           : // * The parameter is a list of fields and the element in an object: pick the selected fields
             StripImpossibleProperties<{
-              [k in keyof UnwrapFields<UnwrappedParams>]: k extends keyof UnwrapArray<Element>
+              [k in keyof UnwrappedParams['select']]: k extends keyof UnwrapArray<Element>
                 ? UnwrapArray<NonNullable<Element>>[k] extends object
-                  ? QueryFields<UnwrapFields<UnwrappedParams>[k], UnwrapArray<Element>[k]>
+                  ? QueryFields<UnwrappedParams['select'][k], UnwrapArray<Element>[k]>
                   : UnwrapArray<Element>[k]
                 : never
             }>
       >,
-  OnKey
+  'on'
 >
 
 type UnionFields<
   Schema extends GenericSchema,
-  Params,
-  Fragments = NonNullable<UnwrapFields<NonNullable<Params>>>
-> = OnKey extends keyof Fragments
-  ? ToUnion<{
-      [fragmentName in keyof Fragments[OnKey]]: {
-        __typename: NonNullable<Schema[string & fragmentName]['prototype']['__typename']>
-      } & QueryFields<
-        NonNullable<Fragments[OnKey][fragmentName]>,
-        Schema[string & fragmentName]['prototype']
-      >
-    }>
-  : {}
+  Params extends { select: any } | undefined,
+  Fragments extends { on: any } = NonNullable<NonNullable<Params>['select']>
+> = ToUnion<{
+  [fragmentName in keyof Fragments['on']]: {
+    __typename: NonNullable<Schema[string & fragmentName]['prototype']['__typename']>
+  } & QueryFields<
+    NonNullable<Fragments['on'][fragmentName]>,
+    Schema[string & fragmentName]['prototype']
+  >
+}>
 
 // * See: https://stackoverflow.com/a/59230299
-type Exactly<T, U> = T & Record<Exclude<keyof U, keyof T | VariablesKey>, never>
+type Exactly<T, U> = T & Record<Exclude<keyof U, keyof T>, never>
 
 export type OperationFactory<
   Schema extends GenericSchema,
@@ -178,10 +172,11 @@ export type OperationFactory<
       string & name
     >[ReturnTransformerName]
   >(
-    params?: ExactParams // & { [key in VariablesKey]?: VariablesInput }
+    params?: ExactParams
   ) => ReturnType<ReturnTransformer>
 }>
 
+// TODO get rid of this
 export type GenericClient<
   Schema extends GenericSchema,
   ReturnTransformerName extends keyof ReturnTransformersFactory
@@ -189,27 +184,22 @@ export type GenericClient<
   [key in OperationTypes as Uncapitalize<key>]: OperationFactory<Schema, key, ReturnTransformerName>
 }>
 
+// TODO get rid of this
 export type ReturnTransformersFactory<
   Result = any,
   Variables = any,
   OperationName extends string = any
 > = {
   /** Typed Document Node client */
-  generic: ReturnTransformer<
+  document: ReturnTransformer<
     TypedDocumentNode<{ [key in OperationName]: Result }, Variables>,
     OperationName
   >
-  /** Fetch client */
-  fetch: ReturnTransformer<
-    {
-      run: FunctionWithOptionalParameter<(variables: Variables) => Promise<Result>>
-      toString: () => string
-      toGraphQL: () => TypedDocumentNode<{ [key in OperationName]: Result }, Variables>
-    },
-    OperationName
-  >
+  /** Run the operation with Fetch */
+  fetch: ReturnTransformer<Promise<Result>, OperationName>
 }
 
+// TODO get rid of this
 export type ReturnTransformer<ReturnType, _OperationName> = (
   schema: GenericSchema,
   operation: OperationTypes,
