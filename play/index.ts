@@ -9,8 +9,15 @@ const client = fetchClient({
 })
 
 const main = async () => {
-  const todos = await client.query.todos({ select: { user: true } })
-  console.log(todos)
+  const todos = await client.query.todos({ select: { user: true, contents: true } })
+  console.log(todos.length)
+  todos[0].contents
+  const user = await client.mutation.insertUser({ select: { email: true, locale: true } })
+  console.log(user)
+  user.locale
+
+  const todo = await client.mutation.insertTodo({})
+  todo.contents
 }
 
 main()

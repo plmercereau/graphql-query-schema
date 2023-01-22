@@ -9,39 +9,6 @@ import { jsonToGraphQLQuery, VariableType } from 'json-to-graphql-query'
 import { GenericSchema, OperationTypes, ReturnTransformer } from './types'
 import { VariableType as ModifiedVariableType } from './variables'
 
-const unwrapParameters = (parameters: any) => {
-  if (parameters === true) {
-    return true
-  }
-  if (!parameters || typeof parameters !== 'object') {
-    throw new Error('Invalid fields')
-  }
-  if (Object.keys(parameters).length === 0) {
-    return true
-  }
-
-  const fields = Object.entries(parameters['select']).reduce<any>((acc, [key, value]) => {
-    acc[key] = value
-    return acc
-  }, {})
-
-  const args =
-    parameters['variables'] &&
-    Object.keys(parameters['variables']).reduce<Record<string, unknown>>((acc, key) => {
-      acc[key] = parameters['variables'][key]
-      return acc
-    }, {})
-
-  if (Object.keys(fields).length === 0) {
-    return true
-  }
-
-  return {
-    __args: args,
-    ...fields
-  }
-}
-
 const reservedKeys = ['__typename']
 const toJson = (
   schema: GenericSchema,
@@ -49,10 +16,9 @@ const toJson = (
   typeRef?: IntrospectionTypeRef
 ) => {
   const select: Record<string, any> = {}
-  // TODO include the code of unwrapParameters here
-  const { __args, ...values } = unwrapParameters(parameters)
-  const keys = Object.keys(values)
-  if (values === true || keys.length === 0) {
+  const values = (parameters !== true && parameters.select) || {}
+
+  if (Object.keys(values).length === 0) {
     const fieldType = getConcreteType(schema, typeRef)
     if (fieldType?.kind === 'OBJECT') {
       fieldType.fields?.forEach((field) => {
@@ -62,29 +28,29 @@ const toJson = (
       })
     }
   } else {
-    keys.forEach((key) => {
+    Object.entries(values).forEach(([key, value]: [string, any]) => {
       if (reservedKeys.includes(key)) {
-        select[key] = values[key]
+        select[key] = value
       } else if (key === 'on') {
         select['__typename'] = true
-        select['__on'] = Object.keys(values[key]).map((fragmentName) => {
+        select['__on'] = Object.keys(value).map((fragmentName) => {
           return {
             __typeName: fragmentName,
             ...toJson(
               schema,
-              values[key][fragmentName],
+              value[fragmentName],
               // TODO not implemented yet: wildcard all scalar fields in unions
               undefined
             )
           }
         })
       } else {
-        if (values[key] instanceof ModifiedVariableType) {
+        if (value instanceof ModifiedVariableType) {
           select[key] = new VariableType(key)
-        } else if (typeof values[key] === 'object') {
+        } else if (typeof value === 'object') {
           select[key] = toJson(
             schema,
-            values[key],
+            value,
             getFieldTypeRefFromObjectTypeRef(schema, key, typeRef)
           )
         } else {
@@ -92,13 +58,13 @@ const toJson = (
             schema,
             getFieldTypeRefFromObjectTypeRef(schema, key, typeRef)
           )
-          select[key] = toJson(schema, values[key], fieldType)
+          select[key] = toJson(schema, value, fieldType)
         }
       }
     })
   }
 
-  return { ...select, __args }
+  return { ...select, __args: parameters !== true && parameters.variables }
 }
 
 const getTypeFromRef = (schema: GenericSchema, typeRef?: IntrospectionTypeRef) =>

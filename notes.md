@@ -1,6 +1,12 @@
 - [ ] Convert all arguments as variables in the generated graphql query and types
   - [ ] update the generated query
   - [ ] update the variable typings
+- [ ] `variables` should be required when one argument is required e.g. this should fail:
+  - `client.mutation.insertUser()`
+  - `client.mutation.insertUser({})`
+  - `client.mutation.insertUser({ select: true })`
+- [ ] non-nullable arguments should be required, for instance this should fail:
+  - `client.mutation.insertUser({ variables: { email: 'bob' }})` // `locale` is missing
 - [x] Get rid of .run() etc
 - [ ] Problem on mutations?
 - [ ] Implement `client.queryDocument`, `client.mutationDocument`, and `client.subscriptionDocument`
@@ -22,10 +28,10 @@
   ```ts
   export default {
     introspection: { __schema: '...' } as const,
-    queryRootType: 'Query' as const, // or null
-    mutationRootType: 'Mutation' as const, // or null
-    subscriptionRootType: 'Subscription' as const, // or null
-    types: {
+    queryRootType: 'Query' as 'Query', // or null
+    mutationRootType: 'Mutation' as 'Mutation', // or null
+    subscriptionRootType: 'Subscription' as 'Subscription', // or null
+    types: {} as unknown as {
       TypeName: TypeName
       // etc
     }

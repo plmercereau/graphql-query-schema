@@ -88,7 +88,7 @@ type AllParameters<
           : // * If the element key is not an object/array of objects, it's a scalar field
             true
       }
-> = { select: Fields } & { variables?: Args }
+> = { select?: Fields } & { variables?: Args }
 
 type IsTrueOrHasOnlyOptionals<T> = T extends true
   ? true
@@ -97,9 +97,9 @@ type IsTrueOrHasOnlyOptionals<T> = T extends true
   : false
 
 type QueryFields<
-  Params extends { select: any },
+  Params extends { select?: any },
   Element,
-  UnwrappedParams extends { select: any } = UnwrapArray<Params>
+  UnwrappedParams extends { select?: any } = UnwrapArray<Params>
 > = Omit<
   UnwrappedParams | UnwrappedParams extends undefined
     ? Element
@@ -128,7 +128,7 @@ type QueryFields<
 
 type UnionFields<
   Schema extends GenericSchema,
-  Params extends { select: any } | undefined,
+  Params extends { select?: any } | undefined,
   Fragments extends { on: any } = NonNullable<NonNullable<Params>['select']>
 > = ToUnion<{
   [fragmentName in keyof Fragments['on']]: {
