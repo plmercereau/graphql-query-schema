@@ -16,13 +16,45 @@ type Result = ResultOf<
     select: {
       continent: {
         select: {
-          code: true
+          countries: {
+            select: {
+              continent: {
+                select: {
+                  countries: {
+                    select: {
+                      code: true
+                      continent: {
+                        select: {
+                          countries: {
+                            select: {
+                              continent: {
+                                select: {
+                                  countries: {
+                                    select: {
+                                      languages: {
+                                        select: {
+                                          code: true
+                                          // LIMIT REACHED
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
-      capital: true
-      name: true
     }
   }
 >
 const x = {} as NonNullable<Result>
-x[0].continent.code
+x[0].continent.countries[0].continent.countries[0].continent
