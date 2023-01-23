@@ -12,6 +12,8 @@ pnpm run backend
 pnpm run generate
 ```
 
+Then, manually change the type of the `default` introspection object from `as unknown as IntrospectionQuery` to `as const`
+
 3. Run the tests
 
 ```
@@ -231,8 +233,9 @@ const todosFromUserDocument = query.todos({
 // the result and variables are fully typed
 const { todos: bobTodos } = await client.request(todosFromUserDocument, { email: 'bob@sponge.it' })
 
-
-const { todos: bobTodos } = await client.request(todosFromUserDocument, { where: { user: { email: { _eq: 'bob@sponge.it'  } } } })
+const { todos: bobTodos } = await client.request(todosFromUserDocument, {
+  where: { user: { email: { _eq: 'bob@sponge.it' } } }
+})
 ```
 
 ## Limitations
@@ -245,19 +248,3 @@ const { todos: bobTodos } = await client.request(todosFromUserDocument, { where:
 - Remaining limitations on Unions:
   - improve typings
   - does not support "select all scalars"
-
-### to do
-
-- Urql / Apollo tests
-- get rid of `variableType` and `enumType` now the schema is available on runtime
-- Types testing
-- Custom argument transformer e.g. nested / not nested, `_` or `__` or nothing, etc.
-- Test with other Hasura settings e.g. naming conventions
-- Multiple operations
-  - Maybe: `client.query({ todos: { id: true }, users: { email: true } })`
-- CI
-- GraphQL features:
-  - aliases
-  - unions (to be finished)
-  - interfaces
-- Try other graphql-codegen naming conventions, and pick the one that renders nicest types

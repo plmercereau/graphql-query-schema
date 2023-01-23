@@ -5297,4 +5297,4 @@ export default {
     ],
     "directives": []
   }
-} as unknown as IntrospectionQuery;
+} as const

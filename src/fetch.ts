@@ -1,53 +1,38 @@
 import crossFetch from 'cross-fetch'
 import {
-  OperationTypes,
   toRawGraphQL,
   ReturnTransformersFactory,
-  proxyConstructor,
-  GenericClient,
-  GenericSchema
+  OperationFactory,
+  toGraphQLDocument,
+  GenericSchema,
+  getRootOperationNames,
+  OperationTypes
 } from './shared'
 
-type FetchClientConstructorParams<Schema = Record<string, any>> = {
-  schema: Schema
-  url: string
-  headers?: HeadersInit
+type Client<Schema extends GenericSchema> = Readonly<{
+  [key in Exclude<OperationTypes, 'Subscription'> as Uncapitalize<key>]: OperationFactory<
+    Schema,
+    key,
+    'request'
+  >
+}> & {
+  [key in OperationTypes as `${Uncapitalize<key>}Document`]: OperationFactory<
+    Schema,
+    key,
+    'document'
+  >
 }
-
 type FetchWrapper = (init?: RequestInit) => Promise<Response>
-
-const fetchReturnTransformer = async <Result>(
-  schema: GenericSchema,
-  operation: OperationTypes,
-  property: string,
-  input: any,
-  fetchWrapper: FetchWrapper
-): ReturnType<ReturnTransformersFactory<Result>['fetch']> => {
-  const query = toRawGraphQL(schema, operation, property, input)
-  const request = await fetchWrapper({
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ query })
-  })
-  if (request.status !== 200) {
-    throw new Error(request.statusText)
-  }
-  const { data, errors } = await request.json()
-  if (errors) {
-    console.log(query)
-    console.log(errors)
-    throw new Error(errors[0].message)
-  }
-  return data[property]
-}
 
 export function fetchClient<Schema extends GenericSchema>({
   schema,
   url,
   headers
-}: FetchClientConstructorParams<Schema>): Omit<GenericClient<Schema, 'fetch'>, 'subscription'> &
+}: {
+  schema: Schema
+  url: string
+  headers?: HeadersInit
+}): Client<Schema> &
   Readonly<{
     fetch: FetchWrapper
     url: string
@@ -61,11 +46,88 @@ export function fetchClient<Schema extends GenericSchema>({
         ...init?.headers
       }
     })
+
+  const queryNames = getRootOperationNames(schema, 'Query')
+  const mutationNames = getRootOperationNames(schema, 'Mutation')
+  const subscriptionNames = getRootOperationNames(schema, 'Subscription')
+
+  const fetchReturnTransformer = async <Result>(
+    schema: GenericSchema,
+    operation: OperationTypes,
+    property: string,
+    input: any
+  ): ReturnType<ReturnTransformersFactory<Result>['request']> => {
+    const query = toRawGraphQL(schema, operation, property, input)
+    const request = await fetch({
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ query })
+    })
+    if (request.status !== 200) {
+      throw new Error(request.statusText)
+    }
+    const { data, errors } = await request.json()
+    if (errors) {
+      console.log(query)
+      console.log(errors)
+      throw new Error(errors[0].message)
+    }
+    return data[property]
+  }
+
+  const query = mutationNames.reduce<OperationFactory<Schema, 'Query', 'request'>>(
+    (acc, property) => {
+      acc[property] = (input: unknown) =>
+        fetchReturnTransformer(schema, 'Query', property, input) as any
+      return acc
+    },
+    {} as any
+  )
+
+  const mutation = mutationNames.reduce<OperationFactory<Schema, 'Mutation', 'request'>>(
+    (acc, property) => {
+      acc[property] = (input: unknown) =>
+        fetchReturnTransformer(schema, 'Mutation', property, input) as any
+      return acc
+    },
+    {} as any
+  )
+
+  const queryDocument = queryNames.reduce<OperationFactory<Schema, 'Query', 'document'>>(
+    (acc, property) => {
+      acc[property] = (input: unknown) => toGraphQLDocument(schema, 'Query', property, input) as any
+      return acc
+    },
+    {} as any
+  )
+
+  const mutationDocument = mutationNames.reduce<OperationFactory<Schema, 'Mutation', 'document'>>(
+    (acc, property) => {
+      acc[property] = (input: unknown) =>
+        toGraphQLDocument(schema, 'Mutation', property, input) as any
+      return acc
+    },
+    {} as any
+  )
+
+  const subscriptionDocument = subscriptionNames.reduce<
+    OperationFactory<Schema, 'Subscription', 'document'>
+  >((acc, property) => {
+    acc[property] = (input: unknown) =>
+      toGraphQLDocument(schema, 'Subscription', property, input) as any
+    return acc
+  }, {} as any)
+
   return {
     fetch,
     url,
     headers,
-    query: proxyConstructor(schema, 'Query', fetchReturnTransformer, fetch),
-    mutation: proxyConstructor(schema, 'Mutation', fetchReturnTransformer, fetch)
+    query,
+    mutation,
+    queryDocument,
+    mutationDocument,
+    subscriptionDocument
   }
 }

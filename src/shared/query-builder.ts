@@ -1,19 +1,19 @@
-import {
-  IntrospectionOutputTypeRef,
-  IntrospectionQuery,
-  IntrospectionType,
-  IntrospectionTypeRef,
-  parse
-} from 'graphql'
+import { parse } from 'graphql'
 import { jsonToGraphQLQuery, VariableType } from 'json-to-graphql-query'
-import { GenericSchema, OperationTypes, ReturnTransformer } from './types'
+import {
+  getConcreteType,
+  getFieldTypeRefFromObjectTypeRef,
+  getRootOperationNode,
+  TypeRef
+} from './schema'
+import { GenericSchema, OperationTypes } from './schema'
 import { VariableType as ModifiedVariableType } from './variables'
 
 const reservedKeys = ['__typename']
 const toJson = (
   schema: GenericSchema,
   parameters: Record<string, any> | true = true,
-  typeRef?: IntrospectionTypeRef
+  typeRef?: TypeRef
 ) => {
   const select: Record<string, any> = {}
   const values = (parameters !== true && parameters.select) || {}
@@ -67,68 +67,6 @@ const toJson = (
   return { ...select, __args: parameters !== true && parameters.variables }
 }
 
-const getTypeFromRef = (schema: GenericSchema, typeRef?: IntrospectionTypeRef) =>
-  (schema.default as IntrospectionQuery).__schema.types.find(
-    (t) => t.name === (typeRef as any)?.name
-  )
-
-const getFieldTypeRefFromObjectTypeRef = (
-  schema: GenericSchema,
-  fieldName: String,
-  objectTypeRef?: IntrospectionTypeRef
-) => {
-  const objectType = getTypeFromRef(schema, getConcreteType(schema, objectTypeRef))
-  if (objectType?.kind !== 'OBJECT') {
-    return undefined
-  }
-  return objectType?.fields?.find((f) => f.name === fieldName)?.type
-}
-
-const getRootOperationNode = (
-  schema: GenericSchema,
-  opType: OperationTypes,
-  rootOperation: string
-) => {
-  const introspection = schema.default as IntrospectionQuery
-
-  const rootNodeName = (
-    opType === 'Query'
-      ? introspection.__schema.queryType
-      : opType === 'Mutation'
-      ? introspection.__schema.mutationType
-      : introspection.__schema.subscriptionType
-  )?.name
-  if (!rootNodeName) {
-    throw new Error(`Could not find root type for operation type ${opType.toLowerCase()}`)
-  }
-  const rootNode = introspection.__schema.types.find((type) => type.name === rootNodeName)
-  if (!rootNode) {
-    throw new Error(`Could not find root node for operation type ${opType.toLowerCase()}`)
-  }
-  if (rootNode.kind !== 'OBJECT') {
-    throw new Error(`Root node for operation type ${opType.toLowerCase()} is not an object`)
-  }
-
-  const node = rootNode.fields.find((field) => field.name === rootOperation)
-  if (!node) {
-    throw new Error(`Could not find root operation ${rootOperation}`)
-  }
-  return node
-}
-
-const getConcreteType = (
-  schema: GenericSchema,
-  type?: IntrospectionTypeRef | IntrospectionOutputTypeRef
-): IntrospectionType | undefined => {
-  if (!type) {
-    return undefined
-  }
-  if (type.kind === 'NON_NULL' || type.kind === 'LIST') {
-    return getConcreteType(schema, type.ofType)
-  }
-  return (schema.default as IntrospectionQuery).__schema.types.find((f) => f.name === type.name)
-}
-
 export const toRawGraphQL = (
   schema: GenericSchema,
   opType: OperationTypes,
@@ -146,22 +84,9 @@ export const toRawGraphQL = (
   )
 }
 
-export const toGraphQL = (
+export const toGraphQLDocument = (
   schema: GenericSchema,
   opType: OperationTypes,
   rootOperation: string,
   params: any
 ) => parse(toRawGraphQL(schema, opType, rootOperation, params))
-
-export const proxyConstructor = (
-  schema: GenericSchema,
-  operation: OperationTypes,
-  returnTransformer: ReturnTransformer<any, any>,
-  ...args: any
-) =>
-  new Proxy({} as any, {
-    get(_, prop: string) {
-      return (input: Record<string, any>) =>
-        returnTransformer(schema, operation, prop, input, ...args)
-    }
-  })

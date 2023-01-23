@@ -9,46 +9,8 @@ import {
   IsUnion,
   OmitOptionalFields
 } from './type-helpers'
-
+import { FieldArgs, GenericSchema, OperationsOf, OperationTypes, RootOperationName } from './schema'
 import { VariablesInputType, VariablesTypes } from './variables'
-
-export type GenericSchema = Record<string, any>
-
-export type OperationTypes = 'Query' | 'Mutation' | 'Subscription'
-
-type OperationSuffix<Schema extends GenericSchema> = Schema['Query'] extends object
-  ? ''
-  : Schema['Query_Root'] extends object
-  ? '_Root'
-  : Schema['Root'] extends object
-  ? ''
-  : never
-
-// TODO get this information from the introspection schema - we'll be sure to handle any edge cases
-type RootOperation<
-  Schema extends GenericSchema,
-  OperationType extends OperationTypes
-> = Schema[OperationType] extends object
-  ? Schema[OperationType]['prototype']
-  : // * Standard syntax
-  Schema[`${OperationType}_Root`] extends object
-  ? Schema[`${OperationType}_Root`]['prototype']
-  : // * Hasura syntax
-  Schema['Root'] extends object
-  ? OperationType extends 'Query'
-    ? Schema['Root']['prototype']
-    : never
-  : never
-
-type FieldArgs<
-  Schema extends GenericSchema,
-  OperationType extends OperationTypes,
-  FieldName extends string
-> = Schema[`Root${Capitalize<FieldName>}Args`] extends object
-  ? // * Relay syntax
-    Schema[`Root${Capitalize<FieldName>}Args`]['prototype']
-  : // * Standard syntax
-    Schema[`${OperationType}${OperationSuffix<Schema>}${Capitalize<FieldName>}Args`]['prototype']
 
 type AllParameters<
   Schema extends GenericSchema,
@@ -146,7 +108,7 @@ export type OperationFactory<
   Schema extends GenericSchema,
   OperationType extends OperationTypes,
   ReturnTransformerName extends keyof ReturnTransformersFactory,
-  Operations extends Record<string, any> = Omit<RootOperation<Schema, OperationType>, '__typename'>
+  Operations = OperationsOf<Schema, OperationType>
 > = Required<{
   [name in keyof Operations]: <
     Operation extends Operations[name],
@@ -176,34 +138,20 @@ export type OperationFactory<
   ) => ReturnType<ReturnTransformer>
 }>
 
-// TODO get rid of this
-export type GenericClient<
-  Schema extends GenericSchema,
-  ReturnTransformerName extends keyof ReturnTransformersFactory
-> = Readonly<{
-  [key in OperationTypes as Uncapitalize<key>]: OperationFactory<Schema, key, ReturnTransformerName>
-}>
-
-// TODO get rid of this
 export type ReturnTransformersFactory<
   Result = any,
   Variables = any,
   OperationName extends string = any
 > = {
   /** Typed Document Node client */
-  document: ReturnTransformer<
-    TypedDocumentNode<{ [key in OperationName]: Result }, Variables>,
-    OperationName
-  >
-  /** Run the operation with Fetch */
-  fetch: ReturnTransformer<Promise<Result>, OperationName>
+  document: ReturnTransformer<TypedDocumentNode<{ [key in OperationName]: Result }, Variables>>
+  /** Run the operation  */
+  request: ReturnTransformer<Promise<Result>>
 }
 
-// TODO get rid of this
-export type ReturnTransformer<ReturnType, _OperationName> = (
+export type ReturnTransformer<ReturnType> = (
   schema: GenericSchema,
   operation: OperationTypes,
   property: string,
-  input: any,
-  ...other: any
+  input: any
 ) => ReturnType

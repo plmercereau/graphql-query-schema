@@ -121,7 +121,6 @@ export class _Service {
   sdl?: Maybe<Scalars['String']>
 }
 
-import { IntrospectionQuery } from 'graphql'
 export default {
   __schema: {
     queryType: {
@@ -626,4 +625,4 @@ export default {
     ],
     directives: []
   }
-} as unknown as IntrospectionQuery
+} as const

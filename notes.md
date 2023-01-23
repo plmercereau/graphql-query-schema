@@ -1,39 +1,60 @@
+## TODO
+
 - [ ] Convert all arguments as variables in the generated graphql query and types
   - [ ] update the generated query
   - [ ] update the variable typings
-- [ ] `variables` should be required when one argument is required e.g. this should fail:
-  - `client.mutation.insertUser()`
-  - `client.mutation.insertUser({})`
-  - `client.mutation.insertUser({ select: true })`
-- [ ] non-nullable arguments should be required, for instance this should fail:
-  - `client.mutation.insertUser({ variables: { email: 'bob' }})` // `locale` is missing
-- [x] Get rid of .run() etc
-- [ ] Problem on mutations?
-- [ ] Implement `client.queryDocument`, `client.mutationDocument`, and `client.subscriptionDocument`
-  - [ ] get rid of the "generic" client
+- [ ] Correct typings
+  - [ ] `variables` should be required when one argument is required e.g. this should fail:
+    - `client.mutation.insertUser()`
+    - `client.mutation.insertUser({})`
+    - `client.mutation.insertUser({ select: true })`
+  - [ ] non-nullable arguments should be required, for instance this should fail:
+    - `client.mutation.insertUser({ variables: { email: 'bob' }})` // `locale` is missing
 - [ ] Urql PR / typescript codegen PR ? or we create our own plugin
-- [ ] Get rid of proxies
-- [ ] Use the introspection schema to find the query roots
-- [ ] GraphQL codegen plugin
-- [ ] Enums
+- [ ] Enums: get rid of `enumType` now the schema is available on runtime
   - [ ] change the typings to allow the list of values e.g. `'essay'` instead of `Categories_Enum.Essay`?
   - [ ] detect it's an enum when generating the query
-- [ ] Check and complete umions
-- [ ] Variables
+- [ ] Check and complete unions
+- [ ] Use the introspection schema to
+  - [x] find the query roots
+  - [ ] find the argument types
+- [ ] GraphQL codegen plugin
 
   - `as const`
-  - get rid of the classes?
-    - create a default export like this:
+  - get rid of the classes config, and prefer interfaces
+    create a default export like this:
 
   ```ts
   export default {
     introspection: { __schema: '...' } as const,
-    queryRootType: 'Query' as 'Query', // or null
-    mutationRootType: 'Mutation' as 'Mutation', // or null
-    subscriptionRootType: 'Subscription' as 'Subscription', // or null
     types: {} as unknown as {
       TypeName: TypeName
       // etc
+    },
+    arguments: {} as unknown as {
+      // ...
     }
   }
   ```
+
+## Done
+
+- [x] Get rid of proxies
+- [x] Get rid of .run() etc
+- [x] Implement `client.queryDocument`, `client.mutationDocument`, and `client.subscriptionDocument`
+  - [x] get rid of the "generic" client
+
+## Sort
+
+- Urql / Apollo tests
+- Types testing
+- Test with other Hasura settings e.g. naming conventions
+- CI
+- Other GraphQL features:
+  - [ ] variables (for `client.queryDocument` etc)
+  - [ ] aliases
+  - [ ] unions (to be finished)
+  - [ ] Interfaces
+  - [ ] Multiple operations
+    - Maybe: `client.query({ todos: { id: true }, users: { email: true } })`
+- Try other graphql-codegen naming conventions, and pick the one that renders nicest types

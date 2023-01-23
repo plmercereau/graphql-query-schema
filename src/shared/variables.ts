@@ -1,6 +1,6 @@
 import { VariableType as OriginalVariableType } from 'json-to-graphql-query'
+import { GenericSchema } from './schema'
 import { GraphQLPredicate, MakeOptional, Select } from './type-helpers'
-import { GenericSchema } from './types'
 
 export class VariableType<T extends string> extends OriginalVariableType {
   value: T

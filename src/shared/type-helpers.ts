@@ -1,3 +1,5 @@
+import { Split, Join } from 'type-fest'
+
 export type StripImpossibleProperties<T> = Pick<
   T,
   { [Key in keyof T]-?: T[Key] extends never ? never : Key }[keyof T]
@@ -59,3 +61,12 @@ export type IsUnion<T> = [T] extends [UnionToIntersection<T>] ? false : true
 export type RequiredField<T, K extends keyof T> = T & Required<Pick<T, K>>
 
 export type ToUnion<T> = T[keyof T]
+
+type CapitalizeEach<T> = T extends [infer I, ...infer R]
+  ? I extends string
+    ? [Capitalize<I>, ...CapitalizeEach<R>]
+    : []
+  : []
+
+/** Transform `a_string_type` to `A_String_Type`  */
+export type CapitalizeSnakeCase<T extends string> = Join<CapitalizeEach<Split<T, '_'>>, '_'>

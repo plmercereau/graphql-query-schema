@@ -1,13 +1,15 @@
-import { groq } from '../src'
 import * as schema from '../schemas/hasura'
 import { print } from 'graphql'
 import { describe, expect, it } from 'vitest'
-
-const { query, mutation, subscription } = groq(schema)
+import { fetchClient } from '../src'
+const { queryDocument, mutationDocument, subscriptionDocument } = fetchClient({ schema, url: '' })
 
 describe('main', () => {
   it('single todo with one field', () => {
-    const q = query.todo({ _id: '6503ef87-d0c2-47a5-80a2-d664a5ae23c1', id: true })
+    const q = queryDocument.todo({
+      select: { id: true },
+      variables: { id: '6503ef87-d0c2-47a5-80a2-d664a5ae23c1' }
+    })
     expect(print(q)).toMatchInlineSnapshot(`
       "{
         todo(id: \\"6503ef87-d0c2-47a5-80a2-d664a5ae23c1\\") {
@@ -18,9 +20,13 @@ describe('main', () => {
   })
 
   it('single todo', () => {
-    const q = query.todo({
-      createdAt: true,
-      _id: '6503ef87-d0c2-47a5-80a2-d664a5ae23c1'
+    const q = queryDocument.todo({
+      select: {
+        createdAt: true
+      },
+      variables: {
+        id: '6503ef87-d0c2-47a5-80a2-d664a5ae23c1'
+      }
     })
     expect(print(q)).toMatchInlineSnapshot(`
       "{
@@ -32,14 +38,18 @@ describe('main', () => {
   })
 
   it('todo list', () => {
-    const q = query.todos({
-      createdAt: true,
-      contents: true,
-      _limit: 2,
-      _where: {
-        createdAt: { _lte: new Date(2023, 1, 5).toISOString() }
+    const q = queryDocument.todos({
+      select: {
+        createdAt: true,
+        contents: true
       },
-      _order_by: [{ createdAt: schema.Order_By.Asc }]
+      variables: {
+        limit: 2,
+        where: {
+          createdAt: { _lte: new Date(2023, 1, 5).toISOString() }
+        },
+        order_by: [{ createdAt: schema.Order_By.Asc }]
+      }
     })
     expect(print(q)).toMatchInlineSnapshot(`
       "{
@@ -56,7 +66,17 @@ describe('main', () => {
   })
 
   it('select a relationship', () => {
-    const q = query.todos({ userId: true, user: { email: true, avatarUrl: true } })
+    const q = queryDocument.todos({
+      select: {
+        userId: true,
+        user: {
+          select: {
+            email: true,
+            avatarUrl: true
+          }
+        }
+      }
+    })
     expect(print(q)).toMatchInlineSnapshot(`
       "{
         todos {
@@ -71,9 +91,11 @@ describe('main', () => {
   })
 
   it('use an aggregate', () => {
-    const q = query.todosAggregate({
-      aggregate: { count: true },
-      nodes: { id: true, createdAt: true, user: { email: true } }
+    const q = queryDocument.todosAggregate({
+      select: {
+        aggregate: { select: { count: true } },
+        nodes: { select: { id: true, createdAt: true, user: { select: { email: true } } } }
+      }
     })
     expect(print(q)).toMatchInlineSnapshot(`
       "{
@@ -94,10 +116,20 @@ describe('main', () => {
   })
 
   it('generate a subscription', () => {
-    const q = subscription.todos({
-      _where: { user: { roles: { role: { _eq: 'user' } } } },
-      userId: true,
-      user: { email: true, avatarUrl: true, roles_aggregate: { aggregate: { count: true } } }
+    const q = subscriptionDocument.todos({
+      variables: {
+        where: { user: { roles: { role: { _eq: 'user' } } } }
+      },
+      select: {
+        userId: true,
+        user: {
+          select: {
+            email: true,
+            avatarUrl: true,
+            roles_aggregate: { select: { aggregate: { select: { count: true } } } }
+          }
+        }
+      }
     })
     expect(print(q)).toMatchInlineSnapshot(`
       "subscription {
@@ -118,13 +150,17 @@ describe('main', () => {
   })
 
   it('single insert mutation', () => {
-    const q = mutation.insertFile({
-      _object: { bucketId: 'dew', name: 'dew' },
-      _on_conflict: {
-        constraint: schema.Files_Constraint.FilesPkey,
-        update_columns: [schema.Files_Update_Column.Name]
+    const q = mutationDocument.insertFile({
+      select: {
+        id: true
       },
-      id: true
+      variables: {
+        object: { bucketId: 'dew', name: 'dew' },
+        on_conflict: {
+          constraint: schema.Files_Constraint.FilesPkey,
+          update_columns: [schema.Files_Update_Column.Name]
+        }
+      }
     })
     expect(print(q)).toMatchInlineSnapshot(`
       "mutation {
@@ -139,18 +175,24 @@ describe('main', () => {
   })
 
   it('multiple inserts mutation', () => {
-    const q = mutation.insertFiles({
-      _objects: [
-        { bucketId: 'dew', name: 'dew' },
-        { bucketId: 'dew', name: 'dew' }
-      ],
-      _on_conflict: {
-        constraint: schema.Files_Constraint.FilesPkey,
-        update_columns: [schema.Files_Update_Column.Name]
+    const q = mutationDocument.insertFiles({
+      select: {
+        affected_rows: true,
+        returning: {
+          select: {
+            id: true
+          }
+        }
       },
-      affected_rows: true,
-      returning: {
-        id: true
+      variables: {
+        objects: [
+          { bucketId: 'dew', name: 'dew' },
+          { bucketId: 'dew', name: 'dew' }
+        ],
+        on_conflict: {
+          constraint: schema.Files_Constraint.FilesPkey,
+          update_columns: [schema.Files_Update_Column.Name]
+        }
       }
     })
     expect(print(q)).toMatchInlineSnapshot(`
@@ -169,9 +211,13 @@ describe('main', () => {
   })
 
   it('single deletion mutation', () => {
-    const q = mutation.deleteFile({
-      _id: '6503ef87-d0c2-47a5-80a2-d664a5ae23c1',
-      id: true
+    const q = mutationDocument.deleteFile({
+      select: {
+        id: true
+      },
+      variables: {
+        id: '6503ef87-d0c2-47a5-80a2-d664a5ae23c1'
+      }
     })
     expect(print(q)).toMatchInlineSnapshot(`
       "mutation {
@@ -183,9 +229,13 @@ describe('main', () => {
   })
 
   it('multiple deletion mutation', () => {
-    const q = mutation.deleteFiles({
-      _where: { bucketId: { _eq: 'default' } },
-      affected_rows: true
+    const q = mutationDocument.deleteFiles({
+      select: {
+        affected_rows: true
+      },
+      variables: {
+        where: { bucketId: { _eq: 'default' } }
+      }
     })
     expect(print(q)).toMatchInlineSnapshot(`
       "mutation {
