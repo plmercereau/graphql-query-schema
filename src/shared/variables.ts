@@ -10,10 +10,10 @@ export class VariableType<T extends string> extends OriginalVariableType {
   }
 }
 
-type ScalarTypes<Schema extends GenericSchema> = Schema['Scalars']['prototype']
+type ScalarTypes<Schema extends GenericSchema> = Schema['types']['Scalars']
 type ArgTypes<Schema extends GenericSchema> = Select<
   {
-    [name in keyof Schema]: Schema[name]['prototype']
+    [name in keyof Schema['types']]: Schema['types'][name]
   },
   `${string}Args`
 >

@@ -10,51 +10,9 @@ type FullInputFields = FullInputFieldsOf<typeof schema, 'query', 'country'>
 
 type Result = ResultOf<
   typeof schema,
-  'query',
-  'countries',
   {
-    select: {
-      continent: {
-        select: {
-          countries: {
-            select: {
-              continent: {
-                select: {
-                  countries: {
-                    select: {
-                      code: true
-                      continent: {
-                        select: {
-                          countries: {
-                            select: {
-                              continent: {
-                                select: {
-                                  countries: {
-                                    select: {
-                                      languages: {
-                                        select: {
-                                          code: true
-                                          // LIMIT REACHED
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+    select: true
   }
 >
 const x = {} as NonNullable<Result>
-x[0].continent.countries[0].continent.countries[0].continent
+x

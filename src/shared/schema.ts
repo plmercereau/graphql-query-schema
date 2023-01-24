@@ -1,15 +1,16 @@
 import { CapitalizeSnakeCase } from './type-helpers'
 
 export type GenericSchema = Record<string, any> & {
-  default: Introspection
+  introspection: Introspection
+  types: Record<string, any>
 }
 
 export type OperationTypes = 'Query' | 'Mutation' | 'Subscription'
 
-export type RootOperationName<
+type RootOperationName<
   Schema extends GenericSchema,
   OperationType extends OperationTypes,
-  IntrospectionSchema = Schema['default']['__schema'],
+  IntrospectionSchema = Schema['introspection']['__schema'],
   IntrospectionProperty = `${Uncapitalize<OperationType>}Type`
 > = IntrospectionProperty extends keyof IntrospectionSchema
   ? IntrospectionSchema[IntrospectionProperty] extends { name: string }
@@ -22,8 +23,8 @@ export type RootOperation<
   OperationType extends OperationTypes,
   OperationName = RootOperationName<Schema, OperationType>
 > = OperationName extends string
-  ? Schema[OperationName] extends object
-    ? Schema[OperationName]['prototype']
+  ? Schema['types'][OperationName] extends object
+    ? Schema['types'][OperationName]
     : never
   : never
 
@@ -37,11 +38,11 @@ export type FieldArgs<
   OperationType extends OperationTypes,
   FieldName extends string,
   Suffix extends string = `${Capitalize<FieldName>}Args`
-> = Schema[`Root${Suffix}`] extends object
+> = Schema['types'][`Root${Suffix}`] extends object
   ? // * Relay syntax
-    Schema[`Root${Suffix}`]['prototype']
+    Schema['types'][`Root${Suffix}`]
   : // * Standard syntax
-    Schema[`${RootOperationName<Schema, OperationType>}${Suffix}`]['prototype']
+    Schema['types'][`${RootOperationName<Schema, OperationType>}${Suffix}`]
 
 export type Introspection = {
   __schema: {
@@ -97,6 +98,13 @@ export type EnumType = {
   enumValues?: Readonly<Array<{ name: string }>>
 }
 
+// ! TODO  Not implemented yet
+export type InterfaceType = {
+  kind: 'INTERFACE'
+  name: string
+  ofType?: null
+}
+
 export type TypeRef =
   | InputObjectType
   | ListType
@@ -105,6 +113,7 @@ export type TypeRef =
   | ScalarType
   | UnionType
   | EnumType
+  | InterfaceType
 
 export type FieldDefinition = {
   readonly name: string
@@ -116,7 +125,7 @@ export const getIntrospectionType = <S extends GenericSchema, Type extends Parti
   schema: S,
   type: Type
 ) =>
-  schema.default.__schema.types.find((t) =>
+  schema.introspection.__schema.types.find((t) =>
     Object.entries(type).every(([key, value]) => t[key as keyof TypeRef] === value)
   )
 
@@ -127,7 +136,7 @@ const getRootOperationNodeType = <S extends GenericSchema, OperationType extends
   const rootOperationKey = operationType.toLowerCase()
 
   const name =
-    schema.default.__schema[
+    schema.introspection.__schema[
       `${rootOperationKey}Type` as 'queryType' | 'mutationType' | 'subscriptionType'
     ]?.name
   if (!name) {
@@ -157,7 +166,7 @@ export const getRootOperationNames = <
 }
 
 export const getTypeFromRef = (schema: GenericSchema, typeRef?: TypeRef) =>
-  schema.default.__schema.types.find(
+  schema.introspection.__schema.types.find(
     (t) => 'name' in t && typeRef && 'name' in typeRef && t.name === typeRef.name
   )
 
@@ -198,5 +207,5 @@ export const getConcreteType = (schema: GenericSchema, type?: TypeRef): TypeRef 
   if (type.kind === 'NON_NULL' || type.kind === 'LIST') {
     return getConcreteType(schema, type.ofType)
   }
-  return schema.default.__schema.types?.find((f) => 'name' in f && f.name === type.name)
+  return schema.introspection.__schema.types?.find((f) => 'name' in f && f.name === type.name)
 }

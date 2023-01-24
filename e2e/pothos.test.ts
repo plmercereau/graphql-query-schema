@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { fetchClient } from '../src'
-import * as schema from '../schemas/pothos'
+import schema from '../schemas/pothos'
 
 const client = fetchClient({
   schema,

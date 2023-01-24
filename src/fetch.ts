@@ -77,14 +77,11 @@ export function fetchClient<Schema extends GenericSchema>({
     return data[property]
   }
 
-  const query = mutationNames.reduce<OperationFactory<Schema, 'Query', 'request'>>(
-    (acc, property) => {
-      acc[property] = (input: unknown) =>
-        fetchReturnTransformer(schema, 'Query', property, input) as any
-      return acc
-    },
-    {} as any
-  )
+  const query = queryNames.reduce<OperationFactory<Schema, 'Query', 'request'>>((acc, property) => {
+    acc[property] = (input: unknown) =>
+      fetchReturnTransformer(schema, 'Query', property, input) as any
+    return acc
+  }, {} as any)
 
   const mutation = mutationNames.reduce<OperationFactory<Schema, 'Mutation', 'request'>>(
     (acc, property) => {

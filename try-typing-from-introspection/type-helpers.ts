@@ -1,6 +1,6 @@
 export type FilterArrayItemsThatExtends<T, U> = T extends readonly []
   ? []
-  : T extends [infer I, ...infer Rest]
+  : T extends readonly [infer I, ...infer Rest]
   ? I extends U
     ? [I, ...FilterArrayItemsThatExtends<Rest, U>]
     : FilterArrayItemsThatExtends<Rest, U>

@@ -1,8 +1,8 @@
 import fetch from 'cross-fetch'
 import { beforeAll, describe, expect, it } from 'vitest'
 import { GraphQLClient } from 'graphql-request'
-import { groq } from '../src'
-import * as schema from '../schemas/hasura'
+import schema from '../schemas/hasura'
+import { fetchClient } from '../src'
 
 const url = 'http://localhost:1337/v1/graphql'
 const headers = {
@@ -10,7 +10,7 @@ const headers = {
 }
 
 const client = new GraphQLClient(url, { headers })
-const { mutation } = groq(schema)
+const { mutationDocument } = fetchClient({ schema, url, headers })
 
 describe('Hasura with graphql-request', () => {
   let userId: string
@@ -27,7 +27,7 @@ describe('Hasura with graphql-request', () => {
   })
 
   it('should insert a todo', async () => {
-    const operation = mutation.insertTodo({
+    const operation = mutationDocument.insertTodo({
       variables: {
         object: { contents: 'test', userId }
       },
@@ -40,7 +40,7 @@ describe('Hasura with graphql-request', () => {
   })
 
   it('should insert and remove a todo', async () => {
-    const operation = mutation.insertTodo({
+    const operation = mutationDocument.insertTodo({
       variables: { object: { contents: 'test', userId } },
       select: { contents: true, id: true }
     })
@@ -48,7 +48,7 @@ describe('Hasura with graphql-request', () => {
     expect(insertTodo.contents).toMatchInlineSnapshot('"test"')
 
     const { deleteTodo } = await client.request(
-      mutation.deleteTodo({
+      mutationDocument.deleteTodo({
         variables: { id: insertTodo.id },
         select: { contents: true }
       })

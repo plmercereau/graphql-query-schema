@@ -9,7 +9,7 @@ import {
   IsUnion,
   OmitOptionalFields
 } from './type-helpers'
-import { FieldArgs, GenericSchema, OperationsOf, OperationTypes, RootOperationName } from './schema'
+import { FieldArgs, GenericSchema, OperationsOf, OperationTypes } from './schema'
 import { VariablesInputType, VariablesTypes } from './variables'
 
 type AllParameters<
@@ -25,7 +25,7 @@ type AllParameters<
           [key in NonNullable<Element['__typename']>]?: AllParameters<
             Schema,
             OperationType,
-            Schema[key]['prototype'],
+            Schema['types'][key],
             Args
           >
         }
@@ -91,13 +91,13 @@ type QueryFields<
 type UnionFields<
   Schema extends GenericSchema,
   Params extends { select?: any } | undefined,
-  Fragments extends { on: any } = NonNullable<NonNullable<Params>['select']>
+  Fragments extends { on: any } = NonNullable<NonNullable<Params>['select']> & { on: {} }
 > = ToUnion<{
   [fragmentName in keyof Fragments['on']]: {
-    __typename: NonNullable<Schema[string & fragmentName]['prototype']['__typename']>
+    __typename: NonNullable<Schema['types'][string & fragmentName]['__typename']>
   } & QueryFields<
     NonNullable<Fragments['on'][fragmentName]>,
-    Schema[string & fragmentName]['prototype']
+    Schema['types'][string & fragmentName]
   >
 }>
 

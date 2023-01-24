@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { fetchClient } from '../src'
-import * as schema from '../schemas/swapi'
+import schema from '../schemas/swapi'
 
 const client = fetchClient({
   schema,

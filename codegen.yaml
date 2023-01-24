@@ -1,6 +1,3 @@
-config:
-  declarationKind: 'class'
-  module: es2015
 generates:
   ./schemas/hasura.ts:
     schema:
@@ -18,39 +15,18 @@ generates:
         jsonb: 'JSONValue'
         bytea: 'string'
     plugins:
-      - typescript
-      - urql-introspection
+      - ./plugin/index.js
       - add:
           content: 'export type JSONValue = string | number | boolean | { [x: string]: JSONValue } | Array<JSONValue>;'
   ./schemas/countries.ts:
     schema: https://countries.trevorblades.com/graphql
     plugins:
-      - typescript
-      - urql-introspection
+      - ./plugin/index.js
   ./schemas/swapi.ts:
     schema: https://swapi-graphql.netlify.app/.netlify/functions/index
     plugins:
-      - typescript
-      - urql-introspection
+      - ./plugin/index.js
   ./schemas/pothos.ts:
     schema: http://localhost:3000/graphql
     plugins:
-      - typescript
-      - urql-introspection
-  # # Unavailable
-  #   ./schemas/spacex.ts:
-  #     schema: https://api.spacex.land/graphql/
-  #     plugins:
-  #       - typescript
-  #       - urql-introspection
-  ./wip/_schema.ts:
-    schema: https://countries.trevorblades.com/graphql
-    plugins:
-      - urql-introspection
-    config:
-      declarationKind: 'class'
-      module: es2015
-      useTypeImports: true
-      includeScalars: true
-      includeEnums: true
-      includeInputs: true
+      - ./plugin/index.js

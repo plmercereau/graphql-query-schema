@@ -4,7 +4,7 @@ export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K]
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 /** All built-in and custom scalars, mapped to their actual values */
-export class Scalars {
+export type Scalars = {
   ID: string;
   String: string;
   Boolean: boolean;
@@ -12,13 +12,8 @@ export class Scalars {
   Float: number;
 };
 
-/** An object with an ID */
-export class Node {
-  /** The id of the object. */
-  id: Scalars['ID'];
-};
 /** A single film. */
-export class Film extends Node {
+export type Film = Node & {
   __typename?: 'Film';
   characterConnection?: Maybe<FilmCharactersConnection>;
   /** The ISO 8601 date format of the time that this resource was created. */
@@ -47,7 +42,7 @@ export class Film extends Node {
 
 
 /** A single film. */
-export class FilmCharacterConnectionArgs {
+export type FilmCharacterConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -56,7 +51,7 @@ export class FilmCharacterConnectionArgs {
 
 
 /** A single film. */
-export class FilmPlanetConnectionArgs {
+export type FilmPlanetConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -65,7 +60,7 @@ export class FilmPlanetConnectionArgs {
 
 
 /** A single film. */
-export class FilmSpeciesConnectionArgs {
+export type FilmSpeciesConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -74,7 +69,7 @@ export class FilmSpeciesConnectionArgs {
 
 
 /** A single film. */
-export class FilmStarshipConnectionArgs {
+export type FilmStarshipConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -83,7 +78,7 @@ export class FilmStarshipConnectionArgs {
 
 
 /** A single film. */
-export class FilmVehicleConnectionArgs {
+export type FilmVehicleConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -91,7 +86,7 @@ export class FilmVehicleConnectionArgs {
 };
 
 /** A connection to a list of items. */
-export class FilmCharactersConnection {
+export type FilmCharactersConnection = {
   __typename?: 'FilmCharactersConnection';
   /**
    * A list of all of the objects returned in the connection. This is a convenience
@@ -116,7 +111,7 @@ export class FilmCharactersConnection {
 };
 
 /** An edge in a connection. */
-export class FilmCharactersEdge {
+export type FilmCharactersEdge = {
   __typename?: 'FilmCharactersEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -125,7 +120,7 @@ export class FilmCharactersEdge {
 };
 
 /** A connection to a list of items. */
-export class FilmPlanetsConnection {
+export type FilmPlanetsConnection = {
   __typename?: 'FilmPlanetsConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<FilmPlanetsEdge>>>;
@@ -150,7 +145,7 @@ export class FilmPlanetsConnection {
 };
 
 /** An edge in a connection. */
-export class FilmPlanetsEdge {
+export type FilmPlanetsEdge = {
   __typename?: 'FilmPlanetsEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -159,7 +154,7 @@ export class FilmPlanetsEdge {
 };
 
 /** A connection to a list of items. */
-export class FilmSpeciesConnection {
+export type FilmSpeciesConnection = {
   __typename?: 'FilmSpeciesConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<FilmSpeciesEdge>>>;
@@ -184,7 +179,7 @@ export class FilmSpeciesConnection {
 };
 
 /** An edge in a connection. */
-export class FilmSpeciesEdge {
+export type FilmSpeciesEdge = {
   __typename?: 'FilmSpeciesEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -193,7 +188,7 @@ export class FilmSpeciesEdge {
 };
 
 /** A connection to a list of items. */
-export class FilmStarshipsConnection {
+export type FilmStarshipsConnection = {
   __typename?: 'FilmStarshipsConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<FilmStarshipsEdge>>>;
@@ -218,7 +213,7 @@ export class FilmStarshipsConnection {
 };
 
 /** An edge in a connection. */
-export class FilmStarshipsEdge {
+export type FilmStarshipsEdge = {
   __typename?: 'FilmStarshipsEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -227,7 +222,7 @@ export class FilmStarshipsEdge {
 };
 
 /** A connection to a list of items. */
-export class FilmVehiclesConnection {
+export type FilmVehiclesConnection = {
   __typename?: 'FilmVehiclesConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<FilmVehiclesEdge>>>;
@@ -252,7 +247,7 @@ export class FilmVehiclesConnection {
 };
 
 /** An edge in a connection. */
-export class FilmVehiclesEdge {
+export type FilmVehiclesEdge = {
   __typename?: 'FilmVehiclesEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -261,7 +256,7 @@ export class FilmVehiclesEdge {
 };
 
 /** A connection to a list of items. */
-export class FilmsConnection {
+export type FilmsConnection = {
   __typename?: 'FilmsConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<FilmsEdge>>>;
@@ -286,7 +281,7 @@ export class FilmsConnection {
 };
 
 /** An edge in a connection. */
-export class FilmsEdge {
+export type FilmsEdge = {
   __typename?: 'FilmsEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -294,9 +289,14 @@ export class FilmsEdge {
   node?: Maybe<Film>;
 };
 
+/** An object with an ID */
+export type Node = {
+  /** The id of the object. */
+  id: Scalars['ID'];
+};
 
 /** Information about pagination in a connection. */
-export class PageInfo {
+export type PageInfo = {
   __typename?: 'PageInfo';
   /** When paginating forwards, the cursor to continue. */
   endCursor?: Maybe<Scalars['String']>;
@@ -309,7 +309,7 @@ export class PageInfo {
 };
 
 /** A connection to a list of items. */
-export class PeopleConnection {
+export type PeopleConnection = {
   __typename?: 'PeopleConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<PeopleEdge>>>;
@@ -334,7 +334,7 @@ export class PeopleConnection {
 };
 
 /** An edge in a connection. */
-export class PeopleEdge {
+export type PeopleEdge = {
   __typename?: 'PeopleEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -343,7 +343,7 @@ export class PeopleEdge {
 };
 
 /** An individual person or character within the Star Wars universe. */
-export class Person extends Node {
+export type Person = Node & {
   __typename?: 'Person';
   /**
    * The birth year of the person, using the in-universe standard of BBY or ABY -
@@ -391,7 +391,7 @@ export class Person extends Node {
 
 
 /** An individual person or character within the Star Wars universe. */
-export class PersonFilmConnectionArgs {
+export type PersonFilmConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -400,7 +400,7 @@ export class PersonFilmConnectionArgs {
 
 
 /** An individual person or character within the Star Wars universe. */
-export class PersonStarshipConnectionArgs {
+export type PersonStarshipConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -409,7 +409,7 @@ export class PersonStarshipConnectionArgs {
 
 
 /** An individual person or character within the Star Wars universe. */
-export class PersonVehicleConnectionArgs {
+export type PersonVehicleConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -417,7 +417,7 @@ export class PersonVehicleConnectionArgs {
 };
 
 /** A connection to a list of items. */
-export class PersonFilmsConnection {
+export type PersonFilmsConnection = {
   __typename?: 'PersonFilmsConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<PersonFilmsEdge>>>;
@@ -442,7 +442,7 @@ export class PersonFilmsConnection {
 };
 
 /** An edge in a connection. */
-export class PersonFilmsEdge {
+export type PersonFilmsEdge = {
   __typename?: 'PersonFilmsEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -451,7 +451,7 @@ export class PersonFilmsEdge {
 };
 
 /** A connection to a list of items. */
-export class PersonStarshipsConnection {
+export type PersonStarshipsConnection = {
   __typename?: 'PersonStarshipsConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<PersonStarshipsEdge>>>;
@@ -476,7 +476,7 @@ export class PersonStarshipsConnection {
 };
 
 /** An edge in a connection. */
-export class PersonStarshipsEdge {
+export type PersonStarshipsEdge = {
   __typename?: 'PersonStarshipsEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -485,7 +485,7 @@ export class PersonStarshipsEdge {
 };
 
 /** A connection to a list of items. */
-export class PersonVehiclesConnection {
+export type PersonVehiclesConnection = {
   __typename?: 'PersonVehiclesConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<PersonVehiclesEdge>>>;
@@ -510,7 +510,7 @@ export class PersonVehiclesConnection {
 };
 
 /** An edge in a connection. */
-export class PersonVehiclesEdge {
+export type PersonVehiclesEdge = {
   __typename?: 'PersonVehiclesEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -522,7 +522,7 @@ export class PersonVehiclesEdge {
  * A large mass, planet or planetoid in the Star Wars Universe, at the time of
  * 0 ABY.
  */
-export class Planet extends Node {
+export type Planet = Node & {
   __typename?: 'Planet';
   /** The climates of this planet. */
   climates?: Maybe<Array<Maybe<Scalars['String']>>>;
@@ -569,7 +569,7 @@ export class Planet extends Node {
  * A large mass, planet or planetoid in the Star Wars Universe, at the time of
  * 0 ABY.
  */
-export class PlanetFilmConnectionArgs {
+export type PlanetFilmConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -581,7 +581,7 @@ export class PlanetFilmConnectionArgs {
  * A large mass, planet or planetoid in the Star Wars Universe, at the time of
  * 0 ABY.
  */
-export class PlanetResidentConnectionArgs {
+export type PlanetResidentConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -589,7 +589,7 @@ export class PlanetResidentConnectionArgs {
 };
 
 /** A connection to a list of items. */
-export class PlanetFilmsConnection {
+export type PlanetFilmsConnection = {
   __typename?: 'PlanetFilmsConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<PlanetFilmsEdge>>>;
@@ -614,7 +614,7 @@ export class PlanetFilmsConnection {
 };
 
 /** An edge in a connection. */
-export class PlanetFilmsEdge {
+export type PlanetFilmsEdge = {
   __typename?: 'PlanetFilmsEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -623,7 +623,7 @@ export class PlanetFilmsEdge {
 };
 
 /** A connection to a list of items. */
-export class PlanetResidentsConnection {
+export type PlanetResidentsConnection = {
   __typename?: 'PlanetResidentsConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<PlanetResidentsEdge>>>;
@@ -648,7 +648,7 @@ export class PlanetResidentsConnection {
 };
 
 /** An edge in a connection. */
-export class PlanetResidentsEdge {
+export type PlanetResidentsEdge = {
   __typename?: 'PlanetResidentsEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -657,7 +657,7 @@ export class PlanetResidentsEdge {
 };
 
 /** A connection to a list of items. */
-export class PlanetsConnection {
+export type PlanetsConnection = {
   __typename?: 'PlanetsConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<PlanetsEdge>>>;
@@ -682,7 +682,7 @@ export class PlanetsConnection {
 };
 
 /** An edge in a connection. */
-export class PlanetsEdge {
+export type PlanetsEdge = {
   __typename?: 'PlanetsEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -690,7 +690,7 @@ export class PlanetsEdge {
   node?: Maybe<Planet>;
 };
 
-export class Root {
+export type Root = {
   __typename?: 'Root';
   allFilms?: Maybe<FilmsConnection>;
   allPeople?: Maybe<PeopleConnection>;
@@ -709,7 +709,7 @@ export class Root {
 };
 
 
-export class RootAllFilmsArgs {
+export type RootAllFilmsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -717,7 +717,7 @@ export class RootAllFilmsArgs {
 };
 
 
-export class RootAllPeopleArgs {
+export type RootAllPeopleArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -725,7 +725,7 @@ export class RootAllPeopleArgs {
 };
 
 
-export class RootAllPlanetsArgs {
+export type RootAllPlanetsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -733,7 +733,7 @@ export class RootAllPlanetsArgs {
 };
 
 
-export class RootAllSpeciesArgs {
+export type RootAllSpeciesArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -741,7 +741,7 @@ export class RootAllSpeciesArgs {
 };
 
 
-export class RootAllStarshipsArgs {
+export type RootAllStarshipsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -749,7 +749,7 @@ export class RootAllStarshipsArgs {
 };
 
 
-export class RootAllVehiclesArgs {
+export type RootAllVehiclesArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -757,48 +757,48 @@ export class RootAllVehiclesArgs {
 };
 
 
-export class RootFilmArgs {
+export type RootFilmArgs = {
   filmID?: InputMaybe<Scalars['ID']>;
   id?: InputMaybe<Scalars['ID']>;
 };
 
 
-export class RootNodeArgs {
+export type RootNodeArgs = {
   id: Scalars['ID'];
 };
 
 
-export class RootPersonArgs {
+export type RootPersonArgs = {
   id?: InputMaybe<Scalars['ID']>;
   personID?: InputMaybe<Scalars['ID']>;
 };
 
 
-export class RootPlanetArgs {
+export type RootPlanetArgs = {
   id?: InputMaybe<Scalars['ID']>;
   planetID?: InputMaybe<Scalars['ID']>;
 };
 
 
-export class RootSpeciesArgs {
+export type RootSpeciesArgs = {
   id?: InputMaybe<Scalars['ID']>;
   speciesID?: InputMaybe<Scalars['ID']>;
 };
 
 
-export class RootStarshipArgs {
+export type RootStarshipArgs = {
   id?: InputMaybe<Scalars['ID']>;
   starshipID?: InputMaybe<Scalars['ID']>;
 };
 
 
-export class RootVehicleArgs {
+export type RootVehicleArgs = {
   id?: InputMaybe<Scalars['ID']>;
   vehicleID?: InputMaybe<Scalars['ID']>;
 };
 
 /** A type of person or character within the Star Wars Universe. */
-export class Species extends Node {
+export type Species = Node & {
   __typename?: 'Species';
   /** The average height of this species in centimeters. */
   averageHeight?: Maybe<Scalars['Float']>;
@@ -841,7 +841,7 @@ export class Species extends Node {
 
 
 /** A type of person or character within the Star Wars Universe. */
-export class SpeciesFilmConnectionArgs {
+export type SpeciesFilmConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -850,7 +850,7 @@ export class SpeciesFilmConnectionArgs {
 
 
 /** A type of person or character within the Star Wars Universe. */
-export class SpeciesPersonConnectionArgs {
+export type SpeciesPersonConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -858,7 +858,7 @@ export class SpeciesPersonConnectionArgs {
 };
 
 /** A connection to a list of items. */
-export class SpeciesConnection {
+export type SpeciesConnection = {
   __typename?: 'SpeciesConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<SpeciesEdge>>>;
@@ -883,7 +883,7 @@ export class SpeciesConnection {
 };
 
 /** An edge in a connection. */
-export class SpeciesEdge {
+export type SpeciesEdge = {
   __typename?: 'SpeciesEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -892,7 +892,7 @@ export class SpeciesEdge {
 };
 
 /** A connection to a list of items. */
-export class SpeciesFilmsConnection {
+export type SpeciesFilmsConnection = {
   __typename?: 'SpeciesFilmsConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<SpeciesFilmsEdge>>>;
@@ -917,7 +917,7 @@ export class SpeciesFilmsConnection {
 };
 
 /** An edge in a connection. */
-export class SpeciesFilmsEdge {
+export type SpeciesFilmsEdge = {
   __typename?: 'SpeciesFilmsEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -926,7 +926,7 @@ export class SpeciesFilmsEdge {
 };
 
 /** A connection to a list of items. */
-export class SpeciesPeopleConnection {
+export type SpeciesPeopleConnection = {
   __typename?: 'SpeciesPeopleConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<SpeciesPeopleEdge>>>;
@@ -951,7 +951,7 @@ export class SpeciesPeopleConnection {
 };
 
 /** An edge in a connection. */
-export class SpeciesPeopleEdge {
+export type SpeciesPeopleEdge = {
   __typename?: 'SpeciesPeopleEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -960,7 +960,7 @@ export class SpeciesPeopleEdge {
 };
 
 /** A single transport craft that has hyperdrive capability. */
-export class Starship extends Node {
+export type Starship = Node & {
   __typename?: 'Starship';
   /**
    * The Maximum number of Megalights this starship can travel in a standard hour.
@@ -1018,7 +1018,7 @@ export class Starship extends Node {
 
 
 /** A single transport craft that has hyperdrive capability. */
-export class StarshipFilmConnectionArgs {
+export type StarshipFilmConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -1027,7 +1027,7 @@ export class StarshipFilmConnectionArgs {
 
 
 /** A single transport craft that has hyperdrive capability. */
-export class StarshipPilotConnectionArgs {
+export type StarshipPilotConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -1035,7 +1035,7 @@ export class StarshipPilotConnectionArgs {
 };
 
 /** A connection to a list of items. */
-export class StarshipFilmsConnection {
+export type StarshipFilmsConnection = {
   __typename?: 'StarshipFilmsConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<StarshipFilmsEdge>>>;
@@ -1060,7 +1060,7 @@ export class StarshipFilmsConnection {
 };
 
 /** An edge in a connection. */
-export class StarshipFilmsEdge {
+export type StarshipFilmsEdge = {
   __typename?: 'StarshipFilmsEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -1069,7 +1069,7 @@ export class StarshipFilmsEdge {
 };
 
 /** A connection to a list of items. */
-export class StarshipPilotsConnection {
+export type StarshipPilotsConnection = {
   __typename?: 'StarshipPilotsConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<StarshipPilotsEdge>>>;
@@ -1094,7 +1094,7 @@ export class StarshipPilotsConnection {
 };
 
 /** An edge in a connection. */
-export class StarshipPilotsEdge {
+export type StarshipPilotsEdge = {
   __typename?: 'StarshipPilotsEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -1103,7 +1103,7 @@ export class StarshipPilotsEdge {
 };
 
 /** A connection to a list of items. */
-export class StarshipsConnection {
+export type StarshipsConnection = {
   __typename?: 'StarshipsConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<StarshipsEdge>>>;
@@ -1128,7 +1128,7 @@ export class StarshipsConnection {
 };
 
 /** An edge in a connection. */
-export class StarshipsEdge {
+export type StarshipsEdge = {
   __typename?: 'StarshipsEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -1137,7 +1137,7 @@ export class StarshipsEdge {
 };
 
 /** A single transport craft that does not have hyperdrive capability */
-export class Vehicle extends Node {
+export type Vehicle = Node & {
   __typename?: 'Vehicle';
   /** The maximum number of kilograms that this vehicle can transport. */
   cargoCapacity?: Maybe<Scalars['Float']>;
@@ -1182,7 +1182,7 @@ export class Vehicle extends Node {
 
 
 /** A single transport craft that does not have hyperdrive capability */
-export class VehicleFilmConnectionArgs {
+export type VehicleFilmConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -1191,7 +1191,7 @@ export class VehicleFilmConnectionArgs {
 
 
 /** A single transport craft that does not have hyperdrive capability */
-export class VehiclePilotConnectionArgs {
+export type VehiclePilotConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -1199,7 +1199,7 @@ export class VehiclePilotConnectionArgs {
 };
 
 /** A connection to a list of items. */
-export class VehicleFilmsConnection {
+export type VehicleFilmsConnection = {
   __typename?: 'VehicleFilmsConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<VehicleFilmsEdge>>>;
@@ -1224,7 +1224,7 @@ export class VehicleFilmsConnection {
 };
 
 /** An edge in a connection. */
-export class VehicleFilmsEdge {
+export type VehicleFilmsEdge = {
   __typename?: 'VehicleFilmsEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -1233,7 +1233,7 @@ export class VehicleFilmsEdge {
 };
 
 /** A connection to a list of items. */
-export class VehiclePilotsConnection {
+export type VehiclePilotsConnection = {
   __typename?: 'VehiclePilotsConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<VehiclePilotsEdge>>>;
@@ -1258,7 +1258,7 @@ export class VehiclePilotsConnection {
 };
 
 /** An edge in a connection. */
-export class VehiclePilotsEdge {
+export type VehiclePilotsEdge = {
   __typename?: 'VehiclePilotsEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -1267,7 +1267,7 @@ export class VehiclePilotsEdge {
 };
 
 /** A connection to a list of items. */
-export class VehiclesConnection {
+export type VehiclesConnection = {
   __typename?: 'VehiclesConnection';
   /** A list of edges. */
   edges?: Maybe<Array<Maybe<VehiclesEdge>>>;
@@ -1292,7 +1292,7 @@ export class VehiclesConnection {
 };
 
 /** An edge in a connection. */
-export class VehiclesEdge {
+export type VehiclesEdge = {
   __typename?: 'VehiclesEdge';
   /** A cursor for use in pagination */
   cursor: Scalars['String'];
@@ -1300,3565 +1300,3646 @@ export class VehiclesEdge {
   node?: Maybe<Vehicle>;
 };
 
-import { IntrospectionQuery } from 'graphql';
+
 export default {
-  "__schema": {
-    "queryType": {
-      "name": "Root"
-    },
-    "mutationType": null,
-    "subscriptionType": null,
-    "types": [
-      {
-        "kind": "OBJECT",
-        "name": "Film",
-        "fields": [
-          {
-            "name": "characterConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "FilmCharactersConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "created",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "director",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "edited",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "episodeID",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "openingCrawl",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "planetConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "FilmPlanetsConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "producers",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "releaseDate",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "speciesConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "FilmSpeciesConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "starshipConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "FilmStarshipsConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "title",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "vehicleConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "FilmVehiclesConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          }
-        ],
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Node"
-          }
-        ]
+  introspection: {
+    "__schema": {
+      "queryType": {
+        "name": "Root"
       },
-      {
-        "kind": "OBJECT",
-        "name": "FilmCharactersConnection",
-        "fields": [
-          {
-            "name": "characters",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
+      "mutationType": null,
+      "subscriptionType": null,
+      "types": [
+        {
+          "kind": "OBJECT",
+          "name": "Film",
+          "fields": [
+            {
+              "name": "characterConnection",
+              "type": {
                 "kind": "OBJECT",
-                "name": "Person",
+                "name": "FilmCharactersConnection",
                 "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "FilmCharactersEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "FilmCharactersEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Person",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "FilmPlanetsConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "FilmPlanetsEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "planets",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Planet",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "FilmPlanetsEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Planet",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "FilmSpeciesConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "FilmSpeciesEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "species",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Species",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "FilmSpeciesEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Species",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "FilmStarshipsConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "FilmStarshipsEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "starships",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Starship",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "FilmStarshipsEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Starship",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "FilmVehiclesConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "FilmVehiclesEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "vehicles",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Vehicle",
-                "ofType": null
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "FilmVehiclesEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Vehicle",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "FilmsConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "FilmsEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "films",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Film",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "FilmsEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Film",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "INTERFACE",
-        "name": "Node",
-        "fields": [
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": [],
-        "possibleTypes": [
-          {
-            "kind": "OBJECT",
-            "name": "Film"
-          },
-          {
-            "kind": "OBJECT",
-            "name": "Person"
-          },
-          {
-            "kind": "OBJECT",
-            "name": "Planet"
-          },
-          {
-            "kind": "OBJECT",
-            "name": "Species"
-          },
-          {
-            "kind": "OBJECT",
-            "name": "Starship"
-          },
-          {
-            "kind": "OBJECT",
-            "name": "Vehicle"
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PageInfo",
-        "fields": [
-          {
-            "name": "endCursor",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "hasNextPage",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "hasPreviousPage",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "startCursor",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PeopleConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PeopleEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "people",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Person",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PeopleEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Person",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "Person",
-        "fields": [
-          {
-            "name": "birthYear",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "created",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "edited",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "eyeColor",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "filmConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "PersonFilmsConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
               },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "gender",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "hairColor",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "height",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "homeworld",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Planet",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "mass",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "name",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "skinColor",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "species",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Species",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "starshipConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "PersonStarshipsConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "vehicleConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "PersonVehiclesConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          }
-        ],
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Node"
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PersonFilmsConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PersonFilmsEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "films",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Film",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PersonFilmsEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Film",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PersonStarshipsConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PersonStarshipsEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "starships",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Starship",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PersonStarshipsEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Starship",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PersonVehiclesConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PersonVehiclesEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "vehicles",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Vehicle",
-                "ofType": null
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PersonVehiclesEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Vehicle",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "Planet",
-        "fields": [
-          {
-            "name": "climates",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "created",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "diameter",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "edited",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "filmConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "PlanetFilmsConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "gravity",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "name",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "orbitalPeriod",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "population",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "residentConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "PlanetResidentsConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "rotationPeriod",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "surfaceWater",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "terrains",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Node"
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PlanetFilmsConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PlanetFilmsEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "films",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Film",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PlanetFilmsEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Film",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PlanetResidentsConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PlanetResidentsEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "residents",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Person",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PlanetResidentsEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Person",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PlanetsConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PlanetsEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "planets",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Planet",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "PlanetsEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Planet",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "Root",
-        "fields": [
-          {
-            "name": "allFilms",
-            "type": {
-              "kind": "OBJECT",
-              "name": "FilmsConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "allPeople",
-            "type": {
-              "kind": "OBJECT",
-              "name": "PeopleConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "allPlanets",
-            "type": {
-              "kind": "OBJECT",
-              "name": "PlanetsConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "allSpecies",
-            "type": {
-              "kind": "OBJECT",
-              "name": "SpeciesConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "allStarships",
-            "type": {
-              "kind": "OBJECT",
-              "name": "StarshipsConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "allVehicles",
-            "type": {
-              "kind": "OBJECT",
-              "name": "VehiclesConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "film",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Film",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "filmID",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "id",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "INTERFACE",
-              "name": "Node",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
                     "kind": "SCALAR",
                     "name": "Any"
                   }
                 }
-              }
-            ]
-          },
-          {
-            "name": "person",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Person",
-              "ofType": null
+              ]
             },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "personID",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "planet",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Planet",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "planetID",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "species",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Species",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "speciesID",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "starship",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Starship",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "starshipID",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "vehicle",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Vehicle",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "vehicleID",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "Species",
-        "fields": [
-          {
-            "name": "averageHeight",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "averageLifespan",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "classification",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "created",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "designation",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "edited",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "eyeColors",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
+            {
+              "name": "created",
+              "type": {
                 "kind": "SCALAR",
                 "name": "Any"
-              }
+              },
+              "args": []
             },
-            "args": []
-          },
-          {
-            "name": "filmConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "SpeciesFilmsConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "hairColors",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
+            {
+              "name": "director",
+              "type": {
                 "kind": "SCALAR",
                 "name": "Any"
-              }
+              },
+              "args": []
             },
-            "args": []
-          },
-          {
-            "name": "homeworld",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Planet",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "edited",
+              "type": {
                 "kind": "SCALAR",
                 "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "language",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "name",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "personConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "SpeciesPeopleConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
               },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "skinColors",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
+              "args": []
+            },
+            {
+              "name": "episodeID",
+              "type": {
                 "kind": "SCALAR",
                 "name": "Any"
-              }
+              },
+              "args": []
             },
-            "args": []
-          }
-        ],
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Node"
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "SpeciesConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "openingCrawl",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "planetConnection",
+              "type": {
                 "kind": "OBJECT",
-                "name": "SpeciesEdge",
+                "name": "FilmPlanetsConnection",
                 "ofType": null
-              }
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
             },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "producers",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "releaseDate",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "speciesConnection",
+              "type": {
                 "kind": "OBJECT",
-                "name": "PageInfo",
+                "name": "FilmSpeciesConnection",
                 "ofType": null
-              }
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
             },
-            "args": []
-          },
-          {
-            "name": "species",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
+            {
+              "name": "starshipConnection",
+              "type": {
+                "kind": "OBJECT",
+                "name": "FilmStarshipsConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "title",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "vehicleConnection",
+              "type": {
+                "kind": "OBJECT",
+                "name": "FilmVehiclesConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            }
+          ],
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Node"
+            }
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FilmCharactersConnection",
+          "fields": [
+            {
+              "name": "characters",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Person",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "FilmCharactersEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FilmCharactersEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Person",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FilmPlanetsConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "FilmPlanetsEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "planets",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Planet",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FilmPlanetsEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Planet",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FilmSpeciesConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "FilmSpeciesEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "species",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Species",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FilmSpeciesEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
                 "kind": "OBJECT",
                 "name": "Species",
                 "ofType": null
-              }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FilmStarshipsConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "FilmStarshipsEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
             },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
             },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "SpeciesEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "starships",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Starship",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
                 "kind": "SCALAR",
                 "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Species",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "SpeciesFilmsConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "SpeciesFilmsEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "films",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Film",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "SpeciesFilmsEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Film",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "SpeciesPeopleConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "SpeciesPeopleEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "people",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Person",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "SpeciesPeopleEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Person",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "Starship",
-        "fields": [
-          {
-            "name": "MGLT",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "cargoCapacity",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "consumables",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "costInCredits",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "created",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "crew",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "edited",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "filmConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "StarshipFilmsConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FilmStarshipsEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
                   "kind": "SCALAR",
                   "name": "Any"
                 }
               },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "hyperdriveRating",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
+              "args": []
             },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "length",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "manufacturers",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "maxAtmospheringSpeed",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "model",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "name",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "passengers",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "pilotConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "StarshipPilotsConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "starshipClass",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Node"
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "StarshipFilmsConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "StarshipFilmsEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "films",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Film",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "StarshipFilmsEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Film",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "StarshipPilotsConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "StarshipPilotsEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pilots",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Person",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "StarshipPilotsEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Person",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "StarshipsConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "StarshipsEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "starships",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
+            {
+              "name": "node",
+              "type": {
                 "kind": "OBJECT",
                 "name": "Starship",
                 "ofType": null
-              }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FilmVehiclesConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "FilmVehiclesEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
             },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
             },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "StarshipsEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "totalCount",
+              "type": {
                 "kind": "SCALAR",
                 "name": "Any"
-              }
+              },
+              "args": []
             },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Starship",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "Vehicle",
-        "fields": [
-          {
-            "name": "cargoCapacity",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "consumables",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "costInCredits",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "created",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "crew",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "edited",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "filmConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "VehicleFilmsConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
+            {
+              "name": "vehicles",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Vehicle",
+                  "ofType": null
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FilmVehiclesEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
                   "kind": "SCALAR",
                   "name": "Any"
                 }
               },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
+              "args": []
             },
-            "args": []
-          },
-          {
-            "name": "length",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "manufacturers",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "maxAtmospheringSpeed",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "model",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "name",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "passengers",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "pilotConnection",
-            "type": {
-              "kind": "OBJECT",
-              "name": "VehiclePilotsConnection",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "after",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "before",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "first",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "last",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "vehicleClass",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": [
-          {
-            "kind": "INTERFACE",
-            "name": "Node"
-          }
-        ]
-      },
-      {
-        "kind": "OBJECT",
-        "name": "VehicleFilmsConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "VehicleFilmsEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "films",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Film",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "VehicleFilmsEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Film",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "VehiclePilotsConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "VehiclePilotsEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pilots",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "Person",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "VehiclePilotsEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
-              "kind": "OBJECT",
-              "name": "Person",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "VehiclesConnection",
-        "fields": [
-          {
-            "name": "edges",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "VehiclesEdge",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "pageInfo",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "PageInfo",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totalCount",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "vehicles",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
+            {
+              "name": "node",
+              "type": {
                 "kind": "OBJECT",
                 "name": "Vehicle",
                 "ofType": null
-              }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FilmsConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "FilmsEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
             },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "VehiclesEdge",
-        "fields": [
-          {
-            "name": "cursor",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "films",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Film",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
                 "kind": "SCALAR",
                 "name": "Any"
-              }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "FilmsEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
             },
-            "args": []
-          },
-          {
-            "name": "node",
-            "type": {
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Film",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "INTERFACE",
+          "name": "Node",
+          "fields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": [],
+          "possibleTypes": [
+            {
               "kind": "OBJECT",
-              "name": "Vehicle",
-              "ofType": null
+              "name": "Film"
             },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "SCALAR",
-        "name": "Any"
-      }
-    ],
-    "directives": []
+            {
+              "kind": "OBJECT",
+              "name": "Person"
+            },
+            {
+              "kind": "OBJECT",
+              "name": "Planet"
+            },
+            {
+              "kind": "OBJECT",
+              "name": "Species"
+            },
+            {
+              "kind": "OBJECT",
+              "name": "Starship"
+            },
+            {
+              "kind": "OBJECT",
+              "name": "Vehicle"
+            }
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PageInfo",
+          "fields": [
+            {
+              "name": "endCursor",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "hasNextPage",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "hasPreviousPage",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "startCursor",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PeopleConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PeopleEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "people",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Person",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PeopleEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Person",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Person",
+          "fields": [
+            {
+              "name": "birthYear",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "created",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "edited",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "eyeColor",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "filmConnection",
+              "type": {
+                "kind": "OBJECT",
+                "name": "PersonFilmsConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "gender",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "hairColor",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "height",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "homeworld",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Planet",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "mass",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "skinColor",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "species",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Species",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "starshipConnection",
+              "type": {
+                "kind": "OBJECT",
+                "name": "PersonStarshipsConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "vehicleConnection",
+              "type": {
+                "kind": "OBJECT",
+                "name": "PersonVehiclesConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            }
+          ],
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Node"
+            }
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PersonFilmsConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PersonFilmsEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "films",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Film",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PersonFilmsEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Film",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PersonStarshipsConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PersonStarshipsEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "starships",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Starship",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PersonStarshipsEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Starship",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PersonVehiclesConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PersonVehiclesEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "vehicles",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Vehicle",
+                  "ofType": null
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PersonVehiclesEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Vehicle",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Planet",
+          "fields": [
+            {
+              "name": "climates",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "created",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "diameter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "edited",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "filmConnection",
+              "type": {
+                "kind": "OBJECT",
+                "name": "PlanetFilmsConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "gravity",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "orbitalPeriod",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "population",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "residentConnection",
+              "type": {
+                "kind": "OBJECT",
+                "name": "PlanetResidentsConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "rotationPeriod",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "surfaceWater",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "terrains",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Node"
+            }
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PlanetFilmsConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PlanetFilmsEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "films",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Film",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PlanetFilmsEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Film",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PlanetResidentsConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PlanetResidentsEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "residents",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Person",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PlanetResidentsEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Person",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PlanetsConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PlanetsEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "planets",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Planet",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "PlanetsEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Planet",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Root",
+          "fields": [
+            {
+              "name": "allFilms",
+              "type": {
+                "kind": "OBJECT",
+                "name": "FilmsConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "allPeople",
+              "type": {
+                "kind": "OBJECT",
+                "name": "PeopleConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "allPlanets",
+              "type": {
+                "kind": "OBJECT",
+                "name": "PlanetsConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "allSpecies",
+              "type": {
+                "kind": "OBJECT",
+                "name": "SpeciesConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "allStarships",
+              "type": {
+                "kind": "OBJECT",
+                "name": "StarshipsConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "allVehicles",
+              "type": {
+                "kind": "OBJECT",
+                "name": "VehiclesConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "film",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Film",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "filmID",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "INTERFACE",
+                "name": "Node",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "person",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Person",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "personID",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "planet",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Planet",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "planetID",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "species",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Species",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "speciesID",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "starship",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Starship",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "starshipID",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "vehicle",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Vehicle",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "vehicleID",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Species",
+          "fields": [
+            {
+              "name": "averageHeight",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "averageLifespan",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "classification",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "created",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "designation",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "edited",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "eyeColors",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "filmConnection",
+              "type": {
+                "kind": "OBJECT",
+                "name": "SpeciesFilmsConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "hairColors",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "homeworld",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Planet",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "language",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "personConnection",
+              "type": {
+                "kind": "OBJECT",
+                "name": "SpeciesPeopleConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "skinColors",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Node"
+            }
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SpeciesConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "SpeciesEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "species",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Species",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SpeciesEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Species",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SpeciesFilmsConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "SpeciesFilmsEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "films",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Film",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SpeciesFilmsEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Film",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SpeciesPeopleConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "SpeciesPeopleEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "people",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Person",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "SpeciesPeopleEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Person",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Starship",
+          "fields": [
+            {
+              "name": "MGLT",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "cargoCapacity",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "consumables",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "costInCredits",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "created",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "crew",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "edited",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "filmConnection",
+              "type": {
+                "kind": "OBJECT",
+                "name": "StarshipFilmsConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "hyperdriveRating",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "length",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "manufacturers",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "maxAtmospheringSpeed",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "model",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "passengers",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "pilotConnection",
+              "type": {
+                "kind": "OBJECT",
+                "name": "StarshipPilotsConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "starshipClass",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Node"
+            }
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StarshipFilmsConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "StarshipFilmsEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "films",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Film",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StarshipFilmsEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Film",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StarshipPilotsConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "StarshipPilotsEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pilots",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Person",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StarshipPilotsEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Person",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StarshipsConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "StarshipsEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "starships",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Starship",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "StarshipsEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Starship",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Vehicle",
+          "fields": [
+            {
+              "name": "cargoCapacity",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "consumables",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "costInCredits",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "created",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "crew",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "edited",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "filmConnection",
+              "type": {
+                "kind": "OBJECT",
+                "name": "VehicleFilmsConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "length",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "manufacturers",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "maxAtmospheringSpeed",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "model",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "passengers",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "pilotConnection",
+              "type": {
+                "kind": "OBJECT",
+                "name": "VehiclePilotsConnection",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "after",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "before",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "first",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "last",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "vehicleClass",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Node"
+            }
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VehicleFilmsConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "VehicleFilmsEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "films",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Film",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VehicleFilmsEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Film",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VehiclePilotsConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "VehiclePilotsEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pilots",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Person",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VehiclePilotsEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Person",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VehiclesConnection",
+          "fields": [
+            {
+              "name": "edges",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "VehiclesEdge",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pageInfo",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "PageInfo",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totalCount",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "vehicles",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Vehicle",
+                  "ofType": null
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "VehiclesEdge",
+          "fields": [
+            {
+              "name": "cursor",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "node",
+              "type": {
+                "kind": "OBJECT",
+                "name": "Vehicle",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Any"
+        }
+      ],
+      "directives": []
+    }
+  } as const,
+  types: {} as {
+    Scalars: Scalars,
+    FilmCharacterConnectionArgs: FilmCharacterConnectionArgs,
+    FilmPlanetConnectionArgs: FilmPlanetConnectionArgs,
+    FilmSpeciesConnectionArgs: FilmSpeciesConnectionArgs,
+    FilmStarshipConnectionArgs: FilmStarshipConnectionArgs,
+    FilmVehicleConnectionArgs: FilmVehicleConnectionArgs,
+    FilmCharactersConnection: FilmCharactersConnection,
+    FilmCharactersEdge: FilmCharactersEdge,
+    FilmPlanetsConnection: FilmPlanetsConnection,
+    FilmPlanetsEdge: FilmPlanetsEdge,
+    FilmSpeciesConnection: FilmSpeciesConnection,
+    FilmSpeciesEdge: FilmSpeciesEdge,
+    FilmStarshipsConnection: FilmStarshipsConnection,
+    FilmStarshipsEdge: FilmStarshipsEdge,
+    FilmVehiclesConnection: FilmVehiclesConnection,
+    FilmVehiclesEdge: FilmVehiclesEdge,
+    FilmsConnection: FilmsConnection,
+    FilmsEdge: FilmsEdge,
+    Node: Node,
+    PageInfo: PageInfo,
+    PeopleConnection: PeopleConnection,
+    PeopleEdge: PeopleEdge,
+    PersonFilmConnectionArgs: PersonFilmConnectionArgs,
+    PersonStarshipConnectionArgs: PersonStarshipConnectionArgs,
+    PersonVehicleConnectionArgs: PersonVehicleConnectionArgs,
+    PersonFilmsConnection: PersonFilmsConnection,
+    PersonFilmsEdge: PersonFilmsEdge,
+    PersonStarshipsConnection: PersonStarshipsConnection,
+    PersonStarshipsEdge: PersonStarshipsEdge,
+    PersonVehiclesConnection: PersonVehiclesConnection,
+    PersonVehiclesEdge: PersonVehiclesEdge,
+    PlanetFilmConnectionArgs: PlanetFilmConnectionArgs,
+    PlanetResidentConnectionArgs: PlanetResidentConnectionArgs,
+    PlanetFilmsConnection: PlanetFilmsConnection,
+    PlanetFilmsEdge: PlanetFilmsEdge,
+    PlanetResidentsConnection: PlanetResidentsConnection,
+    PlanetResidentsEdge: PlanetResidentsEdge,
+    PlanetsConnection: PlanetsConnection,
+    PlanetsEdge: PlanetsEdge,
+    Root: Root,
+    RootAllFilmsArgs: RootAllFilmsArgs,
+    RootAllPeopleArgs: RootAllPeopleArgs,
+    RootAllPlanetsArgs: RootAllPlanetsArgs,
+    RootAllSpeciesArgs: RootAllSpeciesArgs,
+    RootAllStarshipsArgs: RootAllStarshipsArgs,
+    RootAllVehiclesArgs: RootAllVehiclesArgs,
+    RootFilmArgs: RootFilmArgs,
+    RootNodeArgs: RootNodeArgs,
+    RootPersonArgs: RootPersonArgs,
+    RootPlanetArgs: RootPlanetArgs,
+    RootSpeciesArgs: RootSpeciesArgs,
+    RootStarshipArgs: RootStarshipArgs,
+    RootVehicleArgs: RootVehicleArgs,
+    SpeciesFilmConnectionArgs: SpeciesFilmConnectionArgs,
+    SpeciesPersonConnectionArgs: SpeciesPersonConnectionArgs,
+    SpeciesConnection: SpeciesConnection,
+    SpeciesEdge: SpeciesEdge,
+    SpeciesFilmsConnection: SpeciesFilmsConnection,
+    SpeciesFilmsEdge: SpeciesFilmsEdge,
+    SpeciesPeopleConnection: SpeciesPeopleConnection,
+    SpeciesPeopleEdge: SpeciesPeopleEdge,
+    StarshipFilmConnectionArgs: StarshipFilmConnectionArgs,
+    StarshipPilotConnectionArgs: StarshipPilotConnectionArgs,
+    StarshipFilmsConnection: StarshipFilmsConnection,
+    StarshipFilmsEdge: StarshipFilmsEdge,
+    StarshipPilotsConnection: StarshipPilotsConnection,
+    StarshipPilotsEdge: StarshipPilotsEdge,
+    StarshipsConnection: StarshipsConnection,
+    StarshipsEdge: StarshipsEdge,
+    VehicleFilmConnectionArgs: VehicleFilmConnectionArgs,
+    VehiclePilotConnectionArgs: VehiclePilotConnectionArgs,
+    VehicleFilmsConnection: VehicleFilmsConnection,
+    VehicleFilmsEdge: VehicleFilmsEdge,
+    VehiclePilotsConnection: VehiclePilotsConnection,
+    VehiclePilotsEdge: VehiclePilotsEdge,
+    VehiclesConnection: VehiclesConnection,
+    VehiclesEdge: VehiclesEdge
   }
-} as const
+}

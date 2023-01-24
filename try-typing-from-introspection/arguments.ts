@@ -6,24 +6,14 @@ export type GenericInput = {
   select?: Record<string, GenericInput | true> | true
 }
 
-type MAX_RECURSION = 32 // maximum recursion depth
-type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
-  ? Acc
-  : Enumerate<N, [...Acc, Acc['length']]>
-
-type Pred = [never, ...Enumerate<MAX_RECURSION>]
-
 export type ArgumentsOf<
   I,
   Type extends TypeRef,
   Args,
-  D extends number = MAX_RECURSION,
-  Fields = [D] extends [0]
-    ? any // Could not recurse any further
-    : Type extends NonNullType
-    ? ArgumentsOf<I, Type['ofType'], Args, Pred[D]>
+  Fields = Type extends NonNullType
+    ? ArgumentsOf<I, Type['ofType'], Args>
     : Type extends ListType
-    ? ArgumentsOf<I, Type['ofType'], Args, Pred[D]>
+    ? ArgumentsOf<I, Type['ofType'], Args>
     : Type extends ObjectType
     ?
         | {
@@ -31,7 +21,7 @@ export type ArgumentsOf<
               | {
                   [Field in SelectSingleType<I, Type> extends { fields: readonly any[] }
                     ? SelectSingleType<I, Type>['fields'][number]
-                    : never as Field['name']]?: ArgumentsOf<I, Field['type'], Args, Pred[D]>
+                    : never as Field['name']]?: ArgumentsOf<I, Field['type'], Args>
                 }
               | true
           }

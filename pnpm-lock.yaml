@@ -8,6 +8,7 @@ specifiers:
   '@graphql-typed-document-node/core': ^3.1.1
   '@pothos/core': ^3.24.0
   '@types/node': ^18.11.18
+  '@urql/introspection': ^1.0.0
   cross-fetch: ^3.1.5
   graphql: ^16.6.0
   graphql-request: ^5.1.0
@@ -36,6 +37,7 @@ devDependencies:
   '@graphql-codegen/urql-introspection': 2.2.1_graphql@16.6.0
   '@pothos/core': 3.24.0_graphql@16.6.0
   '@types/node': 18.11.18
+  '@urql/introspection': 1.0.0_graphql@16.6.0
   graphql-request: 5.1.0_graphql@16.6.0
   graphql-yoga: 3.3.0_ykzowzmb7rcumunkscnbisnkom
   npm-run-all: 4.1.5
@@ -1806,6 +1808,14 @@ packages:
 
   /@urql/introspection/0.3.3_graphql@16.6.0:
     resolution: {integrity: sha512-tekSLLqWnusfV6V7xaEnLJQSdXOD/lWy7f8JYQwrX+88Md+voGSCSx5WJXI7KLBN3Tat2OV08tAr8UROykls4Q==}
+    peerDependencies:
+      graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+    dependencies:
+      graphql: 16.6.0
+    dev: true
+
+  /@urql/introspection/1.0.0_graphql@16.6.0:
+    resolution: {integrity: sha512-LV4MNqslkGqdlmAjpmVuyewQ6sQZ1CAaHXsiP7IaNKWKKlnpluxjiQnhLy3V1uhqIcJe/Ni/+sHIq78EvpkJNw==}
     peerDependencies:
       graphql: ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
     dependencies:

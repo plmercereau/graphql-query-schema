@@ -18,24 +18,9 @@
 - [ ] Use the introspection schema to
   - [x] find the query roots
   - [ ] find the argument types
-- [ ] GraphQL codegen plugin
-
-  - `as const`
-  - get rid of the classes config, and prefer interfaces
-    create a default export like this:
-
-  ```ts
-  export default {
-    introspection: { __schema: '...' } as const,
-    types: {} as unknown as {
-      TypeName: TypeName
-      // etc
-    },
-    arguments: {} as unknown as {
-      // ...
-    }
-  }
-  ```
+- [x] GraphQL codegen plugin
+  - [x] instrospection `as const`
+  - [x] get rid of the classes config, and prefer interfaces
 
 ## Done
 

@@ -5,7 +5,7 @@ export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: 
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
 export type JSONValue = string | number | boolean | { [x: string]: JSONValue } | Array<JSONValue>;
 /** All built-in and custom scalars, mapped to their actual values */
-export class Scalars {
+export type Scalars = {
   ID: string;
   String: string;
   Boolean: boolean;
@@ -20,7 +20,7 @@ export class Scalars {
 };
 
 /** Boolean expression to compare columns of type "Boolean". All fields are combined with logical 'AND'. */
-export class Boolean_Comparison_Exp {
+export type Boolean_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['Boolean']>;
   _gt?: InputMaybe<Scalars['Boolean']>;
   _gte?: InputMaybe<Scalars['Boolean']>;
@@ -33,7 +33,7 @@ export class Boolean_Comparison_Exp {
 };
 
 /** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
-export class Int_Comparison_Exp {
+export type Int_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['Int']>;
   _gt?: InputMaybe<Scalars['Int']>;
   _gte?: InputMaybe<Scalars['Int']>;
@@ -46,7 +46,7 @@ export class Int_Comparison_Exp {
 };
 
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
-export class String_Comparison_Exp {
+export type String_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['String']>;
   _gt?: InputMaybe<Scalars['String']>;
   _gte?: InputMaybe<Scalars['String']>;
@@ -79,7 +79,7 @@ export class String_Comparison_Exp {
 };
 
 /** Oauth requests, inserted before redirecting to the provider's site. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class AuthProviderRequests {
+export type AuthProviderRequests = {
   __typename?: 'authProviderRequests';
   id: Scalars['uuid'];
   options?: Maybe<Scalars['jsonb']>;
@@ -87,19 +87,19 @@ export class AuthProviderRequests {
 
 
 /** Oauth requests, inserted before redirecting to the provider's site. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class AuthProviderRequestsOptionsArgs {
+export type AuthProviderRequestsOptionsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregated selection of "auth.provider_requests" */
-export class AuthProviderRequests_Aggregate {
+export type AuthProviderRequests_Aggregate = {
   __typename?: 'authProviderRequests_aggregate';
   aggregate?: Maybe<AuthProviderRequests_Aggregate_Fields>;
   nodes: Array<AuthProviderRequests>;
 };
 
 /** aggregate fields of "auth.provider_requests" */
-export class AuthProviderRequests_Aggregate_Fields {
+export type AuthProviderRequests_Aggregate_Fields = {
   __typename?: 'authProviderRequests_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<AuthProviderRequests_Max_Fields>;
@@ -108,18 +108,18 @@ export class AuthProviderRequests_Aggregate_Fields {
 
 
 /** aggregate fields of "auth.provider_requests" */
-export class AuthProviderRequests_Aggregate_FieldsCountArgs {
+export type AuthProviderRequests_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** append existing jsonb value of filtered columns with new jsonb value */
-export class AuthProviderRequests_Append_Input {
+export type AuthProviderRequests_Append_Input = {
   options?: InputMaybe<Scalars['jsonb']>;
 };
 
 /** Boolean expression to filter rows from the table "auth.provider_requests". All fields are combined with a logical 'AND'. */
-export class AuthProviderRequests_Bool_Exp {
+export type AuthProviderRequests_Bool_Exp = {
   _and?: InputMaybe<Array<AuthProviderRequests_Bool_Exp>>;
   _not?: InputMaybe<AuthProviderRequests_Bool_Exp>;
   _or?: InputMaybe<Array<AuthProviderRequests_Bool_Exp>>;
@@ -134,40 +134,40 @@ export enum AuthProviderRequests_Constraint {
 }
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
-export class AuthProviderRequests_Delete_At_Path_Input {
+export type AuthProviderRequests_Delete_At_Path_Input = {
   options?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
-export class AuthProviderRequests_Delete_Elem_Input {
+export type AuthProviderRequests_Delete_Elem_Input = {
   options?: InputMaybe<Scalars['Int']>;
 };
 
 /** delete key/value pair or string element. key/value pairs are matched based on their key value */
-export class AuthProviderRequests_Delete_Key_Input {
+export type AuthProviderRequests_Delete_Key_Input = {
   options?: InputMaybe<Scalars['String']>;
 };
 
 /** input type for inserting data into table "auth.provider_requests" */
-export class AuthProviderRequests_Insert_Input {
+export type AuthProviderRequests_Insert_Input = {
   id?: InputMaybe<Scalars['uuid']>;
   options?: InputMaybe<Scalars['jsonb']>;
 };
 
 /** aggregate max on columns */
-export class AuthProviderRequests_Max_Fields {
+export type AuthProviderRequests_Max_Fields = {
   __typename?: 'authProviderRequests_max_fields';
   id?: Maybe<Scalars['uuid']>;
 };
 
 /** aggregate min on columns */
-export class AuthProviderRequests_Min_Fields {
+export type AuthProviderRequests_Min_Fields = {
   __typename?: 'authProviderRequests_min_fields';
   id?: Maybe<Scalars['uuid']>;
 };
 
 /** response of any mutation on the table "auth.provider_requests" */
-export class AuthProviderRequests_Mutation_Response {
+export type AuthProviderRequests_Mutation_Response = {
   __typename?: 'authProviderRequests_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
@@ -176,25 +176,25 @@ export class AuthProviderRequests_Mutation_Response {
 };
 
 /** on_conflict condition type for table "auth.provider_requests" */
-export class AuthProviderRequests_On_Conflict {
+export type AuthProviderRequests_On_Conflict = {
   constraint: AuthProviderRequests_Constraint;
   update_columns?: Array<AuthProviderRequests_Update_Column>;
   where?: InputMaybe<AuthProviderRequests_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.provider_requests". */
-export class AuthProviderRequests_Order_By {
+export type AuthProviderRequests_Order_By = {
   id?: InputMaybe<Order_By>;
   options?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: auth.provider_requests */
-export class AuthProviderRequests_Pk_Columns_Input {
+export type AuthProviderRequests_Pk_Columns_Input = {
   id: Scalars['uuid'];
 };
 
 /** prepend existing jsonb value of filtered columns with new jsonb value */
-export class AuthProviderRequests_Prepend_Input {
+export type AuthProviderRequests_Prepend_Input = {
   options?: InputMaybe<Scalars['jsonb']>;
 };
 
@@ -207,13 +207,13 @@ export enum AuthProviderRequests_Select_Column {
 }
 
 /** input type for updating data in table "auth.provider_requests" */
-export class AuthProviderRequests_Set_Input {
+export type AuthProviderRequests_Set_Input = {
   id?: InputMaybe<Scalars['uuid']>;
   options?: InputMaybe<Scalars['jsonb']>;
 };
 
 /** Streaming cursor of the table "authProviderRequests" */
-export class AuthProviderRequests_Stream_Cursor_Input {
+export type AuthProviderRequests_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: AuthProviderRequests_Stream_Cursor_Value_Input;
   /** cursor ordering */
@@ -221,7 +221,7 @@ export class AuthProviderRequests_Stream_Cursor_Input {
 };
 
 /** Initial value of the column from where the streaming should start */
-export class AuthProviderRequests_Stream_Cursor_Value_Input {
+export type AuthProviderRequests_Stream_Cursor_Value_Input = {
   id?: InputMaybe<Scalars['uuid']>;
   options?: InputMaybe<Scalars['jsonb']>;
 };
@@ -234,7 +234,7 @@ export enum AuthProviderRequests_Update_Column {
   Options = 'options'
 }
 
-export class AuthProviderRequests_Updates {
+export type AuthProviderRequests_Updates = {
   /** append existing jsonb value of filtered columns with new jsonb value */
   _append?: InputMaybe<AuthProviderRequests_Append_Input>;
   /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
@@ -251,7 +251,7 @@ export class AuthProviderRequests_Updates {
 };
 
 /** List of available Oauth providers. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class AuthProviders {
+export type AuthProviders = {
   __typename?: 'authProviders';
   id: Scalars['String'];
   /** An array relationship */
@@ -262,7 +262,7 @@ export class AuthProviders {
 
 
 /** List of available Oauth providers. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class AuthProvidersUserProvidersArgs {
+export type AuthProvidersUserProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -272,7 +272,7 @@ export class AuthProvidersUserProvidersArgs {
 
 
 /** List of available Oauth providers. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class AuthProvidersUserProviders_AggregateArgs {
+export type AuthProvidersUserProviders_AggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -281,14 +281,14 @@ export class AuthProvidersUserProviders_AggregateArgs {
 };
 
 /** aggregated selection of "auth.providers" */
-export class AuthProviders_Aggregate {
+export type AuthProviders_Aggregate = {
   __typename?: 'authProviders_aggregate';
   aggregate?: Maybe<AuthProviders_Aggregate_Fields>;
   nodes: Array<AuthProviders>;
 };
 
 /** aggregate fields of "auth.providers" */
-export class AuthProviders_Aggregate_Fields {
+export type AuthProviders_Aggregate_Fields = {
   __typename?: 'authProviders_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<AuthProviders_Max_Fields>;
@@ -297,13 +297,13 @@ export class AuthProviders_Aggregate_Fields {
 
 
 /** aggregate fields of "auth.providers" */
-export class AuthProviders_Aggregate_FieldsCountArgs {
+export type AuthProviders_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<AuthProviders_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Boolean expression to filter rows from the table "auth.providers". All fields are combined with a logical 'AND'. */
-export class AuthProviders_Bool_Exp {
+export type AuthProviders_Bool_Exp = {
   _and?: InputMaybe<Array<AuthProviders_Bool_Exp>>;
   _not?: InputMaybe<AuthProviders_Bool_Exp>;
   _or?: InputMaybe<Array<AuthProviders_Bool_Exp>>;
@@ -319,25 +319,25 @@ export enum AuthProviders_Constraint {
 }
 
 /** input type for inserting data into table "auth.providers" */
-export class AuthProviders_Insert_Input {
+export type AuthProviders_Insert_Input = {
   id?: InputMaybe<Scalars['String']>;
   userProviders?: InputMaybe<AuthUserProviders_Arr_Rel_Insert_Input>;
 };
 
 /** aggregate max on columns */
-export class AuthProviders_Max_Fields {
+export type AuthProviders_Max_Fields = {
   __typename?: 'authProviders_max_fields';
   id?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
-export class AuthProviders_Min_Fields {
+export type AuthProviders_Min_Fields = {
   __typename?: 'authProviders_min_fields';
   id?: Maybe<Scalars['String']>;
 };
 
 /** response of any mutation on the table "auth.providers" */
-export class AuthProviders_Mutation_Response {
+export type AuthProviders_Mutation_Response = {
   __typename?: 'authProviders_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
@@ -346,27 +346,27 @@ export class AuthProviders_Mutation_Response {
 };
 
 /** input type for inserting object relation for remote table "auth.providers" */
-export class AuthProviders_Obj_Rel_Insert_Input {
+export type AuthProviders_Obj_Rel_Insert_Input = {
   data: AuthProviders_Insert_Input;
   /** upsert condition */
   on_conflict?: InputMaybe<AuthProviders_On_Conflict>;
 };
 
 /** on_conflict condition type for table "auth.providers" */
-export class AuthProviders_On_Conflict {
+export type AuthProviders_On_Conflict = {
   constraint: AuthProviders_Constraint;
   update_columns?: Array<AuthProviders_Update_Column>;
   where?: InputMaybe<AuthProviders_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.providers". */
-export class AuthProviders_Order_By {
+export type AuthProviders_Order_By = {
   id?: InputMaybe<Order_By>;
   userProviders_aggregate?: InputMaybe<AuthUserProviders_Aggregate_Order_By>;
 };
 
 /** primary key columns input for table: auth.providers */
-export class AuthProviders_Pk_Columns_Input {
+export type AuthProviders_Pk_Columns_Input = {
   id: Scalars['String'];
 };
 
@@ -377,12 +377,12 @@ export enum AuthProviders_Select_Column {
 }
 
 /** input type for updating data in table "auth.providers" */
-export class AuthProviders_Set_Input {
+export type AuthProviders_Set_Input = {
   id?: InputMaybe<Scalars['String']>;
 };
 
 /** Streaming cursor of the table "authProviders" */
-export class AuthProviders_Stream_Cursor_Input {
+export type AuthProviders_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: AuthProviders_Stream_Cursor_Value_Input;
   /** cursor ordering */
@@ -390,7 +390,7 @@ export class AuthProviders_Stream_Cursor_Input {
 };
 
 /** Initial value of the column from where the streaming should start */
-export class AuthProviders_Stream_Cursor_Value_Input {
+export type AuthProviders_Stream_Cursor_Value_Input = {
   id?: InputMaybe<Scalars['String']>;
 };
 
@@ -400,14 +400,14 @@ export enum AuthProviders_Update_Column {
   Id = 'id'
 }
 
-export class AuthProviders_Updates {
+export type AuthProviders_Updates = {
   /** sets the columns of the filtered rows to the given values */
   _set?: InputMaybe<AuthProviders_Set_Input>;
   where: AuthProviders_Bool_Exp;
 };
 
 /** User refresh tokens. Hasura auth uses them to rotate new access tokens as long as the refresh token is not expired. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class AuthRefreshTokens {
+export type AuthRefreshTokens = {
   __typename?: 'authRefreshTokens';
   createdAt: Scalars['timestamptz'];
   expiresAt: Scalars['timestamptz'];
@@ -418,17 +418,17 @@ export class AuthRefreshTokens {
 };
 
 /** aggregated selection of "auth.refresh_tokens" */
-export class AuthRefreshTokens_Aggregate {
+export type AuthRefreshTokens_Aggregate = {
   __typename?: 'authRefreshTokens_aggregate';
   aggregate?: Maybe<AuthRefreshTokens_Aggregate_Fields>;
   nodes: Array<AuthRefreshTokens>;
 };
 
-export class AuthRefreshTokens_Aggregate_Bool_Exp {
+export type AuthRefreshTokens_Aggregate_Bool_Exp = {
   count?: InputMaybe<AuthRefreshTokens_Aggregate_Bool_Exp_Count>;
 };
 
-export class AuthRefreshTokens_Aggregate_Bool_Exp_Count {
+export type AuthRefreshTokens_Aggregate_Bool_Exp_Count = {
   arguments?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
   filter?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
@@ -436,7 +436,7 @@ export class AuthRefreshTokens_Aggregate_Bool_Exp_Count {
 };
 
 /** aggregate fields of "auth.refresh_tokens" */
-export class AuthRefreshTokens_Aggregate_Fields {
+export type AuthRefreshTokens_Aggregate_Fields = {
   __typename?: 'authRefreshTokens_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<AuthRefreshTokens_Max_Fields>;
@@ -445,27 +445,27 @@ export class AuthRefreshTokens_Aggregate_Fields {
 
 
 /** aggregate fields of "auth.refresh_tokens" */
-export class AuthRefreshTokens_Aggregate_FieldsCountArgs {
+export type AuthRefreshTokens_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** order by aggregate values of table "auth.refresh_tokens" */
-export class AuthRefreshTokens_Aggregate_Order_By {
+export type AuthRefreshTokens_Aggregate_Order_By = {
   count?: InputMaybe<Order_By>;
   max?: InputMaybe<AuthRefreshTokens_Max_Order_By>;
   min?: InputMaybe<AuthRefreshTokens_Min_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "auth.refresh_tokens" */
-export class AuthRefreshTokens_Arr_Rel_Insert_Input {
+export type AuthRefreshTokens_Arr_Rel_Insert_Input = {
   data: Array<AuthRefreshTokens_Insert_Input>;
   /** upsert condition */
   on_conflict?: InputMaybe<AuthRefreshTokens_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "auth.refresh_tokens". All fields are combined with a logical 'AND'. */
-export class AuthRefreshTokens_Bool_Exp {
+export type AuthRefreshTokens_Bool_Exp = {
   _and?: InputMaybe<Array<AuthRefreshTokens_Bool_Exp>>;
   _not?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
   _or?: InputMaybe<Array<AuthRefreshTokens_Bool_Exp>>;
@@ -483,7 +483,7 @@ export enum AuthRefreshTokens_Constraint {
 }
 
 /** input type for inserting data into table "auth.refresh_tokens" */
-export class AuthRefreshTokens_Insert_Input {
+export type AuthRefreshTokens_Insert_Input = {
   createdAt?: InputMaybe<Scalars['timestamptz']>;
   expiresAt?: InputMaybe<Scalars['timestamptz']>;
   refreshToken?: InputMaybe<Scalars['uuid']>;
@@ -492,7 +492,7 @@ export class AuthRefreshTokens_Insert_Input {
 };
 
 /** aggregate max on columns */
-export class AuthRefreshTokens_Max_Fields {
+export type AuthRefreshTokens_Max_Fields = {
   __typename?: 'authRefreshTokens_max_fields';
   createdAt?: Maybe<Scalars['timestamptz']>;
   expiresAt?: Maybe<Scalars['timestamptz']>;
@@ -501,7 +501,7 @@ export class AuthRefreshTokens_Max_Fields {
 };
 
 /** order by max() on columns of table "auth.refresh_tokens" */
-export class AuthRefreshTokens_Max_Order_By {
+export type AuthRefreshTokens_Max_Order_By = {
   createdAt?: InputMaybe<Order_By>;
   expiresAt?: InputMaybe<Order_By>;
   refreshToken?: InputMaybe<Order_By>;
@@ -509,7 +509,7 @@ export class AuthRefreshTokens_Max_Order_By {
 };
 
 /** aggregate min on columns */
-export class AuthRefreshTokens_Min_Fields {
+export type AuthRefreshTokens_Min_Fields = {
   __typename?: 'authRefreshTokens_min_fields';
   createdAt?: Maybe<Scalars['timestamptz']>;
   expiresAt?: Maybe<Scalars['timestamptz']>;
@@ -518,7 +518,7 @@ export class AuthRefreshTokens_Min_Fields {
 };
 
 /** order by min() on columns of table "auth.refresh_tokens" */
-export class AuthRefreshTokens_Min_Order_By {
+export type AuthRefreshTokens_Min_Order_By = {
   createdAt?: InputMaybe<Order_By>;
   expiresAt?: InputMaybe<Order_By>;
   refreshToken?: InputMaybe<Order_By>;
@@ -526,7 +526,7 @@ export class AuthRefreshTokens_Min_Order_By {
 };
 
 /** response of any mutation on the table "auth.refresh_tokens" */
-export class AuthRefreshTokens_Mutation_Response {
+export type AuthRefreshTokens_Mutation_Response = {
   __typename?: 'authRefreshTokens_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
@@ -535,14 +535,14 @@ export class AuthRefreshTokens_Mutation_Response {
 };
 
 /** on_conflict condition type for table "auth.refresh_tokens" */
-export class AuthRefreshTokens_On_Conflict {
+export type AuthRefreshTokens_On_Conflict = {
   constraint: AuthRefreshTokens_Constraint;
   update_columns?: Array<AuthRefreshTokens_Update_Column>;
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.refresh_tokens". */
-export class AuthRefreshTokens_Order_By {
+export type AuthRefreshTokens_Order_By = {
   createdAt?: InputMaybe<Order_By>;
   expiresAt?: InputMaybe<Order_By>;
   refreshToken?: InputMaybe<Order_By>;
@@ -551,7 +551,7 @@ export class AuthRefreshTokens_Order_By {
 };
 
 /** primary key columns input for table: auth.refresh_tokens */
-export class AuthRefreshTokens_Pk_Columns_Input {
+export type AuthRefreshTokens_Pk_Columns_Input = {
   refreshToken: Scalars['uuid'];
 };
 
@@ -568,7 +568,7 @@ export enum AuthRefreshTokens_Select_Column {
 }
 
 /** input type for updating data in table "auth.refresh_tokens" */
-export class AuthRefreshTokens_Set_Input {
+export type AuthRefreshTokens_Set_Input = {
   createdAt?: InputMaybe<Scalars['timestamptz']>;
   expiresAt?: InputMaybe<Scalars['timestamptz']>;
   refreshToken?: InputMaybe<Scalars['uuid']>;
@@ -576,7 +576,7 @@ export class AuthRefreshTokens_Set_Input {
 };
 
 /** Streaming cursor of the table "authRefreshTokens" */
-export class AuthRefreshTokens_Stream_Cursor_Input {
+export type AuthRefreshTokens_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: AuthRefreshTokens_Stream_Cursor_Value_Input;
   /** cursor ordering */
@@ -584,7 +584,7 @@ export class AuthRefreshTokens_Stream_Cursor_Input {
 };
 
 /** Initial value of the column from where the streaming should start */
-export class AuthRefreshTokens_Stream_Cursor_Value_Input {
+export type AuthRefreshTokens_Stream_Cursor_Value_Input = {
   createdAt?: InputMaybe<Scalars['timestamptz']>;
   expiresAt?: InputMaybe<Scalars['timestamptz']>;
   refreshToken?: InputMaybe<Scalars['uuid']>;
@@ -603,14 +603,14 @@ export enum AuthRefreshTokens_Update_Column {
   UserId = 'userId'
 }
 
-export class AuthRefreshTokens_Updates {
+export type AuthRefreshTokens_Updates = {
   /** sets the columns of the filtered rows to the given values */
   _set?: InputMaybe<AuthRefreshTokens_Set_Input>;
   where: AuthRefreshTokens_Bool_Exp;
 };
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class AuthRoles {
+export type AuthRoles = {
   __typename?: 'authRoles';
   role: Scalars['String'];
   /** An array relationship */
@@ -625,7 +625,7 @@ export class AuthRoles {
 
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class AuthRolesUserRolesArgs {
+export type AuthRolesUserRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -635,7 +635,7 @@ export class AuthRolesUserRolesArgs {
 
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class AuthRolesUserRoles_AggregateArgs {
+export type AuthRolesUserRoles_AggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -645,7 +645,7 @@ export class AuthRolesUserRoles_AggregateArgs {
 
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class AuthRolesUsersByDefaultRoleArgs {
+export type AuthRolesUsersByDefaultRoleArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -655,7 +655,7 @@ export class AuthRolesUsersByDefaultRoleArgs {
 
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class AuthRolesUsersByDefaultRole_AggregateArgs {
+export type AuthRolesUsersByDefaultRole_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -664,14 +664,14 @@ export class AuthRolesUsersByDefaultRole_AggregateArgs {
 };
 
 /** aggregated selection of "auth.roles" */
-export class AuthRoles_Aggregate {
+export type AuthRoles_Aggregate = {
   __typename?: 'authRoles_aggregate';
   aggregate?: Maybe<AuthRoles_Aggregate_Fields>;
   nodes: Array<AuthRoles>;
 };
 
 /** aggregate fields of "auth.roles" */
-export class AuthRoles_Aggregate_Fields {
+export type AuthRoles_Aggregate_Fields = {
   __typename?: 'authRoles_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<AuthRoles_Max_Fields>;
@@ -680,13 +680,13 @@ export class AuthRoles_Aggregate_Fields {
 
 
 /** aggregate fields of "auth.roles" */
-export class AuthRoles_Aggregate_FieldsCountArgs {
+export type AuthRoles_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<AuthRoles_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Boolean expression to filter rows from the table "auth.roles". All fields are combined with a logical 'AND'. */
-export class AuthRoles_Bool_Exp {
+export type AuthRoles_Bool_Exp = {
   _and?: InputMaybe<Array<AuthRoles_Bool_Exp>>;
   _not?: InputMaybe<AuthRoles_Bool_Exp>;
   _or?: InputMaybe<Array<AuthRoles_Bool_Exp>>;
@@ -704,26 +704,26 @@ export enum AuthRoles_Constraint {
 }
 
 /** input type for inserting data into table "auth.roles" */
-export class AuthRoles_Insert_Input {
+export type AuthRoles_Insert_Input = {
   role?: InputMaybe<Scalars['String']>;
   userRoles?: InputMaybe<AuthUserRoles_Arr_Rel_Insert_Input>;
   usersByDefaultRole?: InputMaybe<Users_Arr_Rel_Insert_Input>;
 };
 
 /** aggregate max on columns */
-export class AuthRoles_Max_Fields {
+export type AuthRoles_Max_Fields = {
   __typename?: 'authRoles_max_fields';
   role?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
-export class AuthRoles_Min_Fields {
+export type AuthRoles_Min_Fields = {
   __typename?: 'authRoles_min_fields';
   role?: Maybe<Scalars['String']>;
 };
 
 /** response of any mutation on the table "auth.roles" */
-export class AuthRoles_Mutation_Response {
+export type AuthRoles_Mutation_Response = {
   __typename?: 'authRoles_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
@@ -732,28 +732,28 @@ export class AuthRoles_Mutation_Response {
 };
 
 /** input type for inserting object relation for remote table "auth.roles" */
-export class AuthRoles_Obj_Rel_Insert_Input {
+export type AuthRoles_Obj_Rel_Insert_Input = {
   data: AuthRoles_Insert_Input;
   /** upsert condition */
   on_conflict?: InputMaybe<AuthRoles_On_Conflict>;
 };
 
 /** on_conflict condition type for table "auth.roles" */
-export class AuthRoles_On_Conflict {
+export type AuthRoles_On_Conflict = {
   constraint: AuthRoles_Constraint;
   update_columns?: Array<AuthRoles_Update_Column>;
   where?: InputMaybe<AuthRoles_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.roles". */
-export class AuthRoles_Order_By {
+export type AuthRoles_Order_By = {
   role?: InputMaybe<Order_By>;
   userRoles_aggregate?: InputMaybe<AuthUserRoles_Aggregate_Order_By>;
   usersByDefaultRole_aggregate?: InputMaybe<Users_Aggregate_Order_By>;
 };
 
 /** primary key columns input for table: auth.roles */
-export class AuthRoles_Pk_Columns_Input {
+export type AuthRoles_Pk_Columns_Input = {
   role: Scalars['String'];
 };
 
@@ -764,12 +764,12 @@ export enum AuthRoles_Select_Column {
 }
 
 /** input type for updating data in table "auth.roles" */
-export class AuthRoles_Set_Input {
+export type AuthRoles_Set_Input = {
   role?: InputMaybe<Scalars['String']>;
 };
 
 /** Streaming cursor of the table "authRoles" */
-export class AuthRoles_Stream_Cursor_Input {
+export type AuthRoles_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: AuthRoles_Stream_Cursor_Value_Input;
   /** cursor ordering */
@@ -777,7 +777,7 @@ export class AuthRoles_Stream_Cursor_Input {
 };
 
 /** Initial value of the column from where the streaming should start */
-export class AuthRoles_Stream_Cursor_Value_Input {
+export type AuthRoles_Stream_Cursor_Value_Input = {
   role?: InputMaybe<Scalars['String']>;
 };
 
@@ -787,14 +787,14 @@ export enum AuthRoles_Update_Column {
   Role = 'role'
 }
 
-export class AuthRoles_Updates {
+export type AuthRoles_Updates = {
   /** sets the columns of the filtered rows to the given values */
   _set?: InputMaybe<AuthRoles_Set_Input>;
   where: AuthRoles_Bool_Exp;
 };
 
 /** Active providers for a given user. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class AuthUserProviders {
+export type AuthUserProviders = {
   __typename?: 'authUserProviders';
   accessToken: Scalars['String'];
   createdAt: Scalars['timestamptz'];
@@ -811,17 +811,17 @@ export class AuthUserProviders {
 };
 
 /** aggregated selection of "auth.user_providers" */
-export class AuthUserProviders_Aggregate {
+export type AuthUserProviders_Aggregate = {
   __typename?: 'authUserProviders_aggregate';
   aggregate?: Maybe<AuthUserProviders_Aggregate_Fields>;
   nodes: Array<AuthUserProviders>;
 };
 
-export class AuthUserProviders_Aggregate_Bool_Exp {
+export type AuthUserProviders_Aggregate_Bool_Exp = {
   count?: InputMaybe<AuthUserProviders_Aggregate_Bool_Exp_Count>;
 };
 
-export class AuthUserProviders_Aggregate_Bool_Exp_Count {
+export type AuthUserProviders_Aggregate_Bool_Exp_Count = {
   arguments?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
   filter?: InputMaybe<AuthUserProviders_Bool_Exp>;
@@ -829,7 +829,7 @@ export class AuthUserProviders_Aggregate_Bool_Exp_Count {
 };
 
 /** aggregate fields of "auth.user_providers" */
-export class AuthUserProviders_Aggregate_Fields {
+export type AuthUserProviders_Aggregate_Fields = {
   __typename?: 'authUserProviders_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<AuthUserProviders_Max_Fields>;
@@ -838,27 +838,27 @@ export class AuthUserProviders_Aggregate_Fields {
 
 
 /** aggregate fields of "auth.user_providers" */
-export class AuthUserProviders_Aggregate_FieldsCountArgs {
+export type AuthUserProviders_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** order by aggregate values of table "auth.user_providers" */
-export class AuthUserProviders_Aggregate_Order_By {
+export type AuthUserProviders_Aggregate_Order_By = {
   count?: InputMaybe<Order_By>;
   max?: InputMaybe<AuthUserProviders_Max_Order_By>;
   min?: InputMaybe<AuthUserProviders_Min_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "auth.user_providers" */
-export class AuthUserProviders_Arr_Rel_Insert_Input {
+export type AuthUserProviders_Arr_Rel_Insert_Input = {
   data: Array<AuthUserProviders_Insert_Input>;
   /** upsert condition */
   on_conflict?: InputMaybe<AuthUserProviders_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "auth.user_providers". All fields are combined with a logical 'AND'. */
-export class AuthUserProviders_Bool_Exp {
+export type AuthUserProviders_Bool_Exp = {
   _and?: InputMaybe<Array<AuthUserProviders_Bool_Exp>>;
   _not?: InputMaybe<AuthUserProviders_Bool_Exp>;
   _or?: InputMaybe<Array<AuthUserProviders_Bool_Exp>>;
@@ -885,7 +885,7 @@ export enum AuthUserProviders_Constraint {
 }
 
 /** input type for inserting data into table "auth.user_providers" */
-export class AuthUserProviders_Insert_Input {
+export type AuthUserProviders_Insert_Input = {
   accessToken?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['timestamptz']>;
   id?: InputMaybe<Scalars['uuid']>;
@@ -899,7 +899,7 @@ export class AuthUserProviders_Insert_Input {
 };
 
 /** aggregate max on columns */
-export class AuthUserProviders_Max_Fields {
+export type AuthUserProviders_Max_Fields = {
   __typename?: 'authUserProviders_max_fields';
   accessToken?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
@@ -912,7 +912,7 @@ export class AuthUserProviders_Max_Fields {
 };
 
 /** order by max() on columns of table "auth.user_providers" */
-export class AuthUserProviders_Max_Order_By {
+export type AuthUserProviders_Max_Order_By = {
   accessToken?: InputMaybe<Order_By>;
   createdAt?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
@@ -924,7 +924,7 @@ export class AuthUserProviders_Max_Order_By {
 };
 
 /** aggregate min on columns */
-export class AuthUserProviders_Min_Fields {
+export type AuthUserProviders_Min_Fields = {
   __typename?: 'authUserProviders_min_fields';
   accessToken?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
@@ -937,7 +937,7 @@ export class AuthUserProviders_Min_Fields {
 };
 
 /** order by min() on columns of table "auth.user_providers" */
-export class AuthUserProviders_Min_Order_By {
+export type AuthUserProviders_Min_Order_By = {
   accessToken?: InputMaybe<Order_By>;
   createdAt?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
@@ -949,7 +949,7 @@ export class AuthUserProviders_Min_Order_By {
 };
 
 /** response of any mutation on the table "auth.user_providers" */
-export class AuthUserProviders_Mutation_Response {
+export type AuthUserProviders_Mutation_Response = {
   __typename?: 'authUserProviders_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
@@ -958,14 +958,14 @@ export class AuthUserProviders_Mutation_Response {
 };
 
 /** on_conflict condition type for table "auth.user_providers" */
-export class AuthUserProviders_On_Conflict {
+export type AuthUserProviders_On_Conflict = {
   constraint: AuthUserProviders_Constraint;
   update_columns?: Array<AuthUserProviders_Update_Column>;
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.user_providers". */
-export class AuthUserProviders_Order_By {
+export type AuthUserProviders_Order_By = {
   accessToken?: InputMaybe<Order_By>;
   createdAt?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
@@ -979,7 +979,7 @@ export class AuthUserProviders_Order_By {
 };
 
 /** primary key columns input for table: auth.user_providers */
-export class AuthUserProviders_Pk_Columns_Input {
+export type AuthUserProviders_Pk_Columns_Input = {
   id: Scalars['uuid'];
 };
 
@@ -1004,7 +1004,7 @@ export enum AuthUserProviders_Select_Column {
 }
 
 /** input type for updating data in table "auth.user_providers" */
-export class AuthUserProviders_Set_Input {
+export type AuthUserProviders_Set_Input = {
   accessToken?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['timestamptz']>;
   id?: InputMaybe<Scalars['uuid']>;
@@ -1016,7 +1016,7 @@ export class AuthUserProviders_Set_Input {
 };
 
 /** Streaming cursor of the table "authUserProviders" */
-export class AuthUserProviders_Stream_Cursor_Input {
+export type AuthUserProviders_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: AuthUserProviders_Stream_Cursor_Value_Input;
   /** cursor ordering */
@@ -1024,7 +1024,7 @@ export class AuthUserProviders_Stream_Cursor_Input {
 };
 
 /** Initial value of the column from where the streaming should start */
-export class AuthUserProviders_Stream_Cursor_Value_Input {
+export type AuthUserProviders_Stream_Cursor_Value_Input = {
   accessToken?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['timestamptz']>;
   id?: InputMaybe<Scalars['uuid']>;
@@ -1055,14 +1055,14 @@ export enum AuthUserProviders_Update_Column {
   UserId = 'userId'
 }
 
-export class AuthUserProviders_Updates {
+export type AuthUserProviders_Updates = {
   /** sets the columns of the filtered rows to the given values */
   _set?: InputMaybe<AuthUserProviders_Set_Input>;
   where: AuthUserProviders_Bool_Exp;
 };
 
 /** Roles of users. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class AuthUserRoles {
+export type AuthUserRoles = {
   __typename?: 'authUserRoles';
   createdAt: Scalars['timestamptz'];
   id: Scalars['uuid'];
@@ -1075,17 +1075,17 @@ export class AuthUserRoles {
 };
 
 /** aggregated selection of "auth.user_roles" */
-export class AuthUserRoles_Aggregate {
+export type AuthUserRoles_Aggregate = {
   __typename?: 'authUserRoles_aggregate';
   aggregate?: Maybe<AuthUserRoles_Aggregate_Fields>;
   nodes: Array<AuthUserRoles>;
 };
 
-export class AuthUserRoles_Aggregate_Bool_Exp {
+export type AuthUserRoles_Aggregate_Bool_Exp = {
   count?: InputMaybe<AuthUserRoles_Aggregate_Bool_Exp_Count>;
 };
 
-export class AuthUserRoles_Aggregate_Bool_Exp_Count {
+export type AuthUserRoles_Aggregate_Bool_Exp_Count = {
   arguments?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
   filter?: InputMaybe<AuthUserRoles_Bool_Exp>;
@@ -1093,7 +1093,7 @@ export class AuthUserRoles_Aggregate_Bool_Exp_Count {
 };
 
 /** aggregate fields of "auth.user_roles" */
-export class AuthUserRoles_Aggregate_Fields {
+export type AuthUserRoles_Aggregate_Fields = {
   __typename?: 'authUserRoles_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<AuthUserRoles_Max_Fields>;
@@ -1102,27 +1102,27 @@ export class AuthUserRoles_Aggregate_Fields {
 
 
 /** aggregate fields of "auth.user_roles" */
-export class AuthUserRoles_Aggregate_FieldsCountArgs {
+export type AuthUserRoles_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** order by aggregate values of table "auth.user_roles" */
-export class AuthUserRoles_Aggregate_Order_By {
+export type AuthUserRoles_Aggregate_Order_By = {
   count?: InputMaybe<Order_By>;
   max?: InputMaybe<AuthUserRoles_Max_Order_By>;
   min?: InputMaybe<AuthUserRoles_Min_Order_By>;
 };
 
 /** input type for inserting array relation for remote table "auth.user_roles" */
-export class AuthUserRoles_Arr_Rel_Insert_Input {
+export type AuthUserRoles_Arr_Rel_Insert_Input = {
   data: Array<AuthUserRoles_Insert_Input>;
   /** upsert condition */
   on_conflict?: InputMaybe<AuthUserRoles_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "auth.user_roles". All fields are combined with a logical 'AND'. */
-export class AuthUserRoles_Bool_Exp {
+export type AuthUserRoles_Bool_Exp = {
   _and?: InputMaybe<Array<AuthUserRoles_Bool_Exp>>;
   _not?: InputMaybe<AuthUserRoles_Bool_Exp>;
   _or?: InputMaybe<Array<AuthUserRoles_Bool_Exp>>;
@@ -1143,7 +1143,7 @@ export enum AuthUserRoles_Constraint {
 }
 
 /** input type for inserting data into table "auth.user_roles" */
-export class AuthUserRoles_Insert_Input {
+export type AuthUserRoles_Insert_Input = {
   createdAt?: InputMaybe<Scalars['timestamptz']>;
   id?: InputMaybe<Scalars['uuid']>;
   role?: InputMaybe<Scalars['String']>;
@@ -1153,7 +1153,7 @@ export class AuthUserRoles_Insert_Input {
 };
 
 /** aggregate max on columns */
-export class AuthUserRoles_Max_Fields {
+export type AuthUserRoles_Max_Fields = {
   __typename?: 'authUserRoles_max_fields';
   createdAt?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['uuid']>;
@@ -1162,7 +1162,7 @@ export class AuthUserRoles_Max_Fields {
 };
 
 /** order by max() on columns of table "auth.user_roles" */
-export class AuthUserRoles_Max_Order_By {
+export type AuthUserRoles_Max_Order_By = {
   createdAt?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   role?: InputMaybe<Order_By>;
@@ -1170,7 +1170,7 @@ export class AuthUserRoles_Max_Order_By {
 };
 
 /** aggregate min on columns */
-export class AuthUserRoles_Min_Fields {
+export type AuthUserRoles_Min_Fields = {
   __typename?: 'authUserRoles_min_fields';
   createdAt?: Maybe<Scalars['timestamptz']>;
   id?: Maybe<Scalars['uuid']>;
@@ -1179,7 +1179,7 @@ export class AuthUserRoles_Min_Fields {
 };
 
 /** order by min() on columns of table "auth.user_roles" */
-export class AuthUserRoles_Min_Order_By {
+export type AuthUserRoles_Min_Order_By = {
   createdAt?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   role?: InputMaybe<Order_By>;
@@ -1187,7 +1187,7 @@ export class AuthUserRoles_Min_Order_By {
 };
 
 /** response of any mutation on the table "auth.user_roles" */
-export class AuthUserRoles_Mutation_Response {
+export type AuthUserRoles_Mutation_Response = {
   __typename?: 'authUserRoles_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
@@ -1196,14 +1196,14 @@ export class AuthUserRoles_Mutation_Response {
 };
 
 /** on_conflict condition type for table "auth.user_roles" */
-export class AuthUserRoles_On_Conflict {
+export type AuthUserRoles_On_Conflict = {
   constraint: AuthUserRoles_Constraint;
   update_columns?: Array<AuthUserRoles_Update_Column>;
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.user_roles". */
-export class AuthUserRoles_Order_By {
+export type AuthUserRoles_Order_By = {
   createdAt?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
   role?: InputMaybe<Order_By>;
@@ -1213,7 +1213,7 @@ export class AuthUserRoles_Order_By {
 };
 
 /** primary key columns input for table: auth.user_roles */
-export class AuthUserRoles_Pk_Columns_Input {
+export type AuthUserRoles_Pk_Columns_Input = {
   id: Scalars['uuid'];
 };
 
@@ -1230,7 +1230,7 @@ export enum AuthUserRoles_Select_Column {
 }
 
 /** input type for updating data in table "auth.user_roles" */
-export class AuthUserRoles_Set_Input {
+export type AuthUserRoles_Set_Input = {
   createdAt?: InputMaybe<Scalars['timestamptz']>;
   id?: InputMaybe<Scalars['uuid']>;
   role?: InputMaybe<Scalars['String']>;
@@ -1238,7 +1238,7 @@ export class AuthUserRoles_Set_Input {
 };
 
 /** Streaming cursor of the table "authUserRoles" */
-export class AuthUserRoles_Stream_Cursor_Input {
+export type AuthUserRoles_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: AuthUserRoles_Stream_Cursor_Value_Input;
   /** cursor ordering */
@@ -1246,7 +1246,7 @@ export class AuthUserRoles_Stream_Cursor_Input {
 };
 
 /** Initial value of the column from where the streaming should start */
-export class AuthUserRoles_Stream_Cursor_Value_Input {
+export type AuthUserRoles_Stream_Cursor_Value_Input = {
   createdAt?: InputMaybe<Scalars['timestamptz']>;
   id?: InputMaybe<Scalars['uuid']>;
   role?: InputMaybe<Scalars['String']>;
@@ -1265,14 +1265,14 @@ export enum AuthUserRoles_Update_Column {
   UserId = 'userId'
 }
 
-export class AuthUserRoles_Updates {
+export type AuthUserRoles_Updates = {
   /** sets the columns of the filtered rows to the given values */
   _set?: InputMaybe<AuthUserRoles_Set_Input>;
   where: AuthUserRoles_Bool_Exp;
 };
 
 /** User webauthn security keys. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class AuthUserSecurityKeys {
+export type AuthUserSecurityKeys = {
   __typename?: 'authUserSecurityKeys';
   counter: Scalars['bigint'];
   credentialId: Scalars['String'];
@@ -1286,17 +1286,17 @@ export class AuthUserSecurityKeys {
 };
 
 /** aggregated selection of "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Aggregate {
+export type AuthUserSecurityKeys_Aggregate = {
   __typename?: 'authUserSecurityKeys_aggregate';
   aggregate?: Maybe<AuthUserSecurityKeys_Aggregate_Fields>;
   nodes: Array<AuthUserSecurityKeys>;
 };
 
-export class AuthUserSecurityKeys_Aggregate_Bool_Exp {
+export type AuthUserSecurityKeys_Aggregate_Bool_Exp = {
   count?: InputMaybe<AuthUserSecurityKeys_Aggregate_Bool_Exp_Count>;
 };
 
-export class AuthUserSecurityKeys_Aggregate_Bool_Exp_Count {
+export type AuthUserSecurityKeys_Aggregate_Bool_Exp_Count = {
   arguments?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
   filter?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
@@ -1304,7 +1304,7 @@ export class AuthUserSecurityKeys_Aggregate_Bool_Exp_Count {
 };
 
 /** aggregate fields of "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Aggregate_Fields {
+export type AuthUserSecurityKeys_Aggregate_Fields = {
   __typename?: 'authUserSecurityKeys_aggregate_fields';
   avg?: Maybe<AuthUserSecurityKeys_Avg_Fields>;
   count: Scalars['Int'];
@@ -1321,13 +1321,13 @@ export class AuthUserSecurityKeys_Aggregate_Fields {
 
 
 /** aggregate fields of "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Aggregate_FieldsCountArgs {
+export type AuthUserSecurityKeys_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** order by aggregate values of table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Aggregate_Order_By {
+export type AuthUserSecurityKeys_Aggregate_Order_By = {
   avg?: InputMaybe<AuthUserSecurityKeys_Avg_Order_By>;
   count?: InputMaybe<Order_By>;
   max?: InputMaybe<AuthUserSecurityKeys_Max_Order_By>;
@@ -1342,25 +1342,25 @@ export class AuthUserSecurityKeys_Aggregate_Order_By {
 };
 
 /** input type for inserting array relation for remote table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Arr_Rel_Insert_Input {
+export type AuthUserSecurityKeys_Arr_Rel_Insert_Input = {
   data: Array<AuthUserSecurityKeys_Insert_Input>;
   /** upsert condition */
   on_conflict?: InputMaybe<AuthUserSecurityKeys_On_Conflict>;
 };
 
 /** aggregate avg on columns */
-export class AuthUserSecurityKeys_Avg_Fields {
+export type AuthUserSecurityKeys_Avg_Fields = {
   __typename?: 'authUserSecurityKeys_avg_fields';
   counter?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Avg_Order_By {
+export type AuthUserSecurityKeys_Avg_Order_By = {
   counter?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "auth.user_security_keys". All fields are combined with a logical 'AND'. */
-export class AuthUserSecurityKeys_Bool_Exp {
+export type AuthUserSecurityKeys_Bool_Exp = {
   _and?: InputMaybe<Array<AuthUserSecurityKeys_Bool_Exp>>;
   _not?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
   _or?: InputMaybe<Array<AuthUserSecurityKeys_Bool_Exp>>;
@@ -1383,12 +1383,12 @@ export enum AuthUserSecurityKeys_Constraint {
 }
 
 /** input type for incrementing numeric columns in table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Inc_Input {
+export type AuthUserSecurityKeys_Inc_Input = {
   counter?: InputMaybe<Scalars['bigint']>;
 };
 
 /** input type for inserting data into table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Insert_Input {
+export type AuthUserSecurityKeys_Insert_Input = {
   counter?: InputMaybe<Scalars['bigint']>;
   credentialId?: InputMaybe<Scalars['String']>;
   credentialPublicKey?: InputMaybe<Scalars['bytea']>;
@@ -1400,7 +1400,7 @@ export class AuthUserSecurityKeys_Insert_Input {
 };
 
 /** aggregate max on columns */
-export class AuthUserSecurityKeys_Max_Fields {
+export type AuthUserSecurityKeys_Max_Fields = {
   __typename?: 'authUserSecurityKeys_max_fields';
   counter?: Maybe<Scalars['bigint']>;
   credentialId?: Maybe<Scalars['String']>;
@@ -1411,7 +1411,7 @@ export class AuthUserSecurityKeys_Max_Fields {
 };
 
 /** order by max() on columns of table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Max_Order_By {
+export type AuthUserSecurityKeys_Max_Order_By = {
   counter?: InputMaybe<Order_By>;
   credentialId?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
@@ -1421,7 +1421,7 @@ export class AuthUserSecurityKeys_Max_Order_By {
 };
 
 /** aggregate min on columns */
-export class AuthUserSecurityKeys_Min_Fields {
+export type AuthUserSecurityKeys_Min_Fields = {
   __typename?: 'authUserSecurityKeys_min_fields';
   counter?: Maybe<Scalars['bigint']>;
   credentialId?: Maybe<Scalars['String']>;
@@ -1432,7 +1432,7 @@ export class AuthUserSecurityKeys_Min_Fields {
 };
 
 /** order by min() on columns of table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Min_Order_By {
+export type AuthUserSecurityKeys_Min_Order_By = {
   counter?: InputMaybe<Order_By>;
   credentialId?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
@@ -1442,7 +1442,7 @@ export class AuthUserSecurityKeys_Min_Order_By {
 };
 
 /** response of any mutation on the table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Mutation_Response {
+export type AuthUserSecurityKeys_Mutation_Response = {
   __typename?: 'authUserSecurityKeys_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
@@ -1451,14 +1451,14 @@ export class AuthUserSecurityKeys_Mutation_Response {
 };
 
 /** on_conflict condition type for table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_On_Conflict {
+export type AuthUserSecurityKeys_On_Conflict = {
   constraint: AuthUserSecurityKeys_Constraint;
   update_columns?: Array<AuthUserSecurityKeys_Update_Column>;
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.user_security_keys". */
-export class AuthUserSecurityKeys_Order_By {
+export type AuthUserSecurityKeys_Order_By = {
   counter?: InputMaybe<Order_By>;
   credentialId?: InputMaybe<Order_By>;
   credentialPublicKey?: InputMaybe<Order_By>;
@@ -1470,7 +1470,7 @@ export class AuthUserSecurityKeys_Order_By {
 };
 
 /** primary key columns input for table: auth.user_security_keys */
-export class AuthUserSecurityKeys_Pk_Columns_Input {
+export type AuthUserSecurityKeys_Pk_Columns_Input = {
   id: Scalars['uuid'];
 };
 
@@ -1493,7 +1493,7 @@ export enum AuthUserSecurityKeys_Select_Column {
 }
 
 /** input type for updating data in table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Set_Input {
+export type AuthUserSecurityKeys_Set_Input = {
   counter?: InputMaybe<Scalars['bigint']>;
   credentialId?: InputMaybe<Scalars['String']>;
   credentialPublicKey?: InputMaybe<Scalars['bytea']>;
@@ -1504,40 +1504,40 @@ export class AuthUserSecurityKeys_Set_Input {
 };
 
 /** aggregate stddev on columns */
-export class AuthUserSecurityKeys_Stddev_Fields {
+export type AuthUserSecurityKeys_Stddev_Fields = {
   __typename?: 'authUserSecurityKeys_stddev_fields';
   counter?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev() on columns of table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Stddev_Order_By {
+export type AuthUserSecurityKeys_Stddev_Order_By = {
   counter?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
-export class AuthUserSecurityKeys_Stddev_Pop_Fields {
+export type AuthUserSecurityKeys_Stddev_Pop_Fields = {
   __typename?: 'authUserSecurityKeys_stddev_pop_fields';
   counter?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Stddev_Pop_Order_By {
+export type AuthUserSecurityKeys_Stddev_Pop_Order_By = {
   counter?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
-export class AuthUserSecurityKeys_Stddev_Samp_Fields {
+export type AuthUserSecurityKeys_Stddev_Samp_Fields = {
   __typename?: 'authUserSecurityKeys_stddev_samp_fields';
   counter?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_samp() on columns of table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Stddev_Samp_Order_By {
+export type AuthUserSecurityKeys_Stddev_Samp_Order_By = {
   counter?: InputMaybe<Order_By>;
 };
 
 /** Streaming cursor of the table "authUserSecurityKeys" */
-export class AuthUserSecurityKeys_Stream_Cursor_Input {
+export type AuthUserSecurityKeys_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: AuthUserSecurityKeys_Stream_Cursor_Value_Input;
   /** cursor ordering */
@@ -1545,7 +1545,7 @@ export class AuthUserSecurityKeys_Stream_Cursor_Input {
 };
 
 /** Initial value of the column from where the streaming should start */
-export class AuthUserSecurityKeys_Stream_Cursor_Value_Input {
+export type AuthUserSecurityKeys_Stream_Cursor_Value_Input = {
   counter?: InputMaybe<Scalars['bigint']>;
   credentialId?: InputMaybe<Scalars['String']>;
   credentialPublicKey?: InputMaybe<Scalars['bytea']>;
@@ -1556,13 +1556,13 @@ export class AuthUserSecurityKeys_Stream_Cursor_Value_Input {
 };
 
 /** aggregate sum on columns */
-export class AuthUserSecurityKeys_Sum_Fields {
+export type AuthUserSecurityKeys_Sum_Fields = {
   __typename?: 'authUserSecurityKeys_sum_fields';
   counter?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Sum_Order_By {
+export type AuthUserSecurityKeys_Sum_Order_By = {
   counter?: InputMaybe<Order_By>;
 };
 
@@ -1584,7 +1584,7 @@ export enum AuthUserSecurityKeys_Update_Column {
   UserId = 'userId'
 }
 
-export class AuthUserSecurityKeys_Updates {
+export type AuthUserSecurityKeys_Updates = {
   /** increments the numeric columns with given value of the filtered values */
   _inc?: InputMaybe<AuthUserSecurityKeys_Inc_Input>;
   /** sets the columns of the filtered rows to the given values */
@@ -1593,40 +1593,40 @@ export class AuthUserSecurityKeys_Updates {
 };
 
 /** aggregate var_pop on columns */
-export class AuthUserSecurityKeys_Var_Pop_Fields {
+export type AuthUserSecurityKeys_Var_Pop_Fields = {
   __typename?: 'authUserSecurityKeys_var_pop_fields';
   counter?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_pop() on columns of table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Var_Pop_Order_By {
+export type AuthUserSecurityKeys_Var_Pop_Order_By = {
   counter?: InputMaybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
-export class AuthUserSecurityKeys_Var_Samp_Fields {
+export type AuthUserSecurityKeys_Var_Samp_Fields = {
   __typename?: 'authUserSecurityKeys_var_samp_fields';
   counter?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_samp() on columns of table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Var_Samp_Order_By {
+export type AuthUserSecurityKeys_Var_Samp_Order_By = {
   counter?: InputMaybe<Order_By>;
 };
 
 /** aggregate variance on columns */
-export class AuthUserSecurityKeys_Variance_Fields {
+export type AuthUserSecurityKeys_Variance_Fields = {
   __typename?: 'authUserSecurityKeys_variance_fields';
   counter?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "auth.user_security_keys" */
-export class AuthUserSecurityKeys_Variance_Order_By {
+export type AuthUserSecurityKeys_Variance_Order_By = {
   counter?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to compare columns of type "bigint". All fields are combined with logical 'AND'. */
-export class Bigint_Comparison_Exp {
+export type Bigint_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['bigint']>;
   _gt?: InputMaybe<Scalars['bigint']>;
   _gte?: InputMaybe<Scalars['bigint']>;
@@ -1639,7 +1639,7 @@ export class Bigint_Comparison_Exp {
 };
 
 /** columns and relationships of "storage.buckets" */
-export class Buckets {
+export type Buckets = {
   __typename?: 'buckets';
   cacheControl?: Maybe<Scalars['String']>;
   createdAt: Scalars['timestamptz'];
@@ -1657,7 +1657,7 @@ export class Buckets {
 
 
 /** columns and relationships of "storage.buckets" */
-export class BucketsFilesArgs {
+export type BucketsFilesArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -1667,7 +1667,7 @@ export class BucketsFilesArgs {
 
 
 /** columns and relationships of "storage.buckets" */
-export class BucketsFiles_AggregateArgs {
+export type BucketsFiles_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -1676,14 +1676,14 @@ export class BucketsFiles_AggregateArgs {
 };
 
 /** aggregated selection of "storage.buckets" */
-export class Buckets_Aggregate {
+export type Buckets_Aggregate = {
   __typename?: 'buckets_aggregate';
   aggregate?: Maybe<Buckets_Aggregate_Fields>;
   nodes: Array<Buckets>;
 };
 
 /** aggregate fields of "storage.buckets" */
-export class Buckets_Aggregate_Fields {
+export type Buckets_Aggregate_Fields = {
   __typename?: 'buckets_aggregate_fields';
   avg?: Maybe<Buckets_Avg_Fields>;
   count: Scalars['Int'];
@@ -1700,13 +1700,13 @@ export class Buckets_Aggregate_Fields {
 
 
 /** aggregate fields of "storage.buckets" */
-export class Buckets_Aggregate_FieldsCountArgs {
+export type Buckets_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Buckets_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** aggregate avg on columns */
-export class Buckets_Avg_Fields {
+export type Buckets_Avg_Fields = {
   __typename?: 'buckets_avg_fields';
   downloadExpiration?: Maybe<Scalars['Float']>;
   maxUploadFileSize?: Maybe<Scalars['Float']>;
@@ -1714,7 +1714,7 @@ export class Buckets_Avg_Fields {
 };
 
 /** Boolean expression to filter rows from the table "storage.buckets". All fields are combined with a logical 'AND'. */
-export class Buckets_Bool_Exp {
+export type Buckets_Bool_Exp = {
   _and?: InputMaybe<Array<Buckets_Bool_Exp>>;
   _not?: InputMaybe<Buckets_Bool_Exp>;
   _or?: InputMaybe<Array<Buckets_Bool_Exp>>;
@@ -1737,14 +1737,14 @@ export enum Buckets_Constraint {
 }
 
 /** input type for incrementing numeric columns in table "storage.buckets" */
-export class Buckets_Inc_Input {
+export type Buckets_Inc_Input = {
   downloadExpiration?: InputMaybe<Scalars['Int']>;
   maxUploadFileSize?: InputMaybe<Scalars['Int']>;
   minUploadFileSize?: InputMaybe<Scalars['Int']>;
 };
 
 /** input type for inserting data into table "storage.buckets" */
-export class Buckets_Insert_Input {
+export type Buckets_Insert_Input = {
   cacheControl?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['timestamptz']>;
   downloadExpiration?: InputMaybe<Scalars['Int']>;
@@ -1757,7 +1757,7 @@ export class Buckets_Insert_Input {
 };
 
 /** aggregate max on columns */
-export class Buckets_Max_Fields {
+export type Buckets_Max_Fields = {
   __typename?: 'buckets_max_fields';
   cacheControl?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
@@ -1769,7 +1769,7 @@ export class Buckets_Max_Fields {
 };
 
 /** aggregate min on columns */
-export class Buckets_Min_Fields {
+export type Buckets_Min_Fields = {
   __typename?: 'buckets_min_fields';
   cacheControl?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
@@ -1781,7 +1781,7 @@ export class Buckets_Min_Fields {
 };
 
 /** response of any mutation on the table "storage.buckets" */
-export class Buckets_Mutation_Response {
+export type Buckets_Mutation_Response = {
   __typename?: 'buckets_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
@@ -1790,21 +1790,21 @@ export class Buckets_Mutation_Response {
 };
 
 /** input type for inserting object relation for remote table "storage.buckets" */
-export class Buckets_Obj_Rel_Insert_Input {
+export type Buckets_Obj_Rel_Insert_Input = {
   data: Buckets_Insert_Input;
   /** upsert condition */
   on_conflict?: InputMaybe<Buckets_On_Conflict>;
 };
 
 /** on_conflict condition type for table "storage.buckets" */
-export class Buckets_On_Conflict {
+export type Buckets_On_Conflict = {
   constraint: Buckets_Constraint;
   update_columns?: Array<Buckets_Update_Column>;
   where?: InputMaybe<Buckets_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "storage.buckets". */
-export class Buckets_Order_By {
+export type Buckets_Order_By = {
   cacheControl?: InputMaybe<Order_By>;
   createdAt?: InputMaybe<Order_By>;
   downloadExpiration?: InputMaybe<Order_By>;
@@ -1817,7 +1817,7 @@ export class Buckets_Order_By {
 };
 
 /** primary key columns input for table: storage.buckets */
-export class Buckets_Pk_Columns_Input {
+export type Buckets_Pk_Columns_Input = {
   id: Scalars['String'];
 };
 
@@ -1842,7 +1842,7 @@ export enum Buckets_Select_Column {
 }
 
 /** input type for updating data in table "storage.buckets" */
-export class Buckets_Set_Input {
+export type Buckets_Set_Input = {
   cacheControl?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['timestamptz']>;
   downloadExpiration?: InputMaybe<Scalars['Int']>;
@@ -1854,7 +1854,7 @@ export class Buckets_Set_Input {
 };
 
 /** aggregate stddev on columns */
-export class Buckets_Stddev_Fields {
+export type Buckets_Stddev_Fields = {
   __typename?: 'buckets_stddev_fields';
   downloadExpiration?: Maybe<Scalars['Float']>;
   maxUploadFileSize?: Maybe<Scalars['Float']>;
@@ -1862,7 +1862,7 @@ export class Buckets_Stddev_Fields {
 };
 
 /** aggregate stddev_pop on columns */
-export class Buckets_Stddev_Pop_Fields {
+export type Buckets_Stddev_Pop_Fields = {
   __typename?: 'buckets_stddev_pop_fields';
   downloadExpiration?: Maybe<Scalars['Float']>;
   maxUploadFileSize?: Maybe<Scalars['Float']>;
@@ -1870,7 +1870,7 @@ export class Buckets_Stddev_Pop_Fields {
 };
 
 /** aggregate stddev_samp on columns */
-export class Buckets_Stddev_Samp_Fields {
+export type Buckets_Stddev_Samp_Fields = {
   __typename?: 'buckets_stddev_samp_fields';
   downloadExpiration?: Maybe<Scalars['Float']>;
   maxUploadFileSize?: Maybe<Scalars['Float']>;
@@ -1878,7 +1878,7 @@ export class Buckets_Stddev_Samp_Fields {
 };
 
 /** Streaming cursor of the table "buckets" */
-export class Buckets_Stream_Cursor_Input {
+export type Buckets_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: Buckets_Stream_Cursor_Value_Input;
   /** cursor ordering */
@@ -1886,7 +1886,7 @@ export class Buckets_Stream_Cursor_Input {
 };
 
 /** Initial value of the column from where the streaming should start */
-export class Buckets_Stream_Cursor_Value_Input {
+export type Buckets_Stream_Cursor_Value_Input = {
   cacheControl?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['timestamptz']>;
   downloadExpiration?: InputMaybe<Scalars['Int']>;
@@ -1898,7 +1898,7 @@ export class Buckets_Stream_Cursor_Value_Input {
 };
 
 /** aggregate sum on columns */
-export class Buckets_Sum_Fields {
+export type Buckets_Sum_Fields = {
   __typename?: 'buckets_sum_fields';
   downloadExpiration?: Maybe<Scalars['Int']>;
   maxUploadFileSize?: Maybe<Scalars['Int']>;
@@ -1925,7 +1925,7 @@ export enum Buckets_Update_Column {
   UpdatedAt = 'updatedAt'
 }
 
-export class Buckets_Updates {
+export type Buckets_Updates = {
   /** increments the numeric columns with given value of the filtered values */
   _inc?: InputMaybe<Buckets_Inc_Input>;
   /** sets the columns of the filtered rows to the given values */
@@ -1934,7 +1934,7 @@ export class Buckets_Updates {
 };
 
 /** aggregate var_pop on columns */
-export class Buckets_Var_Pop_Fields {
+export type Buckets_Var_Pop_Fields = {
   __typename?: 'buckets_var_pop_fields';
   downloadExpiration?: Maybe<Scalars['Float']>;
   maxUploadFileSize?: Maybe<Scalars['Float']>;
@@ -1942,7 +1942,7 @@ export class Buckets_Var_Pop_Fields {
 };
 
 /** aggregate var_samp on columns */
-export class Buckets_Var_Samp_Fields {
+export type Buckets_Var_Samp_Fields = {
   __typename?: 'buckets_var_samp_fields';
   downloadExpiration?: Maybe<Scalars['Float']>;
   maxUploadFileSize?: Maybe<Scalars['Float']>;
@@ -1950,7 +1950,7 @@ export class Buckets_Var_Samp_Fields {
 };
 
 /** aggregate variance on columns */
-export class Buckets_Variance_Fields {
+export type Buckets_Variance_Fields = {
   __typename?: 'buckets_variance_fields';
   downloadExpiration?: Maybe<Scalars['Float']>;
   maxUploadFileSize?: Maybe<Scalars['Float']>;
@@ -1958,7 +1958,7 @@ export class Buckets_Variance_Fields {
 };
 
 /** Boolean expression to compare columns of type "bytea". All fields are combined with logical 'AND'. */
-export class Bytea_Comparison_Exp {
+export type Bytea_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['bytea']>;
   _gt?: InputMaybe<Scalars['bytea']>;
   _gte?: InputMaybe<Scalars['bytea']>;
@@ -1971,21 +1971,21 @@ export class Bytea_Comparison_Exp {
 };
 
 /** columns and relationships of "categories" */
-export class Categories {
+export type Categories = {
   __typename?: 'categories';
   comment?: Maybe<Scalars['String']>;
   value: Scalars['String'];
 };
 
 /** aggregated selection of "categories" */
-export class Categories_Aggregate {
+export type Categories_Aggregate = {
   __typename?: 'categories_aggregate';
   aggregate?: Maybe<Categories_Aggregate_Fields>;
   nodes: Array<Categories>;
 };
 
 /** aggregate fields of "categories" */
-export class Categories_Aggregate_Fields {
+export type Categories_Aggregate_Fields = {
   __typename?: 'categories_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<Categories_Max_Fields>;
@@ -1994,13 +1994,13 @@ export class Categories_Aggregate_Fields {
 
 
 /** aggregate fields of "categories" */
-export class Categories_Aggregate_FieldsCountArgs {
+export type Categories_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Categories_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Boolean expression to filter rows from the table "categories". All fields are combined with a logical 'AND'. */
-export class Categories_Bool_Exp {
+export type Categories_Bool_Exp = {
   _and?: InputMaybe<Array<Categories_Bool_Exp>>;
   _not?: InputMaybe<Categories_Bool_Exp>;
   _or?: InputMaybe<Array<Categories_Bool_Exp>>;
@@ -2022,7 +2022,7 @@ export enum Categories_Enum {
 }
 
 /** Boolean expression to compare columns of type "categories_enum". All fields are combined with logical 'AND'. */
-export class Categories_Enum_Comparison_Exp {
+export type Categories_Enum_Comparison_Exp = {
   _eq?: InputMaybe<Categories_Enum>;
   _in?: InputMaybe<Array<Categories_Enum>>;
   _is_null?: InputMaybe<Scalars['Boolean']>;
@@ -2031,27 +2031,27 @@ export class Categories_Enum_Comparison_Exp {
 };
 
 /** input type for inserting data into table "categories" */
-export class Categories_Insert_Input {
+export type Categories_Insert_Input = {
   comment?: InputMaybe<Scalars['String']>;
   value?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregate max on columns */
-export class Categories_Max_Fields {
+export type Categories_Max_Fields = {
   __typename?: 'categories_max_fields';
   comment?: Maybe<Scalars['String']>;
   value?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
-export class Categories_Min_Fields {
+export type Categories_Min_Fields = {
   __typename?: 'categories_min_fields';
   comment?: Maybe<Scalars['String']>;
   value?: Maybe<Scalars['String']>;
 };
 
 /** response of any mutation on the table "categories" */
-export class Categories_Mutation_Response {
+export type Categories_Mutation_Response = {
   __typename?: 'categories_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
@@ -2060,20 +2060,20 @@ export class Categories_Mutation_Response {
 };
 
 /** on_conflict condition type for table "categories" */
-export class Categories_On_Conflict {
+export type Categories_On_Conflict = {
   constraint: Categories_Constraint;
   update_columns?: Array<Categories_Update_Column>;
   where?: InputMaybe<Categories_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "categories". */
-export class Categories_Order_By {
+export type Categories_Order_By = {
   comment?: InputMaybe<Order_By>;
   value?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: categories */
-export class Categories_Pk_Columns_Input {
+export type Categories_Pk_Columns_Input = {
   value: Scalars['String'];
 };
 
@@ -2086,13 +2086,13 @@ export enum Categories_Select_Column {
 }
 
 /** input type for updating data in table "categories" */
-export class Categories_Set_Input {
+export type Categories_Set_Input = {
   comment?: InputMaybe<Scalars['String']>;
   value?: InputMaybe<Scalars['String']>;
 };
 
 /** Streaming cursor of the table "categories" */
-export class Categories_Stream_Cursor_Input {
+export type Categories_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: Categories_Stream_Cursor_Value_Input;
   /** cursor ordering */
@@ -2100,7 +2100,7 @@ export class Categories_Stream_Cursor_Input {
 };
 
 /** Initial value of the column from where the streaming should start */
-export class Categories_Stream_Cursor_Value_Input {
+export type Categories_Stream_Cursor_Value_Input = {
   comment?: InputMaybe<Scalars['String']>;
   value?: InputMaybe<Scalars['String']>;
 };
@@ -2113,14 +2113,14 @@ export enum Categories_Update_Column {
   Value = 'value'
 }
 
-export class Categories_Updates {
+export type Categories_Updates = {
   /** sets the columns of the filtered rows to the given values */
   _set?: InputMaybe<Categories_Set_Input>;
   where: Categories_Bool_Exp;
 };
 
 /** Boolean expression to compare columns of type "citext". All fields are combined with logical 'AND'. */
-export class Citext_Comparison_Exp {
+export type Citext_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['citext']>;
   _gt?: InputMaybe<Scalars['citext']>;
   _gte?: InputMaybe<Scalars['citext']>;
@@ -2161,7 +2161,7 @@ export enum Cursor_Ordering {
 }
 
 /** columns and relationships of "storage.files" */
-export class Files {
+export type Files = {
   __typename?: 'files';
   /** An object relationship */
   bucket: Buckets;
@@ -2178,33 +2178,33 @@ export class Files {
 };
 
 /** aggregated selection of "storage.files" */
-export class Files_Aggregate {
+export type Files_Aggregate = {
   __typename?: 'files_aggregate';
   aggregate?: Maybe<Files_Aggregate_Fields>;
   nodes: Array<Files>;
 };
 
-export class Files_Aggregate_Bool_Exp {
+export type Files_Aggregate_Bool_Exp = {
   bool_and?: InputMaybe<Files_Aggregate_Bool_Exp_Bool_And>;
   bool_or?: InputMaybe<Files_Aggregate_Bool_Exp_Bool_Or>;
   count?: InputMaybe<Files_Aggregate_Bool_Exp_Count>;
 };
 
-export class Files_Aggregate_Bool_Exp_Bool_And {
+export type Files_Aggregate_Bool_Exp_Bool_And = {
   arguments: Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_And_Arguments_Columns;
   distinct?: InputMaybe<Scalars['Boolean']>;
   filter?: InputMaybe<Files_Bool_Exp>;
   predicate: Boolean_Comparison_Exp;
 };
 
-export class Files_Aggregate_Bool_Exp_Bool_Or {
+export type Files_Aggregate_Bool_Exp_Bool_Or = {
   arguments: Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns;
   distinct?: InputMaybe<Scalars['Boolean']>;
   filter?: InputMaybe<Files_Bool_Exp>;
   predicate: Boolean_Comparison_Exp;
 };
 
-export class Files_Aggregate_Bool_Exp_Count {
+export type Files_Aggregate_Bool_Exp_Count = {
   arguments?: InputMaybe<Array<Files_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
   filter?: InputMaybe<Files_Bool_Exp>;
@@ -2212,7 +2212,7 @@ export class Files_Aggregate_Bool_Exp_Count {
 };
 
 /** aggregate fields of "storage.files" */
-export class Files_Aggregate_Fields {
+export type Files_Aggregate_Fields = {
   __typename?: 'files_aggregate_fields';
   avg?: Maybe<Files_Avg_Fields>;
   count: Scalars['Int'];
@@ -2229,13 +2229,13 @@ export class Files_Aggregate_Fields {
 
 
 /** aggregate fields of "storage.files" */
-export class Files_Aggregate_FieldsCountArgs {
+export type Files_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Files_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** order by aggregate values of table "storage.files" */
-export class Files_Aggregate_Order_By {
+export type Files_Aggregate_Order_By = {
   avg?: InputMaybe<Files_Avg_Order_By>;
   count?: InputMaybe<Order_By>;
   max?: InputMaybe<Files_Max_Order_By>;
@@ -2250,25 +2250,25 @@ export class Files_Aggregate_Order_By {
 };
 
 /** input type for inserting array relation for remote table "storage.files" */
-export class Files_Arr_Rel_Insert_Input {
+export type Files_Arr_Rel_Insert_Input = {
   data: Array<Files_Insert_Input>;
   /** upsert condition */
   on_conflict?: InputMaybe<Files_On_Conflict>;
 };
 
 /** aggregate avg on columns */
-export class Files_Avg_Fields {
+export type Files_Avg_Fields = {
   __typename?: 'files_avg_fields';
   size?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "storage.files" */
-export class Files_Avg_Order_By {
+export type Files_Avg_Order_By = {
   size?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "storage.files". All fields are combined with a logical 'AND'. */
-export class Files_Bool_Exp {
+export type Files_Bool_Exp = {
   _and?: InputMaybe<Array<Files_Bool_Exp>>;
   _not?: InputMaybe<Files_Bool_Exp>;
   _or?: InputMaybe<Array<Files_Bool_Exp>>;
@@ -2292,12 +2292,12 @@ export enum Files_Constraint {
 }
 
 /** input type for incrementing numeric columns in table "storage.files" */
-export class Files_Inc_Input {
+export type Files_Inc_Input = {
   size?: InputMaybe<Scalars['Int']>;
 };
 
 /** input type for inserting data into table "storage.files" */
-export class Files_Insert_Input {
+export type Files_Insert_Input = {
   bucket?: InputMaybe<Buckets_Obj_Rel_Insert_Input>;
   bucketId?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['timestamptz']>;
@@ -2312,7 +2312,7 @@ export class Files_Insert_Input {
 };
 
 /** aggregate max on columns */
-export class Files_Max_Fields {
+export type Files_Max_Fields = {
   __typename?: 'files_max_fields';
   bucketId?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
@@ -2326,7 +2326,7 @@ export class Files_Max_Fields {
 };
 
 /** order by max() on columns of table "storage.files" */
-export class Files_Max_Order_By {
+export type Files_Max_Order_By = {
   bucketId?: InputMaybe<Order_By>;
   createdAt?: InputMaybe<Order_By>;
   etag?: InputMaybe<Order_By>;
@@ -2339,7 +2339,7 @@ export class Files_Max_Order_By {
 };
 
 /** aggregate min on columns */
-export class Files_Min_Fields {
+export type Files_Min_Fields = {
   __typename?: 'files_min_fields';
   bucketId?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
@@ -2353,7 +2353,7 @@ export class Files_Min_Fields {
 };
 
 /** order by min() on columns of table "storage.files" */
-export class Files_Min_Order_By {
+export type Files_Min_Order_By = {
   bucketId?: InputMaybe<Order_By>;
   createdAt?: InputMaybe<Order_By>;
   etag?: InputMaybe<Order_By>;
@@ -2366,7 +2366,7 @@ export class Files_Min_Order_By {
 };
 
 /** response of any mutation on the table "storage.files" */
-export class Files_Mutation_Response {
+export type Files_Mutation_Response = {
   __typename?: 'files_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
@@ -2375,14 +2375,14 @@ export class Files_Mutation_Response {
 };
 
 /** on_conflict condition type for table "storage.files" */
-export class Files_On_Conflict {
+export type Files_On_Conflict = {
   constraint: Files_Constraint;
   update_columns?: Array<Files_Update_Column>;
   where?: InputMaybe<Files_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "storage.files". */
-export class Files_Order_By {
+export type Files_Order_By = {
   bucket?: InputMaybe<Buckets_Order_By>;
   bucketId?: InputMaybe<Order_By>;
   createdAt?: InputMaybe<Order_By>;
@@ -2397,7 +2397,7 @@ export class Files_Order_By {
 };
 
 /** primary key columns input for table: storage.files */
-export class Files_Pk_Columns_Input {
+export type Files_Pk_Columns_Input = {
   id: Scalars['uuid'];
 };
 
@@ -2438,7 +2438,7 @@ export enum Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_Or_Arguments_Colum
 }
 
 /** input type for updating data in table "storage.files" */
-export class Files_Set_Input {
+export type Files_Set_Input = {
   bucketId?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['timestamptz']>;
   etag?: InputMaybe<Scalars['String']>;
@@ -2452,40 +2452,40 @@ export class Files_Set_Input {
 };
 
 /** aggregate stddev on columns */
-export class Files_Stddev_Fields {
+export type Files_Stddev_Fields = {
   __typename?: 'files_stddev_fields';
   size?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev() on columns of table "storage.files" */
-export class Files_Stddev_Order_By {
+export type Files_Stddev_Order_By = {
   size?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
-export class Files_Stddev_Pop_Fields {
+export type Files_Stddev_Pop_Fields = {
   __typename?: 'files_stddev_pop_fields';
   size?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "storage.files" */
-export class Files_Stddev_Pop_Order_By {
+export type Files_Stddev_Pop_Order_By = {
   size?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
-export class Files_Stddev_Samp_Fields {
+export type Files_Stddev_Samp_Fields = {
   __typename?: 'files_stddev_samp_fields';
   size?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_samp() on columns of table "storage.files" */
-export class Files_Stddev_Samp_Order_By {
+export type Files_Stddev_Samp_Order_By = {
   size?: InputMaybe<Order_By>;
 };
 
 /** Streaming cursor of the table "files" */
-export class Files_Stream_Cursor_Input {
+export type Files_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: Files_Stream_Cursor_Value_Input;
   /** cursor ordering */
@@ -2493,7 +2493,7 @@ export class Files_Stream_Cursor_Input {
 };
 
 /** Initial value of the column from where the streaming should start */
-export class Files_Stream_Cursor_Value_Input {
+export type Files_Stream_Cursor_Value_Input = {
   bucketId?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['timestamptz']>;
   etag?: InputMaybe<Scalars['String']>;
@@ -2507,13 +2507,13 @@ export class Files_Stream_Cursor_Value_Input {
 };
 
 /** aggregate sum on columns */
-export class Files_Sum_Fields {
+export type Files_Sum_Fields = {
   __typename?: 'files_sum_fields';
   size?: Maybe<Scalars['Int']>;
 };
 
 /** order by sum() on columns of table "storage.files" */
-export class Files_Sum_Order_By {
+export type Files_Sum_Order_By = {
   size?: InputMaybe<Order_By>;
 };
 
@@ -2541,7 +2541,7 @@ export enum Files_Update_Column {
   UploadedByUserId = 'uploadedByUserId'
 }
 
-export class Files_Updates {
+export type Files_Updates = {
   /** increments the numeric columns with given value of the filtered values */
   _inc?: InputMaybe<Files_Inc_Input>;
   /** sets the columns of the filtered rows to the given values */
@@ -2550,44 +2550,44 @@ export class Files_Updates {
 };
 
 /** aggregate var_pop on columns */
-export class Files_Var_Pop_Fields {
+export type Files_Var_Pop_Fields = {
   __typename?: 'files_var_pop_fields';
   size?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_pop() on columns of table "storage.files" */
-export class Files_Var_Pop_Order_By {
+export type Files_Var_Pop_Order_By = {
   size?: InputMaybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
-export class Files_Var_Samp_Fields {
+export type Files_Var_Samp_Fields = {
   __typename?: 'files_var_samp_fields';
   size?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_samp() on columns of table "storage.files" */
-export class Files_Var_Samp_Order_By {
+export type Files_Var_Samp_Order_By = {
   size?: InputMaybe<Order_By>;
 };
 
 /** aggregate variance on columns */
-export class Files_Variance_Fields {
+export type Files_Variance_Fields = {
   __typename?: 'files_variance_fields';
   size?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "storage.files" */
-export class Files_Variance_Order_By {
+export type Files_Variance_Order_By = {
   size?: InputMaybe<Order_By>;
 };
 
-export class Jsonb_Cast_Exp {
+export type Jsonb_Cast_Exp = {
   String?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** Boolean expression to compare columns of type "jsonb". All fields are combined with logical 'AND'. */
-export class Jsonb_Comparison_Exp {
+export type Jsonb_Comparison_Exp = {
   _cast?: InputMaybe<Jsonb_Cast_Exp>;
   /** is the column contained in the given json value */
   _contained_in?: InputMaybe<Scalars['jsonb']>;
@@ -2611,7 +2611,7 @@ export class Jsonb_Comparison_Exp {
 };
 
 /** mutation root */
-export class Mutation_Root {
+export type Mutation_Root = {
   __typename?: 'mutation_root';
   /** delete single row from the table: "auth.providers" */
   deleteAuthProvider?: Maybe<AuthProviders>;
@@ -2785,326 +2785,326 @@ export class Mutation_Root {
 
 
 /** mutation root */
-export class Mutation_RootDeleteAuthProviderArgs {
+export type Mutation_RootDeleteAuthProviderArgs = {
   id: Scalars['String'];
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteAuthProviderRequestArgs {
+export type Mutation_RootDeleteAuthProviderRequestArgs = {
   id: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteAuthProviderRequestsArgs {
+export type Mutation_RootDeleteAuthProviderRequestsArgs = {
   where: AuthProviderRequests_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteAuthProvidersArgs {
+export type Mutation_RootDeleteAuthProvidersArgs = {
   where: AuthProviders_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteAuthRefreshTokenArgs {
+export type Mutation_RootDeleteAuthRefreshTokenArgs = {
   refreshToken: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteAuthRefreshTokensArgs {
+export type Mutation_RootDeleteAuthRefreshTokensArgs = {
   where: AuthRefreshTokens_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteAuthRoleArgs {
+export type Mutation_RootDeleteAuthRoleArgs = {
   role: Scalars['String'];
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteAuthRolesArgs {
+export type Mutation_RootDeleteAuthRolesArgs = {
   where: AuthRoles_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteAuthUserProviderArgs {
+export type Mutation_RootDeleteAuthUserProviderArgs = {
   id: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteAuthUserProvidersArgs {
+export type Mutation_RootDeleteAuthUserProvidersArgs = {
   where: AuthUserProviders_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteAuthUserRoleArgs {
+export type Mutation_RootDeleteAuthUserRoleArgs = {
   id: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteAuthUserRolesArgs {
+export type Mutation_RootDeleteAuthUserRolesArgs = {
   where: AuthUserRoles_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteAuthUserSecurityKeyArgs {
+export type Mutation_RootDeleteAuthUserSecurityKeyArgs = {
   id: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteAuthUserSecurityKeysArgs {
+export type Mutation_RootDeleteAuthUserSecurityKeysArgs = {
   where: AuthUserSecurityKeys_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteBucketArgs {
+export type Mutation_RootDeleteBucketArgs = {
   id: Scalars['String'];
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteBucketsArgs {
+export type Mutation_RootDeleteBucketsArgs = {
   where: Buckets_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteFileArgs {
+export type Mutation_RootDeleteFileArgs = {
   id: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteFilesArgs {
+export type Mutation_RootDeleteFilesArgs = {
   where: Files_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteTodoArgs {
+export type Mutation_RootDeleteTodoArgs = {
   id: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteTodosArgs {
+export type Mutation_RootDeleteTodosArgs = {
   where: Todos_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteUserArgs {
+export type Mutation_RootDeleteUserArgs = {
   id: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export class Mutation_RootDeleteUsersArgs {
+export type Mutation_RootDeleteUsersArgs = {
   where: Users_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootDelete_CategoriesArgs {
+export type Mutation_RootDelete_CategoriesArgs = {
   where: Categories_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootDelete_Categories_By_PkArgs {
+export type Mutation_RootDelete_Categories_By_PkArgs = {
   value: Scalars['String'];
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertAuthProviderArgs {
+export type Mutation_RootInsertAuthProviderArgs = {
   object: AuthProviders_Insert_Input;
   on_conflict?: InputMaybe<AuthProviders_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertAuthProviderRequestArgs {
+export type Mutation_RootInsertAuthProviderRequestArgs = {
   object: AuthProviderRequests_Insert_Input;
   on_conflict?: InputMaybe<AuthProviderRequests_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertAuthProviderRequestsArgs {
+export type Mutation_RootInsertAuthProviderRequestsArgs = {
   objects: Array<AuthProviderRequests_Insert_Input>;
   on_conflict?: InputMaybe<AuthProviderRequests_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertAuthProvidersArgs {
+export type Mutation_RootInsertAuthProvidersArgs = {
   objects: Array<AuthProviders_Insert_Input>;
   on_conflict?: InputMaybe<AuthProviders_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertAuthRefreshTokenArgs {
+export type Mutation_RootInsertAuthRefreshTokenArgs = {
   object: AuthRefreshTokens_Insert_Input;
   on_conflict?: InputMaybe<AuthRefreshTokens_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertAuthRefreshTokensArgs {
+export type Mutation_RootInsertAuthRefreshTokensArgs = {
   objects: Array<AuthRefreshTokens_Insert_Input>;
   on_conflict?: InputMaybe<AuthRefreshTokens_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertAuthRoleArgs {
+export type Mutation_RootInsertAuthRoleArgs = {
   object: AuthRoles_Insert_Input;
   on_conflict?: InputMaybe<AuthRoles_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertAuthRolesArgs {
+export type Mutation_RootInsertAuthRolesArgs = {
   objects: Array<AuthRoles_Insert_Input>;
   on_conflict?: InputMaybe<AuthRoles_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertAuthUserProviderArgs {
+export type Mutation_RootInsertAuthUserProviderArgs = {
   object: AuthUserProviders_Insert_Input;
   on_conflict?: InputMaybe<AuthUserProviders_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertAuthUserProvidersArgs {
+export type Mutation_RootInsertAuthUserProvidersArgs = {
   objects: Array<AuthUserProviders_Insert_Input>;
   on_conflict?: InputMaybe<AuthUserProviders_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertAuthUserRoleArgs {
+export type Mutation_RootInsertAuthUserRoleArgs = {
   object: AuthUserRoles_Insert_Input;
   on_conflict?: InputMaybe<AuthUserRoles_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertAuthUserRolesArgs {
+export type Mutation_RootInsertAuthUserRolesArgs = {
   objects: Array<AuthUserRoles_Insert_Input>;
   on_conflict?: InputMaybe<AuthUserRoles_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertAuthUserSecurityKeyArgs {
+export type Mutation_RootInsertAuthUserSecurityKeyArgs = {
   object: AuthUserSecurityKeys_Insert_Input;
   on_conflict?: InputMaybe<AuthUserSecurityKeys_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertAuthUserSecurityKeysArgs {
+export type Mutation_RootInsertAuthUserSecurityKeysArgs = {
   objects: Array<AuthUserSecurityKeys_Insert_Input>;
   on_conflict?: InputMaybe<AuthUserSecurityKeys_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertBucketArgs {
+export type Mutation_RootInsertBucketArgs = {
   object: Buckets_Insert_Input;
   on_conflict?: InputMaybe<Buckets_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertBucketsArgs {
+export type Mutation_RootInsertBucketsArgs = {
   objects: Array<Buckets_Insert_Input>;
   on_conflict?: InputMaybe<Buckets_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertFileArgs {
+export type Mutation_RootInsertFileArgs = {
   object: Files_Insert_Input;
   on_conflict?: InputMaybe<Files_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertFilesArgs {
+export type Mutation_RootInsertFilesArgs = {
   objects: Array<Files_Insert_Input>;
   on_conflict?: InputMaybe<Files_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertTodoArgs {
+export type Mutation_RootInsertTodoArgs = {
   object: Todos_Insert_Input;
   on_conflict?: InputMaybe<Todos_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertTodosArgs {
+export type Mutation_RootInsertTodosArgs = {
   objects: Array<Todos_Insert_Input>;
   on_conflict?: InputMaybe<Todos_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertUserArgs {
+export type Mutation_RootInsertUserArgs = {
   object: Users_Insert_Input;
   on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsertUsersArgs {
+export type Mutation_RootInsertUsersArgs = {
   objects: Array<Users_Insert_Input>;
   on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsert_CategoriesArgs {
+export type Mutation_RootInsert_CategoriesArgs = {
   objects: Array<Categories_Insert_Input>;
   on_conflict?: InputMaybe<Categories_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootInsert_Categories_OneArgs {
+export type Mutation_RootInsert_Categories_OneArgs = {
   object: Categories_Insert_Input;
   on_conflict?: InputMaybe<Categories_On_Conflict>;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdateAuthProviderArgs {
+export type Mutation_RootUpdateAuthProviderArgs = {
   _set?: InputMaybe<AuthProviders_Set_Input>;
   pk_columns: AuthProviders_Pk_Columns_Input;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdateAuthProviderRequestArgs {
+export type Mutation_RootUpdateAuthProviderRequestArgs = {
   _append?: InputMaybe<AuthProviderRequests_Append_Input>;
   _delete_at_path?: InputMaybe<AuthProviderRequests_Delete_At_Path_Input>;
   _delete_elem?: InputMaybe<AuthProviderRequests_Delete_Elem_Input>;
@@ -3116,7 +3116,7 @@ export class Mutation_RootUpdateAuthProviderRequestArgs {
 
 
 /** mutation root */
-export class Mutation_RootUpdateAuthProviderRequestsArgs {
+export type Mutation_RootUpdateAuthProviderRequestsArgs = {
   _append?: InputMaybe<AuthProviderRequests_Append_Input>;
   _delete_at_path?: InputMaybe<AuthProviderRequests_Delete_At_Path_Input>;
   _delete_elem?: InputMaybe<AuthProviderRequests_Delete_Elem_Input>;
@@ -3128,70 +3128,70 @@ export class Mutation_RootUpdateAuthProviderRequestsArgs {
 
 
 /** mutation root */
-export class Mutation_RootUpdateAuthProvidersArgs {
+export type Mutation_RootUpdateAuthProvidersArgs = {
   _set?: InputMaybe<AuthProviders_Set_Input>;
   where: AuthProviders_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdateAuthRefreshTokenArgs {
+export type Mutation_RootUpdateAuthRefreshTokenArgs = {
   _set?: InputMaybe<AuthRefreshTokens_Set_Input>;
   pk_columns: AuthRefreshTokens_Pk_Columns_Input;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdateAuthRefreshTokensArgs {
+export type Mutation_RootUpdateAuthRefreshTokensArgs = {
   _set?: InputMaybe<AuthRefreshTokens_Set_Input>;
   where: AuthRefreshTokens_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdateAuthRoleArgs {
+export type Mutation_RootUpdateAuthRoleArgs = {
   _set?: InputMaybe<AuthRoles_Set_Input>;
   pk_columns: AuthRoles_Pk_Columns_Input;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdateAuthRolesArgs {
+export type Mutation_RootUpdateAuthRolesArgs = {
   _set?: InputMaybe<AuthRoles_Set_Input>;
   where: AuthRoles_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdateAuthUserProviderArgs {
+export type Mutation_RootUpdateAuthUserProviderArgs = {
   _set?: InputMaybe<AuthUserProviders_Set_Input>;
   pk_columns: AuthUserProviders_Pk_Columns_Input;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdateAuthUserProvidersArgs {
+export type Mutation_RootUpdateAuthUserProvidersArgs = {
   _set?: InputMaybe<AuthUserProviders_Set_Input>;
   where: AuthUserProviders_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdateAuthUserRoleArgs {
+export type Mutation_RootUpdateAuthUserRoleArgs = {
   _set?: InputMaybe<AuthUserRoles_Set_Input>;
   pk_columns: AuthUserRoles_Pk_Columns_Input;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdateAuthUserRolesArgs {
+export type Mutation_RootUpdateAuthUserRolesArgs = {
   _set?: InputMaybe<AuthUserRoles_Set_Input>;
   where: AuthUserRoles_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdateAuthUserSecurityKeyArgs {
+export type Mutation_RootUpdateAuthUserSecurityKeyArgs = {
   _inc?: InputMaybe<AuthUserSecurityKeys_Inc_Input>;
   _set?: InputMaybe<AuthUserSecurityKeys_Set_Input>;
   pk_columns: AuthUserSecurityKeys_Pk_Columns_Input;
@@ -3199,7 +3199,7 @@ export class Mutation_RootUpdateAuthUserSecurityKeyArgs {
 
 
 /** mutation root */
-export class Mutation_RootUpdateAuthUserSecurityKeysArgs {
+export type Mutation_RootUpdateAuthUserSecurityKeysArgs = {
   _inc?: InputMaybe<AuthUserSecurityKeys_Inc_Input>;
   _set?: InputMaybe<AuthUserSecurityKeys_Set_Input>;
   where: AuthUserSecurityKeys_Bool_Exp;
@@ -3207,7 +3207,7 @@ export class Mutation_RootUpdateAuthUserSecurityKeysArgs {
 
 
 /** mutation root */
-export class Mutation_RootUpdateBucketArgs {
+export type Mutation_RootUpdateBucketArgs = {
   _inc?: InputMaybe<Buckets_Inc_Input>;
   _set?: InputMaybe<Buckets_Set_Input>;
   pk_columns: Buckets_Pk_Columns_Input;
@@ -3215,7 +3215,7 @@ export class Mutation_RootUpdateBucketArgs {
 
 
 /** mutation root */
-export class Mutation_RootUpdateBucketsArgs {
+export type Mutation_RootUpdateBucketsArgs = {
   _inc?: InputMaybe<Buckets_Inc_Input>;
   _set?: InputMaybe<Buckets_Set_Input>;
   where: Buckets_Bool_Exp;
@@ -3223,7 +3223,7 @@ export class Mutation_RootUpdateBucketsArgs {
 
 
 /** mutation root */
-export class Mutation_RootUpdateFileArgs {
+export type Mutation_RootUpdateFileArgs = {
   _inc?: InputMaybe<Files_Inc_Input>;
   _set?: InputMaybe<Files_Set_Input>;
   pk_columns: Files_Pk_Columns_Input;
@@ -3231,7 +3231,7 @@ export class Mutation_RootUpdateFileArgs {
 
 
 /** mutation root */
-export class Mutation_RootUpdateFilesArgs {
+export type Mutation_RootUpdateFilesArgs = {
   _inc?: InputMaybe<Files_Inc_Input>;
   _set?: InputMaybe<Files_Set_Input>;
   where: Files_Bool_Exp;
@@ -3239,21 +3239,21 @@ export class Mutation_RootUpdateFilesArgs {
 
 
 /** mutation root */
-export class Mutation_RootUpdateTodoArgs {
+export type Mutation_RootUpdateTodoArgs = {
   _set?: InputMaybe<Todos_Set_Input>;
   pk_columns: Todos_Pk_Columns_Input;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdateTodosArgs {
+export type Mutation_RootUpdateTodosArgs = {
   _set?: InputMaybe<Todos_Set_Input>;
   where: Todos_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdateUserArgs {
+export type Mutation_RootUpdateUserArgs = {
   _append?: InputMaybe<Users_Append_Input>;
   _delete_at_path?: InputMaybe<Users_Delete_At_Path_Input>;
   _delete_elem?: InputMaybe<Users_Delete_Elem_Input>;
@@ -3265,7 +3265,7 @@ export class Mutation_RootUpdateUserArgs {
 
 
 /** mutation root */
-export class Mutation_RootUpdateUsersArgs {
+export type Mutation_RootUpdateUsersArgs = {
   _append?: InputMaybe<Users_Append_Input>;
   _delete_at_path?: InputMaybe<Users_Delete_At_Path_Input>;
   _delete_elem?: InputMaybe<Users_Delete_Elem_Input>;
@@ -3277,87 +3277,87 @@ export class Mutation_RootUpdateUsersArgs {
 
 
 /** mutation root */
-export class Mutation_RootUpdate_AuthProviderRequests_ManyArgs {
+export type Mutation_RootUpdate_AuthProviderRequests_ManyArgs = {
   updates: Array<AuthProviderRequests_Updates>;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdate_AuthProviders_ManyArgs {
+export type Mutation_RootUpdate_AuthProviders_ManyArgs = {
   updates: Array<AuthProviders_Updates>;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdate_AuthRefreshTokens_ManyArgs {
+export type Mutation_RootUpdate_AuthRefreshTokens_ManyArgs = {
   updates: Array<AuthRefreshTokens_Updates>;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdate_AuthRoles_ManyArgs {
+export type Mutation_RootUpdate_AuthRoles_ManyArgs = {
   updates: Array<AuthRoles_Updates>;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdate_AuthUserProviders_ManyArgs {
+export type Mutation_RootUpdate_AuthUserProviders_ManyArgs = {
   updates: Array<AuthUserProviders_Updates>;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdate_AuthUserRoles_ManyArgs {
+export type Mutation_RootUpdate_AuthUserRoles_ManyArgs = {
   updates: Array<AuthUserRoles_Updates>;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdate_AuthUserSecurityKeys_ManyArgs {
+export type Mutation_RootUpdate_AuthUserSecurityKeys_ManyArgs = {
   updates: Array<AuthUserSecurityKeys_Updates>;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdate_Buckets_ManyArgs {
+export type Mutation_RootUpdate_Buckets_ManyArgs = {
   updates: Array<Buckets_Updates>;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdate_CategoriesArgs {
+export type Mutation_RootUpdate_CategoriesArgs = {
   _set?: InputMaybe<Categories_Set_Input>;
   where: Categories_Bool_Exp;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdate_Categories_By_PkArgs {
+export type Mutation_RootUpdate_Categories_By_PkArgs = {
   _set?: InputMaybe<Categories_Set_Input>;
   pk_columns: Categories_Pk_Columns_Input;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdate_Categories_ManyArgs {
+export type Mutation_RootUpdate_Categories_ManyArgs = {
   updates: Array<Categories_Updates>;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdate_Files_ManyArgs {
+export type Mutation_RootUpdate_Files_ManyArgs = {
   updates: Array<Files_Updates>;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdate_Todos_ManyArgs {
+export type Mutation_RootUpdate_Todos_ManyArgs = {
   updates: Array<Todos_Updates>;
 };
 
 
 /** mutation root */
-export class Mutation_RootUpdate_Users_ManyArgs {
+export type Mutation_RootUpdate_Users_ManyArgs = {
   updates: Array<Users_Updates>;
 };
 
@@ -3377,7 +3377,7 @@ export enum Order_By {
   DescNullsLast = 'desc_nulls_last'
 }
 
-export class Query_Root {
+export type Query_Root = {
   __typename?: 'query_root';
   /** fetch data from the table: "auth.providers" using primary key columns */
   authProvider?: Maybe<AuthProviders>;
@@ -3454,17 +3454,17 @@ export class Query_Root {
 };
 
 
-export class Query_RootAuthProviderArgs {
+export type Query_RootAuthProviderArgs = {
   id: Scalars['String'];
 };
 
 
-export class Query_RootAuthProviderRequestArgs {
+export type Query_RootAuthProviderRequestArgs = {
   id: Scalars['uuid'];
 };
 
 
-export class Query_RootAuthProviderRequestsArgs {
+export type Query_RootAuthProviderRequestsArgs = {
   distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3473,7 +3473,7 @@ export class Query_RootAuthProviderRequestsArgs {
 };
 
 
-export class Query_RootAuthProviderRequestsAggregateArgs {
+export type Query_RootAuthProviderRequestsAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3482,7 +3482,7 @@ export class Query_RootAuthProviderRequestsAggregateArgs {
 };
 
 
-export class Query_RootAuthProvidersArgs {
+export type Query_RootAuthProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3491,7 +3491,7 @@ export class Query_RootAuthProvidersArgs {
 };
 
 
-export class Query_RootAuthProvidersAggregateArgs {
+export type Query_RootAuthProvidersAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3500,12 +3500,12 @@ export class Query_RootAuthProvidersAggregateArgs {
 };
 
 
-export class Query_RootAuthRefreshTokenArgs {
+export type Query_RootAuthRefreshTokenArgs = {
   refreshToken: Scalars['uuid'];
 };
 
 
-export class Query_RootAuthRefreshTokensArgs {
+export type Query_RootAuthRefreshTokensArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3514,7 +3514,7 @@ export class Query_RootAuthRefreshTokensArgs {
 };
 
 
-export class Query_RootAuthRefreshTokensAggregateArgs {
+export type Query_RootAuthRefreshTokensAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3523,12 +3523,12 @@ export class Query_RootAuthRefreshTokensAggregateArgs {
 };
 
 
-export class Query_RootAuthRoleArgs {
+export type Query_RootAuthRoleArgs = {
   role: Scalars['String'];
 };
 
 
-export class Query_RootAuthRolesArgs {
+export type Query_RootAuthRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3537,7 +3537,7 @@ export class Query_RootAuthRolesArgs {
 };
 
 
-export class Query_RootAuthRolesAggregateArgs {
+export type Query_RootAuthRolesAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3546,12 +3546,12 @@ export class Query_RootAuthRolesAggregateArgs {
 };
 
 
-export class Query_RootAuthUserProviderArgs {
+export type Query_RootAuthUserProviderArgs = {
   id: Scalars['uuid'];
 };
 
 
-export class Query_RootAuthUserProvidersArgs {
+export type Query_RootAuthUserProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3560,7 +3560,7 @@ export class Query_RootAuthUserProvidersArgs {
 };
 
 
-export class Query_RootAuthUserProvidersAggregateArgs {
+export type Query_RootAuthUserProvidersAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3569,12 +3569,12 @@ export class Query_RootAuthUserProvidersAggregateArgs {
 };
 
 
-export class Query_RootAuthUserRoleArgs {
+export type Query_RootAuthUserRoleArgs = {
   id: Scalars['uuid'];
 };
 
 
-export class Query_RootAuthUserRolesArgs {
+export type Query_RootAuthUserRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3583,7 +3583,7 @@ export class Query_RootAuthUserRolesArgs {
 };
 
 
-export class Query_RootAuthUserRolesAggregateArgs {
+export type Query_RootAuthUserRolesAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3592,12 +3592,12 @@ export class Query_RootAuthUserRolesAggregateArgs {
 };
 
 
-export class Query_RootAuthUserSecurityKeyArgs {
+export type Query_RootAuthUserSecurityKeyArgs = {
   id: Scalars['uuid'];
 };
 
 
-export class Query_RootAuthUserSecurityKeysArgs {
+export type Query_RootAuthUserSecurityKeysArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3606,7 +3606,7 @@ export class Query_RootAuthUserSecurityKeysArgs {
 };
 
 
-export class Query_RootAuthUserSecurityKeysAggregateArgs {
+export type Query_RootAuthUserSecurityKeysAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3615,12 +3615,12 @@ export class Query_RootAuthUserSecurityKeysAggregateArgs {
 };
 
 
-export class Query_RootBucketArgs {
+export type Query_RootBucketArgs = {
   id: Scalars['String'];
 };
 
 
-export class Query_RootBucketsArgs {
+export type Query_RootBucketsArgs = {
   distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3629,7 +3629,7 @@ export class Query_RootBucketsArgs {
 };
 
 
-export class Query_RootBucketsAggregateArgs {
+export type Query_RootBucketsAggregateArgs = {
   distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3638,7 +3638,7 @@ export class Query_RootBucketsAggregateArgs {
 };
 
 
-export class Query_RootCategoriesArgs {
+export type Query_RootCategoriesArgs = {
   distinct_on?: InputMaybe<Array<Categories_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3647,7 +3647,7 @@ export class Query_RootCategoriesArgs {
 };
 
 
-export class Query_RootCategories_AggregateArgs {
+export type Query_RootCategories_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Categories_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3656,17 +3656,17 @@ export class Query_RootCategories_AggregateArgs {
 };
 
 
-export class Query_RootCategories_By_PkArgs {
+export type Query_RootCategories_By_PkArgs = {
   value: Scalars['String'];
 };
 
 
-export class Query_RootFileArgs {
+export type Query_RootFileArgs = {
   id: Scalars['uuid'];
 };
 
 
-export class Query_RootFilesArgs {
+export type Query_RootFilesArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3675,7 +3675,7 @@ export class Query_RootFilesArgs {
 };
 
 
-export class Query_RootFilesAggregateArgs {
+export type Query_RootFilesAggregateArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3684,12 +3684,12 @@ export class Query_RootFilesAggregateArgs {
 };
 
 
-export class Query_RootTodoArgs {
+export type Query_RootTodoArgs = {
   id: Scalars['uuid'];
 };
 
 
-export class Query_RootTodosArgs {
+export type Query_RootTodosArgs = {
   distinct_on?: InputMaybe<Array<Todos_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3698,7 +3698,7 @@ export class Query_RootTodosArgs {
 };
 
 
-export class Query_RootTodosAggregateArgs {
+export type Query_RootTodosAggregateArgs = {
   distinct_on?: InputMaybe<Array<Todos_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3707,12 +3707,12 @@ export class Query_RootTodosAggregateArgs {
 };
 
 
-export class Query_RootUserArgs {
+export type Query_RootUserArgs = {
   id: Scalars['uuid'];
 };
 
 
-export class Query_RootUsersArgs {
+export type Query_RootUsersArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3721,7 +3721,7 @@ export class Query_RootUsersArgs {
 };
 
 
-export class Query_RootUsersAggregateArgs {
+export type Query_RootUsersAggregateArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3729,7 +3729,7 @@ export class Query_RootUsersAggregateArgs {
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
-export class Subscription_Root {
+export type Subscription_Root = {
   __typename?: 'subscription_root';
   /** fetch data from the table: "auth.providers" using primary key columns */
   authProvider?: Maybe<AuthProviders>;
@@ -3830,17 +3830,17 @@ export class Subscription_Root {
 };
 
 
-export class Subscription_RootAuthProviderArgs {
+export type Subscription_RootAuthProviderArgs = {
   id: Scalars['String'];
 };
 
 
-export class Subscription_RootAuthProviderRequestArgs {
+export type Subscription_RootAuthProviderRequestArgs = {
   id: Scalars['uuid'];
 };
 
 
-export class Subscription_RootAuthProviderRequestsArgs {
+export type Subscription_RootAuthProviderRequestsArgs = {
   distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3849,7 +3849,7 @@ export class Subscription_RootAuthProviderRequestsArgs {
 };
 
 
-export class Subscription_RootAuthProviderRequestsAggregateArgs {
+export type Subscription_RootAuthProviderRequestsAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3858,14 +3858,14 @@ export class Subscription_RootAuthProviderRequestsAggregateArgs {
 };
 
 
-export class Subscription_RootAuthProviderRequests_StreamArgs {
+export type Subscription_RootAuthProviderRequests_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthProviderRequests_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthProviderRequests_Bool_Exp>;
 };
 
 
-export class Subscription_RootAuthProvidersArgs {
+export type Subscription_RootAuthProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3874,7 +3874,7 @@ export class Subscription_RootAuthProvidersArgs {
 };
 
 
-export class Subscription_RootAuthProvidersAggregateArgs {
+export type Subscription_RootAuthProvidersAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3883,19 +3883,19 @@ export class Subscription_RootAuthProvidersAggregateArgs {
 };
 
 
-export class Subscription_RootAuthProviders_StreamArgs {
+export type Subscription_RootAuthProviders_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthProviders_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthProviders_Bool_Exp>;
 };
 
 
-export class Subscription_RootAuthRefreshTokenArgs {
+export type Subscription_RootAuthRefreshTokenArgs = {
   refreshToken: Scalars['uuid'];
 };
 
 
-export class Subscription_RootAuthRefreshTokensArgs {
+export type Subscription_RootAuthRefreshTokensArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3904,7 +3904,7 @@ export class Subscription_RootAuthRefreshTokensArgs {
 };
 
 
-export class Subscription_RootAuthRefreshTokensAggregateArgs {
+export type Subscription_RootAuthRefreshTokensAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3913,19 +3913,19 @@ export class Subscription_RootAuthRefreshTokensAggregateArgs {
 };
 
 
-export class Subscription_RootAuthRefreshTokens_StreamArgs {
+export type Subscription_RootAuthRefreshTokens_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthRefreshTokens_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
 
-export class Subscription_RootAuthRoleArgs {
+export type Subscription_RootAuthRoleArgs = {
   role: Scalars['String'];
 };
 
 
-export class Subscription_RootAuthRolesArgs {
+export type Subscription_RootAuthRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3934,7 +3934,7 @@ export class Subscription_RootAuthRolesArgs {
 };
 
 
-export class Subscription_RootAuthRolesAggregateArgs {
+export type Subscription_RootAuthRolesAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3943,19 +3943,19 @@ export class Subscription_RootAuthRolesAggregateArgs {
 };
 
 
-export class Subscription_RootAuthRoles_StreamArgs {
+export type Subscription_RootAuthRoles_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthRoles_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthRoles_Bool_Exp>;
 };
 
 
-export class Subscription_RootAuthUserProviderArgs {
+export type Subscription_RootAuthUserProviderArgs = {
   id: Scalars['uuid'];
 };
 
 
-export class Subscription_RootAuthUserProvidersArgs {
+export type Subscription_RootAuthUserProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3964,7 +3964,7 @@ export class Subscription_RootAuthUserProvidersArgs {
 };
 
 
-export class Subscription_RootAuthUserProvidersAggregateArgs {
+export type Subscription_RootAuthUserProvidersAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3973,19 +3973,19 @@ export class Subscription_RootAuthUserProvidersAggregateArgs {
 };
 
 
-export class Subscription_RootAuthUserProviders_StreamArgs {
+export type Subscription_RootAuthUserProviders_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthUserProviders_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
 
-export class Subscription_RootAuthUserRoleArgs {
+export type Subscription_RootAuthUserRoleArgs = {
   id: Scalars['uuid'];
 };
 
 
-export class Subscription_RootAuthUserRolesArgs {
+export type Subscription_RootAuthUserRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3994,7 +3994,7 @@ export class Subscription_RootAuthUserRolesArgs {
 };
 
 
-export class Subscription_RootAuthUserRolesAggregateArgs {
+export type Subscription_RootAuthUserRolesAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4003,19 +4003,19 @@ export class Subscription_RootAuthUserRolesAggregateArgs {
 };
 
 
-export class Subscription_RootAuthUserRoles_StreamArgs {
+export type Subscription_RootAuthUserRoles_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthUserRoles_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
 
-export class Subscription_RootAuthUserSecurityKeyArgs {
+export type Subscription_RootAuthUserSecurityKeyArgs = {
   id: Scalars['uuid'];
 };
 
 
-export class Subscription_RootAuthUserSecurityKeysArgs {
+export type Subscription_RootAuthUserSecurityKeysArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4024,7 +4024,7 @@ export class Subscription_RootAuthUserSecurityKeysArgs {
 };
 
 
-export class Subscription_RootAuthUserSecurityKeysAggregateArgs {
+export type Subscription_RootAuthUserSecurityKeysAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4033,19 +4033,19 @@ export class Subscription_RootAuthUserSecurityKeysAggregateArgs {
 };
 
 
-export class Subscription_RootAuthUserSecurityKeys_StreamArgs {
+export type Subscription_RootAuthUserSecurityKeys_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthUserSecurityKeys_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
 
-export class Subscription_RootBucketArgs {
+export type Subscription_RootBucketArgs = {
   id: Scalars['String'];
 };
 
 
-export class Subscription_RootBucketsArgs {
+export type Subscription_RootBucketsArgs = {
   distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4054,7 +4054,7 @@ export class Subscription_RootBucketsArgs {
 };
 
 
-export class Subscription_RootBucketsAggregateArgs {
+export type Subscription_RootBucketsAggregateArgs = {
   distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4063,14 +4063,14 @@ export class Subscription_RootBucketsAggregateArgs {
 };
 
 
-export class Subscription_RootBuckets_StreamArgs {
+export type Subscription_RootBuckets_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Buckets_Stream_Cursor_Input>>;
   where?: InputMaybe<Buckets_Bool_Exp>;
 };
 
 
-export class Subscription_RootCategoriesArgs {
+export type Subscription_RootCategoriesArgs = {
   distinct_on?: InputMaybe<Array<Categories_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4079,7 +4079,7 @@ export class Subscription_RootCategoriesArgs {
 };
 
 
-export class Subscription_RootCategories_AggregateArgs {
+export type Subscription_RootCategories_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Categories_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4088,24 +4088,24 @@ export class Subscription_RootCategories_AggregateArgs {
 };
 
 
-export class Subscription_RootCategories_By_PkArgs {
+export type Subscription_RootCategories_By_PkArgs = {
   value: Scalars['String'];
 };
 
 
-export class Subscription_RootCategories_StreamArgs {
+export type Subscription_RootCategories_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Categories_Stream_Cursor_Input>>;
   where?: InputMaybe<Categories_Bool_Exp>;
 };
 
 
-export class Subscription_RootFileArgs {
+export type Subscription_RootFileArgs = {
   id: Scalars['uuid'];
 };
 
 
-export class Subscription_RootFilesArgs {
+export type Subscription_RootFilesArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4114,7 +4114,7 @@ export class Subscription_RootFilesArgs {
 };
 
 
-export class Subscription_RootFilesAggregateArgs {
+export type Subscription_RootFilesAggregateArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4123,19 +4123,19 @@ export class Subscription_RootFilesAggregateArgs {
 };
 
 
-export class Subscription_RootFiles_StreamArgs {
+export type Subscription_RootFiles_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Files_Stream_Cursor_Input>>;
   where?: InputMaybe<Files_Bool_Exp>;
 };
 
 
-export class Subscription_RootTodoArgs {
+export type Subscription_RootTodoArgs = {
   id: Scalars['uuid'];
 };
 
 
-export class Subscription_RootTodosArgs {
+export type Subscription_RootTodosArgs = {
   distinct_on?: InputMaybe<Array<Todos_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4144,7 +4144,7 @@ export class Subscription_RootTodosArgs {
 };
 
 
-export class Subscription_RootTodosAggregateArgs {
+export type Subscription_RootTodosAggregateArgs = {
   distinct_on?: InputMaybe<Array<Todos_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4153,19 +4153,19 @@ export class Subscription_RootTodosAggregateArgs {
 };
 
 
-export class Subscription_RootTodos_StreamArgs {
+export type Subscription_RootTodos_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Todos_Stream_Cursor_Input>>;
   where?: InputMaybe<Todos_Bool_Exp>;
 };
 
 
-export class Subscription_RootUserArgs {
+export type Subscription_RootUserArgs = {
   id: Scalars['uuid'];
 };
 
 
-export class Subscription_RootUsersArgs {
+export type Subscription_RootUsersArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4174,7 +4174,7 @@ export class Subscription_RootUsersArgs {
 };
 
 
-export class Subscription_RootUsersAggregateArgs {
+export type Subscription_RootUsersAggregateArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4183,14 +4183,14 @@ export class Subscription_RootUsersAggregateArgs {
 };
 
 
-export class Subscription_RootUsers_StreamArgs {
+export type Subscription_RootUsers_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Users_Stream_Cursor_Input>>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
 /** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
-export class Timestamptz_Comparison_Exp {
+export type Timestamptz_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['timestamptz']>;
   _gt?: InputMaybe<Scalars['timestamptz']>;
   _gte?: InputMaybe<Scalars['timestamptz']>;
@@ -4203,7 +4203,7 @@ export class Timestamptz_Comparison_Exp {
 };
 
 /** columns and relationships of "todos" */
-export class Todos {
+export type Todos = {
   __typename?: 'todos';
   category?: Maybe<Categories_Enum>;
   contents: Scalars['String'];
@@ -4216,14 +4216,14 @@ export class Todos {
 };
 
 /** aggregated selection of "todos" */
-export class Todos_Aggregate {
+export type Todos_Aggregate = {
   __typename?: 'todos_aggregate';
   aggregate?: Maybe<Todos_Aggregate_Fields>;
   nodes: Array<Todos>;
 };
 
 /** aggregate fields of "todos" */
-export class Todos_Aggregate_Fields {
+export type Todos_Aggregate_Fields = {
   __typename?: 'todos_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<Todos_Max_Fields>;
@@ -4232,13 +4232,13 @@ export class Todos_Aggregate_Fields {
 
 
 /** aggregate fields of "todos" */
-export class Todos_Aggregate_FieldsCountArgs {
+export type Todos_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Todos_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** Boolean expression to filter rows from the table "todos". All fields are combined with a logical 'AND'. */
-export class Todos_Bool_Exp {
+export type Todos_Bool_Exp = {
   _and?: InputMaybe<Array<Todos_Bool_Exp>>;
   _not?: InputMaybe<Todos_Bool_Exp>;
   _or?: InputMaybe<Array<Todos_Bool_Exp>>;
@@ -4258,7 +4258,7 @@ export enum Todos_Constraint {
 }
 
 /** input type for inserting data into table "todos" */
-export class Todos_Insert_Input {
+export type Todos_Insert_Input = {
   category?: InputMaybe<Categories_Enum>;
   contents?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['timestamptz']>;
@@ -4269,7 +4269,7 @@ export class Todos_Insert_Input {
 };
 
 /** aggregate max on columns */
-export class Todos_Max_Fields {
+export type Todos_Max_Fields = {
   __typename?: 'todos_max_fields';
   contents?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
@@ -4279,7 +4279,7 @@ export class Todos_Max_Fields {
 };
 
 /** aggregate min on columns */
-export class Todos_Min_Fields {
+export type Todos_Min_Fields = {
   __typename?: 'todos_min_fields';
   contents?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['timestamptz']>;
@@ -4289,7 +4289,7 @@ export class Todos_Min_Fields {
 };
 
 /** response of any mutation on the table "todos" */
-export class Todos_Mutation_Response {
+export type Todos_Mutation_Response = {
   __typename?: 'todos_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
@@ -4298,14 +4298,14 @@ export class Todos_Mutation_Response {
 };
 
 /** on_conflict condition type for table "todos" */
-export class Todos_On_Conflict {
+export type Todos_On_Conflict = {
   constraint: Todos_Constraint;
   update_columns?: Array<Todos_Update_Column>;
   where?: InputMaybe<Todos_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "todos". */
-export class Todos_Order_By {
+export type Todos_Order_By = {
   category?: InputMaybe<Order_By>;
   contents?: InputMaybe<Order_By>;
   createdAt?: InputMaybe<Order_By>;
@@ -4316,7 +4316,7 @@ export class Todos_Order_By {
 };
 
 /** primary key columns input for table: todos */
-export class Todos_Pk_Columns_Input {
+export type Todos_Pk_Columns_Input = {
   id: Scalars['uuid'];
 };
 
@@ -4337,7 +4337,7 @@ export enum Todos_Select_Column {
 }
 
 /** input type for updating data in table "todos" */
-export class Todos_Set_Input {
+export type Todos_Set_Input = {
   category?: InputMaybe<Categories_Enum>;
   contents?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['timestamptz']>;
@@ -4347,7 +4347,7 @@ export class Todos_Set_Input {
 };
 
 /** Streaming cursor of the table "todos" */
-export class Todos_Stream_Cursor_Input {
+export type Todos_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: Todos_Stream_Cursor_Value_Input;
   /** cursor ordering */
@@ -4355,7 +4355,7 @@ export class Todos_Stream_Cursor_Input {
 };
 
 /** Initial value of the column from where the streaming should start */
-export class Todos_Stream_Cursor_Value_Input {
+export type Todos_Stream_Cursor_Value_Input = {
   category?: InputMaybe<Categories_Enum>;
   contents?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['timestamptz']>;
@@ -4380,14 +4380,14 @@ export enum Todos_Update_Column {
   UserId = 'userId'
 }
 
-export class Todos_Updates {
+export type Todos_Updates = {
   /** sets the columns of the filtered rows to the given values */
   _set?: InputMaybe<Todos_Set_Input>;
   where: Todos_Bool_Exp;
 };
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class Users {
+export type Users = {
   __typename?: 'users';
   activeMfaType?: Maybe<Scalars['String']>;
   avatarUrl: Scalars['String'];
@@ -4436,13 +4436,13 @@ export class Users {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class UsersMetadataArgs {
+export type UsersMetadataArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class UsersRefreshTokensArgs {
+export type UsersRefreshTokensArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4452,7 +4452,7 @@ export class UsersRefreshTokensArgs {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class UsersRefreshTokens_AggregateArgs {
+export type UsersRefreshTokens_AggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4462,7 +4462,7 @@ export class UsersRefreshTokens_AggregateArgs {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class UsersRolesArgs {
+export type UsersRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4472,7 +4472,7 @@ export class UsersRolesArgs {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class UsersRoles_AggregateArgs {
+export type UsersRoles_AggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4482,7 +4482,7 @@ export class UsersRoles_AggregateArgs {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class UsersSecurityKeysArgs {
+export type UsersSecurityKeysArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4492,7 +4492,7 @@ export class UsersSecurityKeysArgs {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class UsersSecurityKeys_AggregateArgs {
+export type UsersSecurityKeys_AggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4502,7 +4502,7 @@ export class UsersSecurityKeys_AggregateArgs {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class UsersUserProvidersArgs {
+export type UsersUserProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4512,7 +4512,7 @@ export class UsersUserProvidersArgs {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export class UsersUserProviders_AggregateArgs {
+export type UsersUserProviders_AggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4521,33 +4521,33 @@ export class UsersUserProviders_AggregateArgs {
 };
 
 /** aggregated selection of "auth.users" */
-export class Users_Aggregate {
+export type Users_Aggregate = {
   __typename?: 'users_aggregate';
   aggregate?: Maybe<Users_Aggregate_Fields>;
   nodes: Array<Users>;
 };
 
-export class Users_Aggregate_Bool_Exp {
+export type Users_Aggregate_Bool_Exp = {
   bool_and?: InputMaybe<Users_Aggregate_Bool_Exp_Bool_And>;
   bool_or?: InputMaybe<Users_Aggregate_Bool_Exp_Bool_Or>;
   count?: InputMaybe<Users_Aggregate_Bool_Exp_Count>;
 };
 
-export class Users_Aggregate_Bool_Exp_Bool_And {
+export type Users_Aggregate_Bool_Exp_Bool_And = {
   arguments: Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_And_Arguments_Columns;
   distinct?: InputMaybe<Scalars['Boolean']>;
   filter?: InputMaybe<Users_Bool_Exp>;
   predicate: Boolean_Comparison_Exp;
 };
 
-export class Users_Aggregate_Bool_Exp_Bool_Or {
+export type Users_Aggregate_Bool_Exp_Bool_Or = {
   arguments: Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns;
   distinct?: InputMaybe<Scalars['Boolean']>;
   filter?: InputMaybe<Users_Bool_Exp>;
   predicate: Boolean_Comparison_Exp;
 };
 
-export class Users_Aggregate_Bool_Exp_Count {
+export type Users_Aggregate_Bool_Exp_Count = {
   arguments?: InputMaybe<Array<Users_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
   filter?: InputMaybe<Users_Bool_Exp>;
@@ -4555,7 +4555,7 @@ export class Users_Aggregate_Bool_Exp_Count {
 };
 
 /** aggregate fields of "auth.users" */
-export class Users_Aggregate_Fields {
+export type Users_Aggregate_Fields = {
   __typename?: 'users_aggregate_fields';
   count: Scalars['Int'];
   max?: Maybe<Users_Max_Fields>;
@@ -4564,32 +4564,32 @@ export class Users_Aggregate_Fields {
 
 
 /** aggregate fields of "auth.users" */
-export class Users_Aggregate_FieldsCountArgs {
+export type Users_Aggregate_FieldsCountArgs = {
   columns?: InputMaybe<Array<Users_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
 /** order by aggregate values of table "auth.users" */
-export class Users_Aggregate_Order_By {
+export type Users_Aggregate_Order_By = {
   count?: InputMaybe<Order_By>;
   max?: InputMaybe<Users_Max_Order_By>;
   min?: InputMaybe<Users_Min_Order_By>;
 };
 
 /** append existing jsonb value of filtered columns with new jsonb value */
-export class Users_Append_Input {
+export type Users_Append_Input = {
   metadata?: InputMaybe<Scalars['jsonb']>;
 };
 
 /** input type for inserting array relation for remote table "auth.users" */
-export class Users_Arr_Rel_Insert_Input {
+export type Users_Arr_Rel_Insert_Input = {
   data: Array<Users_Insert_Input>;
   /** upsert condition */
   on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 /** Boolean expression to filter rows from the table "auth.users". All fields are combined with a logical 'AND'. */
-export class Users_Bool_Exp {
+export type Users_Bool_Exp = {
   _and?: InputMaybe<Array<Users_Bool_Exp>>;
   _not?: InputMaybe<Users_Bool_Exp>;
   _or?: InputMaybe<Array<Users_Bool_Exp>>;
@@ -4640,22 +4640,22 @@ export enum Users_Constraint {
 }
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
-export class Users_Delete_At_Path_Input {
+export type Users_Delete_At_Path_Input = {
   metadata?: InputMaybe<Array<Scalars['String']>>;
 };
 
 /** delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array */
-export class Users_Delete_Elem_Input {
+export type Users_Delete_Elem_Input = {
   metadata?: InputMaybe<Scalars['Int']>;
 };
 
 /** delete key/value pair or string element. key/value pairs are matched based on their key value */
-export class Users_Delete_Key_Input {
+export type Users_Delete_Key_Input = {
   metadata?: InputMaybe<Scalars['String']>;
 };
 
 /** input type for inserting data into table "auth.users" */
-export class Users_Insert_Input {
+export type Users_Insert_Input = {
   activeMfaType?: InputMaybe<Scalars['String']>;
   avatarUrl?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['timestamptz']>;
@@ -4689,7 +4689,7 @@ export class Users_Insert_Input {
 };
 
 /** aggregate max on columns */
-export class Users_Max_Fields {
+export type Users_Max_Fields = {
   __typename?: 'users_max_fields';
   activeMfaType?: Maybe<Scalars['String']>;
   avatarUrl?: Maybe<Scalars['String']>;
@@ -4714,7 +4714,7 @@ export class Users_Max_Fields {
 };
 
 /** order by max() on columns of table "auth.users" */
-export class Users_Max_Order_By {
+export type Users_Max_Order_By = {
   activeMfaType?: InputMaybe<Order_By>;
   avatarUrl?: InputMaybe<Order_By>;
   createdAt?: InputMaybe<Order_By>;
@@ -4738,7 +4738,7 @@ export class Users_Max_Order_By {
 };
 
 /** aggregate min on columns */
-export class Users_Min_Fields {
+export type Users_Min_Fields = {
   __typename?: 'users_min_fields';
   activeMfaType?: Maybe<Scalars['String']>;
   avatarUrl?: Maybe<Scalars['String']>;
@@ -4763,7 +4763,7 @@ export class Users_Min_Fields {
 };
 
 /** order by min() on columns of table "auth.users" */
-export class Users_Min_Order_By {
+export type Users_Min_Order_By = {
   activeMfaType?: InputMaybe<Order_By>;
   avatarUrl?: InputMaybe<Order_By>;
   createdAt?: InputMaybe<Order_By>;
@@ -4787,7 +4787,7 @@ export class Users_Min_Order_By {
 };
 
 /** response of any mutation on the table "auth.users" */
-export class Users_Mutation_Response {
+export type Users_Mutation_Response = {
   __typename?: 'users_mutation_response';
   /** number of rows affected by the mutation */
   affected_rows: Scalars['Int'];
@@ -4796,21 +4796,21 @@ export class Users_Mutation_Response {
 };
 
 /** input type for inserting object relation for remote table "auth.users" */
-export class Users_Obj_Rel_Insert_Input {
+export type Users_Obj_Rel_Insert_Input = {
   data: Users_Insert_Input;
   /** upsert condition */
   on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 /** on_conflict condition type for table "auth.users" */
-export class Users_On_Conflict {
+export type Users_On_Conflict = {
   constraint: Users_Constraint;
   update_columns?: Array<Users_Update_Column>;
   where?: InputMaybe<Users_Bool_Exp>;
 };
 
 /** Ordering options when selecting data from "auth.users". */
-export class Users_Order_By {
+export type Users_Order_By = {
   activeMfaType?: InputMaybe<Order_By>;
   avatarUrl?: InputMaybe<Order_By>;
   createdAt?: InputMaybe<Order_By>;
@@ -4844,12 +4844,12 @@ export class Users_Order_By {
 };
 
 /** primary key columns input for table: auth.users */
-export class Users_Pk_Columns_Input {
+export type Users_Pk_Columns_Input = {
   id: Scalars['uuid'];
 };
 
 /** prepend existing jsonb value of filtered columns with new jsonb value */
-export class Users_Prepend_Input {
+export type Users_Prepend_Input = {
   metadata?: InputMaybe<Scalars['jsonb']>;
 };
 
@@ -4932,7 +4932,7 @@ export enum Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Colum
 }
 
 /** input type for updating data in table "auth.users" */
-export class Users_Set_Input {
+export type Users_Set_Input = {
   activeMfaType?: InputMaybe<Scalars['String']>;
   avatarUrl?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['timestamptz']>;
@@ -4961,7 +4961,7 @@ export class Users_Set_Input {
 };
 
 /** Streaming cursor of the table "users" */
-export class Users_Stream_Cursor_Input {
+export type Users_Stream_Cursor_Input = {
   /** Stream column input with initial value */
   initial_value: Users_Stream_Cursor_Value_Input;
   /** cursor ordering */
@@ -4969,7 +4969,7 @@ export class Users_Stream_Cursor_Input {
 };
 
 /** Initial value of the column from where the streaming should start */
-export class Users_Stream_Cursor_Value_Input {
+export type Users_Stream_Cursor_Value_Input = {
   activeMfaType?: InputMaybe<Scalars['String']>;
   avatarUrl?: InputMaybe<Scalars['String']>;
   createdAt?: InputMaybe<Scalars['timestamptz']>;
@@ -5051,7 +5051,7 @@ export enum Users_Update_Column {
   UpdatedAt = 'updatedAt'
 }
 
-export class Users_Updates {
+export type Users_Updates = {
   /** append existing jsonb value of filtered columns with new jsonb value */
   _append?: InputMaybe<Users_Append_Input>;
   /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
@@ -5068,7 +5068,7 @@ export class Users_Updates {
 };
 
 /** Boolean expression to compare columns of type "uuid". All fields are combined with logical 'AND'. */
-export class Uuid_Comparison_Exp {
+export type Uuid_Comparison_Exp = {
   _eq?: InputMaybe<Scalars['uuid']>;
   _gt?: InputMaybe<Scalars['uuid']>;
   _gte?: InputMaybe<Scalars['uuid']>;
@@ -5080,1375 +5080,4004 @@ export class Uuid_Comparison_Exp {
   _nin?: InputMaybe<Array<Scalars['uuid']>>;
 };
 
-import { IntrospectionQuery } from 'graphql';
+
 export default {
-  "__schema": {
-    "queryType": {
-      "name": "query_root"
-    },
-    "mutationType": {
-      "name": "mutation_root"
-    },
-    "subscriptionType": {
-      "name": "subscription_root"
-    },
-    "types": [
-      {
-        "kind": "OBJECT",
-        "name": "authProviderRequests",
-        "fields": [
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "options",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": [
-              {
-                "name": "path",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          }
-        ],
-        "interfaces": []
+  introspection: {
+    "__schema": {
+      "queryType": {
+        "name": "query_root"
       },
-      {
-        "kind": "OBJECT",
-        "name": "authProviderRequests_aggregate",
-        "fields": [
-          {
-            "name": "aggregate",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviderRequests_aggregate_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "nodes",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
+      "mutationType": {
+        "name": "mutation_root"
+      },
+      "subscriptionType": {
+        "name": "subscription_root"
+      },
+      "types": [
+        {
+          "kind": "OBJECT",
+          "name": "authProviderRequests",
+          "fields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
                 "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authProviderRequests",
-                    "ofType": null
-                  }
+                  "kind": "SCALAR",
+                  "name": "Any"
                 }
-              }
+              },
+              "args": []
             },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authProviderRequests_aggregate_fields",
-        "fields": [
-          {
-            "name": "count",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "options",
+              "type": {
                 "kind": "SCALAR",
                 "name": "Any"
-              }
-            },
-            "args": [
-              {
-                "name": "columns",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
+              },
+              "args": [
+                {
+                  "name": "path",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
                   }
                 }
-              },
-              {
-                "name": "distinct",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "max",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviderRequests_max_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "min",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviderRequests_min_fields",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authProviderRequests_max_fields",
-        "fields": [
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authProviderRequests_min_fields",
-        "fields": [
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authProviderRequests_mutation_response",
-        "fields": [
-          {
-            "name": "affected_rows",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "returning",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authProviderRequests",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authProviders",
-        "fields": [
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "userProviders",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserProviders",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "userProviders_aggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+              ]
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authProviderRequests_aggregate",
+          "fields": [
+            {
+              "name": "aggregate",
+              "type": {
                 "kind": "OBJECT",
-                "name": "authUserProviders_aggregate",
+                "name": "authProviderRequests_aggregate_fields",
                 "ofType": null
-              }
+              },
+              "args": []
             },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authProviders_aggregate",
-        "fields": [
-          {
-            "name": "aggregate",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviders_aggregate_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "nodes",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
+            {
+              "name": "nodes",
+              "type": {
+                "kind": "NON_NULL",
                 "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authProviders",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authProviders_aggregate_fields",
-        "fields": [
-          {
-            "name": "count",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": [
-              {
-                "name": "columns",
-                "type": {
                   "kind": "LIST",
                   "ofType": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "OBJECT",
+                      "name": "authProviderRequests",
+                      "ofType": null
                     }
                   }
                 }
               },
-              {
-                "name": "distinct",
-                "type": {
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authProviderRequests_aggregate_fields",
+          "fields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
                   "kind": "SCALAR",
                   "name": "Any"
                 }
-              }
-            ]
-          },
-          {
-            "name": "max",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviders_max_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "min",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviders_min_fields",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authProviders_max_fields",
-        "fields": [
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authProviders_min_fields",
-        "fields": [
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authProviders_mutation_response",
-        "fields": [
-          {
-            "name": "affected_rows",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "returning",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authProviders",
-                    "ofType": null
+              },
+              "args": [
+                {
+                  "name": "columns",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "distinct",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
                   }
                 }
-              }
+              ]
             },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authRefreshTokens",
-        "fields": [
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "expiresAt",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "refreshToken",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "user",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "max",
+              "type": {
                 "kind": "OBJECT",
-                "name": "users",
+                "name": "authProviderRequests_max_fields",
                 "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "userId",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authRefreshTokens_aggregate",
-        "fields": [
-          {
-            "name": "aggregate",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRefreshTokens_aggregate_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "nodes",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authRefreshTokens",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authRefreshTokens_aggregate_fields",
-        "fields": [
-          {
-            "name": "count",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": [
-              {
-                "name": "columns",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
               },
-              {
-                "name": "distinct",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "max",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRefreshTokens_max_fields",
-              "ofType": null
+              "args": []
             },
-            "args": []
-          },
-          {
-            "name": "min",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRefreshTokens_min_fields",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authRefreshTokens_max_fields",
-        "fields": [
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "expiresAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "refreshToken",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "userId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authRefreshTokens_min_fields",
-        "fields": [
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "expiresAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "refreshToken",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "userId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authRefreshTokens_mutation_response",
-        "fields": [
-          {
-            "name": "affected_rows",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "returning",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authRefreshTokens",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authRoles",
-        "fields": [
-          {
-            "name": "role",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "userRoles",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserRoles",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "userRoles_aggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "min",
+              "type": {
                 "kind": "OBJECT",
-                "name": "authUserRoles_aggregate",
+                "name": "authProviderRequests_min_fields",
                 "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
               },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authProviderRequests_max_fields",
+          "fields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
               },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authProviderRequests_min_fields",
+          "fields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
               },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "usersByDefaultRole",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authProviderRequests_mutation_response",
+          "fields": [
+            {
+              "name": "affected_rows",
+              "type": {
+                "kind": "NON_NULL",
                 "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "users",
-                    "ofType": null
-                  }
+                  "kind": "SCALAR",
+                  "name": "Any"
                 }
-              }
+              },
+              "args": []
             },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
+            {
+              "name": "returning",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
                   "kind": "LIST",
                   "ofType": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "OBJECT",
+                      "name": "authProviderRequests",
+                      "ofType": null
                     }
                   }
                 }
               },
-              {
-                "name": "limit",
-                "type": {
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authProviders",
+          "fields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
                   "kind": "SCALAR",
                   "name": "Any"
                 }
               },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
+              "args": []
+            },
+            {
+              "name": "userProviders",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
                   "kind": "LIST",
                   "ofType": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "OBJECT",
+                      "name": "authUserProviders",
+                      "ofType": null
                     }
                   }
                 }
               },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
                 }
-              }
-            ]
-          },
-          {
-            "name": "usersByDefaultRole_aggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+              ]
+            },
+            {
+              "name": "userProviders_aggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authUserProviders_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authProviders_aggregate",
+          "fields": [
+            {
+              "name": "aggregate",
+              "type": {
                 "kind": "OBJECT",
-                "name": "users_aggregate",
+                "name": "authProviders_aggregate_fields",
                 "ofType": null
-              }
+              },
+              "args": []
             },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authRoles_aggregate",
-        "fields": [
-          {
-            "name": "aggregate",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRoles_aggregate_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "nodes",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
+            {
+              "name": "nodes",
+              "type": {
+                "kind": "NON_NULL",
                 "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authRoles",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authRoles_aggregate_fields",
-        "fields": [
-          {
-            "name": "count",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": [
-              {
-                "name": "columns",
-                "type": {
                   "kind": "LIST",
                   "ofType": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "OBJECT",
+                      "name": "authProviders",
+                      "ofType": null
                     }
                   }
                 }
               },
-              {
-                "name": "distinct",
-                "type": {
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authProviders_aggregate_fields",
+          "fields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
                   "kind": "SCALAR",
                   "name": "Any"
                 }
-              }
-            ]
-          },
-          {
-            "name": "max",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRoles_max_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "min",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRoles_min_fields",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authRoles_max_fields",
-        "fields": [
-          {
-            "name": "role",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authRoles_min_fields",
-        "fields": [
-          {
-            "name": "role",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authRoles_mutation_response",
-        "fields": [
-          {
-            "name": "affected_rows",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "returning",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authRoles",
-                    "ofType": null
+              },
+              "args": [
+                {
+                  "name": "columns",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "distinct",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
                   }
                 }
-              }
+              ]
             },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserProviders",
-        "fields": [
-          {
-            "name": "accessToken",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "max",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authProviders_max_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authProviders_min_fields",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authProviders_max_fields",
+          "fields": [
+            {
+              "name": "id",
+              "type": {
                 "kind": "SCALAR",
                 "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authProviders_min_fields",
+          "fields": [
+            {
+              "name": "id",
+              "type": {
                 "kind": "SCALAR",
                 "name": "Any"
-              }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authProviders_mutation_response",
+          "fields": [
+            {
+              "name": "affected_rows",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
             },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "returning",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authProviders",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authRefreshTokens",
+          "fields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "expiresAt",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "users",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authRefreshTokens_aggregate",
+          "fields": [
+            {
+              "name": "aggregate",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRefreshTokens_aggregate_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "nodes",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authRefreshTokens",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authRefreshTokens_aggregate_fields",
+          "fields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": [
+                {
+                  "name": "columns",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "distinct",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "max",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRefreshTokens_max_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRefreshTokens_min_fields",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authRefreshTokens_max_fields",
+          "fields": [
+            {
+              "name": "createdAt",
+              "type": {
                 "kind": "SCALAR",
                 "name": "Any"
-              }
+              },
+              "args": []
             },
-            "args": []
-          },
-          {
-            "name": "provider",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "expiresAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authRefreshTokens_min_fields",
+          "fields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "expiresAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authRefreshTokens_mutation_response",
+          "fields": [
+            {
+              "name": "affected_rows",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "returning",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authRefreshTokens",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authRoles",
+          "fields": [
+            {
+              "name": "role",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "userRoles",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserRoles",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "userRoles_aggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authUserRoles_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "usersByDefaultRole",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "users",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "usersByDefaultRole_aggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "users_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authRoles_aggregate",
+          "fields": [
+            {
+              "name": "aggregate",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRoles_aggregate_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "nodes",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authRoles",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authRoles_aggregate_fields",
+          "fields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": [
+                {
+                  "name": "columns",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "distinct",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "max",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRoles_max_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRoles_min_fields",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authRoles_max_fields",
+          "fields": [
+            {
+              "name": "role",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authRoles_min_fields",
+          "fields": [
+            {
+              "name": "role",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authRoles_mutation_response",
+          "fields": [
+            {
+              "name": "affected_rows",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "returning",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authRoles",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserProviders",
+          "fields": [
+            {
+              "name": "accessToken",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "provider",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authProviders",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "providerId",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "providerUserId",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "users",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserProviders_aggregate",
+          "fields": [
+            {
+              "name": "aggregate",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserProviders_aggregate_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "nodes",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserProviders",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserProviders_aggregate_fields",
+          "fields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": [
+                {
+                  "name": "columns",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "distinct",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "max",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserProviders_max_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserProviders_min_fields",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserProviders_max_fields",
+          "fields": [
+            {
+              "name": "accessToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "providerId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "providerUserId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserProviders_min_fields",
+          "fields": [
+            {
+              "name": "accessToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "providerId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "providerUserId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserProviders_mutation_response",
+          "fields": [
+            {
+              "name": "affected_rows",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "returning",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserProviders",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserRoles",
+          "fields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "role",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "roleByRole",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authRoles",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "users",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserRoles_aggregate",
+          "fields": [
+            {
+              "name": "aggregate",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserRoles_aggregate_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "nodes",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserRoles",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserRoles_aggregate_fields",
+          "fields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": [
+                {
+                  "name": "columns",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "distinct",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "max",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserRoles_max_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserRoles_min_fields",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserRoles_max_fields",
+          "fields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "role",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserRoles_min_fields",
+          "fields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "role",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserRoles_mutation_response",
+          "fields": [
+            {
+              "name": "affected_rows",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "returning",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserRoles",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserSecurityKeys",
+          "fields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "credentialId",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "credentialPublicKey",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "nickname",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "transports",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "users",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserSecurityKeys_aggregate",
+          "fields": [
+            {
+              "name": "aggregate",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys_aggregate_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "nodes",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserSecurityKeys",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserSecurityKeys_aggregate_fields",
+          "fields": [
+            {
+              "name": "avg",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys_avg_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": [
+                {
+                  "name": "columns",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "distinct",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "max",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys_max_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys_min_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "stddev",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys_stddev_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "stddev_pop",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys_stddev_pop_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "stddev_samp",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys_stddev_samp_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "sum",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys_sum_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "var_pop",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys_var_pop_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "var_samp",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys_var_samp_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "variance",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys_variance_fields",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserSecurityKeys_avg_fields",
+          "fields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserSecurityKeys_max_fields",
+          "fields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "credentialId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "nickname",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "transports",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserSecurityKeys_min_fields",
+          "fields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "credentialId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "nickname",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "transports",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserSecurityKeys_mutation_response",
+          "fields": [
+            {
+              "name": "affected_rows",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "returning",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserSecurityKeys",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserSecurityKeys_stddev_fields",
+          "fields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserSecurityKeys_stddev_pop_fields",
+          "fields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserSecurityKeys_stddev_samp_fields",
+          "fields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserSecurityKeys_sum_fields",
+          "fields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserSecurityKeys_var_pop_fields",
+          "fields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserSecurityKeys_var_samp_fields",
+          "fields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "authUserSecurityKeys_variance_fields",
+          "fields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "buckets",
+          "fields": [
+            {
+              "name": "cacheControl",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "files",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "files",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "files_aggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "files_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "presignedUrlsEnabled",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "buckets_aggregate",
+          "fields": [
+            {
+              "name": "aggregate",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets_aggregate_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "nodes",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "buckets",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "buckets_aggregate_fields",
+          "fields": [
+            {
+              "name": "avg",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets_avg_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": [
+                {
+                  "name": "columns",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "distinct",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "max",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets_max_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets_min_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "stddev",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets_stddev_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "stddev_pop",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets_stddev_pop_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "stddev_samp",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets_stddev_samp_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "sum",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets_sum_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "var_pop",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets_var_pop_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "var_samp",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets_var_samp_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "variance",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets_variance_fields",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "buckets_avg_fields",
+          "fields": [
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "buckets_max_fields",
+          "fields": [
+            {
+              "name": "cacheControl",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "buckets_min_fields",
+          "fields": [
+            {
+              "name": "cacheControl",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "buckets_mutation_response",
+          "fields": [
+            {
+              "name": "affected_rows",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "returning",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "buckets",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "buckets_stddev_fields",
+          "fields": [
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "buckets_stddev_pop_fields",
+          "fields": [
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "buckets_stddev_samp_fields",
+          "fields": [
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "buckets_sum_fields",
+          "fields": [
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "buckets_var_pop_fields",
+          "fields": [
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "buckets_var_samp_fields",
+          "fields": [
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "buckets_variance_fields",
+          "fields": [
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "categories",
+          "fields": [
+            {
+              "name": "comment",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "categories_aggregate",
+          "fields": [
+            {
+              "name": "aggregate",
+              "type": {
+                "kind": "OBJECT",
+                "name": "categories_aggregate_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "nodes",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "categories",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "categories_aggregate_fields",
+          "fields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": [
+                {
+                  "name": "columns",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "distinct",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "max",
+              "type": {
+                "kind": "OBJECT",
+                "name": "categories_max_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "OBJECT",
+                "name": "categories_min_fields",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "categories_max_fields",
+          "fields": [
+            {
+              "name": "comment",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "categories_min_fields",
+          "fields": [
+            {
+              "name": "comment",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "categories_mutation_response",
+          "fields": [
+            {
+              "name": "affected_rows",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "returning",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "categories",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "files",
+          "fields": [
+            {
+              "name": "bucket",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "buckets",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "bucketId",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "etag",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "isUploaded",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "mimeType",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "uploadedByUserId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "files_aggregate",
+          "fields": [
+            {
+              "name": "aggregate",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files_aggregate_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "nodes",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "files",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "files_aggregate_fields",
+          "fields": [
+            {
+              "name": "avg",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files_avg_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": [
+                {
+                  "name": "columns",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "distinct",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "max",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files_max_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files_min_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "stddev",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files_stddev_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "stddev_pop",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files_stddev_pop_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "stddev_samp",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files_stddev_samp_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "sum",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files_sum_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "var_pop",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files_var_pop_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "var_samp",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files_var_samp_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "variance",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files_variance_fields",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "files_avg_fields",
+          "fields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "files_max_fields",
+          "fields": [
+            {
+              "name": "bucketId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "etag",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "mimeType",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "uploadedByUserId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "files_min_fields",
+          "fields": [
+            {
+              "name": "bucketId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "etag",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "mimeType",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "uploadedByUserId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "files_mutation_response",
+          "fields": [
+            {
+              "name": "affected_rows",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "returning",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "files",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "files_stddev_fields",
+          "fields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "files_stddev_pop_fields",
+          "fields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "files_stddev_samp_fields",
+          "fields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "files_sum_fields",
+          "fields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "files_var_pop_fields",
+          "fields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "files_var_samp_fields",
+          "fields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "files_variance_fields",
+          "fields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "mutation_root",
+          "fields": [
+            {
+              "name": "deleteAuthProvider",
+              "type": {
                 "kind": "OBJECT",
                 "name": "authProviders",
                 "ofType": null
-              }
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
             },
-            "args": []
-          },
-          {
-            "name": "providerId",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "providerUserId",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "refreshToken",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "updatedAt",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "user",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "deleteAuthProviderRequest",
+              "type": {
                 "kind": "OBJECT",
-                "name": "users",
+                "name": "authProviderRequests",
                 "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "userId",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserProviders_aggregate",
-        "fields": [
-          {
-            "name": "aggregate",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserProviders_aggregate_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "nodes",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserProviders",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserProviders_aggregate_fields",
-        "fields": [
-          {
-            "name": "count",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": [
-              {
-                "name": "columns",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
@@ -6456,9633 +9085,99 @@ export default {
                     }
                   }
                 }
-              },
-              {
-                "name": "distinct",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "max",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserProviders_max_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "min",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserProviders_min_fields",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserProviders_max_fields",
-        "fields": [
-          {
-            "name": "accessToken",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "providerId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "providerUserId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "refreshToken",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "updatedAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "userId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserProviders_min_fields",
-        "fields": [
-          {
-            "name": "accessToken",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "providerId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "providerUserId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "refreshToken",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "updatedAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "userId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserProviders_mutation_response",
-        "fields": [
-          {
-            "name": "affected_rows",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "returning",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserProviders",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserRoles",
-        "fields": [
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "role",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "roleByRole",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authRoles",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "user",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "users",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "userId",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserRoles_aggregate",
-        "fields": [
-          {
-            "name": "aggregate",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserRoles_aggregate_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "nodes",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserRoles",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserRoles_aggregate_fields",
-        "fields": [
-          {
-            "name": "count",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": [
-              {
-                "name": "columns",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "distinct",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "max",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserRoles_max_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "min",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserRoles_min_fields",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserRoles_max_fields",
-        "fields": [
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "role",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "userId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserRoles_min_fields",
-        "fields": [
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "role",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "userId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserRoles_mutation_response",
-        "fields": [
-          {
-            "name": "affected_rows",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "returning",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserRoles",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserSecurityKeys",
-        "fields": [
-          {
-            "name": "counter",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "credentialId",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "credentialPublicKey",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "nickname",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "transports",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "user",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "users",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "userId",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserSecurityKeys_aggregate",
-        "fields": [
-          {
-            "name": "aggregate",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys_aggregate_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "nodes",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserSecurityKeys",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserSecurityKeys_aggregate_fields",
-        "fields": [
-          {
-            "name": "avg",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys_avg_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "count",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": [
-              {
-                "name": "columns",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "distinct",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "max",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys_max_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "min",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys_min_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "stddev",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys_stddev_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "stddev_pop",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys_stddev_pop_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "stddev_samp",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys_stddev_samp_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "sum",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys_sum_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "var_pop",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys_var_pop_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "var_samp",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys_var_samp_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "variance",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys_variance_fields",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserSecurityKeys_avg_fields",
-        "fields": [
-          {
-            "name": "counter",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserSecurityKeys_max_fields",
-        "fields": [
-          {
-            "name": "counter",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "credentialId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "nickname",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "transports",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "userId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserSecurityKeys_min_fields",
-        "fields": [
-          {
-            "name": "counter",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "credentialId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "nickname",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "transports",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "userId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserSecurityKeys_mutation_response",
-        "fields": [
-          {
-            "name": "affected_rows",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "returning",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserSecurityKeys",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserSecurityKeys_stddev_fields",
-        "fields": [
-          {
-            "name": "counter",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserSecurityKeys_stddev_pop_fields",
-        "fields": [
-          {
-            "name": "counter",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserSecurityKeys_stddev_samp_fields",
-        "fields": [
-          {
-            "name": "counter",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserSecurityKeys_sum_fields",
-        "fields": [
-          {
-            "name": "counter",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserSecurityKeys_var_pop_fields",
-        "fields": [
-          {
-            "name": "counter",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserSecurityKeys_var_samp_fields",
-        "fields": [
-          {
-            "name": "counter",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "authUserSecurityKeys_variance_fields",
-        "fields": [
-          {
-            "name": "counter",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "buckets",
-        "fields": [
-          {
-            "name": "cacheControl",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "downloadExpiration",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "files",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "files",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "files_aggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "files_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "maxUploadFileSize",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "minUploadFileSize",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "presignedUrlsEnabled",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "updatedAt",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "buckets_aggregate",
-        "fields": [
-          {
-            "name": "aggregate",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets_aggregate_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "nodes",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "buckets",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "buckets_aggregate_fields",
-        "fields": [
-          {
-            "name": "avg",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets_avg_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "count",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": [
-              {
-                "name": "columns",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "distinct",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "max",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets_max_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "min",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets_min_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "stddev",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets_stddev_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "stddev_pop",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets_stddev_pop_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "stddev_samp",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets_stddev_samp_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "sum",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets_sum_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "var_pop",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets_var_pop_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "var_samp",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets_var_samp_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "variance",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets_variance_fields",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "buckets_avg_fields",
-        "fields": [
-          {
-            "name": "downloadExpiration",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "maxUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "minUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "buckets_max_fields",
-        "fields": [
-          {
-            "name": "cacheControl",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "downloadExpiration",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "maxUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "minUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "updatedAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "buckets_min_fields",
-        "fields": [
-          {
-            "name": "cacheControl",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "downloadExpiration",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "maxUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "minUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "updatedAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "buckets_mutation_response",
-        "fields": [
-          {
-            "name": "affected_rows",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "returning",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "buckets",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "buckets_stddev_fields",
-        "fields": [
-          {
-            "name": "downloadExpiration",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "maxUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "minUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "buckets_stddev_pop_fields",
-        "fields": [
-          {
-            "name": "downloadExpiration",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "maxUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "minUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "buckets_stddev_samp_fields",
-        "fields": [
-          {
-            "name": "downloadExpiration",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "maxUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "minUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "buckets_sum_fields",
-        "fields": [
-          {
-            "name": "downloadExpiration",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "maxUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "minUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "buckets_var_pop_fields",
-        "fields": [
-          {
-            "name": "downloadExpiration",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "maxUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "minUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "buckets_var_samp_fields",
-        "fields": [
-          {
-            "name": "downloadExpiration",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "maxUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "minUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "buckets_variance_fields",
-        "fields": [
-          {
-            "name": "downloadExpiration",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "maxUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "minUploadFileSize",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "categories",
-        "fields": [
-          {
-            "name": "comment",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "value",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "categories_aggregate",
-        "fields": [
-          {
-            "name": "aggregate",
-            "type": {
-              "kind": "OBJECT",
-              "name": "categories_aggregate_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "nodes",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "categories",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "categories_aggregate_fields",
-        "fields": [
-          {
-            "name": "count",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": [
-              {
-                "name": "columns",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "distinct",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "max",
-            "type": {
-              "kind": "OBJECT",
-              "name": "categories_max_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "min",
-            "type": {
-              "kind": "OBJECT",
-              "name": "categories_min_fields",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "categories_max_fields",
-        "fields": [
-          {
-            "name": "comment",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "value",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "categories_min_fields",
-        "fields": [
-          {
-            "name": "comment",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "value",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "categories_mutation_response",
-        "fields": [
-          {
-            "name": "affected_rows",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "returning",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "categories",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "files",
-        "fields": [
-          {
-            "name": "bucket",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "buckets",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "bucketId",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "etag",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "isUploaded",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "mimeType",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "name",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "size",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "updatedAt",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "uploadedByUserId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "files_aggregate",
-        "fields": [
-          {
-            "name": "aggregate",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files_aggregate_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "nodes",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "files",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "files_aggregate_fields",
-        "fields": [
-          {
-            "name": "avg",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files_avg_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "count",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": [
-              {
-                "name": "columns",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "distinct",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "max",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files_max_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "min",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files_min_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "stddev",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files_stddev_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "stddev_pop",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files_stddev_pop_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "stddev_samp",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files_stddev_samp_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "sum",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files_sum_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "var_pop",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files_var_pop_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "var_samp",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files_var_samp_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "variance",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files_variance_fields",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "files_avg_fields",
-        "fields": [
-          {
-            "name": "size",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "files_max_fields",
-        "fields": [
-          {
-            "name": "bucketId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "etag",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "mimeType",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "name",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "size",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "updatedAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "uploadedByUserId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "files_min_fields",
-        "fields": [
-          {
-            "name": "bucketId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "etag",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "mimeType",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "name",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "size",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "updatedAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "uploadedByUserId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "files_mutation_response",
-        "fields": [
-          {
-            "name": "affected_rows",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "returning",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "files",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "files_stddev_fields",
-        "fields": [
-          {
-            "name": "size",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "files_stddev_pop_fields",
-        "fields": [
-          {
-            "name": "size",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "files_stddev_samp_fields",
-        "fields": [
-          {
-            "name": "size",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "files_sum_fields",
-        "fields": [
-          {
-            "name": "size",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "files_var_pop_fields",
-        "fields": [
-          {
-            "name": "size",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "files_var_samp_fields",
-        "fields": [
-          {
-            "name": "size",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "files_variance_fields",
-        "fields": [
-          {
-            "name": "size",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "mutation_root",
-        "fields": [
-          {
-            "name": "deleteAuthProvider",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviders",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteAuthProviderRequest",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviderRequests",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteAuthProviderRequests",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviderRequests_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteAuthProviders",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviders_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteAuthRefreshToken",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRefreshTokens",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "refreshToken",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteAuthRefreshTokens",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRefreshTokens_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteAuthRole",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRoles",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "role",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteAuthRoles",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRoles_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteAuthUserProvider",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserProviders",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteAuthUserProviders",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserProviders_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteAuthUserRole",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserRoles",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteAuthUserRoles",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserRoles_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteAuthUserSecurityKey",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteAuthUserSecurityKeys",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteBucket",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteBuckets",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteFile",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteFiles",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteTodo",
-            "type": {
-              "kind": "OBJECT",
-              "name": "todos",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteTodos",
-            "type": {
-              "kind": "OBJECT",
-              "name": "todos_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteUser",
-            "type": {
-              "kind": "OBJECT",
-              "name": "users",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "deleteUsers",
-            "type": {
-              "kind": "OBJECT",
-              "name": "users_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "delete_categories",
-            "type": {
-              "kind": "OBJECT",
-              "name": "categories_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "delete_categories_by_pk",
-            "type": {
-              "kind": "OBJECT",
-              "name": "categories",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "value",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertAuthProvider",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviders",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "object",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertAuthProviderRequest",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviderRequests",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "object",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertAuthProviderRequests",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviderRequests_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "objects",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertAuthProviders",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviders_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "objects",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertAuthRefreshToken",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRefreshTokens",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "object",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertAuthRefreshTokens",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRefreshTokens_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "objects",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertAuthRole",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRoles",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "object",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertAuthRoles",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRoles_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "objects",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertAuthUserProvider",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserProviders",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "object",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertAuthUserProviders",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserProviders_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "objects",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertAuthUserRole",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserRoles",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "object",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertAuthUserRoles",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserRoles_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "objects",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertAuthUserSecurityKey",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "object",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertAuthUserSecurityKeys",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "objects",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertBucket",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "object",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertBuckets",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "objects",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertFile",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "object",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertFiles",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "objects",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertTodo",
-            "type": {
-              "kind": "OBJECT",
-              "name": "todos",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "object",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertTodos",
-            "type": {
-              "kind": "OBJECT",
-              "name": "todos_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "objects",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertUser",
-            "type": {
-              "kind": "OBJECT",
-              "name": "users",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "object",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insertUsers",
-            "type": {
-              "kind": "OBJECT",
-              "name": "users_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "objects",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insert_categories",
-            "type": {
-              "kind": "OBJECT",
-              "name": "categories_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "objects",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "insert_categories_one",
-            "type": {
-              "kind": "OBJECT",
-              "name": "categories",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "object",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "on_conflict",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateAuthProvider",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviders",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "pk_columns",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateAuthProviderRequest",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviderRequests",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_append",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_delete_at_path",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_delete_elem",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_delete_key",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_prepend",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "pk_columns",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateAuthProviderRequests",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviderRequests_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_append",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_delete_at_path",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_delete_elem",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_delete_key",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_prepend",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateAuthProviders",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviders_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateAuthRefreshToken",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRefreshTokens",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "pk_columns",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateAuthRefreshTokens",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRefreshTokens_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateAuthRole",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRoles",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "pk_columns",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateAuthRoles",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRoles_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateAuthUserProvider",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserProviders",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "pk_columns",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateAuthUserProviders",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserProviders_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateAuthUserRole",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserRoles",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "pk_columns",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateAuthUserRoles",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserRoles_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateAuthUserSecurityKey",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_inc",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "pk_columns",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateAuthUserSecurityKeys",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_inc",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateBucket",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_inc",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "pk_columns",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateBuckets",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_inc",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateFile",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_inc",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "pk_columns",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateFiles",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_inc",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateTodo",
-            "type": {
-              "kind": "OBJECT",
-              "name": "todos",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "pk_columns",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateTodos",
-            "type": {
-              "kind": "OBJECT",
-              "name": "todos_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateUser",
-            "type": {
-              "kind": "OBJECT",
-              "name": "users",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_append",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_delete_at_path",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_delete_elem",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_delete_key",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_prepend",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "pk_columns",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "updateUsers",
-            "type": {
-              "kind": "OBJECT",
-              "name": "users_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_append",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_delete_at_path",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_delete_elem",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_delete_key",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_prepend",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "update_authProviderRequests_many",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
+              ]
+            },
+            {
+              "name": "deleteAuthProviderRequests",
+              "type": {
                 "kind": "OBJECT",
                 "name": "authProviderRequests_mutation_response",
                 "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "updates",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
+              },
+              "args": [
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
+                      "kind": "SCALAR",
+                      "name": "Any"
                     }
                   }
                 }
-              }
-            ]
-          },
-          {
-            "name": "update_authProviders_many",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
+              ]
+            },
+            {
+              "name": "deleteAuthProviders",
+              "type": {
                 "kind": "OBJECT",
                 "name": "authProviders_mutation_response",
                 "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "updates",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
+              },
+              "args": [
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
+                      "kind": "SCALAR",
+                      "name": "Any"
                     }
                   }
                 }
-              }
-            ]
-          },
-          {
-            "name": "update_authRefreshTokens_many",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
+              ]
+            },
+            {
+              "name": "deleteAuthRefreshToken",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRefreshTokens",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "refreshToken",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "deleteAuthRefreshTokens",
+              "type": {
                 "kind": "OBJECT",
                 "name": "authRefreshTokens_mutation_response",
                 "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "updates",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "update_authRoles_many",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authRoles_mutation_response",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "updates",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "update_authUserProviders_many",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authUserProviders_mutation_response",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "updates",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "update_authUserRoles_many",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authUserRoles_mutation_response",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "updates",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "update_authUserSecurityKeys_many",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authUserSecurityKeys_mutation_response",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "updates",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "update_buckets_many",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "buckets_mutation_response",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "updates",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "update_categories",
-            "type": {
-              "kind": "OBJECT",
-              "name": "categories_mutation_response",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "update_categories_by_pk",
-            "type": {
-              "kind": "OBJECT",
-              "name": "categories",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "_set",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "pk_columns",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "update_categories_many",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "categories_mutation_response",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "updates",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "update_files_many",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "files_mutation_response",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "updates",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "update_todos_many",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "todos_mutation_response",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "updates",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "update_users_many",
-            "type": {
-              "kind": "LIST",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "users_mutation_response",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "updates",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "NON_NULL",
-                      "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
-                      }
-                    }
-                  }
-                }
-              }
-            ]
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "query_root",
-        "fields": [
-          {
-            "name": "authProvider",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviders",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "authProviderRequest",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviderRequests",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "authProviderRequests",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authProviderRequests",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authProviderRequestsAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authProviderRequests_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authProviders",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authProviders",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authProvidersAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authProviders_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authRefreshToken",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRefreshTokens",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "refreshToken",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "authRefreshTokens",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authRefreshTokens",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authRefreshTokensAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authRefreshTokens_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authRole",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRoles",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "role",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "authRoles",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authRoles",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authRolesAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authRoles_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserProvider",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserProviders",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserProviders",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserProviders",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserProvidersAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authUserProviders_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserRole",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserRoles",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserRoles",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserRoles",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserRolesAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authUserRoles_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserSecurityKey",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserSecurityKeys",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserSecurityKeys",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserSecurityKeysAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authUserSecurityKeys_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "bucket",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "buckets",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "buckets",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "bucketsAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "buckets_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "categories",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "categories",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "categories_aggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "categories_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "categories_by_pk",
-            "type": {
-              "kind": "OBJECT",
-              "name": "categories",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "value",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "file",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "files",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "files",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "filesAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "files_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "todo",
-            "type": {
-              "kind": "OBJECT",
-              "name": "todos",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "todos",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "todos",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "todosAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "todos_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "user",
-            "type": {
-              "kind": "OBJECT",
-              "name": "users",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "users",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "users",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "usersAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "users_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "subscription_root",
-        "fields": [
-          {
-            "name": "authProvider",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviders",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "authProviderRequest",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authProviderRequests",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "authProviderRequests",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authProviderRequests",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authProviderRequestsAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authProviderRequests_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authProviderRequests_stream",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authProviderRequests",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "batch_size",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "cursor",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authProviders",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authProviders",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authProvidersAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authProviders_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authProviders_stream",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authProviders",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "batch_size",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "cursor",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authRefreshToken",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRefreshTokens",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "refreshToken",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "authRefreshTokens",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authRefreshTokens",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authRefreshTokensAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authRefreshTokens_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authRefreshTokens_stream",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authRefreshTokens",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "batch_size",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "cursor",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authRole",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authRoles",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "role",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "authRoles",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authRoles",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authRolesAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authRoles_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authRoles_stream",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authRoles",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "batch_size",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "cursor",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserProvider",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserProviders",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserProviders",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserProviders",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserProvidersAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authUserProviders_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserProviders_stream",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserProviders",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "batch_size",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "cursor",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserRole",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserRoles",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserRoles",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserRoles",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserRolesAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authUserRoles_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserRoles_stream",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserRoles",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "batch_size",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "cursor",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserSecurityKey",
-            "type": {
-              "kind": "OBJECT",
-              "name": "authUserSecurityKeys",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserSecurityKeys",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserSecurityKeys",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserSecurityKeysAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "authUserSecurityKeys_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "authUserSecurityKeys_stream",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserSecurityKeys",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "batch_size",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "cursor",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "bucket",
-            "type": {
-              "kind": "OBJECT",
-              "name": "buckets",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "buckets",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "buckets",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "bucketsAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "buckets_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "buckets_stream",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "buckets",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "batch_size",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "cursor",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "categories",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "categories",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "categories_aggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "categories_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "categories_by_pk",
-            "type": {
-              "kind": "OBJECT",
-              "name": "categories",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "value",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "categories_stream",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "categories",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "batch_size",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "cursor",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "file",
-            "type": {
-              "kind": "OBJECT",
-              "name": "files",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "files",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "files",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "filesAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "files_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "files_stream",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "files",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "batch_size",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "cursor",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "todo",
-            "type": {
-              "kind": "OBJECT",
-              "name": "todos",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "todos",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "todos",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "todosAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "todos_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "todos_stream",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "todos",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "batch_size",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "cursor",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "user",
-            "type": {
-              "kind": "OBJECT",
-              "name": "users",
-              "ofType": null
-            },
-            "args": [
-              {
-                "name": "id",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "name": "users",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "users",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "usersAggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "users_aggregate",
-                "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
               },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "users_stream",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "users",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "batch_size",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "SCALAR",
-                    "name": "Any"
-                  }
-                }
-              },
-              {
-                "name": "cursor",
-                "type": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "LIST",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "todos",
-        "fields": [
-          {
-            "name": "category",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "contents",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "updatedAt",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "user",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "OBJECT",
-                "name": "users",
-                "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "userId",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "todos_aggregate",
-        "fields": [
-          {
-            "name": "aggregate",
-            "type": {
-              "kind": "OBJECT",
-              "name": "todos_aggregate_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "nodes",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "todos",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "todos_aggregate_fields",
-        "fields": [
-          {
-            "name": "count",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": [
-              {
-                "name": "columns",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
+              "args": [
+                {
+                  "name": "where",
+                  "type": {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
                       "name": "Any"
                     }
-                  }
-                }
-              },
-              {
-                "name": "distinct",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "max",
-            "type": {
-              "kind": "OBJECT",
-              "name": "todos_max_fields",
-              "ofType": null
-            },
-            "args": []
-          },
-          {
-            "name": "min",
-            "type": {
-              "kind": "OBJECT",
-              "name": "todos_min_fields",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "todos_max_fields",
-        "fields": [
-          {
-            "name": "contents",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "updatedAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "userId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "todos_min_fields",
-        "fields": [
-          {
-            "name": "contents",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "updatedAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "userId",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "todos_mutation_response",
-        "fields": [
-          {
-            "name": "affected_rows",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "returning",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "todos",
-                    "ofType": null
                   }
                 }
-              }
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "users",
-        "fields": [
-          {
-            "name": "activeMfaType",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "avatarUrl",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "currentChallenge",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "defaultRole",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
+              ]
             },
-            "args": []
-          },
-          {
-            "name": "defaultRoleByRole",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "deleteAuthRole",
+              "type": {
                 "kind": "OBJECT",
                 "name": "authRoles",
                 "ofType": null
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "disabled",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "displayName",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "email",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "emailVerified",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "isAnonymous",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "lastSeen",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "locale",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "metadata",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": [
-              {
-                "name": "path",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "newEmail",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "otpHash",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "otpHashExpiresAt",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "otpMethodLastUsed",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "passwordHash",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "phoneNumber",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "phoneNumberVerified",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "refreshTokens",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authRefreshTokens",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
+              },
+              "args": [
+                {
+                  "name": "role",
+                  "type": {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
@@ -16090,311 +9185,59 @@ export default {
                     }
                   }
                 }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "refreshTokens_aggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+              ]
+            },
+            {
+              "name": "deleteAuthRoles",
+              "type": {
                 "kind": "OBJECT",
-                "name": "authRefreshTokens_aggregate",
+                "name": "authRoles_mutation_response",
                 "ofType": null
-              }
+              },
+              "args": [
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
             },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "roles",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserRoles",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "roles_aggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "deleteAuthUserProvider",
+              "type": {
                 "kind": "OBJECT",
-                "name": "authUserRoles_aggregate",
+                "name": "authUserProviders",
                 "ofType": null
-              }
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
             },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "securityKeys",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserSecurityKeys",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "securityKeys_aggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "deleteAuthUserProviders",
+              "type": {
                 "kind": "OBJECT",
-                "name": "authUserSecurityKeys_aggregate",
+                "name": "authUserProviders_mutation_response",
                 "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
+              },
+              "args": [
+                {
+                  "name": "where",
+                  "type": {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
@@ -16402,163 +9245,19 @@ export default {
                     }
                   }
                 }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "ticket",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
+              ]
             },
-            "args": []
-          },
-          {
-            "name": "ticketExpiresAt",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "totpSecret",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "updatedAt",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "userProviders",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "authUserProviders",
-                    "ofType": null
-                  }
-                }
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
-                    }
-                  }
-                }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          },
-          {
-            "name": "userProviders_aggregate",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "deleteAuthUserRole",
+              "type": {
                 "kind": "OBJECT",
-                "name": "authUserProviders_aggregate",
+                "name": "authUserRoles",
                 "ofType": null
-              }
-            },
-            "args": [
-              {
-                "name": "distinct_on",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
@@ -16566,26 +9265,19 @@ export default {
                     }
                   }
                 }
+              ]
+            },
+            {
+              "name": "deleteAuthUserRoles",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserRoles_mutation_response",
+                "ofType": null
               },
-              {
-                "name": "limit",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "offset",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              },
-              {
-                "name": "order_by",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
+              "args": [
+                {
+                  "name": "where",
+                  "type": {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
@@ -16593,72 +9285,1994 @@ export default {
                     }
                   }
                 }
-              },
-              {
-                "name": "where",
-                "type": {
-                  "kind": "SCALAR",
-                  "name": "Any"
-                }
-              }
-            ]
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "users_aggregate",
-        "fields": [
-          {
-            "name": "aggregate",
-            "type": {
-              "kind": "OBJECT",
-              "name": "users_aggregate_fields",
-              "ofType": null
+              ]
             },
-            "args": []
-          },
-          {
-            "name": "nodes",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
+            {
+              "name": "deleteAuthUserSecurityKey",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "deleteAuthUserSecurityKeys",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "deleteBucket",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "deleteBuckets",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "deleteFile",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "deleteFiles",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "deleteTodo",
+              "type": {
+                "kind": "OBJECT",
+                "name": "todos",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "deleteTodos",
+              "type": {
+                "kind": "OBJECT",
+                "name": "todos_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "deleteUser",
+              "type": {
+                "kind": "OBJECT",
+                "name": "users",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "deleteUsers",
+              "type": {
+                "kind": "OBJECT",
+                "name": "users_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "delete_categories",
+              "type": {
+                "kind": "OBJECT",
+                "name": "categories_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "delete_categories_by_pk",
+              "type": {
+                "kind": "OBJECT",
+                "name": "categories",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "value",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertAuthProvider",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authProviders",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "object",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertAuthProviderRequest",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authProviderRequests",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "object",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertAuthProviderRequests",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authProviderRequests_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "objects",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertAuthProviders",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authProviders_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "objects",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertAuthRefreshToken",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRefreshTokens",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "object",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertAuthRefreshTokens",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRefreshTokens_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "objects",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertAuthRole",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRoles",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "object",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertAuthRoles",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRoles_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "objects",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertAuthUserProvider",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserProviders",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "object",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertAuthUserProviders",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserProviders_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "objects",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertAuthUserRole",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserRoles",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "object",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertAuthUserRoles",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserRoles_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "objects",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertAuthUserSecurityKey",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "object",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertAuthUserSecurityKeys",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "objects",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertBucket",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "object",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertBuckets",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "objects",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertFile",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "object",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertFiles",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "objects",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertTodo",
+              "type": {
+                "kind": "OBJECT",
+                "name": "todos",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "object",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertTodos",
+              "type": {
+                "kind": "OBJECT",
+                "name": "todos_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "objects",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertUser",
+              "type": {
+                "kind": "OBJECT",
+                "name": "users",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "object",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insertUsers",
+              "type": {
+                "kind": "OBJECT",
+                "name": "users_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "objects",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insert_categories",
+              "type": {
+                "kind": "OBJECT",
+                "name": "categories_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "objects",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "insert_categories_one",
+              "type": {
+                "kind": "OBJECT",
+                "name": "categories",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "object",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "on_conflict",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateAuthProvider",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authProviders",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "pk_columns",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateAuthProviderRequest",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authProviderRequests",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_append",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_delete_at_path",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_delete_elem",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_delete_key",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_prepend",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "pk_columns",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateAuthProviderRequests",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authProviderRequests_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_append",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_delete_at_path",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_delete_elem",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_delete_key",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_prepend",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateAuthProviders",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authProviders_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateAuthRefreshToken",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRefreshTokens",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "pk_columns",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateAuthRefreshTokens",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRefreshTokens_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateAuthRole",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRoles",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "pk_columns",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateAuthRoles",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRoles_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateAuthUserProvider",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserProviders",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "pk_columns",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateAuthUserProviders",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserProviders_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateAuthUserRole",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserRoles",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "pk_columns",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateAuthUserRoles",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserRoles_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateAuthUserSecurityKey",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_inc",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "pk_columns",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateAuthUserSecurityKeys",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_inc",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateBucket",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_inc",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "pk_columns",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateBuckets",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_inc",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateFile",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_inc",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "pk_columns",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateFiles",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_inc",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateTodo",
+              "type": {
+                "kind": "OBJECT",
+                "name": "todos",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "pk_columns",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateTodos",
+              "type": {
+                "kind": "OBJECT",
+                "name": "todos_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateUser",
+              "type": {
+                "kind": "OBJECT",
+                "name": "users",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_append",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_delete_at_path",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_delete_elem",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_delete_key",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_prepend",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "pk_columns",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "updateUsers",
+              "type": {
+                "kind": "OBJECT",
+                "name": "users_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_append",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_delete_at_path",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_delete_elem",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_delete_key",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_prepend",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "update_authProviderRequests_many",
+              "type": {
                 "kind": "LIST",
                 "ofType": {
-                  "kind": "NON_NULL",
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "users",
-                    "ofType": null
+                  "kind": "OBJECT",
+                  "name": "authProviderRequests_mutation_response",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "updates",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
                   }
                 }
-              }
+              ]
             },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "users_aggregate_fields",
-        "fields": [
-          {
-            "name": "count",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
+            {
+              "name": "update_authProviders_many",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authProviders_mutation_response",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "updates",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
             },
-            "args": [
-              {
-                "name": "columns",
-                "type": {
-                  "kind": "LIST",
-                  "ofType": {
+            {
+              "name": "update_authRefreshTokens_many",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authRefreshTokens_mutation_response",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "updates",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "update_authRoles_many",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authRoles_mutation_response",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "updates",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "update_authUserProviders_many",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authUserProviders_mutation_response",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "updates",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "update_authUserRoles_many",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authUserRoles_mutation_response",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "updates",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "update_authUserSecurityKeys_many",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authUserSecurityKeys_mutation_response",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "updates",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "update_buckets_many",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "buckets_mutation_response",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "updates",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "update_categories",
+              "type": {
+                "kind": "OBJECT",
+                "name": "categories_mutation_response",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
@@ -16666,412 +11280,6335 @@ export default {
                     }
                   }
                 }
+              ]
+            },
+            {
+              "name": "update_categories_by_pk",
+              "type": {
+                "kind": "OBJECT",
+                "name": "categories",
+                "ofType": null
               },
-              {
-                "name": "distinct",
-                "type": {
+              "args": [
+                {
+                  "name": "_set",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "pk_columns",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "update_categories_many",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "categories_mutation_response",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "updates",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "update_files_many",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "files_mutation_response",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "updates",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "update_todos_many",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "todos_mutation_response",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "updates",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "update_users_many",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "users_mutation_response",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "updates",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "NON_NULL",
+                        "ofType": {
+                          "kind": "SCALAR",
+                          "name": "Any"
+                        }
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "query_root",
+          "fields": [
+            {
+              "name": "authProvider",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authProviders",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authProviderRequest",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authProviderRequests",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authProviderRequests",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authProviderRequests",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authProviderRequestsAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authProviderRequests_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authProviders",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authProviders",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authProvidersAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authProviders_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authRefreshToken",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRefreshTokens",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "refreshToken",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authRefreshTokens",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authRefreshTokens",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authRefreshTokensAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authRefreshTokens_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authRole",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRoles",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "role",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authRoles",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authRoles",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authRolesAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authRoles_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserProvider",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserProviders",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserProviders",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserProviders",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserProvidersAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authUserProviders_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserRole",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserRoles",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserRoles",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserRoles",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserRolesAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authUserRoles_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserSecurityKey",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserSecurityKeys",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserSecurityKeys",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserSecurityKeysAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authUserSecurityKeys_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "bucket",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "buckets",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "buckets",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "bucketsAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "buckets_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "categories",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "categories",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "categories_aggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "categories_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "categories_by_pk",
+              "type": {
+                "kind": "OBJECT",
+                "name": "categories",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "value",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "file",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "files",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "files",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "filesAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "files_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "todo",
+              "type": {
+                "kind": "OBJECT",
+                "name": "todos",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "todos",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "todos",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "todosAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "todos_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "OBJECT",
+                "name": "users",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "users",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "users",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "usersAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "users_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "subscription_root",
+          "fields": [
+            {
+              "name": "authProvider",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authProviders",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authProviderRequest",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authProviderRequests",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authProviderRequests",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authProviderRequests",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authProviderRequestsAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authProviderRequests_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authProviderRequests_stream",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authProviderRequests",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "batch_size",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "cursor",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authProviders",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authProviders",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authProvidersAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authProviders_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authProviders_stream",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authProviders",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "batch_size",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "cursor",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authRefreshToken",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRefreshTokens",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "refreshToken",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authRefreshTokens",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authRefreshTokens",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authRefreshTokensAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authRefreshTokens_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authRefreshTokens_stream",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authRefreshTokens",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "batch_size",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "cursor",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authRole",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authRoles",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "role",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authRoles",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authRoles",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authRolesAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authRoles_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authRoles_stream",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authRoles",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "batch_size",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "cursor",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserProvider",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserProviders",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserProviders",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserProviders",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserProvidersAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authUserProviders_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserProviders_stream",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserProviders",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "batch_size",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "cursor",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserRole",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserRoles",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserRoles",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserRoles",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserRolesAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authUserRoles_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserRoles_stream",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserRoles",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "batch_size",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "cursor",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserSecurityKey",
+              "type": {
+                "kind": "OBJECT",
+                "name": "authUserSecurityKeys",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserSecurityKeys",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserSecurityKeys",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserSecurityKeysAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authUserSecurityKeys_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "authUserSecurityKeys_stream",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserSecurityKeys",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "batch_size",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "cursor",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "bucket",
+              "type": {
+                "kind": "OBJECT",
+                "name": "buckets",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "buckets",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "buckets",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "bucketsAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "buckets_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "buckets_stream",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "buckets",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "batch_size",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "cursor",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "categories",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "categories",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "categories_aggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "categories_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "categories_by_pk",
+              "type": {
+                "kind": "OBJECT",
+                "name": "categories",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "value",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "categories_stream",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "categories",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "batch_size",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "cursor",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "file",
+              "type": {
+                "kind": "OBJECT",
+                "name": "files",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "files",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "files",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "filesAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "files_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "files_stream",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "files",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "batch_size",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "cursor",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "todo",
+              "type": {
+                "kind": "OBJECT",
+                "name": "todos",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "todos",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "todos",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "todosAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "todos_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "todos_stream",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "todos",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "batch_size",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "cursor",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "OBJECT",
+                "name": "users",
+                "ofType": null
+              },
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "users",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "users",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "usersAggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "users_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "users_stream",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "users",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "batch_size",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Any"
+                    }
+                  }
+                },
+                {
+                  "name": "cursor",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "LIST",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "todos",
+          "fields": [
+            {
+              "name": "category",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "contents",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
                   "kind": "SCALAR",
                   "name": "Any"
                 }
-              }
-            ]
-          },
-          {
-            "name": "max",
-            "type": {
-              "kind": "OBJECT",
-              "name": "users_max_fields",
-              "ofType": null
+              },
+              "args": []
             },
-            "args": []
-          },
-          {
-            "name": "min",
-            "type": {
-              "kind": "OBJECT",
-              "name": "users_min_fields",
-              "ofType": null
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "users_max_fields",
-        "fields": [
-          {
-            "name": "activeMfaType",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "avatarUrl",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "currentChallenge",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "defaultRole",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "displayName",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "email",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "lastSeen",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "locale",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "newEmail",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "otpHash",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "otpHashExpiresAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "otpMethodLastUsed",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "passwordHash",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "phoneNumber",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "ticket",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "ticketExpiresAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "totpSecret",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "updatedAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "users_min_fields",
-        "fields": [
-          {
-            "name": "activeMfaType",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "avatarUrl",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "createdAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "currentChallenge",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "defaultRole",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "displayName",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "email",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "id",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "lastSeen",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "locale",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "newEmail",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "otpHash",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "otpHashExpiresAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "otpMethodLastUsed",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "passwordHash",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "phoneNumber",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "ticket",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "ticketExpiresAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "totpSecret",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          },
-          {
-            "name": "updatedAt",
-            "type": {
-              "kind": "SCALAR",
-              "name": "Any"
-            },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "OBJECT",
-        "name": "users_mutation_response",
-        "fields": [
-          {
-            "name": "affected_rows",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Any"
-              }
-            },
-            "args": []
-          },
-          {
-            "name": "returning",
-            "type": {
-              "kind": "NON_NULL",
-              "ofType": {
-                "kind": "LIST",
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "NON_NULL",
                 "ofType": {
-                  "kind": "NON_NULL",
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "users",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "todos_aggregate",
+          "fields": [
+            {
+              "name": "aggregate",
+              "type": {
+                "kind": "OBJECT",
+                "name": "todos_aggregate_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "nodes",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
                   "ofType": {
-                    "kind": "OBJECT",
-                    "name": "users",
-                    "ofType": null
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "todos",
+                      "ofType": null
+                    }
                   }
                 }
-              }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "todos_aggregate_fields",
+          "fields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": [
+                {
+                  "name": "columns",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "distinct",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
             },
-            "args": []
-          }
-        ],
-        "interfaces": []
-      },
-      {
-        "kind": "SCALAR",
-        "name": "Any"
-      }
-    ],
-    "directives": []
+            {
+              "name": "max",
+              "type": {
+                "kind": "OBJECT",
+                "name": "todos_max_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "OBJECT",
+                "name": "todos_min_fields",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "todos_max_fields",
+          "fields": [
+            {
+              "name": "contents",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "todos_min_fields",
+          "fields": [
+            {
+              "name": "contents",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "todos_mutation_response",
+          "fields": [
+            {
+              "name": "affected_rows",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "returning",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "todos",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "users",
+          "fields": [
+            {
+              "name": "activeMfaType",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "avatarUrl",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "currentChallenge",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "defaultRole",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "defaultRoleByRole",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authRoles",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "email",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "emailVerified",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "isAnonymous",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "lastSeen",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "locale",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "metadata",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": [
+                {
+                  "name": "path",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "newEmail",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "otpHash",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "otpHashExpiresAt",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "otpMethodLastUsed",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "passwordHash",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "phoneNumber",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "phoneNumberVerified",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "refreshTokens",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authRefreshTokens",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "refreshTokens_aggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authRefreshTokens_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "roles",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserRoles",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "roles_aggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authUserRoles_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "securityKeys",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserSecurityKeys",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "securityKeys_aggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authUserSecurityKeys_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "ticket",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "ticketExpiresAt",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "totpSecret",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "userProviders",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "authUserProviders",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "userProviders_aggregate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "authUserProviders_aggregate",
+                  "ofType": null
+                }
+              },
+              "args": [
+                {
+                  "name": "distinct_on",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "limit",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "offset",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                },
+                {
+                  "name": "order_by",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "where",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "users_aggregate",
+          "fields": [
+            {
+              "name": "aggregate",
+              "type": {
+                "kind": "OBJECT",
+                "name": "users_aggregate_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "nodes",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "users",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "users_aggregate_fields",
+          "fields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": [
+                {
+                  "name": "columns",
+                  "type": {
+                    "kind": "LIST",
+                    "ofType": {
+                      "kind": "NON_NULL",
+                      "ofType": {
+                        "kind": "SCALAR",
+                        "name": "Any"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "distinct",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "max",
+              "type": {
+                "kind": "OBJECT",
+                "name": "users_max_fields",
+                "ofType": null
+              },
+              "args": []
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "OBJECT",
+                "name": "users_min_fields",
+                "ofType": null
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "users_max_fields",
+          "fields": [
+            {
+              "name": "activeMfaType",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "avatarUrl",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "currentChallenge",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "defaultRole",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "email",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "lastSeen",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "locale",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "newEmail",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "otpHash",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "otpHashExpiresAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "otpMethodLastUsed",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "passwordHash",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "phoneNumber",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "ticket",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "ticketExpiresAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "totpSecret",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "users_min_fields",
+          "fields": [
+            {
+              "name": "activeMfaType",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "avatarUrl",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "currentChallenge",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "defaultRole",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "email",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "lastSeen",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "locale",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "newEmail",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "otpHash",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "otpHashExpiresAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "otpMethodLastUsed",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "passwordHash",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "phoneNumber",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "ticket",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "ticketExpiresAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "totpSecret",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Any"
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "users_mutation_response",
+          "fields": [
+            {
+              "name": "affected_rows",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Any"
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "returning",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "users",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Any"
+        }
+      ],
+      "directives": []
+    }
+  } as const,
+  types: {} as {
+    Scalars: Scalars,
+    Boolean_Comparison_Exp: Boolean_Comparison_Exp,
+    Int_Comparison_Exp: Int_Comparison_Exp,
+    String_Comparison_Exp: String_Comparison_Exp,
+    AuthProviderRequests: AuthProviderRequests,
+    AuthProviderRequestsOptionsArgs: AuthProviderRequestsOptionsArgs,
+    AuthProviderRequests_Aggregate: AuthProviderRequests_Aggregate,
+    AuthProviderRequests_Aggregate_Fields: AuthProviderRequests_Aggregate_Fields,
+    AuthProviderRequests_Aggregate_FieldsCountArgs: AuthProviderRequests_Aggregate_FieldsCountArgs,
+    AuthProviderRequests_Append_Input: AuthProviderRequests_Append_Input,
+    AuthProviderRequests_Bool_Exp: AuthProviderRequests_Bool_Exp,
+    AuthProviderRequests_Delete_At_Path_Input: AuthProviderRequests_Delete_At_Path_Input,
+    AuthProviderRequests_Delete_Elem_Input: AuthProviderRequests_Delete_Elem_Input,
+    AuthProviderRequests_Delete_Key_Input: AuthProviderRequests_Delete_Key_Input,
+    AuthProviderRequests_Insert_Input: AuthProviderRequests_Insert_Input,
+    AuthProviderRequests_Max_Fields: AuthProviderRequests_Max_Fields,
+    AuthProviderRequests_Min_Fields: AuthProviderRequests_Min_Fields,
+    AuthProviderRequests_Mutation_Response: AuthProviderRequests_Mutation_Response,
+    AuthProviderRequests_On_Conflict: AuthProviderRequests_On_Conflict,
+    AuthProviderRequests_Order_By: AuthProviderRequests_Order_By,
+    AuthProviderRequests_Pk_Columns_Input: AuthProviderRequests_Pk_Columns_Input,
+    AuthProviderRequests_Prepend_Input: AuthProviderRequests_Prepend_Input,
+    AuthProviderRequests_Set_Input: AuthProviderRequests_Set_Input,
+    AuthProviderRequests_Stream_Cursor_Input: AuthProviderRequests_Stream_Cursor_Input,
+    AuthProviderRequests_Stream_Cursor_Value_Input: AuthProviderRequests_Stream_Cursor_Value_Input,
+    AuthProviderRequests_Updates: AuthProviderRequests_Updates,
+    AuthProviders: AuthProviders,
+    AuthProvidersUserProvidersArgs: AuthProvidersUserProvidersArgs,
+    AuthProvidersUserProviders_AggregateArgs: AuthProvidersUserProviders_AggregateArgs,
+    AuthProviders_Aggregate: AuthProviders_Aggregate,
+    AuthProviders_Aggregate_Fields: AuthProviders_Aggregate_Fields,
+    AuthProviders_Aggregate_FieldsCountArgs: AuthProviders_Aggregate_FieldsCountArgs,
+    AuthProviders_Bool_Exp: AuthProviders_Bool_Exp,
+    AuthProviders_Insert_Input: AuthProviders_Insert_Input,
+    AuthProviders_Max_Fields: AuthProviders_Max_Fields,
+    AuthProviders_Min_Fields: AuthProviders_Min_Fields,
+    AuthProviders_Mutation_Response: AuthProviders_Mutation_Response,
+    AuthProviders_Obj_Rel_Insert_Input: AuthProviders_Obj_Rel_Insert_Input,
+    AuthProviders_On_Conflict: AuthProviders_On_Conflict,
+    AuthProviders_Order_By: AuthProviders_Order_By,
+    AuthProviders_Pk_Columns_Input: AuthProviders_Pk_Columns_Input,
+    AuthProviders_Set_Input: AuthProviders_Set_Input,
+    AuthProviders_Stream_Cursor_Input: AuthProviders_Stream_Cursor_Input,
+    AuthProviders_Stream_Cursor_Value_Input: AuthProviders_Stream_Cursor_Value_Input,
+    AuthProviders_Updates: AuthProviders_Updates,
+    AuthRefreshTokens: AuthRefreshTokens,
+    AuthRefreshTokens_Aggregate: AuthRefreshTokens_Aggregate,
+    AuthRefreshTokens_Aggregate_Bool_Exp: AuthRefreshTokens_Aggregate_Bool_Exp,
+    AuthRefreshTokens_Aggregate_Bool_Exp_Count: AuthRefreshTokens_Aggregate_Bool_Exp_Count,
+    AuthRefreshTokens_Aggregate_Fields: AuthRefreshTokens_Aggregate_Fields,
+    AuthRefreshTokens_Aggregate_FieldsCountArgs: AuthRefreshTokens_Aggregate_FieldsCountArgs,
+    AuthRefreshTokens_Aggregate_Order_By: AuthRefreshTokens_Aggregate_Order_By,
+    AuthRefreshTokens_Arr_Rel_Insert_Input: AuthRefreshTokens_Arr_Rel_Insert_Input,
+    AuthRefreshTokens_Bool_Exp: AuthRefreshTokens_Bool_Exp,
+    AuthRefreshTokens_Insert_Input: AuthRefreshTokens_Insert_Input,
+    AuthRefreshTokens_Max_Fields: AuthRefreshTokens_Max_Fields,
+    AuthRefreshTokens_Max_Order_By: AuthRefreshTokens_Max_Order_By,
+    AuthRefreshTokens_Min_Fields: AuthRefreshTokens_Min_Fields,
+    AuthRefreshTokens_Min_Order_By: AuthRefreshTokens_Min_Order_By,
+    AuthRefreshTokens_Mutation_Response: AuthRefreshTokens_Mutation_Response,
+    AuthRefreshTokens_On_Conflict: AuthRefreshTokens_On_Conflict,
+    AuthRefreshTokens_Order_By: AuthRefreshTokens_Order_By,
+    AuthRefreshTokens_Pk_Columns_Input: AuthRefreshTokens_Pk_Columns_Input,
+    AuthRefreshTokens_Set_Input: AuthRefreshTokens_Set_Input,
+    AuthRefreshTokens_Stream_Cursor_Input: AuthRefreshTokens_Stream_Cursor_Input,
+    AuthRefreshTokens_Stream_Cursor_Value_Input: AuthRefreshTokens_Stream_Cursor_Value_Input,
+    AuthRefreshTokens_Updates: AuthRefreshTokens_Updates,
+    AuthRoles: AuthRoles,
+    AuthRolesUserRolesArgs: AuthRolesUserRolesArgs,
+    AuthRolesUserRoles_AggregateArgs: AuthRolesUserRoles_AggregateArgs,
+    AuthRolesUsersByDefaultRoleArgs: AuthRolesUsersByDefaultRoleArgs,
+    AuthRolesUsersByDefaultRole_AggregateArgs: AuthRolesUsersByDefaultRole_AggregateArgs,
+    AuthRoles_Aggregate: AuthRoles_Aggregate,
+    AuthRoles_Aggregate_Fields: AuthRoles_Aggregate_Fields,
+    AuthRoles_Aggregate_FieldsCountArgs: AuthRoles_Aggregate_FieldsCountArgs,
+    AuthRoles_Bool_Exp: AuthRoles_Bool_Exp,
+    AuthRoles_Insert_Input: AuthRoles_Insert_Input,
+    AuthRoles_Max_Fields: AuthRoles_Max_Fields,
+    AuthRoles_Min_Fields: AuthRoles_Min_Fields,
+    AuthRoles_Mutation_Response: AuthRoles_Mutation_Response,
+    AuthRoles_Obj_Rel_Insert_Input: AuthRoles_Obj_Rel_Insert_Input,
+    AuthRoles_On_Conflict: AuthRoles_On_Conflict,
+    AuthRoles_Order_By: AuthRoles_Order_By,
+    AuthRoles_Pk_Columns_Input: AuthRoles_Pk_Columns_Input,
+    AuthRoles_Set_Input: AuthRoles_Set_Input,
+    AuthRoles_Stream_Cursor_Input: AuthRoles_Stream_Cursor_Input,
+    AuthRoles_Stream_Cursor_Value_Input: AuthRoles_Stream_Cursor_Value_Input,
+    AuthRoles_Updates: AuthRoles_Updates,
+    AuthUserProviders: AuthUserProviders,
+    AuthUserProviders_Aggregate: AuthUserProviders_Aggregate,
+    AuthUserProviders_Aggregate_Bool_Exp: AuthUserProviders_Aggregate_Bool_Exp,
+    AuthUserProviders_Aggregate_Bool_Exp_Count: AuthUserProviders_Aggregate_Bool_Exp_Count,
+    AuthUserProviders_Aggregate_Fields: AuthUserProviders_Aggregate_Fields,
+    AuthUserProviders_Aggregate_FieldsCountArgs: AuthUserProviders_Aggregate_FieldsCountArgs,
+    AuthUserProviders_Aggregate_Order_By: AuthUserProviders_Aggregate_Order_By,
+    AuthUserProviders_Arr_Rel_Insert_Input: AuthUserProviders_Arr_Rel_Insert_Input,
+    AuthUserProviders_Bool_Exp: AuthUserProviders_Bool_Exp,
+    AuthUserProviders_Insert_Input: AuthUserProviders_Insert_Input,
+    AuthUserProviders_Max_Fields: AuthUserProviders_Max_Fields,
+    AuthUserProviders_Max_Order_By: AuthUserProviders_Max_Order_By,
+    AuthUserProviders_Min_Fields: AuthUserProviders_Min_Fields,
+    AuthUserProviders_Min_Order_By: AuthUserProviders_Min_Order_By,
+    AuthUserProviders_Mutation_Response: AuthUserProviders_Mutation_Response,
+    AuthUserProviders_On_Conflict: AuthUserProviders_On_Conflict,
+    AuthUserProviders_Order_By: AuthUserProviders_Order_By,
+    AuthUserProviders_Pk_Columns_Input: AuthUserProviders_Pk_Columns_Input,
+    AuthUserProviders_Set_Input: AuthUserProviders_Set_Input,
+    AuthUserProviders_Stream_Cursor_Input: AuthUserProviders_Stream_Cursor_Input,
+    AuthUserProviders_Stream_Cursor_Value_Input: AuthUserProviders_Stream_Cursor_Value_Input,
+    AuthUserProviders_Updates: AuthUserProviders_Updates,
+    AuthUserRoles: AuthUserRoles,
+    AuthUserRoles_Aggregate: AuthUserRoles_Aggregate,
+    AuthUserRoles_Aggregate_Bool_Exp: AuthUserRoles_Aggregate_Bool_Exp,
+    AuthUserRoles_Aggregate_Bool_Exp_Count: AuthUserRoles_Aggregate_Bool_Exp_Count,
+    AuthUserRoles_Aggregate_Fields: AuthUserRoles_Aggregate_Fields,
+    AuthUserRoles_Aggregate_FieldsCountArgs: AuthUserRoles_Aggregate_FieldsCountArgs,
+    AuthUserRoles_Aggregate_Order_By: AuthUserRoles_Aggregate_Order_By,
+    AuthUserRoles_Arr_Rel_Insert_Input: AuthUserRoles_Arr_Rel_Insert_Input,
+    AuthUserRoles_Bool_Exp: AuthUserRoles_Bool_Exp,
+    AuthUserRoles_Insert_Input: AuthUserRoles_Insert_Input,
+    AuthUserRoles_Max_Fields: AuthUserRoles_Max_Fields,
+    AuthUserRoles_Max_Order_By: AuthUserRoles_Max_Order_By,
+    AuthUserRoles_Min_Fields: AuthUserRoles_Min_Fields,
+    AuthUserRoles_Min_Order_By: AuthUserRoles_Min_Order_By,
+    AuthUserRoles_Mutation_Response: AuthUserRoles_Mutation_Response,
+    AuthUserRoles_On_Conflict: AuthUserRoles_On_Conflict,
+    AuthUserRoles_Order_By: AuthUserRoles_Order_By,
+    AuthUserRoles_Pk_Columns_Input: AuthUserRoles_Pk_Columns_Input,
+    AuthUserRoles_Set_Input: AuthUserRoles_Set_Input,
+    AuthUserRoles_Stream_Cursor_Input: AuthUserRoles_Stream_Cursor_Input,
+    AuthUserRoles_Stream_Cursor_Value_Input: AuthUserRoles_Stream_Cursor_Value_Input,
+    AuthUserRoles_Updates: AuthUserRoles_Updates,
+    AuthUserSecurityKeys: AuthUserSecurityKeys,
+    AuthUserSecurityKeys_Aggregate: AuthUserSecurityKeys_Aggregate,
+    AuthUserSecurityKeys_Aggregate_Bool_Exp: AuthUserSecurityKeys_Aggregate_Bool_Exp,
+    AuthUserSecurityKeys_Aggregate_Bool_Exp_Count: AuthUserSecurityKeys_Aggregate_Bool_Exp_Count,
+    AuthUserSecurityKeys_Aggregate_Fields: AuthUserSecurityKeys_Aggregate_Fields,
+    AuthUserSecurityKeys_Aggregate_FieldsCountArgs: AuthUserSecurityKeys_Aggregate_FieldsCountArgs,
+    AuthUserSecurityKeys_Aggregate_Order_By: AuthUserSecurityKeys_Aggregate_Order_By,
+    AuthUserSecurityKeys_Arr_Rel_Insert_Input: AuthUserSecurityKeys_Arr_Rel_Insert_Input,
+    AuthUserSecurityKeys_Avg_Fields: AuthUserSecurityKeys_Avg_Fields,
+    AuthUserSecurityKeys_Avg_Order_By: AuthUserSecurityKeys_Avg_Order_By,
+    AuthUserSecurityKeys_Bool_Exp: AuthUserSecurityKeys_Bool_Exp,
+    AuthUserSecurityKeys_Inc_Input: AuthUserSecurityKeys_Inc_Input,
+    AuthUserSecurityKeys_Insert_Input: AuthUserSecurityKeys_Insert_Input,
+    AuthUserSecurityKeys_Max_Fields: AuthUserSecurityKeys_Max_Fields,
+    AuthUserSecurityKeys_Max_Order_By: AuthUserSecurityKeys_Max_Order_By,
+    AuthUserSecurityKeys_Min_Fields: AuthUserSecurityKeys_Min_Fields,
+    AuthUserSecurityKeys_Min_Order_By: AuthUserSecurityKeys_Min_Order_By,
+    AuthUserSecurityKeys_Mutation_Response: AuthUserSecurityKeys_Mutation_Response,
+    AuthUserSecurityKeys_On_Conflict: AuthUserSecurityKeys_On_Conflict,
+    AuthUserSecurityKeys_Order_By: AuthUserSecurityKeys_Order_By,
+    AuthUserSecurityKeys_Pk_Columns_Input: AuthUserSecurityKeys_Pk_Columns_Input,
+    AuthUserSecurityKeys_Set_Input: AuthUserSecurityKeys_Set_Input,
+    AuthUserSecurityKeys_Stddev_Fields: AuthUserSecurityKeys_Stddev_Fields,
+    AuthUserSecurityKeys_Stddev_Order_By: AuthUserSecurityKeys_Stddev_Order_By,
+    AuthUserSecurityKeys_Stddev_Pop_Fields: AuthUserSecurityKeys_Stddev_Pop_Fields,
+    AuthUserSecurityKeys_Stddev_Pop_Order_By: AuthUserSecurityKeys_Stddev_Pop_Order_By,
+    AuthUserSecurityKeys_Stddev_Samp_Fields: AuthUserSecurityKeys_Stddev_Samp_Fields,
+    AuthUserSecurityKeys_Stddev_Samp_Order_By: AuthUserSecurityKeys_Stddev_Samp_Order_By,
+    AuthUserSecurityKeys_Stream_Cursor_Input: AuthUserSecurityKeys_Stream_Cursor_Input,
+    AuthUserSecurityKeys_Stream_Cursor_Value_Input: AuthUserSecurityKeys_Stream_Cursor_Value_Input,
+    AuthUserSecurityKeys_Sum_Fields: AuthUserSecurityKeys_Sum_Fields,
+    AuthUserSecurityKeys_Sum_Order_By: AuthUserSecurityKeys_Sum_Order_By,
+    AuthUserSecurityKeys_Updates: AuthUserSecurityKeys_Updates,
+    AuthUserSecurityKeys_Var_Pop_Fields: AuthUserSecurityKeys_Var_Pop_Fields,
+    AuthUserSecurityKeys_Var_Pop_Order_By: AuthUserSecurityKeys_Var_Pop_Order_By,
+    AuthUserSecurityKeys_Var_Samp_Fields: AuthUserSecurityKeys_Var_Samp_Fields,
+    AuthUserSecurityKeys_Var_Samp_Order_By: AuthUserSecurityKeys_Var_Samp_Order_By,
+    AuthUserSecurityKeys_Variance_Fields: AuthUserSecurityKeys_Variance_Fields,
+    AuthUserSecurityKeys_Variance_Order_By: AuthUserSecurityKeys_Variance_Order_By,
+    Bigint_Comparison_Exp: Bigint_Comparison_Exp,
+    Buckets: Buckets,
+    BucketsFilesArgs: BucketsFilesArgs,
+    BucketsFiles_AggregateArgs: BucketsFiles_AggregateArgs,
+    Buckets_Aggregate: Buckets_Aggregate,
+    Buckets_Aggregate_Fields: Buckets_Aggregate_Fields,
+    Buckets_Aggregate_FieldsCountArgs: Buckets_Aggregate_FieldsCountArgs,
+    Buckets_Avg_Fields: Buckets_Avg_Fields,
+    Buckets_Bool_Exp: Buckets_Bool_Exp,
+    Buckets_Inc_Input: Buckets_Inc_Input,
+    Buckets_Insert_Input: Buckets_Insert_Input,
+    Buckets_Max_Fields: Buckets_Max_Fields,
+    Buckets_Min_Fields: Buckets_Min_Fields,
+    Buckets_Mutation_Response: Buckets_Mutation_Response,
+    Buckets_Obj_Rel_Insert_Input: Buckets_Obj_Rel_Insert_Input,
+    Buckets_On_Conflict: Buckets_On_Conflict,
+    Buckets_Order_By: Buckets_Order_By,
+    Buckets_Pk_Columns_Input: Buckets_Pk_Columns_Input,
+    Buckets_Set_Input: Buckets_Set_Input,
+    Buckets_Stddev_Fields: Buckets_Stddev_Fields,
+    Buckets_Stddev_Pop_Fields: Buckets_Stddev_Pop_Fields,
+    Buckets_Stddev_Samp_Fields: Buckets_Stddev_Samp_Fields,
+    Buckets_Stream_Cursor_Input: Buckets_Stream_Cursor_Input,
+    Buckets_Stream_Cursor_Value_Input: Buckets_Stream_Cursor_Value_Input,
+    Buckets_Sum_Fields: Buckets_Sum_Fields,
+    Buckets_Updates: Buckets_Updates,
+    Buckets_Var_Pop_Fields: Buckets_Var_Pop_Fields,
+    Buckets_Var_Samp_Fields: Buckets_Var_Samp_Fields,
+    Buckets_Variance_Fields: Buckets_Variance_Fields,
+    Bytea_Comparison_Exp: Bytea_Comparison_Exp,
+    Categories: Categories,
+    Categories_Aggregate: Categories_Aggregate,
+    Categories_Aggregate_Fields: Categories_Aggregate_Fields,
+    Categories_Aggregate_FieldsCountArgs: Categories_Aggregate_FieldsCountArgs,
+    Categories_Bool_Exp: Categories_Bool_Exp,
+    Categories_Enum_Comparison_Exp: Categories_Enum_Comparison_Exp,
+    Categories_Insert_Input: Categories_Insert_Input,
+    Categories_Max_Fields: Categories_Max_Fields,
+    Categories_Min_Fields: Categories_Min_Fields,
+    Categories_Mutation_Response: Categories_Mutation_Response,
+    Categories_On_Conflict: Categories_On_Conflict,
+    Categories_Order_By: Categories_Order_By,
+    Categories_Pk_Columns_Input: Categories_Pk_Columns_Input,
+    Categories_Set_Input: Categories_Set_Input,
+    Categories_Stream_Cursor_Input: Categories_Stream_Cursor_Input,
+    Categories_Stream_Cursor_Value_Input: Categories_Stream_Cursor_Value_Input,
+    Categories_Updates: Categories_Updates,
+    Citext_Comparison_Exp: Citext_Comparison_Exp,
+    Files: Files,
+    Files_Aggregate: Files_Aggregate,
+    Files_Aggregate_Bool_Exp: Files_Aggregate_Bool_Exp,
+    Files_Aggregate_Bool_Exp_Bool_And: Files_Aggregate_Bool_Exp_Bool_And,
+    Files_Aggregate_Bool_Exp_Bool_Or: Files_Aggregate_Bool_Exp_Bool_Or,
+    Files_Aggregate_Bool_Exp_Count: Files_Aggregate_Bool_Exp_Count,
+    Files_Aggregate_Fields: Files_Aggregate_Fields,
+    Files_Aggregate_FieldsCountArgs: Files_Aggregate_FieldsCountArgs,
+    Files_Aggregate_Order_By: Files_Aggregate_Order_By,
+    Files_Arr_Rel_Insert_Input: Files_Arr_Rel_Insert_Input,
+    Files_Avg_Fields: Files_Avg_Fields,
+    Files_Avg_Order_By: Files_Avg_Order_By,
+    Files_Bool_Exp: Files_Bool_Exp,
+    Files_Inc_Input: Files_Inc_Input,
+    Files_Insert_Input: Files_Insert_Input,
+    Files_Max_Fields: Files_Max_Fields,
+    Files_Max_Order_By: Files_Max_Order_By,
+    Files_Min_Fields: Files_Min_Fields,
+    Files_Min_Order_By: Files_Min_Order_By,
+    Files_Mutation_Response: Files_Mutation_Response,
+    Files_On_Conflict: Files_On_Conflict,
+    Files_Order_By: Files_Order_By,
+    Files_Pk_Columns_Input: Files_Pk_Columns_Input,
+    Files_Set_Input: Files_Set_Input,
+    Files_Stddev_Fields: Files_Stddev_Fields,
+    Files_Stddev_Order_By: Files_Stddev_Order_By,
+    Files_Stddev_Pop_Fields: Files_Stddev_Pop_Fields,
+    Files_Stddev_Pop_Order_By: Files_Stddev_Pop_Order_By,
+    Files_Stddev_Samp_Fields: Files_Stddev_Samp_Fields,
+    Files_Stddev_Samp_Order_By: Files_Stddev_Samp_Order_By,
+    Files_Stream_Cursor_Input: Files_Stream_Cursor_Input,
+    Files_Stream_Cursor_Value_Input: Files_Stream_Cursor_Value_Input,
+    Files_Sum_Fields: Files_Sum_Fields,
+    Files_Sum_Order_By: Files_Sum_Order_By,
+    Files_Updates: Files_Updates,
+    Files_Var_Pop_Fields: Files_Var_Pop_Fields,
+    Files_Var_Pop_Order_By: Files_Var_Pop_Order_By,
+    Files_Var_Samp_Fields: Files_Var_Samp_Fields,
+    Files_Var_Samp_Order_By: Files_Var_Samp_Order_By,
+    Files_Variance_Fields: Files_Variance_Fields,
+    Files_Variance_Order_By: Files_Variance_Order_By,
+    Jsonb_Cast_Exp: Jsonb_Cast_Exp,
+    Jsonb_Comparison_Exp: Jsonb_Comparison_Exp,
+    Mutation_Root: Mutation_Root,
+    Mutation_RootDeleteAuthProviderArgs: Mutation_RootDeleteAuthProviderArgs,
+    Mutation_RootDeleteAuthProviderRequestArgs: Mutation_RootDeleteAuthProviderRequestArgs,
+    Mutation_RootDeleteAuthProviderRequestsArgs: Mutation_RootDeleteAuthProviderRequestsArgs,
+    Mutation_RootDeleteAuthProvidersArgs: Mutation_RootDeleteAuthProvidersArgs,
+    Mutation_RootDeleteAuthRefreshTokenArgs: Mutation_RootDeleteAuthRefreshTokenArgs,
+    Mutation_RootDeleteAuthRefreshTokensArgs: Mutation_RootDeleteAuthRefreshTokensArgs,
+    Mutation_RootDeleteAuthRoleArgs: Mutation_RootDeleteAuthRoleArgs,
+    Mutation_RootDeleteAuthRolesArgs: Mutation_RootDeleteAuthRolesArgs,
+    Mutation_RootDeleteAuthUserProviderArgs: Mutation_RootDeleteAuthUserProviderArgs,
+    Mutation_RootDeleteAuthUserProvidersArgs: Mutation_RootDeleteAuthUserProvidersArgs,
+    Mutation_RootDeleteAuthUserRoleArgs: Mutation_RootDeleteAuthUserRoleArgs,
+    Mutation_RootDeleteAuthUserRolesArgs: Mutation_RootDeleteAuthUserRolesArgs,
+    Mutation_RootDeleteAuthUserSecurityKeyArgs: Mutation_RootDeleteAuthUserSecurityKeyArgs,
+    Mutation_RootDeleteAuthUserSecurityKeysArgs: Mutation_RootDeleteAuthUserSecurityKeysArgs,
+    Mutation_RootDeleteBucketArgs: Mutation_RootDeleteBucketArgs,
+    Mutation_RootDeleteBucketsArgs: Mutation_RootDeleteBucketsArgs,
+    Mutation_RootDeleteFileArgs: Mutation_RootDeleteFileArgs,
+    Mutation_RootDeleteFilesArgs: Mutation_RootDeleteFilesArgs,
+    Mutation_RootDeleteTodoArgs: Mutation_RootDeleteTodoArgs,
+    Mutation_RootDeleteTodosArgs: Mutation_RootDeleteTodosArgs,
+    Mutation_RootDeleteUserArgs: Mutation_RootDeleteUserArgs,
+    Mutation_RootDeleteUsersArgs: Mutation_RootDeleteUsersArgs,
+    Mutation_RootDelete_CategoriesArgs: Mutation_RootDelete_CategoriesArgs,
+    Mutation_RootDelete_Categories_By_PkArgs: Mutation_RootDelete_Categories_By_PkArgs,
+    Mutation_RootInsertAuthProviderArgs: Mutation_RootInsertAuthProviderArgs,
+    Mutation_RootInsertAuthProviderRequestArgs: Mutation_RootInsertAuthProviderRequestArgs,
+    Mutation_RootInsertAuthProviderRequestsArgs: Mutation_RootInsertAuthProviderRequestsArgs,
+    Mutation_RootInsertAuthProvidersArgs: Mutation_RootInsertAuthProvidersArgs,
+    Mutation_RootInsertAuthRefreshTokenArgs: Mutation_RootInsertAuthRefreshTokenArgs,
+    Mutation_RootInsertAuthRefreshTokensArgs: Mutation_RootInsertAuthRefreshTokensArgs,
+    Mutation_RootInsertAuthRoleArgs: Mutation_RootInsertAuthRoleArgs,
+    Mutation_RootInsertAuthRolesArgs: Mutation_RootInsertAuthRolesArgs,
+    Mutation_RootInsertAuthUserProviderArgs: Mutation_RootInsertAuthUserProviderArgs,
+    Mutation_RootInsertAuthUserProvidersArgs: Mutation_RootInsertAuthUserProvidersArgs,
+    Mutation_RootInsertAuthUserRoleArgs: Mutation_RootInsertAuthUserRoleArgs,
+    Mutation_RootInsertAuthUserRolesArgs: Mutation_RootInsertAuthUserRolesArgs,
+    Mutation_RootInsertAuthUserSecurityKeyArgs: Mutation_RootInsertAuthUserSecurityKeyArgs,
+    Mutation_RootInsertAuthUserSecurityKeysArgs: Mutation_RootInsertAuthUserSecurityKeysArgs,
+    Mutation_RootInsertBucketArgs: Mutation_RootInsertBucketArgs,
+    Mutation_RootInsertBucketsArgs: Mutation_RootInsertBucketsArgs,
+    Mutation_RootInsertFileArgs: Mutation_RootInsertFileArgs,
+    Mutation_RootInsertFilesArgs: Mutation_RootInsertFilesArgs,
+    Mutation_RootInsertTodoArgs: Mutation_RootInsertTodoArgs,
+    Mutation_RootInsertTodosArgs: Mutation_RootInsertTodosArgs,
+    Mutation_RootInsertUserArgs: Mutation_RootInsertUserArgs,
+    Mutation_RootInsertUsersArgs: Mutation_RootInsertUsersArgs,
+    Mutation_RootInsert_CategoriesArgs: Mutation_RootInsert_CategoriesArgs,
+    Mutation_RootInsert_Categories_OneArgs: Mutation_RootInsert_Categories_OneArgs,
+    Mutation_RootUpdateAuthProviderArgs: Mutation_RootUpdateAuthProviderArgs,
+    Mutation_RootUpdateAuthProviderRequestArgs: Mutation_RootUpdateAuthProviderRequestArgs,
+    Mutation_RootUpdateAuthProviderRequestsArgs: Mutation_RootUpdateAuthProviderRequestsArgs,
+    Mutation_RootUpdateAuthProvidersArgs: Mutation_RootUpdateAuthProvidersArgs,
+    Mutation_RootUpdateAuthRefreshTokenArgs: Mutation_RootUpdateAuthRefreshTokenArgs,
+    Mutation_RootUpdateAuthRefreshTokensArgs: Mutation_RootUpdateAuthRefreshTokensArgs,
+    Mutation_RootUpdateAuthRoleArgs: Mutation_RootUpdateAuthRoleArgs,
+    Mutation_RootUpdateAuthRolesArgs: Mutation_RootUpdateAuthRolesArgs,
+    Mutation_RootUpdateAuthUserProviderArgs: Mutation_RootUpdateAuthUserProviderArgs,
+    Mutation_RootUpdateAuthUserProvidersArgs: Mutation_RootUpdateAuthUserProvidersArgs,
+    Mutation_RootUpdateAuthUserRoleArgs: Mutation_RootUpdateAuthUserRoleArgs,
+    Mutation_RootUpdateAuthUserRolesArgs: Mutation_RootUpdateAuthUserRolesArgs,
+    Mutation_RootUpdateAuthUserSecurityKeyArgs: Mutation_RootUpdateAuthUserSecurityKeyArgs,
+    Mutation_RootUpdateAuthUserSecurityKeysArgs: Mutation_RootUpdateAuthUserSecurityKeysArgs,
+    Mutation_RootUpdateBucketArgs: Mutation_RootUpdateBucketArgs,
+    Mutation_RootUpdateBucketsArgs: Mutation_RootUpdateBucketsArgs,
+    Mutation_RootUpdateFileArgs: Mutation_RootUpdateFileArgs,
+    Mutation_RootUpdateFilesArgs: Mutation_RootUpdateFilesArgs,
+    Mutation_RootUpdateTodoArgs: Mutation_RootUpdateTodoArgs,
+    Mutation_RootUpdateTodosArgs: Mutation_RootUpdateTodosArgs,
+    Mutation_RootUpdateUserArgs: Mutation_RootUpdateUserArgs,
+    Mutation_RootUpdateUsersArgs: Mutation_RootUpdateUsersArgs,
+    Mutation_RootUpdate_AuthProviderRequests_ManyArgs: Mutation_RootUpdate_AuthProviderRequests_ManyArgs,
+    Mutation_RootUpdate_AuthProviders_ManyArgs: Mutation_RootUpdate_AuthProviders_ManyArgs,
+    Mutation_RootUpdate_AuthRefreshTokens_ManyArgs: Mutation_RootUpdate_AuthRefreshTokens_ManyArgs,
+    Mutation_RootUpdate_AuthRoles_ManyArgs: Mutation_RootUpdate_AuthRoles_ManyArgs,
+    Mutation_RootUpdate_AuthUserProviders_ManyArgs: Mutation_RootUpdate_AuthUserProviders_ManyArgs,
+    Mutation_RootUpdate_AuthUserRoles_ManyArgs: Mutation_RootUpdate_AuthUserRoles_ManyArgs,
+    Mutation_RootUpdate_AuthUserSecurityKeys_ManyArgs: Mutation_RootUpdate_AuthUserSecurityKeys_ManyArgs,
+    Mutation_RootUpdate_Buckets_ManyArgs: Mutation_RootUpdate_Buckets_ManyArgs,
+    Mutation_RootUpdate_CategoriesArgs: Mutation_RootUpdate_CategoriesArgs,
+    Mutation_RootUpdate_Categories_By_PkArgs: Mutation_RootUpdate_Categories_By_PkArgs,
+    Mutation_RootUpdate_Categories_ManyArgs: Mutation_RootUpdate_Categories_ManyArgs,
+    Mutation_RootUpdate_Files_ManyArgs: Mutation_RootUpdate_Files_ManyArgs,
+    Mutation_RootUpdate_Todos_ManyArgs: Mutation_RootUpdate_Todos_ManyArgs,
+    Mutation_RootUpdate_Users_ManyArgs: Mutation_RootUpdate_Users_ManyArgs,
+    Query_Root: Query_Root,
+    Query_RootAuthProviderArgs: Query_RootAuthProviderArgs,
+    Query_RootAuthProviderRequestArgs: Query_RootAuthProviderRequestArgs,
+    Query_RootAuthProviderRequestsArgs: Query_RootAuthProviderRequestsArgs,
+    Query_RootAuthProviderRequestsAggregateArgs: Query_RootAuthProviderRequestsAggregateArgs,
+    Query_RootAuthProvidersArgs: Query_RootAuthProvidersArgs,
+    Query_RootAuthProvidersAggregateArgs: Query_RootAuthProvidersAggregateArgs,
+    Query_RootAuthRefreshTokenArgs: Query_RootAuthRefreshTokenArgs,
+    Query_RootAuthRefreshTokensArgs: Query_RootAuthRefreshTokensArgs,
+    Query_RootAuthRefreshTokensAggregateArgs: Query_RootAuthRefreshTokensAggregateArgs,
+    Query_RootAuthRoleArgs: Query_RootAuthRoleArgs,
+    Query_RootAuthRolesArgs: Query_RootAuthRolesArgs,
+    Query_RootAuthRolesAggregateArgs: Query_RootAuthRolesAggregateArgs,
+    Query_RootAuthUserProviderArgs: Query_RootAuthUserProviderArgs,
+    Query_RootAuthUserProvidersArgs: Query_RootAuthUserProvidersArgs,
+    Query_RootAuthUserProvidersAggregateArgs: Query_RootAuthUserProvidersAggregateArgs,
+    Query_RootAuthUserRoleArgs: Query_RootAuthUserRoleArgs,
+    Query_RootAuthUserRolesArgs: Query_RootAuthUserRolesArgs,
+    Query_RootAuthUserRolesAggregateArgs: Query_RootAuthUserRolesAggregateArgs,
+    Query_RootAuthUserSecurityKeyArgs: Query_RootAuthUserSecurityKeyArgs,
+    Query_RootAuthUserSecurityKeysArgs: Query_RootAuthUserSecurityKeysArgs,
+    Query_RootAuthUserSecurityKeysAggregateArgs: Query_RootAuthUserSecurityKeysAggregateArgs,
+    Query_RootBucketArgs: Query_RootBucketArgs,
+    Query_RootBucketsArgs: Query_RootBucketsArgs,
+    Query_RootBucketsAggregateArgs: Query_RootBucketsAggregateArgs,
+    Query_RootCategoriesArgs: Query_RootCategoriesArgs,
+    Query_RootCategories_AggregateArgs: Query_RootCategories_AggregateArgs,
+    Query_RootCategories_By_PkArgs: Query_RootCategories_By_PkArgs,
+    Query_RootFileArgs: Query_RootFileArgs,
+    Query_RootFilesArgs: Query_RootFilesArgs,
+    Query_RootFilesAggregateArgs: Query_RootFilesAggregateArgs,
+    Query_RootTodoArgs: Query_RootTodoArgs,
+    Query_RootTodosArgs: Query_RootTodosArgs,
+    Query_RootTodosAggregateArgs: Query_RootTodosAggregateArgs,
+    Query_RootUserArgs: Query_RootUserArgs,
+    Query_RootUsersArgs: Query_RootUsersArgs,
+    Query_RootUsersAggregateArgs: Query_RootUsersAggregateArgs,
+    Subscription_Root: Subscription_Root,
+    Subscription_RootAuthProviderArgs: Subscription_RootAuthProviderArgs,
+    Subscription_RootAuthProviderRequestArgs: Subscription_RootAuthProviderRequestArgs,
+    Subscription_RootAuthProviderRequestsArgs: Subscription_RootAuthProviderRequestsArgs,
+    Subscription_RootAuthProviderRequestsAggregateArgs: Subscription_RootAuthProviderRequestsAggregateArgs,
+    Subscription_RootAuthProviderRequests_StreamArgs: Subscription_RootAuthProviderRequests_StreamArgs,
+    Subscription_RootAuthProvidersArgs: Subscription_RootAuthProvidersArgs,
+    Subscription_RootAuthProvidersAggregateArgs: Subscription_RootAuthProvidersAggregateArgs,
+    Subscription_RootAuthProviders_StreamArgs: Subscription_RootAuthProviders_StreamArgs,
+    Subscription_RootAuthRefreshTokenArgs: Subscription_RootAuthRefreshTokenArgs,
+    Subscription_RootAuthRefreshTokensArgs: Subscription_RootAuthRefreshTokensArgs,
+    Subscription_RootAuthRefreshTokensAggregateArgs: Subscription_RootAuthRefreshTokensAggregateArgs,
+    Subscription_RootAuthRefreshTokens_StreamArgs: Subscription_RootAuthRefreshTokens_StreamArgs,
+    Subscription_RootAuthRoleArgs: Subscription_RootAuthRoleArgs,
+    Subscription_RootAuthRolesArgs: Subscription_RootAuthRolesArgs,
+    Subscription_RootAuthRolesAggregateArgs: Subscription_RootAuthRolesAggregateArgs,
+    Subscription_RootAuthRoles_StreamArgs: Subscription_RootAuthRoles_StreamArgs,
+    Subscription_RootAuthUserProviderArgs: Subscription_RootAuthUserProviderArgs,
+    Subscription_RootAuthUserProvidersArgs: Subscription_RootAuthUserProvidersArgs,
+    Subscription_RootAuthUserProvidersAggregateArgs: Subscription_RootAuthUserProvidersAggregateArgs,
+    Subscription_RootAuthUserProviders_StreamArgs: Subscription_RootAuthUserProviders_StreamArgs,
+    Subscription_RootAuthUserRoleArgs: Subscription_RootAuthUserRoleArgs,
+    Subscription_RootAuthUserRolesArgs: Subscription_RootAuthUserRolesArgs,
+    Subscription_RootAuthUserRolesAggregateArgs: Subscription_RootAuthUserRolesAggregateArgs,
+    Subscription_RootAuthUserRoles_StreamArgs: Subscription_RootAuthUserRoles_StreamArgs,
+    Subscription_RootAuthUserSecurityKeyArgs: Subscription_RootAuthUserSecurityKeyArgs,
+    Subscription_RootAuthUserSecurityKeysArgs: Subscription_RootAuthUserSecurityKeysArgs,
+    Subscription_RootAuthUserSecurityKeysAggregateArgs: Subscription_RootAuthUserSecurityKeysAggregateArgs,
+    Subscription_RootAuthUserSecurityKeys_StreamArgs: Subscription_RootAuthUserSecurityKeys_StreamArgs,
+    Subscription_RootBucketArgs: Subscription_RootBucketArgs,
+    Subscription_RootBucketsArgs: Subscription_RootBucketsArgs,
+    Subscription_RootBucketsAggregateArgs: Subscription_RootBucketsAggregateArgs,
+    Subscription_RootBuckets_StreamArgs: Subscription_RootBuckets_StreamArgs,
+    Subscription_RootCategoriesArgs: Subscription_RootCategoriesArgs,
+    Subscription_RootCategories_AggregateArgs: Subscription_RootCategories_AggregateArgs,
+    Subscription_RootCategories_By_PkArgs: Subscription_RootCategories_By_PkArgs,
+    Subscription_RootCategories_StreamArgs: Subscription_RootCategories_StreamArgs,
+    Subscription_RootFileArgs: Subscription_RootFileArgs,
+    Subscription_RootFilesArgs: Subscription_RootFilesArgs,
+    Subscription_RootFilesAggregateArgs: Subscription_RootFilesAggregateArgs,
+    Subscription_RootFiles_StreamArgs: Subscription_RootFiles_StreamArgs,
+    Subscription_RootTodoArgs: Subscription_RootTodoArgs,
+    Subscription_RootTodosArgs: Subscription_RootTodosArgs,
+    Subscription_RootTodosAggregateArgs: Subscription_RootTodosAggregateArgs,
+    Subscription_RootTodos_StreamArgs: Subscription_RootTodos_StreamArgs,
+    Subscription_RootUserArgs: Subscription_RootUserArgs,
+    Subscription_RootUsersArgs: Subscription_RootUsersArgs,
+    Subscription_RootUsersAggregateArgs: Subscription_RootUsersAggregateArgs,
+    Subscription_RootUsers_StreamArgs: Subscription_RootUsers_StreamArgs,
+    Timestamptz_Comparison_Exp: Timestamptz_Comparison_Exp,
+    Todos: Todos,
+    Todos_Aggregate: Todos_Aggregate,
+    Todos_Aggregate_Fields: Todos_Aggregate_Fields,
+    Todos_Aggregate_FieldsCountArgs: Todos_Aggregate_FieldsCountArgs,
+    Todos_Bool_Exp: Todos_Bool_Exp,
+    Todos_Insert_Input: Todos_Insert_Input,
+    Todos_Max_Fields: Todos_Max_Fields,
+    Todos_Min_Fields: Todos_Min_Fields,
+    Todos_Mutation_Response: Todos_Mutation_Response,
+    Todos_On_Conflict: Todos_On_Conflict,
+    Todos_Order_By: Todos_Order_By,
+    Todos_Pk_Columns_Input: Todos_Pk_Columns_Input,
+    Todos_Set_Input: Todos_Set_Input,
+    Todos_Stream_Cursor_Input: Todos_Stream_Cursor_Input,
+    Todos_Stream_Cursor_Value_Input: Todos_Stream_Cursor_Value_Input,
+    Todos_Updates: Todos_Updates,
+    Users: Users,
+    UsersMetadataArgs: UsersMetadataArgs,
+    UsersRefreshTokensArgs: UsersRefreshTokensArgs,
+    UsersRefreshTokens_AggregateArgs: UsersRefreshTokens_AggregateArgs,
+    UsersRolesArgs: UsersRolesArgs,
+    UsersRoles_AggregateArgs: UsersRoles_AggregateArgs,
+    UsersSecurityKeysArgs: UsersSecurityKeysArgs,
+    UsersSecurityKeys_AggregateArgs: UsersSecurityKeys_AggregateArgs,
+    UsersUserProvidersArgs: UsersUserProvidersArgs,
+    UsersUserProviders_AggregateArgs: UsersUserProviders_AggregateArgs,
+    Users_Aggregate: Users_Aggregate,
+    Users_Aggregate_Bool_Exp: Users_Aggregate_Bool_Exp,
+    Users_Aggregate_Bool_Exp_Bool_And: Users_Aggregate_Bool_Exp_Bool_And,
+    Users_Aggregate_Bool_Exp_Bool_Or: Users_Aggregate_Bool_Exp_Bool_Or,
+    Users_Aggregate_Bool_Exp_Count: Users_Aggregate_Bool_Exp_Count,
+    Users_Aggregate_Fields: Users_Aggregate_Fields,
+    Users_Aggregate_FieldsCountArgs: Users_Aggregate_FieldsCountArgs,
+    Users_Aggregate_Order_By: Users_Aggregate_Order_By,
+    Users_Append_Input: Users_Append_Input,
+    Users_Arr_Rel_Insert_Input: Users_Arr_Rel_Insert_Input,
+    Users_Bool_Exp: Users_Bool_Exp,
+    Users_Delete_At_Path_Input: Users_Delete_At_Path_Input,
+    Users_Delete_Elem_Input: Users_Delete_Elem_Input,
+    Users_Delete_Key_Input: Users_Delete_Key_Input,
+    Users_Insert_Input: Users_Insert_Input,
+    Users_Max_Fields: Users_Max_Fields,
+    Users_Max_Order_By: Users_Max_Order_By,
+    Users_Min_Fields: Users_Min_Fields,
+    Users_Min_Order_By: Users_Min_Order_By,
+    Users_Mutation_Response: Users_Mutation_Response,
+    Users_Obj_Rel_Insert_Input: Users_Obj_Rel_Insert_Input,
+    Users_On_Conflict: Users_On_Conflict,
+    Users_Order_By: Users_Order_By,
+    Users_Pk_Columns_Input: Users_Pk_Columns_Input,
+    Users_Prepend_Input: Users_Prepend_Input,
+    Users_Set_Input: Users_Set_Input,
+    Users_Stream_Cursor_Input: Users_Stream_Cursor_Input,
+    Users_Stream_Cursor_Value_Input: Users_Stream_Cursor_Value_Input,
+    Users_Updates: Users_Updates,
+    Uuid_Comparison_Exp: Uuid_Comparison_Exp,
+    AuthProviderRequests_Constraint: AuthProviderRequests_Constraint,
+    AuthProviderRequests_Select_Column: AuthProviderRequests_Select_Column,
+    AuthProviderRequests_Update_Column: AuthProviderRequests_Update_Column,
+    AuthProviders_Constraint: AuthProviders_Constraint,
+    AuthProviders_Select_Column: AuthProviders_Select_Column,
+    AuthProviders_Update_Column: AuthProviders_Update_Column,
+    AuthRefreshTokens_Constraint: AuthRefreshTokens_Constraint,
+    AuthRefreshTokens_Select_Column: AuthRefreshTokens_Select_Column,
+    AuthRefreshTokens_Update_Column: AuthRefreshTokens_Update_Column,
+    AuthRoles_Constraint: AuthRoles_Constraint,
+    AuthRoles_Select_Column: AuthRoles_Select_Column,
+    AuthRoles_Update_Column: AuthRoles_Update_Column,
+    AuthUserProviders_Constraint: AuthUserProviders_Constraint,
+    AuthUserProviders_Select_Column: AuthUserProviders_Select_Column,
+    AuthUserProviders_Update_Column: AuthUserProviders_Update_Column,
+    AuthUserRoles_Constraint: AuthUserRoles_Constraint,
+    AuthUserRoles_Select_Column: AuthUserRoles_Select_Column,
+    AuthUserRoles_Update_Column: AuthUserRoles_Update_Column,
+    AuthUserSecurityKeys_Constraint: AuthUserSecurityKeys_Constraint,
+    AuthUserSecurityKeys_Select_Column: AuthUserSecurityKeys_Select_Column,
+    AuthUserSecurityKeys_Update_Column: AuthUserSecurityKeys_Update_Column,
+    Buckets_Constraint: Buckets_Constraint,
+    Buckets_Select_Column: Buckets_Select_Column,
+    Buckets_Update_Column: Buckets_Update_Column,
+    Categories_Constraint: Categories_Constraint,
+    Categories_Enum: Categories_Enum,
+    Categories_Select_Column: Categories_Select_Column,
+    Categories_Update_Column: Categories_Update_Column,
+    Cursor_Ordering: Cursor_Ordering,
+    Files_Constraint: Files_Constraint,
+    Files_Select_Column: Files_Select_Column,
+    Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_And_Arguments_Columns: Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_And_Arguments_Columns,
+    Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns: Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns,
+    Files_Update_Column: Files_Update_Column,
+    Order_By: Order_By,
+    Todos_Constraint: Todos_Constraint,
+    Todos_Select_Column: Todos_Select_Column,
+    Todos_Update_Column: Todos_Update_Column,
+    Users_Constraint: Users_Constraint,
+    Users_Select_Column: Users_Select_Column,
+    Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_And_Arguments_Columns: Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_And_Arguments_Columns,
+    Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns: Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns,
+    Users_Update_Column: Users_Update_Column
   }
-} as const
+}
