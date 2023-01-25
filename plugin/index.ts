@@ -5,7 +5,7 @@ import { plugin as typescriptPlugin } from '@graphql-codegen/typescript'
 type Unpromise<T> = T extends Promise<infer U> ? U : T
 
 export const plugin: typeof typescriptPlugin = (schema, documents, config) => {
-  // TODO We don't most options until this is considered safe
+  // TODO We don't allow most options until this is considered safe
   const { scalars } = config
   const conf: typeof config = {
     scalars,
