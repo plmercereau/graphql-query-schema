@@ -132,19 +132,17 @@ export const getIntrospectionType = <S extends GenericSchema, Type extends Parti
 const getRootOperationNodeType = <S extends GenericSchema, OperationType extends OperationTypes>(
   schema: S,
   operationType: OperationType
-): ObjectType<OperationType> | undefined => {
-  const rootOperationKey = operationType.toLowerCase()
-
+): ObjectType<OperationType> => {
   const name =
     schema.introspection.__schema[
-      `${rootOperationKey}Type` as 'queryType' | 'mutationType' | 'subscriptionType'
+      `${operationType.toLowerCase()}Type` as 'queryType' | 'mutationType' | 'subscriptionType'
     ]?.name
   if (!name) {
-    return undefined
+    throw new Error(`Could not find the root operation name for ${operationType}`)
   }
   const type = getIntrospectionType(schema, { kind: 'OBJECT', name }) as ObjectType<OperationType>
   if (!type) {
-    return undefined
+    throw new Error(`Could not find the root operation type for ${operationType}`)
   }
   return type
 }
@@ -158,10 +156,6 @@ export const getRootOperationNames = <
   operationType: OperationType
 ): Array<keyof Operations> => {
   const type = getRootOperationNodeType(schema, operationType)
-  if (!type) {
-    return []
-  }
-
   return (type.fields?.map((field) => field.name) as Array<keyof Operations>) ?? []
 }
 
@@ -170,16 +164,37 @@ export const getTypeFromRef = (schema: GenericSchema, typeRef?: TypeRef) =>
     (t) => 'name' in t && typeRef && 'name' in typeRef && t.name === typeRef.name
   )
 
-export const getFieldTypeRefFromObjectTypeRef = (
+export const getArgumentType = (name: String, definition: FieldDefinition) => {
+  const type = definition?.args?.find((f) => f.name === name)?.type
+  if (!type) {
+    throw new Error(`Could not determine the type of the argument ${name}`)
+  }
+  return type
+}
+
+export const getFieldType = (
   schema: GenericSchema,
   fieldName: String,
-  objectTypeRef?: TypeRef
+  definition: TypeRef | FieldDefinition
 ) => {
-  const objectType = getTypeFromRef(schema, getConcreteType(schema, objectTypeRef))
-  if (objectType?.kind !== 'OBJECT') {
-    return undefined
+  const type = 'type' in definition ? definition.type : definition
+  const objectType = getTypeFromRef(schema, getConcreteType(schema, type))
+  if (objectType?.kind === 'OBJECT') {
+    const type = objectType?.fields?.find((f) => f.name === fieldName)
+    if (!type) {
+      throw new Error(`Type not found ${fieldName}`)
+    }
+    return type
   }
-  return objectType?.fields?.find((f) => f.name === fieldName)?.type
+  if (objectType?.kind === 'INPUT_OBJECT') {
+    const type = objectType?.inputFields?.find((f) => f.name === fieldName)
+    if (!type) {
+      throw new Error(`Type not found ${fieldName}`)
+    }
+    return type
+  }
+
+  throw new Error(`Type not found ${fieldName}`)
 }
 
 export const getRootOperationNode = (
@@ -188,11 +203,6 @@ export const getRootOperationNode = (
   rootOperation: string
 ) => {
   const rootNode = getRootOperationNodeType(schema, opType)
-
-  if (!rootNode) {
-    throw new Error(`Could not find root node for operation type ${opType.toLowerCase()}`)
-  }
-
   const node = rootNode.fields?.find((field) => field.name === rootOperation)
   if (!node) {
     throw new Error(`Could not find root operation ${rootOperation}`)
@@ -200,12 +210,40 @@ export const getRootOperationNode = (
   return node
 }
 
-export const getConcreteType = (schema: GenericSchema, type?: TypeRef): TypeRef | undefined => {
+export const getConcreteType = (
+  schema: GenericSchema,
+  definition: TypeRef | FieldDefinition
+): TypeRef => {
+  if ('type' in definition) {
+    return getConcreteType(schema, definition.type)
+  }
+  if (definition.kind === 'NON_NULL' || definition.kind === 'LIST') {
+    return getConcreteType(schema, definition.ofType)
+  }
+  const type = schema.introspection.__schema.types?.find(
+    (f) => 'name' in f && f.name === definition.name
+  )
   if (!type) {
-    return undefined
+    throw new Error('not found')
   }
-  if (type.kind === 'NON_NULL' || type.kind === 'LIST') {
-    return getConcreteType(schema, type.ofType)
+  return type
+}
+
+export const getGraphQLType = (schema: GenericSchema, type: TypeRef): string => {
+  if (type.kind === 'NON_NULL') {
+    return `${getGraphQLType(schema, type.ofType)}!`
   }
-  return schema.introspection.__schema.types?.find((f) => 'name' in f && f.name === type.name)
+  if (type.kind === 'LIST') {
+    return `[${getGraphQLType(schema, type.ofType)}]`
+  }
+  const typeDesc = schema.introspection.__schema.types?.find(
+    (f) => 'name' in f && f.name === type.name
+  )
+  if (!typeDesc) {
+    throw new Error(`Could not find type ${type.name}`)
+  }
+  if (!('name' in typeDesc)) {
+    throw new Error(`Could not determine GraphQL type name for ${type.name}`)
+  }
+  return typeDesc.name
 }

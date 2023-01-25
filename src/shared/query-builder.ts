@@ -1,28 +1,44 @@
 import { parse } from 'graphql'
 import { jsonToGraphQLQuery, VariableType } from 'json-to-graphql-query'
 import {
+  FieldDefinition,
+  getArgumentType,
   getConcreteType,
-  getFieldTypeRefFromObjectTypeRef,
+  getFieldType,
+  getGraphQLType,
   getRootOperationNode,
   TypeRef
 } from './schema'
 import { GenericSchema, OperationTypes } from './schema'
-import { VariableType as ModifiedVariableType } from './variables'
 
 const reservedKeys = ['__typename']
+
 const toJson = (
   schema: GenericSchema,
   parameters: Record<string, any> | true = true,
-  typeRef?: TypeRef
+  definition: TypeRef | FieldDefinition,
+  variables: Record<string, any> = {},
+  variablesPrefix: string = ''
 ) => {
   const select: Record<string, any> = {}
   const values = (parameters !== true && parameters.select) || {}
+  const inputArguments = (parameters !== true && parameters.variables) || {}
+  const args: Record<string, any> = {}
+
+  if ('type' in definition) {
+    Object.keys(inputArguments).forEach((key) => {
+      // TODO camel case the variable names?
+      const uniqueVariableName = variablesPrefix ? `${variablesPrefix}_${key}` : key
+      variables[uniqueVariableName] = getGraphQLType(schema, getArgumentType(key, definition))
+      args[key] = new VariableType(uniqueVariableName)
+    })
+  }
 
   if (Object.keys(values).length === 0) {
-    const fieldType = getConcreteType(schema, typeRef)
-    if (fieldType?.kind === 'OBJECT') {
+    const fieldType = getConcreteType(schema, definition)
+    if (fieldType.kind === 'OBJECT') {
       fieldType.fields?.forEach((field) => {
-        if (getConcreteType(schema, field.type)?.kind === 'SCALAR') {
+        if (getConcreteType(schema, field.type).kind === 'SCALAR') {
           select[field.name] = true
         }
       })
@@ -40,31 +56,48 @@ const toJson = (
               schema,
               value[fragmentName],
               // TODO not implemented yet: wildcard all scalar fields in unions
-              undefined
+              {} as any,
+              variables,
+              variablesPrefix
             )
           }
         })
       } else {
-        if (value instanceof ModifiedVariableType) {
-          select[key] = new VariableType(key)
-        } else if (typeof value === 'object') {
-          select[key] = toJson(
+        // if (value instanceof ModifiedVariableType) {
+        //   // TODO implement custom variables later
+        //   select[key] = new VariableType(key)
+        // } else if...
+        const childVariablePrefix = variablesPrefix ? `${variablesPrefix}_${key}` : key
+        if (typeof value === 'object') {
+          const { query, variables: newVariables } = toJson(
             schema,
             value,
-            getFieldTypeRefFromObjectTypeRef(schema, key, typeRef)
+            getFieldType(schema, key, definition),
+            variables,
+            childVariablePrefix
           )
+          select[key] = query
+          variables = { ...variables, ...newVariables }
         } else {
-          const fieldType = getConcreteType(
+          const fieldType = getConcreteType(schema, getFieldType(schema, key, definition))
+          const { query, variables: newVariables } = toJson(
             schema,
-            getFieldTypeRefFromObjectTypeRef(schema, key, typeRef)
+            value,
+            fieldType,
+            variables,
+            childVariablePrefix
           )
-          select[key] = toJson(schema, value, fieldType)
+          select[key] = query
+          variables = { ...variables, ...newVariables }
         }
       }
     })
   }
 
-  return { ...select, __args: parameters !== true && parameters.variables }
+  return {
+    query: { ...select, __args: args },
+    variables
+  }
 }
 
 export const toRawGraphQL = (
@@ -73,11 +106,16 @@ export const toRawGraphQL = (
   rootOperation: string,
   params: any = {}
 ) => {
-  const type = getConcreteType(schema, getRootOperationNode(schema, opType, rootOperation).type)
+  const { query, variables } = toJson(
+    schema,
+    params,
+    getRootOperationNode(schema, opType, rootOperation)
+  )
   return jsonToGraphQLQuery(
     {
       [opType.toLowerCase()]: {
-        [rootOperation]: toJson(schema, params, type)
+        __variables: variables,
+        [rootOperation]: query
       }
     },
     { pretty: true }

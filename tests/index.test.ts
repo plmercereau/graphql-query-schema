@@ -1,4 +1,4 @@
-import * as schema from '../schemas/hasura'
+import schema, { Files_Constraint, Files_Update_Column, Order_By } from '../schemas/hasura'
 import { print } from 'graphql'
 import { describe, expect, it } from 'vitest'
 import { fetchClient } from '../src'
@@ -11,8 +11,8 @@ describe('main', () => {
       variables: { id: '6503ef87-d0c2-47a5-80a2-d664a5ae23c1' }
     })
     expect(print(q)).toMatchInlineSnapshot(`
-      "{
-        todo(id: \\"6503ef87-d0c2-47a5-80a2-d664a5ae23c1\\") {
+      "query ($id: Any!) {
+        todo(id: $id) {
           id
         }
       }"
@@ -29,8 +29,8 @@ describe('main', () => {
       }
     })
     expect(print(q)).toMatchInlineSnapshot(`
-      "{
-        todo(id: \\"6503ef87-d0c2-47a5-80a2-d664a5ae23c1\\") {
+      "query ($id: Any!) {
+        todo(id: $id) {
           createdAt
         }
       }"
@@ -48,16 +48,12 @@ describe('main', () => {
         where: {
           createdAt: { _lte: new Date(2023, 1, 5).toISOString() }
         },
-        order_by: [{ createdAt: schema.Order_By.Asc }]
+        order_by: [{ createdAt: Order_By.Asc }]
       }
     })
     expect(print(q)).toMatchInlineSnapshot(`
-      "{
-        todos(
-          limit: 2
-          where: {createdAt: {_lte: \\"2023-02-04T23:00:00.000Z\\"}}
-          order_by: [{createdAt: \\"asc\\"}]
-        ) {
+      "query ($limit: Any, $where: Any, $order_by: [Any!]) {
+        todos(limit: $limit, where: $where, order_by: $order_by) {
           createdAt
           contents
         }
@@ -132,8 +128,8 @@ describe('main', () => {
       }
     })
     expect(print(q)).toMatchInlineSnapshot(`
-      "subscription {
-        todos(where: {user: {roles: {role: {_eq: \\"user\\"}}}}) {
+      "subscription ($where: Any) {
+        todos(where: $where) {
           userId
           user {
             email
@@ -157,17 +153,14 @@ describe('main', () => {
       variables: {
         object: { bucketId: 'dew', name: 'dew' },
         on_conflict: {
-          constraint: schema.Files_Constraint.FilesPkey,
-          update_columns: [schema.Files_Update_Column.Name]
+          constraint: Files_Constraint.FilesPkey,
+          update_columns: [Files_Update_Column.Name]
         }
       }
     })
     expect(print(q)).toMatchInlineSnapshot(`
-      "mutation {
-        insertFile(
-          object: {bucketId: \\"dew\\", name: \\"dew\\"}
-          on_conflict: {constraint: \\"files_pkey\\", update_columns: [\\"name\\"]}
-        ) {
+      "mutation ($object: Any!, $on_conflict: Any) {
+        insertFile(object: $object, on_conflict: $on_conflict) {
           id
         }
       }"
@@ -190,17 +183,14 @@ describe('main', () => {
           { bucketId: 'dew', name: 'dew' }
         ],
         on_conflict: {
-          constraint: schema.Files_Constraint.FilesPkey,
-          update_columns: [schema.Files_Update_Column.Name]
+          constraint: Files_Constraint.FilesPkey,
+          update_columns: [Files_Update_Column.Name]
         }
       }
     })
     expect(print(q)).toMatchInlineSnapshot(`
-      "mutation {
-        insertFiles(
-          objects: [{bucketId: \\"dew\\", name: \\"dew\\"}, {bucketId: \\"dew\\", name: \\"dew\\"}]
-          on_conflict: {constraint: \\"files_pkey\\", update_columns: [\\"name\\"]}
-        ) {
+      "mutation ($objects: [Any!]!, $on_conflict: Any) {
+        insertFiles(objects: $objects, on_conflict: $on_conflict) {
           affected_rows
           returning {
             id
@@ -220,8 +210,8 @@ describe('main', () => {
       }
     })
     expect(print(q)).toMatchInlineSnapshot(`
-      "mutation {
-        deleteFile(id: \\"6503ef87-d0c2-47a5-80a2-d664a5ae23c1\\") {
+      "mutation ($id: Any!) {
+        deleteFile(id: $id) {
           id
         }
       }"
@@ -238,8 +228,8 @@ describe('main', () => {
       }
     })
     expect(print(q)).toMatchInlineSnapshot(`
-      "mutation {
-        deleteFiles(where: {bucketId: {_eq: \\"default\\"}}) {
+      "mutation ($where: Any!) {
+        deleteFiles(where: $where) {
           affected_rows
         }
       }"

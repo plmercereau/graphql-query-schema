@@ -14,6 +14,12 @@ generatedSchema: src/generated-schema.ts
 
 #### Cloud application
 
+Options:
+
+- manually set `graphql-codegen`
+- add a command to the CLI, for instance `nhost generate --url <url> --admin-secret <admin-secret> --role <role> src/generated-schema.ts`
+- add a `bin` command to `nhost/nhost-js` that can be configured in an npm script
+
 ### Develop
 
 - In `src/main.ts`:
@@ -36,7 +42,7 @@ const users = await nhost.graphql.query.users()
 ```sh
 pnpm add graphql
 pnpm add -D typescript
-pnpm add -D @graphql-codegen/cli @graphql-codegen/nhost
+pnpm add -D @graphql-codegen/cli @graphql-codegen/nhost-groq
 ```
 
 - Create a `codegen.yaml` file:
@@ -46,7 +52,7 @@ generates:
   ./src/generated-schema.ts:
     schema: https://myserver.com/graphql
     plugins:
-      - @graphql-codegen/nhost
+      - nhost-groq
 ```
 
 - Add a script to `package.json`:

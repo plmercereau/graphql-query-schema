@@ -1,7 +1,8 @@
 ## TODO
 
 - [ ] Convert all arguments as variables in the generated graphql query and types
-  - [ ] update the generated query
+  - [x] update the generated query
+  - [ ] update the query execution
   - [ ] update the variable typings
 - [ ] Correct typings
   - [ ] `variables` should be required when one argument is required e.g. this should fail:
@@ -10,7 +11,7 @@
     - `client.mutation.insertUser({ select: true })`
   - [ ] non-nullable arguments should be required, for instance this should fail:
     - `client.mutation.insertUser({ variables: { email: 'bob' }})` // `locale` is missing
-- [ ] Urql PR / typescript codegen PR ? or we create our own plugin
+- [x] Urql PR / typescript codegen PR ? or we create our own plugin
 - [ ] Enums: get rid of `enumType` now the schema is available on runtime
   - [ ] change the typings to allow the list of values e.g. `'essay'` instead of `Categories_Enum.Essay`?
   - [ ] detect it's an enum when generating the query

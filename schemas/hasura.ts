@@ -5183,8 +5183,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authProviderRequests_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -5218,6 +5219,15 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "authProviderRequests_constraint",
+          "enumValues": [
+            {
+              "name": "provider_requests_pkey"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -5286,6 +5296,30 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "ENUM",
+          "name": "authProviderRequests_select_column",
+          "enumValues": [
+            {
+              "name": "id"
+            },
+            {
+              "name": "options"
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "authProviderRequests_update_column",
+          "enumValues": [
+            {
+              "name": "id"
+            },
+            {
+              "name": "options"
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authProviders",
           "fields": [
@@ -5324,8 +5358,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserProviders_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -5384,8 +5419,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserProviders_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -5484,8 +5520,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authProviders_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -5519,6 +5556,15 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "authProviders_constraint",
+          "enumValues": [
+            {
+              "name": "providers_pkey"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -5585,6 +5631,24 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "authProviders_select_column",
+          "enumValues": [
+            {
+              "name": "id"
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "authProviders_update_column",
+          "enumValues": [
+            {
+              "name": "id"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -5704,8 +5768,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authRefreshTokens_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -5739,6 +5804,15 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "authRefreshTokens_constraint",
+          "enumValues": [
+            {
+              "name": "refresh_tokens_pkey"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -5855,6 +5929,42 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "ENUM",
+          "name": "authRefreshTokens_select_column",
+          "enumValues": [
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "expiresAt"
+            },
+            {
+              "name": "refreshToken"
+            },
+            {
+              "name": "userId"
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "authRefreshTokens_update_column",
+          "enumValues": [
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "expiresAt"
+            },
+            {
+              "name": "refreshToken"
+            },
+            {
+              "name": "userId"
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authRoles",
           "fields": [
@@ -5893,8 +6003,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserRoles_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -5953,8 +6064,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserRoles_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -6019,8 +6131,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "users_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -6079,8 +6192,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "users_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -6179,8 +6293,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authRoles_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -6214,6 +6329,15 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "authRoles_constraint",
+          "enumValues": [
+            {
+              "name": "roles_pkey"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -6280,6 +6404,24 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "authRoles_select_column",
+          "enumValues": [
+            {
+              "name": "role"
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "authRoles_update_column",
+          "enumValues": [
+            {
+              "name": "role"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -6452,8 +6594,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserProviders_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -6487,6 +6630,21 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "authUserProviders_constraint",
+          "enumValues": [
+            {
+              "name": "user_providers_pkey"
+            },
+            {
+              "name": "user_providers_provider_id_provider_user_id_key"
+            },
+            {
+              "name": "user_providers_user_id_provider_id_key"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -6667,6 +6825,66 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "ENUM",
+          "name": "authUserProviders_select_column",
+          "enumValues": [
+            {
+              "name": "accessToken"
+            },
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "id"
+            },
+            {
+              "name": "providerId"
+            },
+            {
+              "name": "providerUserId"
+            },
+            {
+              "name": "refreshToken"
+            },
+            {
+              "name": "updatedAt"
+            },
+            {
+              "name": "userId"
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "authUserProviders_update_column",
+          "enumValues": [
+            {
+              "name": "accessToken"
+            },
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "id"
+            },
+            {
+              "name": "providerId"
+            },
+            {
+              "name": "providerUserId"
+            },
+            {
+              "name": "refreshToken"
+            },
+            {
+              "name": "updatedAt"
+            },
+            {
+              "name": "userId"
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authUserRoles",
           "fields": [
@@ -6796,8 +7014,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserRoles_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -6831,6 +7050,18 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "authUserRoles_constraint",
+          "enumValues": [
+            {
+              "name": "user_roles_pkey"
+            },
+            {
+              "name": "user_roles_user_id_role_key"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -6945,6 +7176,42 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "authUserRoles_select_column",
+          "enumValues": [
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "id"
+            },
+            {
+              "name": "role"
+            },
+            {
+              "name": "userId"
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "authUserRoles_update_column",
+          "enumValues": [
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "id"
+            },
+            {
+              "name": "role"
+            },
+            {
+              "name": "userId"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -7100,8 +7367,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserSecurityKeys_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -7213,6 +7481,18 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "authUserSecurityKeys_constraint",
+          "enumValues": [
+            {
+              "name": "user_security_key_credential_id_key"
+            },
+            {
+              "name": "user_security_keys_pkey"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -7361,6 +7641,33 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "ENUM",
+          "name": "authUserSecurityKeys_select_column",
+          "enumValues": [
+            {
+              "name": "counter"
+            },
+            {
+              "name": "credentialId"
+            },
+            {
+              "name": "credentialPublicKey"
+            },
+            {
+              "name": "id"
+            },
+            {
+              "name": "nickname"
+            },
+            {
+              "name": "transports"
+            },
+            {
+              "name": "userId"
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authUserSecurityKeys_stddev_fields",
           "fields": [
@@ -7419,6 +7726,33 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "authUserSecurityKeys_update_column",
+          "enumValues": [
+            {
+              "name": "counter"
+            },
+            {
+              "name": "credentialId"
+            },
+            {
+              "name": "credentialPublicKey"
+            },
+            {
+              "name": "id"
+            },
+            {
+              "name": "nickname"
+            },
+            {
+              "name": "transports"
+            },
+            {
+              "name": "userId"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -7523,8 +7857,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "files_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -7583,8 +7918,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "files_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -7747,8 +8083,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "buckets_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -7876,6 +8213,15 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "buckets_constraint",
+          "enumValues": [
+            {
+              "name": "buckets_pkey"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -8040,6 +8386,36 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "ENUM",
+          "name": "buckets_select_column",
+          "enumValues": [
+            {
+              "name": "cacheControl"
+            },
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "downloadExpiration"
+            },
+            {
+              "name": "id"
+            },
+            {
+              "name": "maxUploadFileSize"
+            },
+            {
+              "name": "minUploadFileSize"
+            },
+            {
+              "name": "presignedUrlsEnabled"
+            },
+            {
+              "name": "updatedAt"
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "buckets_stddev_fields",
           "fields": [
@@ -8162,6 +8538,36 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "buckets_update_column",
+          "enumValues": [
+            {
+              "name": "cacheControl"
+            },
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "downloadExpiration"
+            },
+            {
+              "name": "id"
+            },
+            {
+              "name": "maxUploadFileSize"
+            },
+            {
+              "name": "minUploadFileSize"
+            },
+            {
+              "name": "presignedUrlsEnabled"
+            },
+            {
+              "name": "updatedAt"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -8337,8 +8743,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "categories_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -8372,6 +8779,27 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "categories_constraint",
+          "enumValues": [
+            {
+              "name": "categories_pkey"
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "categories_enum",
+          "enumValues": [
+            {
+              "name": "essay"
+            },
+            {
+              "name": "novel"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -8454,6 +8882,42 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "categories_select_column",
+          "enumValues": [
+            {
+              "name": "comment"
+            },
+            {
+              "name": "value"
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "categories_update_column",
+          "enumValues": [
+            {
+              "name": "comment"
+            },
+            {
+              "name": "value"
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "cursor_ordering",
+          "enumValues": [
+            {
+              "name": "ASC"
+            },
+            {
+              "name": "DESC"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -8630,8 +9094,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "files_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -8743,6 +9208,15 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "files_constraint",
+          "enumValues": [
+            {
+              "name": "files_pkey"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -8939,6 +9413,60 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "ENUM",
+          "name": "files_select_column",
+          "enumValues": [
+            {
+              "name": "bucketId"
+            },
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "etag"
+            },
+            {
+              "name": "id"
+            },
+            {
+              "name": "isUploaded"
+            },
+            {
+              "name": "mimeType"
+            },
+            {
+              "name": "name"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "updatedAt"
+            },
+            {
+              "name": "uploadedByUserId"
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "files_select_column_files_aggregate_bool_exp_bool_and_arguments_columns",
+          "enumValues": [
+            {
+              "name": "isUploaded"
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "files_select_column_files_aggregate_bool_exp_bool_or_arguments_columns",
+          "enumValues": [
+            {
+              "name": "isUploaded"
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "files_stddev_fields",
           "fields": [
@@ -8997,6 +9525,42 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "files_update_column",
+          "enumValues": [
+            {
+              "name": "bucketId"
+            },
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "etag"
+            },
+            {
+              "name": "id"
+            },
+            {
+              "name": "isUploaded"
+            },
+            {
+              "name": "mimeType"
+            },
+            {
+              "name": "name"
+            },
+            {
+              "name": "size"
+            },
+            {
+              "name": "updatedAt"
+            },
+            {
+              "name": "uploadedByUserId"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -11429,6 +11993,30 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "ENUM",
+          "name": "order_by",
+          "enumValues": [
+            {
+              "name": "asc"
+            },
+            {
+              "name": "asc_nulls_first"
+            },
+            {
+              "name": "asc_nulls_last"
+            },
+            {
+              "name": "desc"
+            },
+            {
+              "name": "desc_nulls_first"
+            },
+            {
+              "name": "desc_nulls_last"
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "query_root",
           "fields": [
@@ -11496,8 +12084,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authProviderRequests_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -11556,8 +12145,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authProviderRequests_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -11622,8 +12212,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authProviders_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -11682,8 +12273,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authProviders_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -11768,8 +12360,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authRefreshTokens_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -11828,8 +12421,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authRefreshTokens_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -11914,8 +12508,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authRoles_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -11974,8 +12569,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authRoles_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -12060,8 +12656,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserProviders_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -12120,8 +12717,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserProviders_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -12206,8 +12804,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserRoles_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -12266,8 +12865,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserRoles_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -12352,8 +12952,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserSecurityKeys_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -12412,8 +13013,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserSecurityKeys_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -12498,8 +13100,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "buckets_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -12558,8 +13161,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "buckets_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -12624,8 +13228,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "categories_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -12684,8 +13289,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "categories_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -12790,8 +13396,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "files_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -12850,8 +13457,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "files_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -12936,8 +13544,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "todos_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -12996,8 +13605,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "todos_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -13082,8 +13692,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "users_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -13142,8 +13753,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "users_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -13255,8 +13867,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authProviderRequests_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -13315,8 +13928,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authProviderRequests_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -13430,8 +14044,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authProviders_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -13490,8 +14105,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authProviders_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -13625,8 +14241,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authRefreshTokens_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -13685,8 +14302,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authRefreshTokens_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -13820,8 +14438,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authRoles_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -13880,8 +14499,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authRoles_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -14015,8 +14635,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserProviders_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -14075,8 +14696,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserProviders_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -14210,8 +14832,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserRoles_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -14270,8 +14893,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserRoles_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -14405,8 +15029,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserSecurityKeys_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -14465,8 +15090,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserSecurityKeys_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -14600,8 +15226,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "buckets_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -14660,8 +15287,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "buckets_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -14775,8 +15403,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "categories_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -14835,8 +15464,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "categories_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -14990,8 +15620,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "files_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -15050,8 +15681,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "files_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -15185,8 +15817,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "todos_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -15245,8 +15878,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "todos_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -15380,8 +16014,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "users_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -15440,8 +16075,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "users_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -15541,8 +16177,9 @@ export default {
             {
               "name": "category",
               "type": {
-                "kind": "SCALAR",
-                "name": "Any"
+                "kind": "ENUM",
+                "name": "categories_enum",
+                "ofType": null
               },
               "args": []
             },
@@ -15671,8 +16308,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "todos_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -15706,6 +16344,15 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "todos_constraint",
+          "enumValues": [
+            {
+              "name": "todos_pkey"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -15836,6 +16483,54 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "todos_select_column",
+          "enumValues": [
+            {
+              "name": "category"
+            },
+            {
+              "name": "contents"
+            },
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "id"
+            },
+            {
+              "name": "updatedAt"
+            },
+            {
+              "name": "userId"
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "todos_update_column",
+          "enumValues": [
+            {
+              "name": "category"
+            },
+            {
+              "name": "contents"
+            },
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "id"
+            },
+            {
+              "name": "updatedAt"
+            },
+            {
+              "name": "userId"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -16086,8 +16781,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authRefreshTokens_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -16146,8 +16842,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authRefreshTokens_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -16212,8 +16909,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserRoles_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -16272,8 +16970,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserRoles_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -16338,8 +17037,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserSecurityKeys_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -16398,8 +17098,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserSecurityKeys_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -16502,8 +17203,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserProviders_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -16562,8 +17264,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "authUserProviders_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -16662,8 +17365,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "ENUM",
+                        "name": "users_select_column",
+                        "ofType": null
                       }
                     }
                   }
@@ -16697,6 +17401,21 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "users_constraint",
+          "enumValues": [
+            {
+              "name": "users_email_key"
+            },
+            {
+              "name": "users_phone_number_key"
+            },
+            {
+              "name": "users_pkey"
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -17067,6 +17786,204 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "ENUM",
+          "name": "users_select_column",
+          "enumValues": [
+            {
+              "name": "activeMfaType"
+            },
+            {
+              "name": "avatarUrl"
+            },
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "currentChallenge"
+            },
+            {
+              "name": "defaultRole"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "displayName"
+            },
+            {
+              "name": "email"
+            },
+            {
+              "name": "emailVerified"
+            },
+            {
+              "name": "id"
+            },
+            {
+              "name": "isAnonymous"
+            },
+            {
+              "name": "lastSeen"
+            },
+            {
+              "name": "locale"
+            },
+            {
+              "name": "metadata"
+            },
+            {
+              "name": "newEmail"
+            },
+            {
+              "name": "otpHash"
+            },
+            {
+              "name": "otpHashExpiresAt"
+            },
+            {
+              "name": "otpMethodLastUsed"
+            },
+            {
+              "name": "passwordHash"
+            },
+            {
+              "name": "phoneNumber"
+            },
+            {
+              "name": "phoneNumberVerified"
+            },
+            {
+              "name": "ticket"
+            },
+            {
+              "name": "ticketExpiresAt"
+            },
+            {
+              "name": "totpSecret"
+            },
+            {
+              "name": "updatedAt"
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "users_select_column_users_aggregate_bool_exp_bool_and_arguments_columns",
+          "enumValues": [
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "emailVerified"
+            },
+            {
+              "name": "isAnonymous"
+            },
+            {
+              "name": "phoneNumberVerified"
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "users_select_column_users_aggregate_bool_exp_bool_or_arguments_columns",
+          "enumValues": [
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "emailVerified"
+            },
+            {
+              "name": "isAnonymous"
+            },
+            {
+              "name": "phoneNumberVerified"
+            }
+          ]
+        },
+        {
+          "kind": "ENUM",
+          "name": "users_update_column",
+          "enumValues": [
+            {
+              "name": "activeMfaType"
+            },
+            {
+              "name": "avatarUrl"
+            },
+            {
+              "name": "createdAt"
+            },
+            {
+              "name": "currentChallenge"
+            },
+            {
+              "name": "defaultRole"
+            },
+            {
+              "name": "disabled"
+            },
+            {
+              "name": "displayName"
+            },
+            {
+              "name": "email"
+            },
+            {
+              "name": "emailVerified"
+            },
+            {
+              "name": "id"
+            },
+            {
+              "name": "isAnonymous"
+            },
+            {
+              "name": "lastSeen"
+            },
+            {
+              "name": "locale"
+            },
+            {
+              "name": "metadata"
+            },
+            {
+              "name": "newEmail"
+            },
+            {
+              "name": "otpHash"
+            },
+            {
+              "name": "otpHashExpiresAt"
+            },
+            {
+              "name": "otpMethodLastUsed"
+            },
+            {
+              "name": "passwordHash"
+            },
+            {
+              "name": "phoneNumber"
+            },
+            {
+              "name": "phoneNumberVerified"
+            },
+            {
+              "name": "ticket"
+            },
+            {
+              "name": "ticketExpiresAt"
+            },
+            {
+              "name": "totpSecret"
+            },
+            {
+              "name": "updatedAt"
+            }
+          ]
         },
         {
           "kind": "SCALAR",
