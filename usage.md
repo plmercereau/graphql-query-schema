@@ -42,7 +42,7 @@ const users = await nhost.graphql.query.users()
 ```sh
 pnpm add graphql
 pnpm add -D typescript
-pnpm add -D @graphql-codegen/cli @graphql-codegen/nhost-groq
+pnpm add -D @graphql-codegen/cli @graphql-codegen/nhost
 ```
 
 - Create a `codegen.yaml` file:
@@ -52,7 +52,7 @@ generates:
   ./src/generated-schema.ts:
     schema: https://myserver.com/graphql
     plugins:
-      - nhost-groq
+      - nhost
 ```
 
 - Add a script to `package.json`:
@@ -76,13 +76,14 @@ pnpm run codegen
 - In `src/main.ts`:
 
 ```ts
-import Groq from `@nhost/groq`
+import { NhostGraphqlClient } from `@nhost/grapql-js`
 import { GraphQLClient } from 'graphql-request'
 
 import schema from './generated-schema.ts'
 
-const groq = new Groq({ schema })
-const document = groq.query.todos()
+const nhost = new NhostGraphqlClient({ schema })
+
+const document = nhost.query.todos()
 
 const client = new GraphQLClient('https://myserver.com/graphql')
 
