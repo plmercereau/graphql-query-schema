@@ -69,3 +69,9 @@ type CapitalizeEach<T> = T extends [infer I, ...infer R]
 
 /** Transform `a_string_type` to `A_String_Type`  */
 export type CapitalizeSnakeCase<T extends string> = Join<CapitalizeEach<Split<T, '_'>>, '_'>
+
+type RequiredKeys<T> = { [K in keyof T]-?: {} extends Pick<T, K> ? never : K }[keyof T]
+
+export type RequiredWhenChildrenAreRequired<key extends string, T> = RequiredKeys<T> extends never
+  ? { [k in key]?: T }
+  : { [k in key]: T }

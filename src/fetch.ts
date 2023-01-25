@@ -80,14 +80,14 @@ export function fetchClient<Schema extends GenericSchema>({
   }
 
   const query = queryNames.reduce<OperationFactory<Schema, 'Query', 'request'>>((acc, property) => {
-    acc[property] = (input: unknown) =>
+    acc[property] = (input?: unknown) =>
       fetchReturnTransformer(schema, 'Query', property, input) as any
     return acc
   }, {} as any)
 
   const mutation = mutationNames.reduce<OperationFactory<Schema, 'Mutation', 'request'>>(
     (acc, property) => {
-      acc[property] = (input: unknown) =>
+      acc[property] = (input?: unknown) =>
         fetchReturnTransformer(schema, 'Mutation', property, input) as any
       return acc
     },
@@ -96,7 +96,8 @@ export function fetchClient<Schema extends GenericSchema>({
 
   const queryDocument = queryNames.reduce<OperationFactory<Schema, 'Query', 'document'>>(
     (acc, property) => {
-      acc[property] = (input: unknown) => toGraphQLDocument(schema, 'Query', property, input) as any
+      acc[property] = (input?: unknown) =>
+        toGraphQLDocument(schema, 'Query', property, input) as any
       return acc
     },
     {} as any
@@ -104,7 +105,7 @@ export function fetchClient<Schema extends GenericSchema>({
 
   const mutationDocument = mutationNames.reduce<OperationFactory<Schema, 'Mutation', 'document'>>(
     (acc, property) => {
-      acc[property] = (input: unknown) =>
+      acc[property] = (input?: unknown) =>
         toGraphQLDocument(schema, 'Mutation', property, input) as any
       return acc
     },
@@ -114,7 +115,7 @@ export function fetchClient<Schema extends GenericSchema>({
   const subscriptionDocument = subscriptionNames.reduce<
     OperationFactory<Schema, 'Subscription', 'document'>
   >((acc, property) => {
-    acc[property] = (input: unknown) =>
+    acc[property] = (input?: unknown) =>
       toGraphQLDocument(schema, 'Subscription', property, input) as any
     return acc
   }, {} as any)

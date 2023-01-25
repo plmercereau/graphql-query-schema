@@ -7,7 +7,8 @@ import {
   StripImpossibleProperties,
   ToUnion,
   IsUnion,
-  OmitOptionalFields
+  OmitOptionalFields,
+  RequiredWhenChildrenAreRequired
 } from './type-helpers'
 import { FieldArgs, GenericSchema, OperationsOf, OperationTypes } from './schema'
 import { VariablesInputType, VariablesTypes } from './variables'
@@ -50,7 +51,10 @@ type AllParameters<
           : // * If the element key is not an object/array of objects, it's a scalar field
             true
       }
-> = { select?: Fields } & { variables?: Args }
+> = {
+  // * The `select` property is optional, as when absent, all the fields are selected
+  select?: Fields
+} & RequiredWhenChildrenAreRequired<'variables', Args> // * The `variables` property is required when at least one of the children is required
 
 type IsTrueOrHasOnlyOptionals<T> = T extends true
   ? true
@@ -134,7 +138,8 @@ export type OperationFactory<
       string & name
     >[ReturnTransformerName]
   >(
-    params?: ExactParams
+    // * Parameters are required when variables are required
+    ...parameters: ExactParams extends { variables: any } ? [ExactParams] : [ExactParams?]
   ) => ReturnType<ReturnTransformer>
 }>
 

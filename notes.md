@@ -4,16 +4,10 @@
   - [x] update the generated query
   - [x] update the query execution
   - [ ] update the variable typings
-- [ ] Correct typings
-  - [ ] `variables` should be required when one argument is required e.g. this should fail:
-    - `client.mutation.insertUser()`
-    - `client.mutation.insertUser({})`
-    - `client.mutation.insertUser({ select: true })`
-  - [ ] non-nullable arguments should be required, for instance this should fail:
-    - `client.mutation.insertUser({ variables: { email: 'bob' }})` // `locale` is missing
 - [ ] Use the introspection schema to:
   - [x] find the query roots
   - [ ] find the argument types
+- [ ] try other graphql-codegen options
 
 ## Done
 
@@ -28,6 +22,14 @@
   - [x] instrospection `as const`
   - [x] get rid of the classes config, and prefer interfaces
 - [x] Check and complete unions
+- [x] Correct typings
+  - [x] `variables` should be required when one argument is required e.g. this should fail:
+    - `client.mutation.insertUser()`
+    - `client.mutation.insertUser({})`
+    - `client.mutation.insertUser({ select: true })`
+  - [ ] non-nullable arguments should be required, for instance this should fail:
+    - `client.mutation.insertUser({ variables: { email: 'bob' }})` // `locale` is missing
+    - => This information is not present in the GraphQL schema => out
 
 ## Sort
 
