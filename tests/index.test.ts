@@ -48,7 +48,7 @@ describe('main', () => {
         where: {
           createdAt: { _lte: new Date(2023, 1, 5).toISOString() }
         },
-        order_by: [{ createdAt: Order_By.Asc }]
+        order_by: [{ createdAt: 'asc' }]
       }
     })
     expect(print(q)).toMatchInlineSnapshot(`
@@ -153,8 +153,8 @@ describe('main', () => {
       variables: {
         object: { bucketId: 'dew', name: 'dew' },
         on_conflict: {
-          constraint: Files_Constraint.FilesPkey,
-          update_columns: [Files_Update_Column.Name]
+          constraint: 'files_pkey',
+          update_columns: ['name']
         }
       }
     })
@@ -183,8 +183,8 @@ describe('main', () => {
           { bucketId: 'dew', name: 'dew' }
         ],
         on_conflict: {
-          constraint: Files_Constraint.FilesPkey,
-          update_columns: [Files_Update_Column.Name]
+          constraint: 'files_pkey',
+          update_columns: ['name']
         }
       }
     })

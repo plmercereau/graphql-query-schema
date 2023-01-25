@@ -128,10 +128,9 @@ export type AuthProviderRequests_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.provider_requests" */
-export enum AuthProviderRequests_Constraint {
+export type AuthProviderRequests_Constraint =
   /** unique or primary key constraint on columns "id" */
-  ProviderRequestsPkey = 'provider_requests_pkey'
-}
+  | 'provider_requests_pkey';
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
 export type AuthProviderRequests_Delete_At_Path_Input = {
@@ -199,12 +198,11 @@ export type AuthProviderRequests_Prepend_Input = {
 };
 
 /** select columns of table "auth.provider_requests" */
-export enum AuthProviderRequests_Select_Column {
+export type AuthProviderRequests_Select_Column =
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Options = 'options'
-}
+  | 'options';
 
 /** input type for updating data in table "auth.provider_requests" */
 export type AuthProviderRequests_Set_Input = {
@@ -227,12 +225,11 @@ export type AuthProviderRequests_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "auth.provider_requests" */
-export enum AuthProviderRequests_Update_Column {
+export type AuthProviderRequests_Update_Column =
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Options = 'options'
-}
+  | 'options';
 
 export type AuthProviderRequests_Updates = {
   /** append existing jsonb value of filtered columns with new jsonb value */
@@ -313,10 +310,9 @@ export type AuthProviders_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.providers" */
-export enum AuthProviders_Constraint {
+export type AuthProviders_Constraint =
   /** unique or primary key constraint on columns "id" */
-  ProvidersPkey = 'providers_pkey'
-}
+  | 'providers_pkey';
 
 /** input type for inserting data into table "auth.providers" */
 export type AuthProviders_Insert_Input = {
@@ -371,10 +367,9 @@ export type AuthProviders_Pk_Columns_Input = {
 };
 
 /** select columns of table "auth.providers" */
-export enum AuthProviders_Select_Column {
+export type AuthProviders_Select_Column =
   /** column name */
-  Id = 'id'
-}
+  | 'id';
 
 /** input type for updating data in table "auth.providers" */
 export type AuthProviders_Set_Input = {
@@ -395,10 +390,9 @@ export type AuthProviders_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "auth.providers" */
-export enum AuthProviders_Update_Column {
+export type AuthProviders_Update_Column =
   /** column name */
-  Id = 'id'
-}
+  | 'id';
 
 export type AuthProviders_Updates = {
   /** sets the columns of the filtered rows to the given values */
@@ -477,10 +471,9 @@ export type AuthRefreshTokens_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.refresh_tokens" */
-export enum AuthRefreshTokens_Constraint {
+export type AuthRefreshTokens_Constraint =
   /** unique or primary key constraint on columns "refresh_token" */
-  RefreshTokensPkey = 'refresh_tokens_pkey'
-}
+  | 'refresh_tokens_pkey';
 
 /** input type for inserting data into table "auth.refresh_tokens" */
 export type AuthRefreshTokens_Insert_Input = {
@@ -556,16 +549,15 @@ export type AuthRefreshTokens_Pk_Columns_Input = {
 };
 
 /** select columns of table "auth.refresh_tokens" */
-export enum AuthRefreshTokens_Select_Column {
+export type AuthRefreshTokens_Select_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  ExpiresAt = 'expiresAt',
+  | 'expiresAt'
   /** column name */
-  RefreshToken = 'refreshToken',
+  | 'refreshToken'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 /** input type for updating data in table "auth.refresh_tokens" */
 export type AuthRefreshTokens_Set_Input = {
@@ -592,16 +584,15 @@ export type AuthRefreshTokens_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "auth.refresh_tokens" */
-export enum AuthRefreshTokens_Update_Column {
+export type AuthRefreshTokens_Update_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  ExpiresAt = 'expiresAt',
+  | 'expiresAt'
   /** column name */
-  RefreshToken = 'refreshToken',
+  | 'refreshToken'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 export type AuthRefreshTokens_Updates = {
   /** sets the columns of the filtered rows to the given values */
@@ -698,10 +689,9 @@ export type AuthRoles_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.roles" */
-export enum AuthRoles_Constraint {
+export type AuthRoles_Constraint =
   /** unique or primary key constraint on columns "role" */
-  RolesPkey = 'roles_pkey'
-}
+  | 'roles_pkey';
 
 /** input type for inserting data into table "auth.roles" */
 export type AuthRoles_Insert_Input = {
@@ -758,10 +748,9 @@ export type AuthRoles_Pk_Columns_Input = {
 };
 
 /** select columns of table "auth.roles" */
-export enum AuthRoles_Select_Column {
+export type AuthRoles_Select_Column =
   /** column name */
-  Role = 'role'
-}
+  | 'role';
 
 /** input type for updating data in table "auth.roles" */
 export type AuthRoles_Set_Input = {
@@ -782,10 +771,9 @@ export type AuthRoles_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "auth.roles" */
-export enum AuthRoles_Update_Column {
+export type AuthRoles_Update_Column =
   /** column name */
-  Role = 'role'
-}
+  | 'role';
 
 export type AuthRoles_Updates = {
   /** sets the columns of the filtered rows to the given values */
@@ -875,14 +863,13 @@ export type AuthUserProviders_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.user_providers" */
-export enum AuthUserProviders_Constraint {
+export type AuthUserProviders_Constraint =
   /** unique or primary key constraint on columns "id" */
-  UserProvidersPkey = 'user_providers_pkey',
+  | 'user_providers_pkey'
   /** unique or primary key constraint on columns "provider_id", "provider_user_id" */
-  UserProvidersProviderIdProviderUserIdKey = 'user_providers_provider_id_provider_user_id_key',
+  | 'user_providers_provider_id_provider_user_id_key'
   /** unique or primary key constraint on columns "provider_id", "user_id" */
-  UserProvidersUserIdProviderIdKey = 'user_providers_user_id_provider_id_key'
-}
+  | 'user_providers_user_id_provider_id_key';
 
 /** input type for inserting data into table "auth.user_providers" */
 export type AuthUserProviders_Insert_Input = {
@@ -984,24 +971,23 @@ export type AuthUserProviders_Pk_Columns_Input = {
 };
 
 /** select columns of table "auth.user_providers" */
-export enum AuthUserProviders_Select_Column {
+export type AuthUserProviders_Select_Column =
   /** column name */
-  AccessToken = 'accessToken',
+  | 'accessToken'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  ProviderId = 'providerId',
+  | 'providerId'
   /** column name */
-  ProviderUserId = 'providerUserId',
+  | 'providerUserId'
   /** column name */
-  RefreshToken = 'refreshToken',
+  | 'refreshToken'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 /** input type for updating data in table "auth.user_providers" */
 export type AuthUserProviders_Set_Input = {
@@ -1036,24 +1022,23 @@ export type AuthUserProviders_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "auth.user_providers" */
-export enum AuthUserProviders_Update_Column {
+export type AuthUserProviders_Update_Column =
   /** column name */
-  AccessToken = 'accessToken',
+  | 'accessToken'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  ProviderId = 'providerId',
+  | 'providerId'
   /** column name */
-  ProviderUserId = 'providerUserId',
+  | 'providerUserId'
   /** column name */
-  RefreshToken = 'refreshToken',
+  | 'refreshToken'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 export type AuthUserProviders_Updates = {
   /** sets the columns of the filtered rows to the given values */
@@ -1135,12 +1120,11 @@ export type AuthUserRoles_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.user_roles" */
-export enum AuthUserRoles_Constraint {
+export type AuthUserRoles_Constraint =
   /** unique or primary key constraint on columns "id" */
-  UserRolesPkey = 'user_roles_pkey',
+  | 'user_roles_pkey'
   /** unique or primary key constraint on columns "user_id", "role" */
-  UserRolesUserIdRoleKey = 'user_roles_user_id_role_key'
-}
+  | 'user_roles_user_id_role_key';
 
 /** input type for inserting data into table "auth.user_roles" */
 export type AuthUserRoles_Insert_Input = {
@@ -1218,16 +1202,15 @@ export type AuthUserRoles_Pk_Columns_Input = {
 };
 
 /** select columns of table "auth.user_roles" */
-export enum AuthUserRoles_Select_Column {
+export type AuthUserRoles_Select_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Role = 'role',
+  | 'role'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 /** input type for updating data in table "auth.user_roles" */
 export type AuthUserRoles_Set_Input = {
@@ -1254,16 +1237,15 @@ export type AuthUserRoles_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "auth.user_roles" */
-export enum AuthUserRoles_Update_Column {
+export type AuthUserRoles_Update_Column =
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Role = 'role',
+  | 'role'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 export type AuthUserRoles_Updates = {
   /** sets the columns of the filtered rows to the given values */
@@ -1375,12 +1357,11 @@ export type AuthUserSecurityKeys_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.user_security_keys" */
-export enum AuthUserSecurityKeys_Constraint {
+export type AuthUserSecurityKeys_Constraint =
   /** unique or primary key constraint on columns "credential_id" */
-  UserSecurityKeyCredentialIdKey = 'user_security_key_credential_id_key',
+  | 'user_security_key_credential_id_key'
   /** unique or primary key constraint on columns "id" */
-  UserSecurityKeysPkey = 'user_security_keys_pkey'
-}
+  | 'user_security_keys_pkey';
 
 /** input type for incrementing numeric columns in table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Inc_Input = {
@@ -1475,22 +1456,21 @@ export type AuthUserSecurityKeys_Pk_Columns_Input = {
 };
 
 /** select columns of table "auth.user_security_keys" */
-export enum AuthUserSecurityKeys_Select_Column {
+export type AuthUserSecurityKeys_Select_Column =
   /** column name */
-  Counter = 'counter',
+  | 'counter'
   /** column name */
-  CredentialId = 'credentialId',
+  | 'credentialId'
   /** column name */
-  CredentialPublicKey = 'credentialPublicKey',
+  | 'credentialPublicKey'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Nickname = 'nickname',
+  | 'nickname'
   /** column name */
-  Transports = 'transports',
+  | 'transports'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 /** input type for updating data in table "auth.user_security_keys" */
 export type AuthUserSecurityKeys_Set_Input = {
@@ -1567,22 +1547,21 @@ export type AuthUserSecurityKeys_Sum_Order_By = {
 };
 
 /** update columns of table "auth.user_security_keys" */
-export enum AuthUserSecurityKeys_Update_Column {
+export type AuthUserSecurityKeys_Update_Column =
   /** column name */
-  Counter = 'counter',
+  | 'counter'
   /** column name */
-  CredentialId = 'credentialId',
+  | 'credentialId'
   /** column name */
-  CredentialPublicKey = 'credentialPublicKey',
+  | 'credentialPublicKey'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  Nickname = 'nickname',
+  | 'nickname'
   /** column name */
-  Transports = 'transports',
+  | 'transports'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 export type AuthUserSecurityKeys_Updates = {
   /** increments the numeric columns with given value of the filtered values */
@@ -1731,10 +1710,9 @@ export type Buckets_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "storage.buckets" */
-export enum Buckets_Constraint {
+export type Buckets_Constraint =
   /** unique or primary key constraint on columns "id" */
-  BucketsPkey = 'buckets_pkey'
-}
+  | 'buckets_pkey';
 
 /** input type for incrementing numeric columns in table "storage.buckets" */
 export type Buckets_Inc_Input = {
@@ -1822,24 +1800,23 @@ export type Buckets_Pk_Columns_Input = {
 };
 
 /** select columns of table "storage.buckets" */
-export enum Buckets_Select_Column {
+export type Buckets_Select_Column =
   /** column name */
-  CacheControl = 'cacheControl',
+  | 'cacheControl'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  DownloadExpiration = 'downloadExpiration',
+  | 'downloadExpiration'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  MaxUploadFileSize = 'maxUploadFileSize',
+  | 'maxUploadFileSize'
   /** column name */
-  MinUploadFileSize = 'minUploadFileSize',
+  | 'minUploadFileSize'
   /** column name */
-  PresignedUrlsEnabled = 'presignedUrlsEnabled',
+  | 'presignedUrlsEnabled'
   /** column name */
-  UpdatedAt = 'updatedAt'
-}
+  | 'updatedAt';
 
 /** input type for updating data in table "storage.buckets" */
 export type Buckets_Set_Input = {
@@ -1906,24 +1883,23 @@ export type Buckets_Sum_Fields = {
 };
 
 /** update columns of table "storage.buckets" */
-export enum Buckets_Update_Column {
+export type Buckets_Update_Column =
   /** column name */
-  CacheControl = 'cacheControl',
+  | 'cacheControl'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  DownloadExpiration = 'downloadExpiration',
+  | 'downloadExpiration'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  MaxUploadFileSize = 'maxUploadFileSize',
+  | 'maxUploadFileSize'
   /** column name */
-  MinUploadFileSize = 'minUploadFileSize',
+  | 'minUploadFileSize'
   /** column name */
-  PresignedUrlsEnabled = 'presignedUrlsEnabled',
+  | 'presignedUrlsEnabled'
   /** column name */
-  UpdatedAt = 'updatedAt'
-}
+  | 'updatedAt';
 
 export type Buckets_Updates = {
   /** increments the numeric columns with given value of the filtered values */
@@ -2009,17 +1985,15 @@ export type Categories_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "categories" */
-export enum Categories_Constraint {
+export type Categories_Constraint =
   /** unique or primary key constraint on columns "value" */
-  CategoriesPkey = 'categories_pkey'
-}
+  | 'categories_pkey';
 
-export enum Categories_Enum {
+export type Categories_Enum =
   /** whatev */
-  Essay = 'essay',
+  | 'essay'
   /** Novels */
-  Novel = 'novel'
-}
+  | 'novel';
 
 /** Boolean expression to compare columns of type "categories_enum". All fields are combined with logical 'AND'. */
 export type Categories_Enum_Comparison_Exp = {
@@ -2078,12 +2052,11 @@ export type Categories_Pk_Columns_Input = {
 };
 
 /** select columns of table "categories" */
-export enum Categories_Select_Column {
+export type Categories_Select_Column =
   /** column name */
-  Comment = 'comment',
+  | 'comment'
   /** column name */
-  Value = 'value'
-}
+  | 'value';
 
 /** input type for updating data in table "categories" */
 export type Categories_Set_Input = {
@@ -2106,12 +2079,11 @@ export type Categories_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "categories" */
-export enum Categories_Update_Column {
+export type Categories_Update_Column =
   /** column name */
-  Comment = 'comment',
+  | 'comment'
   /** column name */
-  Value = 'value'
-}
+  | 'value';
 
 export type Categories_Updates = {
   /** sets the columns of the filtered rows to the given values */
@@ -2153,12 +2125,11 @@ export type Citext_Comparison_Exp = {
 };
 
 /** ordering argument of a cursor */
-export enum Cursor_Ordering {
+export type Cursor_Ordering =
   /** ascending ordering of the cursor */
-  Asc = 'ASC',
+  | 'ASC'
   /** descending ordering of the cursor */
-  Desc = 'DESC'
-}
+  | 'DESC';
 
 /** columns and relationships of "storage.files" */
 export type Files = {
@@ -2286,10 +2257,9 @@ export type Files_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "storage.files" */
-export enum Files_Constraint {
+export type Files_Constraint =
   /** unique or primary key constraint on columns "id" */
-  FilesPkey = 'files_pkey'
-}
+  | 'files_pkey';
 
 /** input type for incrementing numeric columns in table "storage.files" */
 export type Files_Inc_Input = {
@@ -2402,40 +2372,37 @@ export type Files_Pk_Columns_Input = {
 };
 
 /** select columns of table "storage.files" */
-export enum Files_Select_Column {
+export type Files_Select_Column =
   /** column name */
-  BucketId = 'bucketId',
+  | 'bucketId'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Etag = 'etag',
+  | 'etag'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  IsUploaded = 'isUploaded',
+  | 'isUploaded'
   /** column name */
-  MimeType = 'mimeType',
+  | 'mimeType'
   /** column name */
-  Name = 'name',
+  | 'name'
   /** column name */
-  Size = 'size',
+  | 'size'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UploadedByUserId = 'uploadedByUserId'
-}
+  | 'uploadedByUserId';
 
 /** select "files_aggregate_bool_exp_bool_and_arguments_columns" columns of table "storage.files" */
-export enum Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_And_Arguments_Columns {
+export type Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_And_Arguments_Columns =
   /** column name */
-  IsUploaded = 'isUploaded'
-}
+  | 'isUploaded';
 
 /** select "files_aggregate_bool_exp_bool_or_arguments_columns" columns of table "storage.files" */
-export enum Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns {
+export type Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns =
   /** column name */
-  IsUploaded = 'isUploaded'
-}
+  | 'isUploaded';
 
 /** input type for updating data in table "storage.files" */
 export type Files_Set_Input = {
@@ -2518,28 +2485,27 @@ export type Files_Sum_Order_By = {
 };
 
 /** update columns of table "storage.files" */
-export enum Files_Update_Column {
+export type Files_Update_Column =
   /** column name */
-  BucketId = 'bucketId',
+  | 'bucketId'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Etag = 'etag',
+  | 'etag'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  IsUploaded = 'isUploaded',
+  | 'isUploaded'
   /** column name */
-  MimeType = 'mimeType',
+  | 'mimeType'
   /** column name */
-  Name = 'name',
+  | 'name'
   /** column name */
-  Size = 'size',
+  | 'size'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UploadedByUserId = 'uploadedByUserId'
-}
+  | 'uploadedByUserId';
 
 export type Files_Updates = {
   /** increments the numeric columns with given value of the filtered values */
@@ -3362,20 +3328,19 @@ export type Mutation_RootUpdate_Users_ManyArgs = {
 };
 
 /** column ordering options */
-export enum Order_By {
+export type Order_By =
   /** in ascending order, nulls last */
-  Asc = 'asc',
+  | 'asc'
   /** in ascending order, nulls first */
-  AscNullsFirst = 'asc_nulls_first',
+  | 'asc_nulls_first'
   /** in ascending order, nulls last */
-  AscNullsLast = 'asc_nulls_last',
+  | 'asc_nulls_last'
   /** in descending order, nulls first */
-  Desc = 'desc',
+  | 'desc'
   /** in descending order, nulls first */
-  DescNullsFirst = 'desc_nulls_first',
+  | 'desc_nulls_first'
   /** in descending order, nulls last */
-  DescNullsLast = 'desc_nulls_last'
-}
+  | 'desc_nulls_last';
 
 export type Query_Root = {
   __typename?: 'query_root';
@@ -4252,10 +4217,9 @@ export type Todos_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "todos" */
-export enum Todos_Constraint {
+export type Todos_Constraint =
   /** unique or primary key constraint on columns "id" */
-  TodosPkey = 'todos_pkey'
-}
+  | 'todos_pkey';
 
 /** input type for inserting data into table "todos" */
 export type Todos_Insert_Input = {
@@ -4321,20 +4285,19 @@ export type Todos_Pk_Columns_Input = {
 };
 
 /** select columns of table "todos" */
-export enum Todos_Select_Column {
+export type Todos_Select_Column =
   /** column name */
-  Category = 'category',
+  | 'category'
   /** column name */
-  Contents = 'contents',
+  | 'contents'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 /** input type for updating data in table "todos" */
 export type Todos_Set_Input = {
@@ -4365,20 +4328,19 @@ export type Todos_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "todos" */
-export enum Todos_Update_Column {
+export type Todos_Update_Column =
   /** column name */
-  Category = 'category',
+  | 'category'
   /** column name */
-  Contents = 'contents',
+  | 'contents'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  UpdatedAt = 'updatedAt',
+  | 'updatedAt'
   /** column name */
-  UserId = 'userId'
-}
+  | 'userId';
 
 export type Todos_Updates = {
   /** sets the columns of the filtered rows to the given values */
@@ -4630,14 +4592,13 @@ export type Users_Bool_Exp = {
 };
 
 /** unique or primary key constraints on table "auth.users" */
-export enum Users_Constraint {
+export type Users_Constraint =
   /** unique or primary key constraint on columns "email" */
-  UsersEmailKey = 'users_email_key',
+  | 'users_email_key'
   /** unique or primary key constraint on columns "phone_number" */
-  UsersPhoneNumberKey = 'users_phone_number_key',
+  | 'users_phone_number_key'
   /** unique or primary key constraint on columns "id" */
-  UsersPkey = 'users_pkey'
-}
+  | 'users_pkey';
 
 /** delete the field or element with specified path (for JSON arrays, negative integers count from the end) */
 export type Users_Delete_At_Path_Input = {
@@ -4854,82 +4815,79 @@ export type Users_Prepend_Input = {
 };
 
 /** select columns of table "auth.users" */
-export enum Users_Select_Column {
+export type Users_Select_Column =
   /** column name */
-  ActiveMfaType = 'activeMfaType',
+  | 'activeMfaType'
   /** column name */
-  AvatarUrl = 'avatarUrl',
+  | 'avatarUrl'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  CurrentChallenge = 'currentChallenge',
+  | 'currentChallenge'
   /** column name */
-  DefaultRole = 'defaultRole',
+  | 'defaultRole'
   /** column name */
-  Disabled = 'disabled',
+  | 'disabled'
   /** column name */
-  DisplayName = 'displayName',
+  | 'displayName'
   /** column name */
-  Email = 'email',
+  | 'email'
   /** column name */
-  EmailVerified = 'emailVerified',
+  | 'emailVerified'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  IsAnonymous = 'isAnonymous',
+  | 'isAnonymous'
   /** column name */
-  LastSeen = 'lastSeen',
+  | 'lastSeen'
   /** column name */
-  Locale = 'locale',
+  | 'locale'
   /** column name */
-  Metadata = 'metadata',
+  | 'metadata'
   /** column name */
-  NewEmail = 'newEmail',
+  | 'newEmail'
   /** column name */
-  OtpHash = 'otpHash',
+  | 'otpHash'
   /** column name */
-  OtpHashExpiresAt = 'otpHashExpiresAt',
+  | 'otpHashExpiresAt'
   /** column name */
-  OtpMethodLastUsed = 'otpMethodLastUsed',
+  | 'otpMethodLastUsed'
   /** column name */
-  PasswordHash = 'passwordHash',
+  | 'passwordHash'
   /** column name */
-  PhoneNumber = 'phoneNumber',
+  | 'phoneNumber'
   /** column name */
-  PhoneNumberVerified = 'phoneNumberVerified',
+  | 'phoneNumberVerified'
   /** column name */
-  Ticket = 'ticket',
+  | 'ticket'
   /** column name */
-  TicketExpiresAt = 'ticketExpiresAt',
+  | 'ticketExpiresAt'
   /** column name */
-  TotpSecret = 'totpSecret',
+  | 'totpSecret'
   /** column name */
-  UpdatedAt = 'updatedAt'
-}
+  | 'updatedAt';
 
 /** select "users_aggregate_bool_exp_bool_and_arguments_columns" columns of table "auth.users" */
-export enum Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_And_Arguments_Columns {
+export type Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_And_Arguments_Columns =
   /** column name */
-  Disabled = 'disabled',
+  | 'disabled'
   /** column name */
-  EmailVerified = 'emailVerified',
+  | 'emailVerified'
   /** column name */
-  IsAnonymous = 'isAnonymous',
+  | 'isAnonymous'
   /** column name */
-  PhoneNumberVerified = 'phoneNumberVerified'
-}
+  | 'phoneNumberVerified';
 
 /** select "users_aggregate_bool_exp_bool_or_arguments_columns" columns of table "auth.users" */
-export enum Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns {
+export type Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns =
   /** column name */
-  Disabled = 'disabled',
+  | 'disabled'
   /** column name */
-  EmailVerified = 'emailVerified',
+  | 'emailVerified'
   /** column name */
-  IsAnonymous = 'isAnonymous',
+  | 'isAnonymous'
   /** column name */
-  PhoneNumberVerified = 'phoneNumberVerified'
-}
+  | 'phoneNumberVerified';
 
 /** input type for updating data in table "auth.users" */
 export type Users_Set_Input = {
@@ -4998,58 +4956,57 @@ export type Users_Stream_Cursor_Value_Input = {
 };
 
 /** update columns of table "auth.users" */
-export enum Users_Update_Column {
+export type Users_Update_Column =
   /** column name */
-  ActiveMfaType = 'activeMfaType',
+  | 'activeMfaType'
   /** column name */
-  AvatarUrl = 'avatarUrl',
+  | 'avatarUrl'
   /** column name */
-  CreatedAt = 'createdAt',
+  | 'createdAt'
   /** column name */
-  CurrentChallenge = 'currentChallenge',
+  | 'currentChallenge'
   /** column name */
-  DefaultRole = 'defaultRole',
+  | 'defaultRole'
   /** column name */
-  Disabled = 'disabled',
+  | 'disabled'
   /** column name */
-  DisplayName = 'displayName',
+  | 'displayName'
   /** column name */
-  Email = 'email',
+  | 'email'
   /** column name */
-  EmailVerified = 'emailVerified',
+  | 'emailVerified'
   /** column name */
-  Id = 'id',
+  | 'id'
   /** column name */
-  IsAnonymous = 'isAnonymous',
+  | 'isAnonymous'
   /** column name */
-  LastSeen = 'lastSeen',
+  | 'lastSeen'
   /** column name */
-  Locale = 'locale',
+  | 'locale'
   /** column name */
-  Metadata = 'metadata',
+  | 'metadata'
   /** column name */
-  NewEmail = 'newEmail',
+  | 'newEmail'
   /** column name */
-  OtpHash = 'otpHash',
+  | 'otpHash'
   /** column name */
-  OtpHashExpiresAt = 'otpHashExpiresAt',
+  | 'otpHashExpiresAt'
   /** column name */
-  OtpMethodLastUsed = 'otpMethodLastUsed',
+  | 'otpMethodLastUsed'
   /** column name */
-  PasswordHash = 'passwordHash',
+  | 'passwordHash'
   /** column name */
-  PhoneNumber = 'phoneNumber',
+  | 'phoneNumber'
   /** column name */
-  PhoneNumberVerified = 'phoneNumberVerified',
+  | 'phoneNumberVerified'
   /** column name */
-  Ticket = 'ticket',
+  | 'ticket'
   /** column name */
-  TicketExpiresAt = 'ticketExpiresAt',
+  | 'ticketExpiresAt'
   /** column name */
-  TotpSecret = 'totpSecret',
+  | 'totpSecret'
   /** column name */
-  UpdatedAt = 'updatedAt'
-}
+  | 'updatedAt';
 
 export type Users_Updates = {
   /** append existing jsonb value of filtered columns with new jsonb value */
@@ -18483,49 +18440,6 @@ export default {
     Users_Stream_Cursor_Input: Users_Stream_Cursor_Input,
     Users_Stream_Cursor_Value_Input: Users_Stream_Cursor_Value_Input,
     Users_Updates: Users_Updates,
-    Uuid_Comparison_Exp: Uuid_Comparison_Exp,
-    AuthProviderRequests_Constraint: AuthProviderRequests_Constraint,
-    AuthProviderRequests_Select_Column: AuthProviderRequests_Select_Column,
-    AuthProviderRequests_Update_Column: AuthProviderRequests_Update_Column,
-    AuthProviders_Constraint: AuthProviders_Constraint,
-    AuthProviders_Select_Column: AuthProviders_Select_Column,
-    AuthProviders_Update_Column: AuthProviders_Update_Column,
-    AuthRefreshTokens_Constraint: AuthRefreshTokens_Constraint,
-    AuthRefreshTokens_Select_Column: AuthRefreshTokens_Select_Column,
-    AuthRefreshTokens_Update_Column: AuthRefreshTokens_Update_Column,
-    AuthRoles_Constraint: AuthRoles_Constraint,
-    AuthRoles_Select_Column: AuthRoles_Select_Column,
-    AuthRoles_Update_Column: AuthRoles_Update_Column,
-    AuthUserProviders_Constraint: AuthUserProviders_Constraint,
-    AuthUserProviders_Select_Column: AuthUserProviders_Select_Column,
-    AuthUserProviders_Update_Column: AuthUserProviders_Update_Column,
-    AuthUserRoles_Constraint: AuthUserRoles_Constraint,
-    AuthUserRoles_Select_Column: AuthUserRoles_Select_Column,
-    AuthUserRoles_Update_Column: AuthUserRoles_Update_Column,
-    AuthUserSecurityKeys_Constraint: AuthUserSecurityKeys_Constraint,
-    AuthUserSecurityKeys_Select_Column: AuthUserSecurityKeys_Select_Column,
-    AuthUserSecurityKeys_Update_Column: AuthUserSecurityKeys_Update_Column,
-    Buckets_Constraint: Buckets_Constraint,
-    Buckets_Select_Column: Buckets_Select_Column,
-    Buckets_Update_Column: Buckets_Update_Column,
-    Categories_Constraint: Categories_Constraint,
-    Categories_Enum: Categories_Enum,
-    Categories_Select_Column: Categories_Select_Column,
-    Categories_Update_Column: Categories_Update_Column,
-    Cursor_Ordering: Cursor_Ordering,
-    Files_Constraint: Files_Constraint,
-    Files_Select_Column: Files_Select_Column,
-    Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_And_Arguments_Columns: Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_And_Arguments_Columns,
-    Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns: Files_Select_Column_Files_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns,
-    Files_Update_Column: Files_Update_Column,
-    Order_By: Order_By,
-    Todos_Constraint: Todos_Constraint,
-    Todos_Select_Column: Todos_Select_Column,
-    Todos_Update_Column: Todos_Update_Column,
-    Users_Constraint: Users_Constraint,
-    Users_Select_Column: Users_Select_Column,
-    Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_And_Arguments_Columns: Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_And_Arguments_Columns,
-    Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns: Users_Select_Column_Users_Aggregate_Bool_Exp_Bool_Or_Arguments_Columns,
-    Users_Update_Column: Users_Update_Column
+    Uuid_Comparison_Exp: Uuid_Comparison_Exp
   }
 }

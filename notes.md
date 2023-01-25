@@ -13,7 +13,7 @@
     - `client.mutation.insertUser({ variables: { email: 'bob' }})` // `locale` is missing
 - [x] Urql PR / typescript codegen PR ? or we create our own plugin
 - [ ] Enums: get rid of `enumType` now the schema is available on runtime
-  - [ ] change the typings to allow the list of values e.g. `'essay'` instead of `Categories_Enum.Essay`?
+  - [x] change the typings to allow the list of values e.g. `'essay'` instead of `Categories_Enum.Essay`?
   - [ ] detect it's an enum when generating the query
 - [ ] Check and complete unions
 - [ ] Use the introspection schema to

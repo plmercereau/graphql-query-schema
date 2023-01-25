@@ -1,6 +1,6 @@
 import { beforeAll, describe, expect, it } from 'vitest'
-import { enumType, fetchClient } from '../src'
-import schema, { Categories_Enum } from '../schemas/hasura'
+import { fetchClient } from '../src'
+import schema from '../schemas/hasura'
 
 const client = fetchClient({
   schema,
@@ -70,7 +70,7 @@ describe('Hasura', () => {
     const todos = await client.query.todos({
       variables: {
         where: {
-          category: { _eq: enumType(Categories_Enum.Essay) }
+          category: { _eq: 'essay' }
         }
       },
       select: { contents: true, category: true }

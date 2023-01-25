@@ -5,7 +5,7 @@ export type StripImpossibleProperties<T> = Pick<
   { [Key in keyof T]-?: T[Key] extends never ? never : Key }[keyof T]
 >
 
-// TODO (maybe): remove
+// ? Keep?
 // * See: https://learn.microsoft.com/en-us/javascript/api/@azure/keyvault-certificates/requireatleastone?view=azure-node-latest
 export type RequireAtLeastOne<T> = {
   [K in keyof T]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<keyof T, K>>>
@@ -27,6 +27,7 @@ export type MakeOptional<T> = {
   [K in keyof T as undefined extends T[K] ? never : K]: T[K]
 }
 
+// ? Keep?
 /** Transform a function according to the type of its first parameter:
  * - if the first parameter has some required keys, it is required
  * - otherwise, the parameter is made optional
@@ -49,16 +50,14 @@ export type GraphQLPredicate<GQLType extends string> = GQLType extends `${infer 
   : GQLType
 
 // * See: https://stackoverflow.com/questions/50374908/transform-union-type-to-intersection-type/50375286#50375286
-export type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
-  k: infer I
-) => void
+type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (k: infer I) => void
   ? I
   : never
 
 // * See: https://stackoverflow.com/a/53955431
 export type IsUnion<T> = [T] extends [UnionToIntersection<T>] ? false : true
 
-export type RequiredField<T, K extends keyof T> = T & Required<Pick<T, K>>
+// export type RequiredField<T, K extends keyof T> = T & Required<Pick<T, K>>
 
 export type ToUnion<T> = T[keyof T]
 

@@ -63,8 +63,8 @@ const toJson = (
           }
         })
       } else {
+        // * implement custom variables later
         // if (value instanceof ModifiedVariableType) {
-        //   // TODO implement custom variables later
         //   select[key] = new VariableType(key)
         // } else if...
         const childVariablePrefix = variablesPrefix ? `${variablesPrefix}_${key}` : key
