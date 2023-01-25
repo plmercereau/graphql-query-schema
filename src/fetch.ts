@@ -57,23 +57,22 @@ export function fetchClient<Schema extends GenericSchema>({
     property: string,
     input: any
   ): ReturnType<ReturnTransformersFactory<Result>['request']> => {
-    const query = toRawGraphQL(schema, operation, property, input)
+    const { query, variables } = toRawGraphQL(schema, operation, property, input)
     // TODO also get the variable values
     // TODO in the variable values, convert enum strings to `EnumType`
-
     const request = await fetch({
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ query })
+      body: JSON.stringify({ query, variables })
     })
     if (request.status !== 200) {
       throw new Error(request.statusText)
     }
     const { data, errors } = await request.json()
     if (errors) {
-      console.log(query)
+      console.log({ input, query, variables })
       console.log(errors)
       throw new Error(errors[0].message)
     }

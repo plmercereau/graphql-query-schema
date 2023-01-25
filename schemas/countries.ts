@@ -139,6 +139,10 @@ export default {
       "subscriptionType": null,
       "types": [
         {
+          "kind": "SCALAR",
+          "name": "Boolean"
+        },
+        {
           "kind": "OBJECT",
           "name": "Continent",
           "fields": [
@@ -148,7 +152,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "ID",
+                  "ofType": null
                 }
               },
               "args": []
@@ -177,13 +182,28 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "ContinentFilterInput",
+          "inputFields": [
+            {
+              "name": "code",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -193,7 +213,8 @@ export default {
               "name": "capital",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -203,7 +224,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "ID",
+                  "ofType": null
                 }
               },
               "args": []
@@ -224,7 +246,8 @@ export default {
               "name": "currency",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -234,7 +257,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -245,7 +269,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -274,7 +299,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -285,7 +311,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -296,7 +323,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -323,6 +351,40 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "CountryFilterInput",
+          "inputFields": [
+            {
+              "name": "code",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              }
+            },
+            {
+              "name": "continent",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              }
+            },
+            {
+              "name": "currency",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "SCALAR",
+          "name": "ID"
+        },
+        {
           "kind": "OBJECT",
           "name": "Language",
           "fields": [
@@ -332,7 +394,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "ID",
+                  "ofType": null
                 }
               },
               "args": []
@@ -341,7 +404,8 @@ export default {
               "name": "name",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -349,7 +413,8 @@ export default {
               "name": "native",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -359,13 +424,28 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Boolean",
+                  "ofType": null
                 }
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "LanguageFilterInput",
+          "inputFields": [
+            {
+              "name": "code",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "StringQueryOperatorInput",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -395,7 +475,8 @@ export default {
                         "kind": "NON_NULL",
                         "ofType": {
                           "kind": "SCALAR",
-                          "name": "Any"
+                          "name": "_Any",
+                          "ofType": null
                         }
                       }
                     }
@@ -429,7 +510,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "ID",
+                      "ofType": null
                     }
                   }
                 }
@@ -455,8 +537,9 @@ export default {
                 {
                   "name": "filter",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "ContinentFilterInput",
+                    "ofType": null
                   }
                 }
               ]
@@ -481,8 +564,9 @@ export default {
                 {
                   "name": "filter",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "CountryFilterInput",
+                    "ofType": null
                   }
                 }
               ]
@@ -501,7 +585,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "ID",
+                      "ofType": null
                     }
                   }
                 }
@@ -521,7 +606,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "ID",
+                      "ofType": null
                     }
                   }
                 }
@@ -547,8 +633,9 @@ export default {
                 {
                   "name": "filter",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "LanguageFilterInput",
+                    "ofType": null
                   }
                 }
               ]
@@ -564,7 +651,8 @@ export default {
               "name": "code",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -586,13 +674,82 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "SCALAR",
+          "name": "String"
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "StringQueryOperatorInput",
+          "inputFields": [
+            {
+              "name": "eq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "glob",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "in",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "ne",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "nin",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "regex",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "SCALAR",
+          "name": "_Any"
         },
         {
           "kind": "UNION",
@@ -620,7 +777,8 @@ export default {
               "name": "sdl",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             }

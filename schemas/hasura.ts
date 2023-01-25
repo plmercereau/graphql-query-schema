@@ -5052,6 +5052,372 @@ export default {
       },
       "types": [
         {
+          "kind": "SCALAR",
+          "name": "Boolean"
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "Boolean_comparison_exp",
+          "inputFields": [
+            {
+              "name": "_eq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_in",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Boolean",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_is_null",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_neq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nin",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Boolean",
+                    "ofType": null
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Float"
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Int"
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "Int_comparison_exp",
+          "inputFields": [
+            {
+              "name": "_eq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_in",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_is_null",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_neq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nin",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Int",
+                    "ofType": null
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "SCALAR",
+          "name": "String"
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "String_comparison_exp",
+          "inputFields": [
+            {
+              "name": "_eq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_ilike",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_in",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_iregex",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_is_null",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_like",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_neq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nilike",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nin",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_niregex",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nlike",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nregex",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nsimilar",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_regex",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_similar",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authProviderRequests",
           "fields": [
@@ -5061,7 +5427,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "uuid",
+                  "ofType": null
                 }
               },
               "args": []
@@ -5070,14 +5437,16 @@ export default {
               "name": "options",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "jsonb",
+                "ofType": null
               },
               "args": [
                 {
                   "name": "path",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 }
               ]
@@ -5129,7 +5498,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": [
@@ -5151,7 +5521,8 @@ export default {
                   "name": "distinct",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Boolean",
+                    "ofType": null
                   }
                 }
               ]
@@ -5178,11 +5549,153 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviderRequests_append_input",
+          "inputFields": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviderRequests_bool_exp",
+          "inputFields": [
+            {
+              "name": "_and",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_not",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authProviderRequests_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_or",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "uuid_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "jsonb_comparison_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "authProviderRequests_constraint",
           "enumValues": [
             {
               "name": "provider_requests_pkey"
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviderRequests_delete_at_path_input",
+          "inputFields": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviderRequests_delete_elem_input",
+          "inputFields": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviderRequests_delete_key_input",
+          "inputFields": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviderRequests_insert_input",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
             }
           ]
         },
@@ -5194,7 +5707,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             }
@@ -5209,7 +5723,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             }
@@ -5226,7 +5741,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": []
@@ -5253,6 +5769,102 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviderRequests_on_conflict",
+          "inputFields": [
+            {
+              "name": "constraint",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "authProviderRequests_constraint",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "update_columns",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "authProviderRequests_update_column",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": "[]"
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authProviderRequests_bool_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviderRequests_order_by",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviderRequests_pk_columns_input",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "uuid",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviderRequests_prepend_input",
+          "inputFields": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "authProviderRequests_select_column",
           "enumValues": [
@@ -5261,6 +5873,75 @@ export default {
             },
             {
               "name": "options"
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviderRequests_set_input",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviderRequests_stream_cursor_input",
+          "inputFields": [
+            {
+              "name": "initial_value",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authProviderRequests_stream_cursor_value_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "ordering",
+              "type": {
+                "kind": "ENUM",
+                "name": "cursor_ordering",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviderRequests_stream_cursor_value_input",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
             }
           ]
         },
@@ -5277,6 +5958,71 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviderRequests_updates",
+          "inputFields": [
+            {
+              "name": "_append",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authProviderRequests_append_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_delete_at_path",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authProviderRequests_delete_at_path_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_delete_elem",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authProviderRequests_delete_elem_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_delete_key",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authProviderRequests_delete_key_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_prepend",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authProviderRequests_prepend_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_set",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authProviderRequests_set_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authProviderRequests_bool_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authProviders",
           "fields": [
@@ -5286,7 +6032,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -5326,14 +6073,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -5343,8 +6092,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserProviders_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -5352,8 +6102,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserProviders_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -5387,14 +6138,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -5404,8 +6157,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserProviders_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -5413,8 +6167,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserProviders_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -5466,7 +6221,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": [
@@ -5488,7 +6244,8 @@ export default {
                   "name": "distinct",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Boolean",
+                    "ofType": null
                   }
                 }
               ]
@@ -5515,11 +6272,99 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviders_bool_exp",
+          "inputFields": [
+            {
+              "name": "_and",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviders_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_not",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authProviders_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_or",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviders_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userProviders",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userProviders_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_aggregate_bool_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "authProviders_constraint",
           "enumValues": [
             {
               "name": "providers_pkey"
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviders_insert_input",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userProviders",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_arr_rel_insert_input",
+                "ofType": null
+              }
             }
           ]
         },
@@ -5531,7 +6376,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             }
@@ -5546,7 +6392,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             }
@@ -5563,7 +6410,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": []
@@ -5590,11 +6438,171 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviders_obj_rel_insert_input",
+          "inputFields": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authProviders_insert_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "on_conflict",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authProviders_on_conflict",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviders_on_conflict",
+          "inputFields": [
+            {
+              "name": "constraint",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "authProviders_constraint",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "update_columns",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "authProviders_update_column",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": "[]"
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authProviders_bool_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviders_order_by",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userProviders_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_aggregate_order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviders_pk_columns_input",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "authProviders_select_column",
           "enumValues": [
             {
               "name": "id"
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviders_set_input",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviders_stream_cursor_input",
+          "inputFields": [
+            {
+              "name": "initial_value",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authProviders_stream_cursor_value_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "ordering",
+              "type": {
+                "kind": "ENUM",
+                "name": "cursor_ordering",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviders_stream_cursor_value_input",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             }
           ]
         },
@@ -5608,6 +6616,31 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authProviders_updates",
+          "inputFields": [
+            {
+              "name": "_set",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authProviders_set_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authProviders_bool_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authRefreshTokens",
           "fields": [
@@ -5617,7 +6650,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "timestamptz",
+                  "ofType": null
                 }
               },
               "args": []
@@ -5628,7 +6662,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "timestamptz",
+                  "ofType": null
                 }
               },
               "args": []
@@ -5639,7 +6674,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "uuid",
+                  "ofType": null
                 }
               },
               "args": []
@@ -5662,7 +6698,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "uuid",
+                  "ofType": null
                 }
               },
               "args": []
@@ -5705,6 +6742,67 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authRefreshTokens_aggregate_bool_exp",
+          "inputFields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRefreshTokens_aggregate_bool_exp_count",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRefreshTokens_aggregate_bool_exp_count",
+          "inputFields": [
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "authRefreshTokens_select_column",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "distinct",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "filter",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRefreshTokens_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "predicate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "Int_comparison_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authRefreshTokens_aggregate_fields",
           "fields": [
@@ -5714,7 +6812,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": [
@@ -5736,7 +6835,8 @@ export default {
                   "name": "distinct",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Boolean",
+                    "ofType": null
                   }
                 }
               ]
@@ -5763,11 +6863,200 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authRefreshTokens_aggregate_order_by",
+          "inputFields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "max",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRefreshTokens_max_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRefreshTokens_min_order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRefreshTokens_arr_rel_insert_input",
+          "inputFields": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "authRefreshTokens_insert_input",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "on_conflict",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRefreshTokens_on_conflict",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRefreshTokens_bool_exp",
+          "inputFields": [
+            {
+              "name": "_and",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRefreshTokens_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_not",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRefreshTokens_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_or",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRefreshTokens_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "expiresAt",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "uuid_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "uuid_comparison_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "authRefreshTokens_constraint",
           "enumValues": [
             {
               "name": "refresh_tokens_pkey"
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRefreshTokens_insert_input",
+          "inputFields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "expiresAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_obj_rel_insert_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
             }
           ]
         },
@@ -5779,7 +7068,8 @@ export default {
               "name": "createdAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -5787,7 +7077,8 @@ export default {
               "name": "expiresAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -5795,7 +7086,8 @@ export default {
               "name": "refreshToken",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             },
@@ -5803,12 +7095,51 @@ export default {
               "name": "userId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRefreshTokens_max_order_by",
+          "inputFields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "expiresAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -5818,7 +7149,8 @@ export default {
               "name": "createdAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -5826,7 +7158,8 @@ export default {
               "name": "expiresAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -5834,7 +7167,8 @@ export default {
               "name": "refreshToken",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             },
@@ -5842,12 +7176,51 @@ export default {
               "name": "userId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRefreshTokens_min_order_by",
+          "inputFields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "expiresAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -5859,7 +7232,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": []
@@ -5886,6 +7260,112 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authRefreshTokens_on_conflict",
+          "inputFields": [
+            {
+              "name": "constraint",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "authRefreshTokens_constraint",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "update_columns",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "authRefreshTokens_update_column",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": "[]"
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRefreshTokens_bool_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRefreshTokens_order_by",
+          "inputFields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "expiresAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRefreshTokens_pk_columns_input",
+          "inputFields": [
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "uuid",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "authRefreshTokens_select_column",
           "enumValues": [
@@ -5900,6 +7380,107 @@ export default {
             },
             {
               "name": "userId"
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRefreshTokens_set_input",
+          "inputFields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "expiresAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRefreshTokens_stream_cursor_input",
+          "inputFields": [
+            {
+              "name": "initial_value",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authRefreshTokens_stream_cursor_value_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "ordering",
+              "type": {
+                "kind": "ENUM",
+                "name": "cursor_ordering",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRefreshTokens_stream_cursor_value_input",
+          "inputFields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "expiresAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
             }
           ]
         },
@@ -5922,6 +7503,31 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authRefreshTokens_updates",
+          "inputFields": [
+            {
+              "name": "_set",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRefreshTokens_set_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authRefreshTokens_bool_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authRoles",
           "fields": [
@@ -5931,7 +7537,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -5971,14 +7578,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -5988,8 +7597,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserRoles_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -5997,8 +7607,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserRoles_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -6032,14 +7643,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -6049,8 +7662,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserRoles_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -6058,8 +7672,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserRoles_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -6099,14 +7714,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -6116,8 +7733,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "users_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -6125,8 +7743,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -6160,14 +7779,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -6177,8 +7798,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "users_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -6186,8 +7808,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -6239,7 +7862,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": [
@@ -6261,7 +7885,8 @@ export default {
                   "name": "distinct",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Boolean",
+                    "ofType": null
                   }
                 }
               ]
@@ -6288,11 +7913,123 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authRoles_bool_exp",
+          "inputFields": [
+            {
+              "name": "_and",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRoles_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_not",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRoles_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_or",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRoles_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "role",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userRoles",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userRoles_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_aggregate_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "usersByDefaultRole",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "usersByDefaultRole_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_aggregate_bool_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "authRoles_constraint",
           "enumValues": [
             {
               "name": "roles_pkey"
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRoles_insert_input",
+          "inputFields": [
+            {
+              "name": "role",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userRoles",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_arr_rel_insert_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "usersByDefaultRole",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_arr_rel_insert_input",
+                "ofType": null
+              }
             }
           ]
         },
@@ -6304,7 +8041,8 @@ export default {
               "name": "role",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             }
@@ -6319,7 +8057,8 @@ export default {
               "name": "role",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             }
@@ -6336,7 +8075,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": []
@@ -6363,11 +8103,179 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authRoles_obj_rel_insert_input",
+          "inputFields": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authRoles_insert_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "on_conflict",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRoles_on_conflict",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRoles_on_conflict",
+          "inputFields": [
+            {
+              "name": "constraint",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "authRoles_constraint",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "update_columns",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "authRoles_update_column",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": "[]"
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRoles_bool_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRoles_order_by",
+          "inputFields": [
+            {
+              "name": "role",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userRoles_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_aggregate_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "usersByDefaultRole_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_aggregate_order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRoles_pk_columns_input",
+          "inputFields": [
+            {
+              "name": "role",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "authRoles_select_column",
           "enumValues": [
             {
               "name": "role"
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRoles_set_input",
+          "inputFields": [
+            {
+              "name": "role",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRoles_stream_cursor_input",
+          "inputFields": [
+            {
+              "name": "initial_value",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authRoles_stream_cursor_value_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "ordering",
+              "type": {
+                "kind": "ENUM",
+                "name": "cursor_ordering",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authRoles_stream_cursor_value_input",
+          "inputFields": [
+            {
+              "name": "role",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
             }
           ]
         },
@@ -6381,6 +8289,31 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authRoles_updates",
+          "inputFields": [
+            {
+              "name": "_set",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRoles_set_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authRoles_bool_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authUserProviders",
           "fields": [
@@ -6390,7 +8323,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -6401,7 +8335,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "timestamptz",
+                  "ofType": null
                 }
               },
               "args": []
@@ -6412,7 +8347,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "uuid",
+                  "ofType": null
                 }
               },
               "args": []
@@ -6435,7 +8371,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -6446,7 +8383,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -6455,7 +8393,8 @@ export default {
               "name": "refreshToken",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -6465,7 +8404,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "timestamptz",
+                  "ofType": null
                 }
               },
               "args": []
@@ -6488,7 +8428,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "uuid",
+                  "ofType": null
                 }
               },
               "args": []
@@ -6531,6 +8472,67 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserProviders_aggregate_bool_exp",
+          "inputFields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_aggregate_bool_exp_count",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserProviders_aggregate_bool_exp_count",
+          "inputFields": [
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "authUserProviders_select_column",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "distinct",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "filter",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "predicate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "Int_comparison_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authUserProviders_aggregate_fields",
           "fields": [
@@ -6540,7 +8542,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": [
@@ -6562,7 +8565,8 @@ export default {
                   "name": "distinct",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Boolean",
+                    "ofType": null
                   }
                 }
               ]
@@ -6589,6 +8593,189 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserProviders_aggregate_order_by",
+          "inputFields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "max",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_max_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_min_order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserProviders_arr_rel_insert_input",
+          "inputFields": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "authUserProviders_insert_input",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "on_conflict",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_on_conflict",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserProviders_bool_exp",
+          "inputFields": [
+            {
+              "name": "_and",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserProviders_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_not",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_or",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserProviders_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "accessToken",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "uuid_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "provider",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authProviders_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "providerId",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "providerUserId",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "uuid_comparison_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "authUserProviders_constraint",
           "enumValues": [
@@ -6604,6 +8791,92 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserProviders_insert_input",
+          "inputFields": [
+            {
+              "name": "accessToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "provider",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authProviders_obj_rel_insert_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "providerId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "providerUserId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_obj_rel_insert_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authUserProviders_max_fields",
           "fields": [
@@ -6611,7 +8884,8 @@ export default {
               "name": "accessToken",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -6619,7 +8893,8 @@ export default {
               "name": "createdAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -6627,7 +8902,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             },
@@ -6635,7 +8911,8 @@ export default {
               "name": "providerId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -6643,7 +8920,8 @@ export default {
               "name": "providerUserId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -6651,7 +8929,8 @@ export default {
               "name": "refreshToken",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -6659,7 +8938,8 @@ export default {
               "name": "updatedAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -6667,12 +8947,83 @@ export default {
               "name": "userId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserProviders_max_order_by",
+          "inputFields": [
+            {
+              "name": "accessToken",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "providerId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "providerUserId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -6682,7 +9033,8 @@ export default {
               "name": "accessToken",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -6690,7 +9042,8 @@ export default {
               "name": "createdAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -6698,7 +9051,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             },
@@ -6706,7 +9060,8 @@ export default {
               "name": "providerId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -6714,7 +9069,8 @@ export default {
               "name": "providerUserId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -6722,7 +9078,8 @@ export default {
               "name": "refreshToken",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -6730,7 +9087,8 @@ export default {
               "name": "updatedAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -6738,12 +9096,83 @@ export default {
               "name": "userId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserProviders_min_order_by",
+          "inputFields": [
+            {
+              "name": "accessToken",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "providerId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "providerUserId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -6755,7 +9184,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": []
@@ -6780,6 +9210,152 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserProviders_on_conflict",
+          "inputFields": [
+            {
+              "name": "constraint",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "authUserProviders_constraint",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "update_columns",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "authUserProviders_update_column",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": "[]"
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_bool_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserProviders_order_by",
+          "inputFields": [
+            {
+              "name": "accessToken",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "provider",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authProviders_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "providerId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "providerUserId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserProviders_pk_columns_input",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "uuid",
+                  "ofType": null
+                }
+              }
+            }
+          ]
         },
         {
           "kind": "ENUM",
@@ -6808,6 +9384,171 @@ export default {
             },
             {
               "name": "userId"
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserProviders_set_input",
+          "inputFields": [
+            {
+              "name": "accessToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "providerId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "providerUserId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserProviders_stream_cursor_input",
+          "inputFields": [
+            {
+              "name": "initial_value",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authUserProviders_stream_cursor_value_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "ordering",
+              "type": {
+                "kind": "ENUM",
+                "name": "cursor_ordering",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserProviders_stream_cursor_value_input",
+          "inputFields": [
+            {
+              "name": "accessToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "providerId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "providerUserId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshToken",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
             }
           ]
         },
@@ -6842,6 +9583,31 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserProviders_updates",
+          "inputFields": [
+            {
+              "name": "_set",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_set_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authUserProviders_bool_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authUserRoles",
           "fields": [
@@ -6851,7 +9617,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "timestamptz",
+                  "ofType": null
                 }
               },
               "args": []
@@ -6862,7 +9629,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "uuid",
+                  "ofType": null
                 }
               },
               "args": []
@@ -6873,7 +9641,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -6908,7 +9677,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "uuid",
+                  "ofType": null
                 }
               },
               "args": []
@@ -6951,6 +9721,67 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserRoles_aggregate_bool_exp",
+          "inputFields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_aggregate_bool_exp_count",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserRoles_aggregate_bool_exp_count",
+          "inputFields": [
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "authUserRoles_select_column",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "distinct",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "filter",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "predicate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "Int_comparison_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authUserRoles_aggregate_fields",
           "fields": [
@@ -6960,7 +9791,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": [
@@ -6982,7 +9814,8 @@ export default {
                   "name": "distinct",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Boolean",
+                    "ofType": null
                   }
                 }
               ]
@@ -7009,6 +9842,157 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserRoles_aggregate_order_by",
+          "inputFields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "max",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_max_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_min_order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserRoles_arr_rel_insert_input",
+          "inputFields": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "authUserRoles_insert_input",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "on_conflict",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_on_conflict",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserRoles_bool_exp",
+          "inputFields": [
+            {
+              "name": "_and",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserRoles_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_not",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_or",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserRoles_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "uuid_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "role",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "roleByRole",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRoles_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "uuid_comparison_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "authUserRoles_constraint",
           "enumValues": [
@@ -7021,6 +10005,60 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserRoles_insert_input",
+          "inputFields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "role",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "roleByRole",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRoles_obj_rel_insert_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_obj_rel_insert_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authUserRoles_max_fields",
           "fields": [
@@ -7028,7 +10066,8 @@ export default {
               "name": "createdAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -7036,7 +10075,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             },
@@ -7044,7 +10084,8 @@ export default {
               "name": "role",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -7052,12 +10093,51 @@ export default {
               "name": "userId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserRoles_max_order_by",
+          "inputFields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "role",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -7067,7 +10147,8 @@ export default {
               "name": "createdAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -7075,7 +10156,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             },
@@ -7083,7 +10165,8 @@ export default {
               "name": "role",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -7091,12 +10174,51 @@ export default {
               "name": "userId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserRoles_min_order_by",
+          "inputFields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "role",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -7108,7 +10230,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": []
@@ -7135,6 +10258,120 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserRoles_on_conflict",
+          "inputFields": [
+            {
+              "name": "constraint",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "authUserRoles_constraint",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "update_columns",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "authUserRoles_update_column",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": "[]"
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_bool_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserRoles_order_by",
+          "inputFields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "role",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "roleByRole",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRoles_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserRoles_pk_columns_input",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "uuid",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "authUserRoles_select_column",
           "enumValues": [
@@ -7149,6 +10386,107 @@ export default {
             },
             {
               "name": "userId"
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserRoles_set_input",
+          "inputFields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "role",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserRoles_stream_cursor_input",
+          "inputFields": [
+            {
+              "name": "initial_value",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authUserRoles_stream_cursor_value_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "ordering",
+              "type": {
+                "kind": "ENUM",
+                "name": "cursor_ordering",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserRoles_stream_cursor_value_input",
+          "inputFields": [
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "role",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
             }
           ]
         },
@@ -7171,6 +10509,31 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserRoles_updates",
+          "inputFields": [
+            {
+              "name": "_set",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_set_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authUserRoles_bool_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authUserSecurityKeys",
           "fields": [
@@ -7180,7 +10543,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "bigint",
+                  "ofType": null
                 }
               },
               "args": []
@@ -7191,7 +10555,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -7200,7 +10565,8 @@ export default {
               "name": "credentialPublicKey",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "bytea",
+                "ofType": null
               },
               "args": []
             },
@@ -7210,7 +10576,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "uuid",
+                  "ofType": null
                 }
               },
               "args": []
@@ -7219,7 +10586,8 @@ export default {
               "name": "nickname",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -7229,7 +10597,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -7252,7 +10621,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "uuid",
+                  "ofType": null
                 }
               },
               "args": []
@@ -7295,6 +10665,67 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_aggregate_bool_exp",
+          "inputFields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_aggregate_bool_exp_count",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_aggregate_bool_exp_count",
+          "inputFields": [
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "authUserSecurityKeys_select_column",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "distinct",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "filter",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "predicate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "Int_comparison_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authUserSecurityKeys_aggregate_fields",
           "fields": [
@@ -7313,7 +10744,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": [
@@ -7335,7 +10767,8 @@ export default {
                   "name": "distinct",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Boolean",
+                    "ofType": null
                   }
                 }
               ]
@@ -7425,6 +10858,131 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_aggregate_order_by",
+          "inputFields": [
+            {
+              "name": "avg",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_avg_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "max",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_max_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_min_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "stddev",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_stddev_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "stddev_pop",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_stddev_pop_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "stddev_samp",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_stddev_samp_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sum",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_sum_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "var_pop",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_var_pop_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "var_samp",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_var_samp_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "variance",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_variance_order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_arr_rel_insert_input",
+          "inputFields": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "authUserSecurityKeys_insert_input",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "on_conflict",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_on_conflict",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authUserSecurityKeys_avg_fields",
           "fields": [
@@ -7432,12 +10990,133 @@ export default {
               "name": "counter",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_avg_order_by",
+          "inputFields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_bool_exp",
+          "inputFields": [
+            {
+              "name": "_and",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserSecurityKeys_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_not",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_or",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserSecurityKeys_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "counter",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "bigint_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "credentialId",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "credentialPublicKey",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "bytea_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "uuid_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "nickname",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "transports",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "uuid_comparison_exp",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "ENUM",
@@ -7452,6 +11131,90 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_inc_input",
+          "inputFields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bigint",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_insert_input",
+          "inputFields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bigint",
+                "ofType": null
+              }
+            },
+            {
+              "name": "credentialId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "credentialPublicKey",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bytea",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "nickname",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "transports",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_obj_rel_insert_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authUserSecurityKeys_max_fields",
           "fields": [
@@ -7459,7 +11222,8 @@ export default {
               "name": "counter",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "bigint",
+                "ofType": null
               },
               "args": []
             },
@@ -7467,7 +11231,8 @@ export default {
               "name": "credentialId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -7475,7 +11240,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             },
@@ -7483,7 +11249,8 @@ export default {
               "name": "nickname",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -7491,7 +11258,8 @@ export default {
               "name": "transports",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -7499,12 +11267,67 @@ export default {
               "name": "userId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_max_order_by",
+          "inputFields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "credentialId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "nickname",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "transports",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -7514,7 +11337,8 @@ export default {
               "name": "counter",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "bigint",
+                "ofType": null
               },
               "args": []
             },
@@ -7522,7 +11346,8 @@ export default {
               "name": "credentialId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -7530,7 +11355,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             },
@@ -7538,7 +11364,8 @@ export default {
               "name": "nickname",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -7546,7 +11373,8 @@ export default {
               "name": "transports",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -7554,12 +11382,67 @@ export default {
               "name": "userId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_min_order_by",
+          "inputFields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "credentialId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "nickname",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "transports",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -7571,7 +11454,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": []
@@ -7596,6 +11480,136 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_on_conflict",
+          "inputFields": [
+            {
+              "name": "constraint",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "authUserSecurityKeys_constraint",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "update_columns",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "authUserSecurityKeys_update_column",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": "[]"
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_bool_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_order_by",
+          "inputFields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "credentialId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "credentialPublicKey",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "nickname",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "transports",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_pk_columns_input",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "uuid",
+                  "ofType": null
+                }
+              }
+            }
+          ]
         },
         {
           "kind": "ENUM",
@@ -7625,6 +11639,68 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_set_input",
+          "inputFields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bigint",
+                "ofType": null
+              }
+            },
+            {
+              "name": "credentialId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "credentialPublicKey",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bytea",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "nickname",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "transports",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authUserSecurityKeys_stddev_fields",
           "fields": [
@@ -7632,12 +11708,27 @@ export default {
               "name": "counter",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_stddev_order_by",
+          "inputFields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -7647,12 +11738,27 @@ export default {
               "name": "counter",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_stddev_pop_order_by",
+          "inputFields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -7662,12 +11768,114 @@ export default {
               "name": "counter",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_stddev_samp_order_by",
+          "inputFields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_stream_cursor_input",
+          "inputFields": [
+            {
+              "name": "initial_value",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authUserSecurityKeys_stream_cursor_value_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "ordering",
+              "type": {
+                "kind": "ENUM",
+                "name": "cursor_ordering",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_stream_cursor_value_input",
+          "inputFields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bigint",
+                "ofType": null
+              }
+            },
+            {
+              "name": "credentialId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "credentialPublicKey",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bytea",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "nickname",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "transports",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -7677,12 +11885,27 @@ export default {
               "name": "counter",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "bigint",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_sum_order_by",
+          "inputFields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "ENUM",
@@ -7712,6 +11935,39 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_updates",
+          "inputFields": [
+            {
+              "name": "_inc",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_inc_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_set",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_set_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "authUserSecurityKeys_bool_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "authUserSecurityKeys_var_pop_fields",
           "fields": [
@@ -7719,12 +11975,27 @@ export default {
               "name": "counter",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_var_pop_order_by",
+          "inputFields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -7734,12 +12005,27 @@ export default {
               "name": "counter",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_var_samp_order_by",
+          "inputFields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -7749,12 +12035,121 @@ export default {
               "name": "counter",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "authUserSecurityKeys_variance_order_by",
+          "inputFields": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "SCALAR",
+          "name": "bigint"
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "bigint_comparison_exp",
+          "inputFields": [
+            {
+              "name": "_eq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bigint",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bigint",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bigint",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_in",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "bigint",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_is_null",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bigint",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bigint",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_neq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bigint",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nin",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "bigint",
+                    "ofType": null
+                  }
+                }
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -7764,7 +12159,8 @@ export default {
               "name": "cacheControl",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -7774,7 +12170,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "timestamptz",
+                  "ofType": null
                 }
               },
               "args": []
@@ -7785,7 +12182,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": []
@@ -7825,14 +12223,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -7842,8 +12242,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "files_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -7851,8 +12252,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "files_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -7886,14 +12288,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -7903,8 +12307,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "files_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -7912,8 +12317,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "files_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -7924,7 +12330,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -7935,7 +12342,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": []
@@ -7946,7 +12354,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": []
@@ -7957,7 +12366,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Boolean",
+                  "ofType": null
                 }
               },
               "args": []
@@ -7968,7 +12378,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "timestamptz",
+                  "ofType": null
                 }
               },
               "args": []
@@ -8029,7 +12440,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": [
@@ -8051,7 +12463,8 @@ export default {
                   "name": "distinct",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Boolean",
+                    "ofType": null
                   }
                 }
               ]
@@ -8148,7 +12561,8 @@ export default {
               "name": "downloadExpiration",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -8156,7 +12570,8 @@ export default {
               "name": "maxUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -8164,12 +12579,135 @@ export default {
               "name": "minUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "buckets_bool_exp",
+          "inputFields": [
+            {
+              "name": "_and",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "buckets_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_not",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "buckets_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_or",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "buckets_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "cacheControl",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "Int_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "files",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "files_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_aggregate_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "Int_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "Int_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "presignedUrlsEnabled",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "Boolean_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "ENUM",
@@ -8181,6 +12719,114 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "buckets_inc_input",
+          "inputFields": [
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "buckets_insert_input",
+          "inputFields": [
+            {
+              "name": "cacheControl",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "files",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_arr_rel_insert_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "presignedUrlsEnabled",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "buckets_max_fields",
           "fields": [
@@ -8188,7 +12834,8 @@ export default {
               "name": "cacheControl",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -8196,7 +12843,8 @@ export default {
               "name": "createdAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -8204,7 +12852,8 @@ export default {
               "name": "downloadExpiration",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -8212,7 +12861,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -8220,7 +12870,8 @@ export default {
               "name": "maxUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -8228,7 +12879,8 @@ export default {
               "name": "minUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -8236,7 +12888,8 @@ export default {
               "name": "updatedAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             }
@@ -8251,7 +12904,8 @@ export default {
               "name": "cacheControl",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -8259,7 +12913,8 @@ export default {
               "name": "createdAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -8267,7 +12922,8 @@ export default {
               "name": "downloadExpiration",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -8275,7 +12931,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -8283,7 +12940,8 @@ export default {
               "name": "maxUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -8291,7 +12949,8 @@ export default {
               "name": "minUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -8299,7 +12958,8 @@ export default {
               "name": "updatedAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             }
@@ -8316,7 +12976,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": []
@@ -8341,6 +13002,169 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "buckets_obj_rel_insert_input",
+          "inputFields": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "buckets_insert_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "on_conflict",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "buckets_on_conflict",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "buckets_on_conflict",
+          "inputFields": [
+            {
+              "name": "constraint",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "buckets_constraint",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "update_columns",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "buckets_update_column",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": "[]"
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "buckets_bool_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "buckets_order_by",
+          "inputFields": [
+            {
+              "name": "cacheControl",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "files_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_aggregate_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "presignedUrlsEnabled",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "buckets_pk_columns_input",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            }
+          ]
         },
         {
           "kind": "ENUM",
@@ -8373,6 +13197,76 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "buckets_set_input",
+          "inputFields": [
+            {
+              "name": "cacheControl",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "presignedUrlsEnabled",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "buckets_stddev_fields",
           "fields": [
@@ -8380,7 +13274,8 @@ export default {
               "name": "downloadExpiration",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -8388,7 +13283,8 @@ export default {
               "name": "maxUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -8396,7 +13292,8 @@ export default {
               "name": "minUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
@@ -8411,7 +13308,8 @@ export default {
               "name": "downloadExpiration",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -8419,7 +13317,8 @@ export default {
               "name": "maxUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -8427,7 +13326,8 @@ export default {
               "name": "minUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
@@ -8442,7 +13342,8 @@ export default {
               "name": "downloadExpiration",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -8450,7 +13351,8 @@ export default {
               "name": "maxUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -8458,12 +13360,108 @@ export default {
               "name": "minUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "buckets_stream_cursor_input",
+          "inputFields": [
+            {
+              "name": "initial_value",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "buckets_stream_cursor_value_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "ordering",
+              "type": {
+                "kind": "ENUM",
+                "name": "cursor_ordering",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "buckets_stream_cursor_value_input",
+          "inputFields": [
+            {
+              "name": "cacheControl",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "downloadExpiration",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "maxUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "minUploadFileSize",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "presignedUrlsEnabled",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -8473,7 +13471,8 @@ export default {
               "name": "downloadExpiration",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -8481,7 +13480,8 @@ export default {
               "name": "maxUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -8489,7 +13489,8 @@ export default {
               "name": "minUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -8527,6 +13528,39 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "buckets_updates",
+          "inputFields": [
+            {
+              "name": "_inc",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "buckets_inc_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_set",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "buckets_set_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "buckets_bool_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "buckets_var_pop_fields",
           "fields": [
@@ -8534,7 +13568,8 @@ export default {
               "name": "downloadExpiration",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -8542,7 +13577,8 @@ export default {
               "name": "maxUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -8550,7 +13586,8 @@ export default {
               "name": "minUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
@@ -8565,7 +13602,8 @@ export default {
               "name": "downloadExpiration",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -8573,7 +13611,8 @@ export default {
               "name": "maxUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -8581,7 +13620,8 @@ export default {
               "name": "minUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
@@ -8596,7 +13636,8 @@ export default {
               "name": "downloadExpiration",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -8604,7 +13645,8 @@ export default {
               "name": "maxUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -8612,12 +13654,107 @@ export default {
               "name": "minUploadFileSize",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "SCALAR",
+          "name": "bytea"
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "bytea_comparison_exp",
+          "inputFields": [
+            {
+              "name": "_eq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bytea",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bytea",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bytea",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_in",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "bytea",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_is_null",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bytea",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bytea",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_neq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "bytea",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nin",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "bytea",
+                    "ofType": null
+                  }
+                }
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -8627,7 +13764,8 @@ export default {
               "name": "comment",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -8637,7 +13775,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -8689,7 +13828,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": [
@@ -8711,7 +13851,8 @@ export default {
                   "name": "distinct",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Boolean",
+                    "ofType": null
                   }
                 }
               ]
@@ -8738,6 +13879,64 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "categories_bool_exp",
+          "inputFields": [
+            {
+              "name": "_and",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "categories_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_not",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "categories_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_or",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "categories_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "comment",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "categories_constraint",
           "enumValues": [
@@ -8759,6 +13958,86 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "categories_enum_comparison_exp",
+          "inputFields": [
+            {
+              "name": "_eq",
+              "type": {
+                "kind": "ENUM",
+                "name": "categories_enum",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_in",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "categories_enum",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_is_null",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_neq",
+              "type": {
+                "kind": "ENUM",
+                "name": "categories_enum",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nin",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "categories_enum",
+                    "ofType": null
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "categories_insert_input",
+          "inputFields": [
+            {
+              "name": "comment",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "categories_max_fields",
           "fields": [
@@ -8766,7 +14045,8 @@ export default {
               "name": "comment",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -8774,7 +14054,8 @@ export default {
               "name": "value",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             }
@@ -8789,7 +14070,8 @@ export default {
               "name": "comment",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -8797,7 +14079,8 @@ export default {
               "name": "value",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             }
@@ -8814,7 +14097,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": []
@@ -8841,6 +14125,88 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "categories_on_conflict",
+          "inputFields": [
+            {
+              "name": "constraint",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "categories_constraint",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "update_columns",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "categories_update_column",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": "[]"
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "categories_bool_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "categories_order_by",
+          "inputFields": [
+            {
+              "name": "comment",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "categories_pk_columns_input",
+          "inputFields": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "categories_select_column",
           "enumValues": [
@@ -8853,6 +14219,75 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "categories_set_input",
+          "inputFields": [
+            {
+              "name": "comment",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "categories_stream_cursor_input",
+          "inputFields": [
+            {
+              "name": "initial_value",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "categories_stream_cursor_value_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "ordering",
+              "type": {
+                "kind": "ENUM",
+                "name": "cursor_ordering",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "categories_stream_cursor_value_input",
+          "inputFields": [
+            {
+              "name": "comment",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "categories_update_column",
           "enumValues": [
@@ -8861,6 +14296,205 @@ export default {
             },
             {
               "name": "value"
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "categories_updates",
+          "inputFields": [
+            {
+              "name": "_set",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "categories_set_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "categories_bool_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "SCALAR",
+          "name": "citext"
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "citext_comparison_exp",
+          "inputFields": [
+            {
+              "name": "_eq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_ilike",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_in",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "citext",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_iregex",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_is_null",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_like",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_neq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nilike",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nin",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "citext",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_niregex",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nlike",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nregex",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nsimilar",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_regex",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_similar",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
             }
           ]
         },
@@ -8898,7 +14532,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -8909,7 +14544,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "timestamptz",
+                  "ofType": null
                 }
               },
               "args": []
@@ -8918,7 +14554,8 @@ export default {
               "name": "etag",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -8928,7 +14565,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "uuid",
+                  "ofType": null
                 }
               },
               "args": []
@@ -8937,7 +14575,8 @@ export default {
               "name": "isUploaded",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Boolean",
+                "ofType": null
               },
               "args": []
             },
@@ -8945,7 +14584,8 @@ export default {
               "name": "mimeType",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -8953,7 +14593,8 @@ export default {
               "name": "name",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -8961,7 +14602,8 @@ export default {
               "name": "size",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -8971,7 +14613,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "timestamptz",
+                  "ofType": null
                 }
               },
               "args": []
@@ -8980,7 +14623,8 @@ export default {
               "name": "uploadedByUserId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             }
@@ -9022,6 +14666,171 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "files_aggregate_bool_exp",
+          "inputFields": [
+            {
+              "name": "bool_and",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_aggregate_bool_exp_bool_and",
+                "ofType": null
+              }
+            },
+            {
+              "name": "bool_or",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_aggregate_bool_exp_bool_or",
+                "ofType": null
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_aggregate_bool_exp_count",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_aggregate_bool_exp_bool_and",
+          "inputFields": [
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "files_select_column_files_aggregate_bool_exp_bool_and_arguments_columns",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "distinct",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "filter",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "predicate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "Boolean_comparison_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_aggregate_bool_exp_bool_or",
+          "inputFields": [
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "files_select_column_files_aggregate_bool_exp_bool_or_arguments_columns",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "distinct",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "filter",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "predicate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "Boolean_comparison_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_aggregate_bool_exp_count",
+          "inputFields": [
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "files_select_column",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "distinct",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "filter",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "predicate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "Int_comparison_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "files_aggregate_fields",
           "fields": [
@@ -9040,7 +14849,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": [
@@ -9062,7 +14872,8 @@ export default {
                   "name": "distinct",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Boolean",
+                    "ofType": null
                   }
                 }
               ]
@@ -9152,6 +14963,131 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "files_aggregate_order_by",
+          "inputFields": [
+            {
+              "name": "avg",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_avg_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "max",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_max_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_min_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "stddev",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_stddev_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "stddev_pop",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_stddev_pop_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "stddev_samp",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_stddev_samp_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "sum",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_sum_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "var_pop",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_var_pop_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "var_samp",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_var_samp_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "variance",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_variance_order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_arr_rel_insert_input",
+          "inputFields": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "files_insert_input",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "on_conflict",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_on_conflict",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "files_avg_fields",
           "fields": [
@@ -9159,12 +15095,157 @@ export default {
               "name": "size",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_avg_order_by",
+          "inputFields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_bool_exp",
+          "inputFields": [
+            {
+              "name": "_and",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "files_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_not",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_or",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "files_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "bucket",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "buckets_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "bucketId",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "etag",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "uuid_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "isUploaded",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "Boolean_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "mimeType",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "size",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "Int_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "uploadedByUserId",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "uuid_comparison_exp",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "ENUM",
@@ -9176,6 +15257,114 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "files_inc_input",
+          "inputFields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_insert_input",
+          "inputFields": [
+            {
+              "name": "bucket",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "buckets_obj_rel_insert_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "bucketId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "etag",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "isUploaded",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "mimeType",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "uploadedByUserId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "files_max_fields",
           "fields": [
@@ -9183,7 +15372,8 @@ export default {
               "name": "bucketId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -9191,7 +15381,8 @@ export default {
               "name": "createdAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -9199,7 +15390,8 @@ export default {
               "name": "etag",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -9207,7 +15399,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             },
@@ -9215,7 +15408,8 @@ export default {
               "name": "mimeType",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -9223,7 +15417,8 @@ export default {
               "name": "name",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -9231,7 +15426,8 @@ export default {
               "name": "size",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -9239,7 +15435,8 @@ export default {
               "name": "updatedAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -9247,12 +15444,91 @@ export default {
               "name": "uploadedByUserId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_max_order_by",
+          "inputFields": [
+            {
+              "name": "bucketId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "etag",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "mimeType",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "size",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "uploadedByUserId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -9262,7 +15538,8 @@ export default {
               "name": "bucketId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -9270,7 +15547,8 @@ export default {
               "name": "createdAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -9278,7 +15556,8 @@ export default {
               "name": "etag",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -9286,7 +15565,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             },
@@ -9294,7 +15574,8 @@ export default {
               "name": "mimeType",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -9302,7 +15583,8 @@ export default {
               "name": "name",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -9310,7 +15592,8 @@ export default {
               "name": "size",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -9318,7 +15601,8 @@ export default {
               "name": "updatedAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -9326,12 +15610,91 @@ export default {
               "name": "uploadedByUserId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_min_order_by",
+          "inputFields": [
+            {
+              "name": "bucketId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "etag",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "mimeType",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "size",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "uploadedByUserId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -9343,7 +15706,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": []
@@ -9368,6 +15732,160 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_on_conflict",
+          "inputFields": [
+            {
+              "name": "constraint",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "files_constraint",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "update_columns",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "files_update_column",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": "[]"
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_bool_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_order_by",
+          "inputFields": [
+            {
+              "name": "bucket",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "buckets_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "bucketId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "etag",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "isUploaded",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "mimeType",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "size",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "uploadedByUserId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_pk_columns_input",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "uuid",
+                  "ofType": null
+                }
+              }
+            }
+          ]
         },
         {
           "kind": "ENUM",
@@ -9424,6 +15942,92 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "files_set_input",
+          "inputFields": [
+            {
+              "name": "bucketId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "etag",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "isUploaded",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "mimeType",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "uploadedByUserId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "files_stddev_fields",
           "fields": [
@@ -9431,12 +16035,27 @@ export default {
               "name": "size",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_stddev_order_by",
+          "inputFields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -9446,12 +16065,27 @@ export default {
               "name": "size",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_stddev_pop_order_by",
+          "inputFields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -9461,12 +16095,138 @@ export default {
               "name": "size",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_stddev_samp_order_by",
+          "inputFields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_stream_cursor_input",
+          "inputFields": [
+            {
+              "name": "initial_value",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "files_stream_cursor_value_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "ordering",
+              "type": {
+                "kind": "ENUM",
+                "name": "cursor_ordering",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_stream_cursor_value_input",
+          "inputFields": [
+            {
+              "name": "bucketId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "etag",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "isUploaded",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "mimeType",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "size",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "uploadedByUserId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -9476,12 +16236,27 @@ export default {
               "name": "size",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_sum_order_by",
+          "inputFields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "ENUM",
@@ -9520,6 +16295,39 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "files_updates",
+          "inputFields": [
+            {
+              "name": "_inc",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_inc_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_set",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "files_set_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "files_bool_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "files_var_pop_fields",
           "fields": [
@@ -9527,12 +16335,27 @@ export default {
               "name": "size",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_var_pop_order_by",
+          "inputFields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -9542,12 +16365,27 @@ export default {
               "name": "size",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_var_samp_order_by",
+          "inputFields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -9557,12 +16395,195 @@ export default {
               "name": "size",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "files_variance_order_by",
+          "inputFields": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "SCALAR",
+          "name": "jsonb"
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "jsonb_cast_exp",
+          "inputFields": [
+            {
+              "name": "String",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "jsonb_comparison_exp",
+          "inputFields": [
+            {
+              "name": "_cast",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "jsonb_cast_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_contained_in",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_contains",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_eq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_has_key",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_has_keys_all",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_has_keys_any",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_in",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "jsonb",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_is_null",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_neq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nin",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "jsonb",
+                    "ofType": null
+                  }
+                }
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -9582,7 +16603,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "String",
+                      "ofType": null
                     }
                   }
                 }
@@ -9602,7 +16624,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -9621,8 +16644,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authProviderRequests_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -9641,8 +16665,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authProviders_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -9662,7 +16687,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -9681,8 +16707,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authRefreshTokens_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -9702,7 +16729,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "String",
+                      "ofType": null
                     }
                   }
                 }
@@ -9721,8 +16749,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authRoles_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -9742,7 +16771,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -9761,8 +16791,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authUserProviders_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -9782,7 +16813,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -9801,8 +16833,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authUserRoles_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -9822,7 +16855,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -9841,8 +16875,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authUserSecurityKeys_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -9862,7 +16897,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "String",
+                      "ofType": null
                     }
                   }
                 }
@@ -9881,8 +16917,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "buckets_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -9902,7 +16939,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -9921,8 +16959,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "files_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -9942,7 +16981,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -9961,8 +17001,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "todos_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -9982,7 +17023,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -10001,8 +17043,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "users_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -10021,8 +17064,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "categories_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -10042,7 +17086,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "String",
+                      "ofType": null
                     }
                   }
                 }
@@ -10061,16 +17106,18 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authProviders_insert_input",
+                      "ofType": null
                     }
                   }
                 },
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviders_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10088,16 +17135,18 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authProviderRequests_insert_input",
+                      "ofType": null
                     }
                   }
                 },
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10119,8 +17168,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "authProviderRequests_insert_input",
+                          "ofType": null
                         }
                       }
                     }
@@ -10129,8 +17179,9 @@ export default {
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10152,8 +17203,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "authProviders_insert_input",
+                          "ofType": null
                         }
                       }
                     }
@@ -10162,8 +17214,9 @@ export default {
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviders_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10181,16 +17234,18 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authRefreshTokens_insert_input",
+                      "ofType": null
                     }
                   }
                 },
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRefreshTokens_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10212,8 +17267,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "authRefreshTokens_insert_input",
+                          "ofType": null
                         }
                       }
                     }
@@ -10222,8 +17278,9 @@ export default {
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRefreshTokens_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10241,16 +17298,18 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authRoles_insert_input",
+                      "ofType": null
                     }
                   }
                 },
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRoles_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10272,8 +17331,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "authRoles_insert_input",
+                          "ofType": null
                         }
                       }
                     }
@@ -10282,8 +17342,9 @@ export default {
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRoles_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10301,16 +17362,18 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authUserProviders_insert_input",
+                      "ofType": null
                     }
                   }
                 },
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserProviders_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10332,8 +17395,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "authUserProviders_insert_input",
+                          "ofType": null
                         }
                       }
                     }
@@ -10342,8 +17406,9 @@ export default {
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserProviders_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10361,16 +17426,18 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authUserRoles_insert_input",
+                      "ofType": null
                     }
                   }
                 },
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserRoles_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10392,8 +17459,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "authUserRoles_insert_input",
+                          "ofType": null
                         }
                       }
                     }
@@ -10402,8 +17470,9 @@ export default {
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserRoles_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10421,16 +17490,18 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authUserSecurityKeys_insert_input",
+                      "ofType": null
                     }
                   }
                 },
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserSecurityKeys_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10452,8 +17523,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "authUserSecurityKeys_insert_input",
+                          "ofType": null
                         }
                       }
                     }
@@ -10462,8 +17534,9 @@ export default {
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserSecurityKeys_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10481,16 +17554,18 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "buckets_insert_input",
+                      "ofType": null
                     }
                   }
                 },
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "buckets_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10512,8 +17587,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "buckets_insert_input",
+                          "ofType": null
                         }
                       }
                     }
@@ -10522,8 +17598,9 @@ export default {
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "buckets_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10541,16 +17618,18 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "files_insert_input",
+                      "ofType": null
                     }
                   }
                 },
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "files_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10572,8 +17651,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "files_insert_input",
+                          "ofType": null
                         }
                       }
                     }
@@ -10582,8 +17662,9 @@ export default {
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "files_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10601,16 +17682,18 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "todos_insert_input",
+                      "ofType": null
                     }
                   }
                 },
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "todos_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10632,8 +17715,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "todos_insert_input",
+                          "ofType": null
                         }
                       }
                     }
@@ -10642,8 +17726,9 @@ export default {
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "todos_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10661,16 +17746,18 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "users_insert_input",
+                      "ofType": null
                     }
                   }
                 },
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10692,8 +17779,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "users_insert_input",
+                          "ofType": null
                         }
                       }
                     }
@@ -10702,8 +17790,9 @@ export default {
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10725,8 +17814,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "categories_insert_input",
+                          "ofType": null
                         }
                       }
                     }
@@ -10735,8 +17825,9 @@ export default {
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "categories_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10754,16 +17845,18 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "categories_insert_input",
+                      "ofType": null
                     }
                   }
                 },
                 {
                   "name": "on_conflict",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "categories_on_conflict",
+                    "ofType": null
                   }
                 }
               ]
@@ -10779,8 +17872,9 @@ export default {
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviders_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -10788,8 +17882,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authProviders_pk_columns_input",
+                      "ofType": null
                     }
                   }
                 }
@@ -10806,43 +17901,49 @@ export default {
                 {
                   "name": "_append",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_append_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_delete_at_path",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_delete_at_path_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_delete_elem",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_delete_elem_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_delete_key",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_delete_key_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_prepend",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_prepend_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -10850,8 +17951,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authProviderRequests_pk_columns_input",
+                      "ofType": null
                     }
                   }
                 }
@@ -10868,43 +17970,49 @@ export default {
                 {
                   "name": "_append",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_append_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_delete_at_path",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_delete_at_path_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_delete_elem",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_delete_elem_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_delete_key",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_delete_key_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_prepend",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_prepend_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -10912,8 +18020,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authProviderRequests_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -10930,8 +18039,9 @@ export default {
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviders_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -10939,8 +18049,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authProviders_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -10957,8 +18068,9 @@ export default {
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRefreshTokens_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -10966,8 +18078,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authRefreshTokens_pk_columns_input",
+                      "ofType": null
                     }
                   }
                 }
@@ -10984,8 +18097,9 @@ export default {
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRefreshTokens_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -10993,8 +18107,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authRefreshTokens_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -11011,8 +18126,9 @@ export default {
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRoles_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11020,8 +18136,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authRoles_pk_columns_input",
+                      "ofType": null
                     }
                   }
                 }
@@ -11038,8 +18155,9 @@ export default {
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRoles_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11047,8 +18165,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authRoles_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -11065,8 +18184,9 @@ export default {
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserProviders_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11074,8 +18194,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authUserProviders_pk_columns_input",
+                      "ofType": null
                     }
                   }
                 }
@@ -11092,8 +18213,9 @@ export default {
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserProviders_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11101,8 +18223,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authUserProviders_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -11119,8 +18242,9 @@ export default {
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserRoles_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11128,8 +18252,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authUserRoles_pk_columns_input",
+                      "ofType": null
                     }
                   }
                 }
@@ -11146,8 +18271,9 @@ export default {
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserRoles_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11155,8 +18281,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authUserRoles_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -11173,15 +18300,17 @@ export default {
                 {
                   "name": "_inc",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserSecurityKeys_inc_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserSecurityKeys_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11189,8 +18318,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authUserSecurityKeys_pk_columns_input",
+                      "ofType": null
                     }
                   }
                 }
@@ -11207,15 +18337,17 @@ export default {
                 {
                   "name": "_inc",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserSecurityKeys_inc_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserSecurityKeys_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11223,8 +18355,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "authUserSecurityKeys_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -11241,15 +18374,17 @@ export default {
                 {
                   "name": "_inc",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "buckets_inc_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "buckets_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11257,8 +18392,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "buckets_pk_columns_input",
+                      "ofType": null
                     }
                   }
                 }
@@ -11275,15 +18411,17 @@ export default {
                 {
                   "name": "_inc",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "buckets_inc_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "buckets_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11291,8 +18429,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "buckets_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -11309,15 +18448,17 @@ export default {
                 {
                   "name": "_inc",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "files_inc_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "files_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11325,8 +18466,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "files_pk_columns_input",
+                      "ofType": null
                     }
                   }
                 }
@@ -11343,15 +18485,17 @@ export default {
                 {
                   "name": "_inc",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "files_inc_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "files_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11359,8 +18503,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "files_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -11377,8 +18522,9 @@ export default {
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "todos_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11386,8 +18532,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "todos_pk_columns_input",
+                      "ofType": null
                     }
                   }
                 }
@@ -11404,8 +18551,9 @@ export default {
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "todos_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11413,8 +18561,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "todos_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -11431,43 +18580,49 @@ export default {
                 {
                   "name": "_append",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_append_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_delete_at_path",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_delete_at_path_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_delete_elem",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_delete_elem_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_delete_key",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_delete_key_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_prepend",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_prepend_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11475,8 +18630,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "users_pk_columns_input",
+                      "ofType": null
                     }
                   }
                 }
@@ -11493,43 +18649,49 @@ export default {
                 {
                   "name": "_append",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_append_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_delete_at_path",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_delete_at_path_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_delete_elem",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_delete_elem_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_delete_key",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_delete_key_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_prepend",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_prepend_input",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11537,8 +18699,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "users_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -11564,8 +18727,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "authProviderRequests_updates",
+                          "ofType": null
                         }
                       }
                     }
@@ -11593,8 +18757,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "authProviders_updates",
+                          "ofType": null
                         }
                       }
                     }
@@ -11622,8 +18787,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "authRefreshTokens_updates",
+                          "ofType": null
                         }
                       }
                     }
@@ -11651,8 +18817,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "authRoles_updates",
+                          "ofType": null
                         }
                       }
                     }
@@ -11680,8 +18847,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "authUserProviders_updates",
+                          "ofType": null
                         }
                       }
                     }
@@ -11709,8 +18877,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "authUserRoles_updates",
+                          "ofType": null
                         }
                       }
                     }
@@ -11738,8 +18907,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "authUserSecurityKeys_updates",
+                          "ofType": null
                         }
                       }
                     }
@@ -11767,8 +18937,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "buckets_updates",
+                          "ofType": null
                         }
                       }
                     }
@@ -11787,8 +18958,9 @@ export default {
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "categories_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11796,8 +18968,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "categories_bool_exp",
+                      "ofType": null
                     }
                   }
                 }
@@ -11814,8 +18987,9 @@ export default {
                 {
                   "name": "_set",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "categories_set_input",
+                    "ofType": null
                   }
                 },
                 {
@@ -11823,8 +18997,9 @@ export default {
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
-                      "kind": "SCALAR",
-                      "name": "Any"
+                      "kind": "INPUT_OBJECT",
+                      "name": "categories_pk_columns_input",
+                      "ofType": null
                     }
                   }
                 }
@@ -11850,8 +19025,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "categories_updates",
+                          "ofType": null
                         }
                       }
                     }
@@ -11879,8 +19055,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "files_updates",
+                          "ofType": null
                         }
                       }
                     }
@@ -11908,8 +19085,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "todos_updates",
+                          "ofType": null
                         }
                       }
                     }
@@ -11937,8 +19115,9 @@ export default {
                       "ofType": {
                         "kind": "NON_NULL",
                         "ofType": {
-                          "kind": "SCALAR",
-                          "name": "Any"
+                          "kind": "INPUT_OBJECT",
+                          "name": "users_updates",
+                          "ofType": null
                         }
                       }
                     }
@@ -11991,7 +19170,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "String",
+                      "ofType": null
                     }
                   }
                 }
@@ -12011,7 +19191,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -12052,14 +19233,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -12069,8 +19252,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authProviderRequests_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -12078,8 +19262,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -12113,14 +19298,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -12130,8 +19317,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authProviderRequests_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -12139,8 +19327,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -12180,14 +19369,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -12197,8 +19388,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authProviders_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -12206,8 +19398,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviders_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -12241,14 +19434,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -12258,8 +19453,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authProviders_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -12267,8 +19463,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviders_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -12287,7 +19484,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -12328,14 +19526,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -12345,8 +19545,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authRefreshTokens_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -12354,8 +19555,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRefreshTokens_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -12389,14 +19591,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -12406,8 +19610,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authRefreshTokens_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -12415,8 +19620,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRefreshTokens_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -12435,7 +19641,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "String",
+                      "ofType": null
                     }
                   }
                 }
@@ -12476,14 +19683,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -12493,8 +19702,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authRoles_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -12502,8 +19712,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRoles_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -12537,14 +19748,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -12554,8 +19767,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authRoles_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -12563,8 +19777,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRoles_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -12583,7 +19798,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -12624,14 +19840,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -12641,8 +19859,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserProviders_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -12650,8 +19869,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserProviders_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -12685,14 +19905,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -12702,8 +19924,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserProviders_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -12711,8 +19934,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserProviders_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -12731,7 +19955,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -12772,14 +19997,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -12789,8 +20016,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserRoles_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -12798,8 +20026,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserRoles_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -12833,14 +20062,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -12850,8 +20081,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserRoles_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -12859,8 +20091,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserRoles_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -12879,7 +20112,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -12920,14 +20154,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -12937,8 +20173,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserSecurityKeys_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -12946,8 +20183,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserSecurityKeys_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -12981,14 +20219,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -12998,8 +20238,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserSecurityKeys_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -13007,8 +20248,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserSecurityKeys_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -13027,7 +20269,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "String",
+                      "ofType": null
                     }
                   }
                 }
@@ -13068,14 +20311,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -13085,8 +20330,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "buckets_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -13094,8 +20340,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "buckets_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -13129,14 +20376,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -13146,8 +20395,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "buckets_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -13155,8 +20405,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "buckets_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -13196,14 +20447,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -13213,8 +20466,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "categories_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -13222,8 +20476,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "categories_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -13257,14 +20512,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -13274,8 +20531,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "categories_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -13283,8 +20541,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "categories_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -13303,7 +20562,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "String",
+                      "ofType": null
                     }
                   }
                 }
@@ -13323,7 +20583,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -13364,14 +20625,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -13381,8 +20644,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "files_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -13390,8 +20654,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "files_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -13425,14 +20690,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -13442,8 +20709,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "files_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -13451,8 +20719,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "files_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -13471,7 +20740,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -13512,14 +20782,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -13529,8 +20801,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "todos_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -13538,8 +20811,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "todos_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -13573,14 +20847,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -13590,8 +20866,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "todos_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -13599,8 +20876,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "todos_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -13619,7 +20897,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -13660,14 +20939,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -13677,8 +20958,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "users_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -13686,8 +20968,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -13721,14 +21004,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -13738,8 +21023,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "users_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -13747,8 +21033,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -13774,7 +21061,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "String",
+                      "ofType": null
                     }
                   }
                 }
@@ -13794,7 +21082,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -13835,14 +21124,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -13852,8 +21143,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authProviderRequests_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -13861,8 +21153,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -13896,14 +21189,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -13913,8 +21208,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authProviderRequests_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -13922,8 +21218,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -13951,7 +21248,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "Int",
+                      "ofType": null
                     }
                   }
                 },
@@ -13962,8 +21260,9 @@ export default {
                     "ofType": {
                       "kind": "LIST",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authProviderRequests_stream_cursor_input",
+                        "ofType": null
                       }
                     }
                   }
@@ -13971,8 +21270,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviderRequests_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14012,14 +21312,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -14029,8 +21331,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authProviders_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -14038,8 +21341,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviders_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14073,14 +21377,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -14090,8 +21396,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authProviders_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -14099,8 +21406,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviders_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14128,7 +21436,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "Int",
+                      "ofType": null
                     }
                   }
                 },
@@ -14139,8 +21448,9 @@ export default {
                     "ofType": {
                       "kind": "LIST",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authProviders_stream_cursor_input",
+                        "ofType": null
                       }
                     }
                   }
@@ -14148,8 +21458,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authProviders_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14168,7 +21479,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -14209,14 +21521,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -14226,8 +21540,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authRefreshTokens_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -14235,8 +21550,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRefreshTokens_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14270,14 +21586,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -14287,8 +21605,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authRefreshTokens_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -14296,8 +21615,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRefreshTokens_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14325,7 +21645,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "Int",
+                      "ofType": null
                     }
                   }
                 },
@@ -14336,8 +21657,9 @@ export default {
                     "ofType": {
                       "kind": "LIST",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authRefreshTokens_stream_cursor_input",
+                        "ofType": null
                       }
                     }
                   }
@@ -14345,8 +21667,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRefreshTokens_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14365,7 +21688,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "String",
+                      "ofType": null
                     }
                   }
                 }
@@ -14406,14 +21730,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -14423,8 +21749,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authRoles_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -14432,8 +21759,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRoles_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14467,14 +21795,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -14484,8 +21814,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authRoles_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -14493,8 +21824,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRoles_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14522,7 +21854,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "Int",
+                      "ofType": null
                     }
                   }
                 },
@@ -14533,8 +21866,9 @@ export default {
                     "ofType": {
                       "kind": "LIST",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authRoles_stream_cursor_input",
+                        "ofType": null
                       }
                     }
                   }
@@ -14542,8 +21876,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRoles_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14562,7 +21897,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -14603,14 +21939,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -14620,8 +21958,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserProviders_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -14629,8 +21968,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserProviders_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14664,14 +22004,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -14681,8 +22023,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserProviders_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -14690,8 +22033,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserProviders_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14719,7 +22063,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "Int",
+                      "ofType": null
                     }
                   }
                 },
@@ -14730,8 +22075,9 @@ export default {
                     "ofType": {
                       "kind": "LIST",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserProviders_stream_cursor_input",
+                        "ofType": null
                       }
                     }
                   }
@@ -14739,8 +22085,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserProviders_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14759,7 +22106,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -14800,14 +22148,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -14817,8 +22167,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserRoles_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -14826,8 +22177,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserRoles_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14861,14 +22213,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -14878,8 +22232,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserRoles_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -14887,8 +22242,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserRoles_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14916,7 +22272,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "Int",
+                      "ofType": null
                     }
                   }
                 },
@@ -14927,8 +22284,9 @@ export default {
                     "ofType": {
                       "kind": "LIST",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserRoles_stream_cursor_input",
+                        "ofType": null
                       }
                     }
                   }
@@ -14936,8 +22294,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserRoles_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -14956,7 +22315,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -14997,14 +22357,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -15014,8 +22376,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserSecurityKeys_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -15023,8 +22386,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserSecurityKeys_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -15058,14 +22422,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -15075,8 +22441,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserSecurityKeys_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -15084,8 +22451,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserSecurityKeys_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -15113,7 +22481,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "Int",
+                      "ofType": null
                     }
                   }
                 },
@@ -15124,8 +22493,9 @@ export default {
                     "ofType": {
                       "kind": "LIST",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserSecurityKeys_stream_cursor_input",
+                        "ofType": null
                       }
                     }
                   }
@@ -15133,8 +22503,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserSecurityKeys_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -15153,7 +22524,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "String",
+                      "ofType": null
                     }
                   }
                 }
@@ -15194,14 +22566,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -15211,8 +22585,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "buckets_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -15220,8 +22595,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "buckets_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -15255,14 +22631,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -15272,8 +22650,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "buckets_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -15281,8 +22660,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "buckets_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -15310,7 +22690,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "Int",
+                      "ofType": null
                     }
                   }
                 },
@@ -15321,8 +22702,9 @@ export default {
                     "ofType": {
                       "kind": "LIST",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "buckets_stream_cursor_input",
+                        "ofType": null
                       }
                     }
                   }
@@ -15330,8 +22712,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "buckets_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -15371,14 +22754,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -15388,8 +22773,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "categories_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -15397,8 +22783,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "categories_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -15432,14 +22819,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -15449,8 +22838,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "categories_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -15458,8 +22848,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "categories_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -15478,7 +22869,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "String",
+                      "ofType": null
                     }
                   }
                 }
@@ -15507,7 +22899,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "Int",
+                      "ofType": null
                     }
                   }
                 },
@@ -15518,8 +22911,9 @@ export default {
                     "ofType": {
                       "kind": "LIST",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "categories_stream_cursor_input",
+                        "ofType": null
                       }
                     }
                   }
@@ -15527,8 +22921,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "categories_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -15547,7 +22942,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -15588,14 +22984,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -15605,8 +23003,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "files_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -15614,8 +23013,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "files_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -15649,14 +23049,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -15666,8 +23068,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "files_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -15675,8 +23078,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "files_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -15704,7 +23108,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "Int",
+                      "ofType": null
                     }
                   }
                 },
@@ -15715,8 +23120,9 @@ export default {
                     "ofType": {
                       "kind": "LIST",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "files_stream_cursor_input",
+                        "ofType": null
                       }
                     }
                   }
@@ -15724,8 +23130,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "files_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -15744,7 +23151,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -15785,14 +23193,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -15802,8 +23212,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "todos_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -15811,8 +23222,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "todos_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -15846,14 +23258,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -15863,8 +23277,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "todos_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -15872,8 +23287,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "todos_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -15901,7 +23317,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "Int",
+                      "ofType": null
                     }
                   }
                 },
@@ -15912,8 +23329,9 @@ export default {
                     "ofType": {
                       "kind": "LIST",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "todos_stream_cursor_input",
+                        "ofType": null
                       }
                     }
                   }
@@ -15921,8 +23339,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "todos_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -15941,7 +23360,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "uuid",
+                      "ofType": null
                     }
                   }
                 }
@@ -15982,14 +23402,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -15999,8 +23421,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "users_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -16008,8 +23431,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -16043,14 +23467,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -16060,8 +23486,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "users_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -16069,8 +23496,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -16098,7 +23526,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "Int",
+                      "ofType": null
                     }
                   }
                 },
@@ -16109,8 +23538,9 @@ export default {
                     "ofType": {
                       "kind": "LIST",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "users_stream_cursor_input",
+                        "ofType": null
                       }
                     }
                   }
@@ -16118,14 +23548,109 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "SCALAR",
+          "name": "timestamptz"
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "timestamptz_comparison_exp",
+          "inputFields": [
+            {
+              "name": "_eq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_in",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "timestamptz",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_is_null",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_neq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nin",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "timestamptz",
+                    "ofType": null
+                  }
+                }
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -16146,7 +23671,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16157,7 +23683,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "timestamptz",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16168,7 +23695,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "uuid",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16179,7 +23707,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "timestamptz",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16202,7 +23731,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "uuid",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16254,7 +23784,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": [
@@ -16276,7 +23807,8 @@ export default {
                   "name": "distinct",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Boolean",
+                    "ofType": null
                   }
                 }
               ]
@@ -16303,11 +23835,171 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "todos_bool_exp",
+          "inputFields": [
+            {
+              "name": "_and",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "todos_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_not",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "todos_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_or",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "todos_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "category",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "categories_enum_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "contents",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "uuid_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "uuid_comparison_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "todos_constraint",
           "enumValues": [
             {
               "name": "todos_pkey"
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "todos_insert_input",
+          "inputFields": [
+            {
+              "name": "category",
+              "type": {
+                "kind": "ENUM",
+                "name": "categories_enum",
+                "ofType": null
+              }
+            },
+            {
+              "name": "contents",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_obj_rel_insert_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
             }
           ]
         },
@@ -16319,7 +24011,8 @@ export default {
               "name": "contents",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -16327,7 +24020,8 @@ export default {
               "name": "createdAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -16335,7 +24029,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             },
@@ -16343,7 +24038,8 @@ export default {
               "name": "updatedAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -16351,7 +24047,8 @@ export default {
               "name": "userId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             }
@@ -16366,7 +24063,8 @@ export default {
               "name": "contents",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -16374,7 +24072,8 @@ export default {
               "name": "createdAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -16382,7 +24081,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             },
@@ -16390,7 +24090,8 @@ export default {
               "name": "updatedAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -16398,7 +24099,8 @@ export default {
               "name": "userId",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             }
@@ -16415,7 +24117,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16442,6 +24145,128 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "todos_on_conflict",
+          "inputFields": [
+            {
+              "name": "constraint",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "todos_constraint",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "update_columns",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "todos_update_column",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": "[]"
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "todos_bool_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "todos_order_by",
+          "inputFields": [
+            {
+              "name": "category",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "contents",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "todos_pk_columns_input",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "uuid",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "todos_select_column",
           "enumValues": [
@@ -16462,6 +24287,139 @@ export default {
             },
             {
               "name": "userId"
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "todos_set_input",
+          "inputFields": [
+            {
+              "name": "category",
+              "type": {
+                "kind": "ENUM",
+                "name": "categories_enum",
+                "ofType": null
+              }
+            },
+            {
+              "name": "contents",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "todos_stream_cursor_input",
+          "inputFields": [
+            {
+              "name": "initial_value",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "todos_stream_cursor_value_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "ordering",
+              "type": {
+                "kind": "ENUM",
+                "name": "cursor_ordering",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "todos_stream_cursor_value_input",
+          "inputFields": [
+            {
+              "name": "category",
+              "type": {
+                "kind": "ENUM",
+                "name": "categories_enum",
+                "ofType": null
+              }
+            },
+            {
+              "name": "contents",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userId",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
             }
           ]
         },
@@ -16490,6 +24448,31 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "todos_updates",
+          "inputFields": [
+            {
+              "name": "_set",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "todos_set_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "todos_bool_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "users",
           "fields": [
@@ -16497,7 +24480,8 @@ export default {
               "name": "activeMfaType",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -16507,7 +24491,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16518,7 +24503,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "timestamptz",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16527,7 +24513,8 @@ export default {
               "name": "currentChallenge",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -16537,7 +24524,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16560,7 +24548,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Boolean",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16571,7 +24560,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16580,7 +24570,8 @@ export default {
               "name": "email",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "citext",
+                "ofType": null
               },
               "args": []
             },
@@ -16590,7 +24581,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Boolean",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16601,7 +24593,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "uuid",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16612,7 +24605,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Boolean",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16621,7 +24615,8 @@ export default {
               "name": "lastSeen",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -16631,7 +24626,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16640,14 +24636,16 @@ export default {
               "name": "metadata",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "jsonb",
+                "ofType": null
               },
               "args": [
                 {
                   "name": "path",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 }
               ]
@@ -16656,7 +24654,8 @@ export default {
               "name": "newEmail",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "citext",
+                "ofType": null
               },
               "args": []
             },
@@ -16664,7 +24663,8 @@ export default {
               "name": "otpHash",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -16674,7 +24674,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "timestamptz",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16683,7 +24684,8 @@ export default {
               "name": "otpMethodLastUsed",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -16691,7 +24693,8 @@ export default {
               "name": "passwordHash",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -16699,7 +24702,8 @@ export default {
               "name": "phoneNumber",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -16709,7 +24713,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Boolean",
+                  "ofType": null
                 }
               },
               "args": []
@@ -16749,14 +24754,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -16766,8 +24773,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authRefreshTokens_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -16775,8 +24783,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRefreshTokens_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -16810,14 +24819,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -16827,8 +24838,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authRefreshTokens_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -16836,8 +24848,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authRefreshTokens_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -16877,14 +24890,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -16894,8 +24909,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserRoles_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -16903,8 +24919,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserRoles_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -16938,14 +24955,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -16955,8 +24974,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserRoles_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -16964,8 +24984,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserRoles_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -17005,14 +25026,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -17022,8 +25045,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserSecurityKeys_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -17031,8 +25055,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserSecurityKeys_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -17066,14 +25091,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -17083,8 +25110,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserSecurityKeys_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -17092,8 +25120,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserSecurityKeys_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -17102,7 +25131,8 @@ export default {
               "name": "ticket",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17112,7 +25142,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "timestamptz",
+                  "ofType": null
                 }
               },
               "args": []
@@ -17121,7 +25152,8 @@ export default {
               "name": "totpSecret",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17131,7 +25163,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "timestamptz",
+                  "ofType": null
                 }
               },
               "args": []
@@ -17171,14 +25204,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -17188,8 +25223,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserProviders_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -17197,8 +25233,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserProviders_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -17232,14 +25269,16 @@ export default {
                   "name": "limit",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "offset",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
@@ -17249,8 +25288,9 @@ export default {
                     "ofType": {
                       "kind": "NON_NULL",
                       "ofType": {
-                        "kind": "SCALAR",
-                        "name": "Any"
+                        "kind": "INPUT_OBJECT",
+                        "name": "authUserProviders_order_by",
+                        "ofType": null
                       }
                     }
                   }
@@ -17258,8 +25298,9 @@ export default {
                 {
                   "name": "where",
                   "type": {
-                    "kind": "SCALAR",
-                    "name": "Any"
+                    "kind": "INPUT_OBJECT",
+                    "name": "authUserProviders_bool_exp",
+                    "ofType": null
                   }
                 }
               ]
@@ -17302,6 +25343,171 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "users_aggregate_bool_exp",
+          "inputFields": [
+            {
+              "name": "bool_and",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_aggregate_bool_exp_bool_and",
+                "ofType": null
+              }
+            },
+            {
+              "name": "bool_or",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_aggregate_bool_exp_bool_or",
+                "ofType": null
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_aggregate_bool_exp_count",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_aggregate_bool_exp_bool_and",
+          "inputFields": [
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "users_select_column_users_aggregate_bool_exp_bool_and_arguments_columns",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "distinct",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "filter",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "predicate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "Boolean_comparison_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_aggregate_bool_exp_bool_or",
+          "inputFields": [
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "users_select_column_users_aggregate_bool_exp_bool_or_arguments_columns",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "distinct",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "filter",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "predicate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "Boolean_comparison_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_aggregate_bool_exp_count",
+          "inputFields": [
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "ENUM",
+                    "name": "users_select_column",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "distinct",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "filter",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "predicate",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "Int_comparison_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "users_aggregate_fields",
           "fields": [
@@ -17311,7 +25517,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": [
@@ -17333,7 +25540,8 @@ export default {
                   "name": "distinct",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Boolean",
+                    "ofType": null
                   }
                 }
               ]
@@ -17360,6 +25568,395 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "users_aggregate_order_by",
+          "inputFields": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "max",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_max_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "min",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_min_order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_append_input",
+          "inputFields": [
+            {
+              "name": "metadata",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_arr_rel_insert_input",
+          "inputFields": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "INPUT_OBJECT",
+                      "name": "users_insert_input",
+                      "ofType": null
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "name": "on_conflict",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_on_conflict",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_bool_exp",
+          "inputFields": [
+            {
+              "name": "_and",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_not",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_or",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "INPUT_OBJECT",
+                    "name": "users_bool_exp",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "activeMfaType",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "avatarUrl",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "currentChallenge",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "defaultRole",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "defaultRoleByRole",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRoles_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "Boolean_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "email",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "citext_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "emailVerified",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "Boolean_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "uuid_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "isAnonymous",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "Boolean_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "lastSeen",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "locale",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "metadata",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "jsonb_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "newEmail",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "citext_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpHash",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpHashExpiresAt",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpMethodLastUsed",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "passwordHash",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "phoneNumber",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "phoneNumberVerified",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "Boolean_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshTokens",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRefreshTokens_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshTokens_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRefreshTokens_aggregate_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "roles",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "roles_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_aggregate_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "securityKeys",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "securityKeys_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_aggregate_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ticket",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ticketExpiresAt",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "totpSecret",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "String_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "timestamptz_comparison_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userProviders",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_bool_exp",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userProviders_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_aggregate_bool_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "users_constraint",
           "enumValues": [
@@ -17375,6 +25972,300 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "users_delete_at_path_input",
+          "inputFields": [
+            {
+              "name": "metadata",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "String",
+                    "ofType": null
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_delete_elem_input",
+          "inputFields": [
+            {
+              "name": "metadata",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_delete_key_input",
+          "inputFields": [
+            {
+              "name": "metadata",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_insert_input",
+          "inputFields": [
+            {
+              "name": "activeMfaType",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "avatarUrl",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "currentChallenge",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "defaultRole",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "defaultRoleByRole",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRoles_obj_rel_insert_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "email",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "emailVerified",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "isAnonymous",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "lastSeen",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "locale",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "metadata",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            },
+            {
+              "name": "newEmail",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpHash",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpHashExpiresAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpMethodLastUsed",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "passwordHash",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "phoneNumber",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "phoneNumberVerified",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshTokens",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRefreshTokens_arr_rel_insert_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "roles",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_arr_rel_insert_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "securityKeys",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_arr_rel_insert_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ticket",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ticketExpiresAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "totpSecret",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userProviders",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_arr_rel_insert_input",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "users_max_fields",
           "fields": [
@@ -17382,7 +26273,8 @@ export default {
               "name": "activeMfaType",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17390,7 +26282,8 @@ export default {
               "name": "avatarUrl",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17398,7 +26291,8 @@ export default {
               "name": "createdAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -17406,7 +26300,8 @@ export default {
               "name": "currentChallenge",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17414,7 +26309,8 @@ export default {
               "name": "defaultRole",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17422,7 +26318,8 @@ export default {
               "name": "displayName",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17430,7 +26327,8 @@ export default {
               "name": "email",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "citext",
+                "ofType": null
               },
               "args": []
             },
@@ -17438,7 +26336,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             },
@@ -17446,7 +26345,8 @@ export default {
               "name": "lastSeen",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -17454,7 +26354,8 @@ export default {
               "name": "locale",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17462,7 +26363,8 @@ export default {
               "name": "newEmail",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "citext",
+                "ofType": null
               },
               "args": []
             },
@@ -17470,7 +26372,8 @@ export default {
               "name": "otpHash",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17478,7 +26381,8 @@ export default {
               "name": "otpHashExpiresAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -17486,7 +26390,8 @@ export default {
               "name": "otpMethodLastUsed",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17494,7 +26399,8 @@ export default {
               "name": "passwordHash",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17502,7 +26408,8 @@ export default {
               "name": "phoneNumber",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17510,7 +26417,8 @@ export default {
               "name": "ticket",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17518,7 +26426,8 @@ export default {
               "name": "ticketExpiresAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -17526,7 +26435,8 @@ export default {
               "name": "totpSecret",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17534,12 +26444,179 @@ export default {
               "name": "updatedAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_max_order_by",
+          "inputFields": [
+            {
+              "name": "activeMfaType",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "avatarUrl",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "currentChallenge",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "defaultRole",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "email",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "lastSeen",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "locale",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "newEmail",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpHash",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpHashExpiresAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpMethodLastUsed",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "passwordHash",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "phoneNumber",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ticket",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ticketExpiresAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "totpSecret",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -17549,7 +26626,8 @@ export default {
               "name": "activeMfaType",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17557,7 +26635,8 @@ export default {
               "name": "avatarUrl",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17565,7 +26644,8 @@ export default {
               "name": "createdAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -17573,7 +26653,8 @@ export default {
               "name": "currentChallenge",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17581,7 +26662,8 @@ export default {
               "name": "defaultRole",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17589,7 +26671,8 @@ export default {
               "name": "displayName",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17597,7 +26680,8 @@ export default {
               "name": "email",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "citext",
+                "ofType": null
               },
               "args": []
             },
@@ -17605,7 +26689,8 @@ export default {
               "name": "id",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "uuid",
+                "ofType": null
               },
               "args": []
             },
@@ -17613,7 +26698,8 @@ export default {
               "name": "lastSeen",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -17621,7 +26707,8 @@ export default {
               "name": "locale",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17629,7 +26716,8 @@ export default {
               "name": "newEmail",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "citext",
+                "ofType": null
               },
               "args": []
             },
@@ -17637,7 +26725,8 @@ export default {
               "name": "otpHash",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17645,7 +26734,8 @@ export default {
               "name": "otpHashExpiresAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -17653,7 +26743,8 @@ export default {
               "name": "otpMethodLastUsed",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17661,7 +26752,8 @@ export default {
               "name": "passwordHash",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17669,7 +26761,8 @@ export default {
               "name": "phoneNumber",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17677,7 +26770,8 @@ export default {
               "name": "ticket",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17685,7 +26779,8 @@ export default {
               "name": "ticketExpiresAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             },
@@ -17693,7 +26788,8 @@ export default {
               "name": "totpSecret",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -17701,12 +26797,179 @@ export default {
               "name": "updatedAt",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "timestamptz",
+                "ofType": null
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_min_order_by",
+          "inputFields": [
+            {
+              "name": "activeMfaType",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "avatarUrl",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "currentChallenge",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "defaultRole",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "email",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "lastSeen",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "locale",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "newEmail",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpHash",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpHashExpiresAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpMethodLastUsed",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "passwordHash",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "phoneNumber",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ticket",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ticketExpiresAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "totpSecret",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "OBJECT",
@@ -17718,7 +26981,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Int",
+                  "ofType": null
                 }
               },
               "args": []
@@ -17743,6 +27007,351 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_obj_rel_insert_input",
+          "inputFields": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "users_insert_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "on_conflict",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_on_conflict",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_on_conflict",
+          "inputFields": [
+            {
+              "name": "constraint",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "users_constraint",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "update_columns",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "users_update_column",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "defaultValue": "[]"
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_bool_exp",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_order_by",
+          "inputFields": [
+            {
+              "name": "activeMfaType",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "avatarUrl",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "currentChallenge",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "defaultRole",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "defaultRoleByRole",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRoles_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "email",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "emailVerified",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "isAnonymous",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "lastSeen",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "locale",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "metadata",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "newEmail",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpHash",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpHashExpiresAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpMethodLastUsed",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "passwordHash",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "phoneNumber",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "phoneNumberVerified",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "refreshTokens_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authRefreshTokens_aggregate_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "roles_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserRoles_aggregate_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "securityKeys_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserSecurityKeys_aggregate_order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ticket",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ticketExpiresAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "totpSecret",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "ENUM",
+                "name": "order_by",
+                "ofType": null
+              }
+            },
+            {
+              "name": "userProviders_aggregate",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "authUserProviders_aggregate_order_by",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_pk_columns_input",
+          "inputFields": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "uuid",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_prepend_input",
+          "inputFields": [
+            {
+              "name": "metadata",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            }
+          ]
         },
         {
           "kind": "ENUM",
@@ -17862,6 +27471,443 @@ export default {
           ]
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "users_set_input",
+          "inputFields": [
+            {
+              "name": "activeMfaType",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "avatarUrl",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "currentChallenge",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "defaultRole",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "email",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "emailVerified",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "isAnonymous",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "lastSeen",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "locale",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "metadata",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            },
+            {
+              "name": "newEmail",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpHash",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpHashExpiresAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpMethodLastUsed",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "passwordHash",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "phoneNumber",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "phoneNumberVerified",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ticket",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ticketExpiresAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "totpSecret",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_stream_cursor_input",
+          "inputFields": [
+            {
+              "name": "initial_value",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "users_stream_cursor_value_input",
+                  "ofType": null
+                }
+              }
+            },
+            {
+              "name": "ordering",
+              "type": {
+                "kind": "ENUM",
+                "name": "cursor_ordering",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_stream_cursor_value_input",
+          "inputFields": [
+            {
+              "name": "activeMfaType",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "avatarUrl",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "createdAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "currentChallenge",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "defaultRole",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "email",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "emailVerified",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "isAnonymous",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "lastSeen",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "locale",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "metadata",
+              "type": {
+                "kind": "SCALAR",
+                "name": "jsonb",
+                "ofType": null
+              }
+            },
+            {
+              "name": "newEmail",
+              "type": {
+                "kind": "SCALAR",
+                "name": "citext",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpHash",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpHashExpiresAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "otpMethodLastUsed",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "passwordHash",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "phoneNumber",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "phoneNumberVerified",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ticket",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "ticketExpiresAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            },
+            {
+              "name": "totpSecret",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            {
+              "name": "updatedAt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "timestamptz",
+                "ofType": null
+              }
+            }
+          ]
+        },
+        {
           "kind": "ENUM",
           "name": "users_update_column",
           "enumValues": [
@@ -17939,6 +27985,165 @@ export default {
             },
             {
               "name": "updatedAt"
+            }
+          ]
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "users_updates",
+          "inputFields": [
+            {
+              "name": "_append",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_append_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_delete_at_path",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_delete_at_path_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_delete_elem",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_delete_elem_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_delete_key",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_delete_key_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_prepend",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_prepend_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_set",
+              "type": {
+                "kind": "INPUT_OBJECT",
+                "name": "users_set_input",
+                "ofType": null
+              }
+            },
+            {
+              "name": "where",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "INPUT_OBJECT",
+                  "name": "users_bool_exp",
+                  "ofType": null
+                }
+              }
+            }
+          ]
+        },
+        {
+          "kind": "SCALAR",
+          "name": "uuid"
+        },
+        {
+          "kind": "INPUT_OBJECT",
+          "name": "uuid_comparison_exp",
+          "inputFields": [
+            {
+              "name": "_eq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_gte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_in",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "uuid",
+                    "ofType": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "_is_null",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lt",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_lte",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_neq",
+              "type": {
+                "kind": "SCALAR",
+                "name": "uuid",
+                "ofType": null
+              }
+            },
+            {
+              "name": "_nin",
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "uuid",
+                    "ofType": null
+                  }
+                }
+              }
             }
           ]
         },

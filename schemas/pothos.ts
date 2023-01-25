@@ -41,6 +41,14 @@ export default {
       "subscriptionType": null,
       "types": [
         {
+          "kind": "SCALAR",
+          "name": "Boolean"
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Float"
+        },
+        {
           "kind": "UNION",
           "name": "GiraffeFact",
           "possibleTypes": [
@@ -64,7 +72,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -75,7 +84,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Float",
+                  "ofType": null
                 }
               },
               "args": []
@@ -93,13 +103,22 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "SCALAR",
+          "name": "ID"
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Int"
         },
         {
           "kind": "OBJECT",
@@ -125,6 +144,10 @@ export default {
             }
           ],
           "interfaces": []
+        },
+        {
+          "kind": "SCALAR",
+          "name": "String"
         },
         {
           "kind": "SCALAR",

@@ -14,11 +14,10 @@ export const plugin: typeof typescriptPlugin = (schema, documents, config) => {
     enumsAsTypes: true
   }
   const minifiedData = minifyIntrospectionQuery(getIntrospectedSchema(schema), {
-    // TODO only include what is striclty necessary - the introspection object is big
     includeDirectives: false,
     includeEnums: true,
-    includeInputs: false,
-    includeScalars: false
+    includeInputs: true,
+    includeScalars: true
   })
 
   const { prepend, content } = typescriptPlugin(schema, documents, conf) as Unpromise<

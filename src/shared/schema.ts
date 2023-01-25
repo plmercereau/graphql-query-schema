@@ -132,13 +132,13 @@ export const getIntrospectionType = <S extends GenericSchema, Type extends Parti
 const getRootOperationNodeType = <S extends GenericSchema, OperationType extends OperationTypes>(
   schema: S,
   operationType: OperationType
-): ObjectType<OperationType> => {
+): ObjectType<OperationType> | null => {
   const name =
     schema.introspection.__schema[
       `${operationType.toLowerCase()}Type` as 'queryType' | 'mutationType' | 'subscriptionType'
     ]?.name
   if (!name) {
-    throw new Error(`Could not find the root operation name for ${operationType}`)
+    return null
   }
   const type = getIntrospectionType(schema, { kind: 'OBJECT', name }) as ObjectType<OperationType>
   if (!type) {
@@ -156,7 +156,7 @@ export const getRootOperationNames = <
   operationType: OperationType
 ): Array<keyof Operations> => {
   const type = getRootOperationNodeType(schema, operationType)
-  return (type.fields?.map((field) => field.name) as Array<keyof Operations>) ?? []
+  return (type?.fields?.map((field) => field.name) as Array<keyof Operations>) ?? []
 }
 
 export const getTypeFromRef = (schema: GenericSchema, typeRef?: TypeRef) =>
@@ -203,7 +203,7 @@ export const getRootOperationNode = (
   rootOperation: string
 ) => {
   const rootNode = getRootOperationNodeType(schema, opType)
-  const node = rootNode.fields?.find((field) => field.name === rootOperation)
+  const node = rootNode?.fields?.find((field) => field.name === rootOperation)
   if (!node) {
     throw new Error(`Could not find root operation ${rootOperation}`)
   }

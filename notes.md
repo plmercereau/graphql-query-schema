@@ -2,7 +2,7 @@
 
 - [ ] Convert all arguments as variables in the generated graphql query and types
   - [x] update the generated query
-  - [ ] update the query execution
+  - [x] update the query execution
   - [ ] update the variable typings
 - [ ] Correct typings
   - [ ] `variables` should be required when one argument is required e.g. this should fail:
@@ -11,17 +11,10 @@
     - `client.mutation.insertUser({ select: true })`
   - [ ] non-nullable arguments should be required, for instance this should fail:
     - `client.mutation.insertUser({ variables: { email: 'bob' }})` // `locale` is missing
-- [x] Urql PR / typescript codegen PR ? or we create our own plugin
-- [ ] Enums: get rid of `enumType` now the schema is available on runtime
-  - [x] change the typings to allow the list of values e.g. `'essay'` instead of `Categories_Enum.Essay`?
-  - [ ] detect it's an enum when generating the query
 - [ ] Check and complete unions
 - [ ] Use the introspection schema to
   - [x] find the query roots
   - [ ] find the argument types
-- [x] GraphQL codegen plugin
-  - [x] instrospection `as const`
-  - [x] get rid of the classes config, and prefer interfaces
 
 ## Done
 
@@ -29,6 +22,12 @@
 - [x] Get rid of .run() etc
 - [x] Implement `client.queryDocument`, `client.mutationDocument`, and `client.subscriptionDocument`
   - [x] get rid of the "generic" client
+- [x] Enums:
+  - [x] get rid of `enumType` now the schema is available on runtime
+  - [x] change the typings to allow the list of values e.g. `'essay'` instead of `Categories_Enum.Essay`?
+- [x] GraphQL codegen plugin
+  - [x] instrospection `as const`
+  - [x] get rid of the classes config, and prefer interfaces
 
 ## Sort
 
@@ -38,6 +37,7 @@
 - CI
 - Other GraphQL features:
   - [ ] variables (for `client.queryDocument` etc)
+    - detect enums used in arguments when generating the query, and wrap them with `EnumType`
   - [ ] aliases
   - [ ] unions (to be finished)
   - [ ] Interfaces

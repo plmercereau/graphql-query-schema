@@ -18,6 +18,7 @@ const toJson = (
   parameters: Record<string, any> | true = true,
   definition: TypeRef | FieldDefinition,
   variables: Record<string, any> = {},
+  variablesValues: Record<string, any> = {},
   variablesPrefix: string = ''
 ) => {
   const select: Record<string, any> = {}
@@ -31,6 +32,7 @@ const toJson = (
       const uniqueVariableName = variablesPrefix ? `${variablesPrefix}_${key}` : key
       variables[uniqueVariableName] = getGraphQLType(schema, getArgumentType(key, definition))
       args[key] = new VariableType(uniqueVariableName)
+      variablesValues[key] = inputArguments[key]
     })
   }
 
@@ -38,7 +40,8 @@ const toJson = (
     const fieldType = getConcreteType(schema, definition)
     if (fieldType.kind === 'OBJECT') {
       fieldType.fields?.forEach((field) => {
-        if (getConcreteType(schema, field.type).kind === 'SCALAR') {
+        const concreteType = getConcreteType(schema, field.type)
+        if (concreteType.kind === 'SCALAR' || concreteType.kind === 'ENUM') {
           select[field.name] = true
         }
       })
@@ -58,6 +61,7 @@ const toJson = (
               // TODO not implemented yet: wildcard all scalar fields in unions
               {} as any,
               variables,
+              variablesValues,
               variablesPrefix
             )
           }
@@ -69,26 +73,31 @@ const toJson = (
         // } else if...
         const childVariablePrefix = variablesPrefix ? `${variablesPrefix}_${key}` : key
         if (typeof value === 'object') {
-          const { query, variables: newVariables } = toJson(
+          const {
+            query,
+            variables: newVariables,
+            variablesValues: newVariablesValues
+          } = toJson(
             schema,
             value,
             getFieldType(schema, key, definition),
             variables,
+            variablesValues,
             childVariablePrefix
           )
           select[key] = query
           variables = { ...variables, ...newVariables }
+          variablesValues = { ...variablesValues, ...newVariablesValues }
         } else {
           const fieldType = getConcreteType(schema, getFieldType(schema, key, definition))
-          const { query, variables: newVariables } = toJson(
-            schema,
-            value,
-            fieldType,
-            variables,
-            childVariablePrefix
-          )
+          const {
+            query,
+            variables: newVariables,
+            variablesValues: newVariablesValues
+          } = toJson(schema, value, fieldType, variables, variablesValues, childVariablePrefix)
           select[key] = query
           variables = { ...variables, ...newVariables }
+          variablesValues = { ...variablesValues, ...newVariablesValues }
         }
       }
     })
@@ -96,7 +105,8 @@ const toJson = (
 
   return {
     query: { ...select, __args: args },
-    variables
+    variables,
+    variablesValues
   }
 }
 
@@ -106,20 +116,23 @@ export const toRawGraphQL = (
   rootOperation: string,
   params: any = {}
 ) => {
-  const { query, variables } = toJson(
+  const { query, variables, variablesValues } = toJson(
     schema,
     params,
     getRootOperationNode(schema, opType, rootOperation)
   )
-  return jsonToGraphQLQuery(
-    {
-      [opType.toLowerCase()]: {
-        __variables: variables,
-        [rootOperation]: query
-      }
-    },
-    { pretty: true }
-  )
+  return {
+    query: jsonToGraphQLQuery(
+      {
+        [opType.toLowerCase()]: {
+          __variables: variables,
+          [rootOperation]: query
+        }
+      },
+      { pretty: true }
+    ),
+    variables: variablesValues
+  }
 }
 
 export const toGraphQLDocument = (
@@ -127,4 +140,4 @@ export const toGraphQLDocument = (
   opType: OperationTypes,
   rootOperation: string,
   params: any
-) => parse(toRawGraphQL(schema, opType, rootOperation, params))
+) => parse(toRawGraphQL(schema, opType, rootOperation, params).query)

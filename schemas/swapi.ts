@@ -1311,6 +1311,10 @@ export default {
       "subscriptionType": null,
       "types": [
         {
+          "kind": "SCALAR",
+          "name": "Boolean"
+        },
+        {
           "kind": "OBJECT",
           "name": "Film",
           "fields": [
@@ -1326,28 +1330,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -1356,7 +1364,8 @@ export default {
               "name": "created",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -1364,7 +1373,8 @@ export default {
               "name": "director",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -1372,7 +1382,8 @@ export default {
               "name": "edited",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -1380,7 +1391,8 @@ export default {
               "name": "episodeID",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -1390,7 +1402,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "ID",
+                  "ofType": null
                 }
               },
               "args": []
@@ -1399,7 +1412,8 @@ export default {
               "name": "openingCrawl",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -1415,28 +1429,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -1447,7 +1465,8 @@ export default {
                 "kind": "LIST",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -1456,7 +1475,8 @@ export default {
               "name": "releaseDate",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -1472,28 +1492,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -1510,28 +1534,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -1540,7 +1568,8 @@ export default {
               "name": "title",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -1556,28 +1585,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -1634,7 +1667,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -1651,7 +1685,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -1712,7 +1747,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -1729,7 +1765,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -1790,7 +1827,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -1807,7 +1845,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -1868,7 +1907,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -1885,7 +1925,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -1934,7 +1975,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -1963,7 +2005,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -2024,7 +2067,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -2041,7 +2085,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -2059,6 +2104,18 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "SCALAR",
+          "name": "Float"
+        },
+        {
+          "kind": "SCALAR",
+          "name": "ID"
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Int"
+        },
+        {
           "kind": "INTERFACE",
           "name": "Node",
           "fields": [
@@ -2068,7 +2125,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "ID",
+                  "ofType": null
                 }
               },
               "args": []
@@ -2110,7 +2168,8 @@ export default {
               "name": "endCursor",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -2120,7 +2179,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Boolean",
+                  "ofType": null
                 }
               },
               "args": []
@@ -2131,7 +2191,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "Boolean",
+                  "ofType": null
                 }
               },
               "args": []
@@ -2140,7 +2201,8 @@ export default {
               "name": "startCursor",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             }
@@ -2191,7 +2253,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -2208,7 +2271,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -2233,7 +2297,8 @@ export default {
               "name": "birthYear",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -2241,7 +2306,8 @@ export default {
               "name": "created",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -2249,7 +2315,8 @@ export default {
               "name": "edited",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -2257,7 +2324,8 @@ export default {
               "name": "eyeColor",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -2273,28 +2341,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -2303,7 +2375,8 @@ export default {
               "name": "gender",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -2311,7 +2384,8 @@ export default {
               "name": "hairColor",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -2319,7 +2393,8 @@ export default {
               "name": "height",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -2338,7 +2413,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "ID",
+                  "ofType": null
                 }
               },
               "args": []
@@ -2347,7 +2423,8 @@ export default {
               "name": "mass",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -2355,7 +2432,8 @@ export default {
               "name": "name",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -2363,7 +2441,8 @@ export default {
               "name": "skinColor",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -2388,28 +2467,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -2426,28 +2509,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -2504,7 +2591,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -2521,7 +2609,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -2582,7 +2671,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -2599,7 +2689,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -2648,7 +2739,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -2677,7 +2769,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -2704,7 +2797,8 @@ export default {
                 "kind": "LIST",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -2713,7 +2807,8 @@ export default {
               "name": "created",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -2721,7 +2816,8 @@ export default {
               "name": "diameter",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -2729,7 +2825,8 @@ export default {
               "name": "edited",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -2745,28 +2842,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -2775,7 +2876,8 @@ export default {
               "name": "gravity",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -2785,7 +2887,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "ID",
+                  "ofType": null
                 }
               },
               "args": []
@@ -2794,7 +2897,8 @@ export default {
               "name": "name",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -2802,7 +2906,8 @@ export default {
               "name": "orbitalPeriod",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -2810,7 +2915,8 @@ export default {
               "name": "population",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -2826,28 +2932,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -2856,7 +2966,8 @@ export default {
               "name": "rotationPeriod",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -2864,7 +2975,8 @@ export default {
               "name": "surfaceWater",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -2874,7 +2986,8 @@ export default {
                 "kind": "LIST",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -2931,7 +3044,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -2948,7 +3062,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -3009,7 +3124,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -3026,7 +3142,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -3087,7 +3204,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -3104,7 +3222,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -3137,28 +3256,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -3175,28 +3298,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -3213,28 +3340,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -3251,28 +3382,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -3289,28 +3424,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -3327,28 +3466,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -3365,14 +3508,16 @@ export default {
                   "name": "filmID",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "ID",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "id",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "ID",
+                    "ofType": null
                   }
                 }
               ]
@@ -3391,7 +3536,8 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Any"
+                      "name": "ID",
+                      "ofType": null
                     }
                   }
                 }
@@ -3409,14 +3555,16 @@ export default {
                   "name": "id",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "ID",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "personID",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "ID",
+                    "ofType": null
                   }
                 }
               ]
@@ -3433,14 +3581,16 @@ export default {
                   "name": "id",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "ID",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "planetID",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "ID",
+                    "ofType": null
                   }
                 }
               ]
@@ -3457,14 +3607,16 @@ export default {
                   "name": "id",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "ID",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "speciesID",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "ID",
+                    "ofType": null
                   }
                 }
               ]
@@ -3481,14 +3633,16 @@ export default {
                   "name": "id",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "ID",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "starshipID",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "ID",
+                    "ofType": null
                   }
                 }
               ]
@@ -3505,14 +3659,16 @@ export default {
                   "name": "id",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "ID",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "vehicleID",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "ID",
+                    "ofType": null
                   }
                 }
               ]
@@ -3528,7 +3684,8 @@ export default {
               "name": "averageHeight",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -3536,7 +3693,8 @@ export default {
               "name": "averageLifespan",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -3544,7 +3702,8 @@ export default {
               "name": "classification",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -3552,7 +3711,8 @@ export default {
               "name": "created",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -3560,7 +3720,8 @@ export default {
               "name": "designation",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -3568,7 +3729,8 @@ export default {
               "name": "edited",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -3578,7 +3740,8 @@ export default {
                 "kind": "LIST",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -3595,28 +3758,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -3627,7 +3794,8 @@ export default {
                 "kind": "LIST",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -3647,7 +3815,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "ID",
+                  "ofType": null
                 }
               },
               "args": []
@@ -3656,7 +3825,8 @@ export default {
               "name": "language",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -3664,7 +3834,8 @@ export default {
               "name": "name",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -3680,28 +3851,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -3712,7 +3887,8 @@ export default {
                 "kind": "LIST",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -3769,7 +3945,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -3786,7 +3963,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -3847,7 +4025,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -3864,7 +4043,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -3925,7 +4105,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -3942,7 +4123,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -3967,7 +4149,8 @@ export default {
               "name": "MGLT",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -3975,7 +4158,8 @@ export default {
               "name": "cargoCapacity",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -3983,7 +4167,8 @@ export default {
               "name": "consumables",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -3991,7 +4176,8 @@ export default {
               "name": "costInCredits",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -3999,7 +4185,8 @@ export default {
               "name": "created",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -4007,7 +4194,8 @@ export default {
               "name": "crew",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -4015,7 +4203,8 @@ export default {
               "name": "edited",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -4031,28 +4220,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -4061,7 +4254,8 @@ export default {
               "name": "hyperdriveRating",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -4071,7 +4265,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "ID",
+                  "ofType": null
                 }
               },
               "args": []
@@ -4080,7 +4275,8 @@ export default {
               "name": "length",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -4090,7 +4286,8 @@ export default {
                 "kind": "LIST",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -4099,7 +4296,8 @@ export default {
               "name": "maxAtmospheringSpeed",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -4107,7 +4305,8 @@ export default {
               "name": "model",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -4115,7 +4314,8 @@ export default {
               "name": "name",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -4123,7 +4323,8 @@ export default {
               "name": "passengers",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -4139,28 +4340,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -4169,7 +4374,8 @@ export default {
               "name": "starshipClass",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             }
@@ -4225,7 +4431,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -4242,7 +4449,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -4303,7 +4511,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -4320,7 +4529,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -4381,7 +4591,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -4398,7 +4609,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -4416,6 +4628,10 @@ export default {
           "interfaces": []
         },
         {
+          "kind": "SCALAR",
+          "name": "String"
+        },
+        {
           "kind": "OBJECT",
           "name": "Vehicle",
           "fields": [
@@ -4423,7 +4639,8 @@ export default {
               "name": "cargoCapacity",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -4431,7 +4648,8 @@ export default {
               "name": "consumables",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -4439,7 +4657,8 @@ export default {
               "name": "costInCredits",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -4447,7 +4666,8 @@ export default {
               "name": "created",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -4455,7 +4675,8 @@ export default {
               "name": "crew",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -4463,7 +4684,8 @@ export default {
               "name": "edited",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -4479,28 +4701,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -4511,7 +4737,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "ID",
+                  "ofType": null
                 }
               },
               "args": []
@@ -4520,7 +4747,8 @@ export default {
               "name": "length",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Float",
+                "ofType": null
               },
               "args": []
             },
@@ -4530,7 +4758,8 @@ export default {
                 "kind": "LIST",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -4539,7 +4768,8 @@ export default {
               "name": "maxAtmospheringSpeed",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -4547,7 +4777,8 @@ export default {
               "name": "model",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -4555,7 +4786,8 @@ export default {
               "name": "name",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -4563,7 +4795,8 @@ export default {
               "name": "passengers",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             },
@@ -4579,28 +4812,32 @@ export default {
                   "name": "after",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "before",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "String",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "first",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 },
                 {
                   "name": "last",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "Any"
+                    "name": "Int",
+                    "ofType": null
                   }
                 }
               ]
@@ -4609,7 +4846,8 @@ export default {
               "name": "vehicleClass",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "String",
+                "ofType": null
               },
               "args": []
             }
@@ -4665,7 +4903,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -4682,7 +4921,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -4743,7 +4983,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             }
@@ -4760,7 +5001,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
@@ -4809,7 +5051,8 @@ export default {
               "name": "totalCount",
               "type": {
                 "kind": "SCALAR",
-                "name": "Any"
+                "name": "Int",
+                "ofType": null
               },
               "args": []
             },
@@ -4838,7 +5081,8 @@ export default {
                 "kind": "NON_NULL",
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Any"
+                  "name": "String",
+                  "ofType": null
                 }
               },
               "args": []
