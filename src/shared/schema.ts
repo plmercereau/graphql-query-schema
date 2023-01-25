@@ -159,10 +159,15 @@ export const getRootOperationNames = <
   return (type?.fields?.map((field) => field.name) as Array<keyof Operations>) ?? []
 }
 
-export const getTypeFromRef = (schema: GenericSchema, typeRef?: TypeRef) =>
-  schema.introspection.__schema.types.find(
+export const getTypeFromRef = (schema: GenericSchema, typeRef?: TypeRef) => {
+  const type = schema.introspection.__schema.types.find(
     (t) => 'name' in t && typeRef && 'name' in typeRef && t.name === typeRef.name
   )
+  if (!type) {
+    throw new Error(`Could not find type`)
+  }
+  return type
+}
 
 export const getArgumentType = (name: String, definition: FieldDefinition) => {
   const type = definition?.args?.find((f) => f.name === name)?.type
@@ -179,14 +184,14 @@ export const getFieldType = (
 ) => {
   const type = 'type' in definition ? definition.type : definition
   const objectType = getTypeFromRef(schema, getConcreteType(schema, type))
-  if (objectType?.kind === 'OBJECT') {
-    const type = objectType?.fields?.find((f) => f.name === fieldName)
+  if (objectType.kind === 'OBJECT') {
+    const type = objectType.fields?.find((f) => f.name === fieldName)
     if (!type) {
       throw new Error(`Type not found ${fieldName}`)
     }
     return type
   }
-  if (objectType?.kind === 'INPUT_OBJECT') {
+  if (objectType.kind === 'INPUT_OBJECT') {
     const type = objectType?.inputFields?.find((f) => f.name === fieldName)
     if (!type) {
       throw new Error(`Type not found ${fieldName}`)

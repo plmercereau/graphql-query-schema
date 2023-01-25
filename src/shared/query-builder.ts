@@ -7,6 +7,7 @@ import {
   getFieldType,
   getGraphQLType,
   getRootOperationNode,
+  getTypeFromRef,
   TypeRef
 } from './schema'
 import { GenericSchema, OperationTypes } from './schema'
@@ -53,17 +54,24 @@ const toJson = (
       } else if (key === 'on') {
         select['__typename'] = true
         select['__on'] = Object.keys(value).map((fragmentName) => {
+          const childVariablePrefix = variablesPrefix ? `${variablesPrefix}_on_${key}` : `on_${key}`
+          const {
+            query,
+            variables: newVariables,
+            variablesValues: newVariablesValues
+          } = toJson(
+            schema,
+            value[fragmentName],
+            getTypeFromRef(schema, { kind: 'OBJECT', name: fragmentName }),
+            variables,
+            variablesValues,
+            childVariablePrefix
+          )
+          variables = { ...variables, ...newVariables }
+          variablesValues = { ...variablesValues, ...newVariablesValues }
           return {
             __typeName: fragmentName,
-            ...toJson(
-              schema,
-              value[fragmentName],
-              // TODO not implemented yet: wildcard all scalar fields in unions
-              {} as any,
-              variables,
-              variablesValues,
-              variablesPrefix
-            )
+            ...query
           }
         })
       } else {

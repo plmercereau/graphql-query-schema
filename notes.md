@@ -11,8 +11,7 @@
     - `client.mutation.insertUser({ select: true })`
   - [ ] non-nullable arguments should be required, for instance this should fail:
     - `client.mutation.insertUser({ variables: { email: 'bob' }})` // `locale` is missing
-- [ ] Check and complete unions
-- [ ] Use the introspection schema to
+- [ ] Use the introspection schema to:
   - [x] find the query roots
   - [ ] find the argument types
 
@@ -28,6 +27,7 @@
 - [x] GraphQL codegen plugin
   - [x] instrospection `as const`
   - [x] get rid of the classes config, and prefer interfaces
+- [x] Check and complete unions
 
 ## Sort
 
@@ -39,7 +39,7 @@
   - [ ] variables (for `client.queryDocument` etc)
     - detect enums used in arguments when generating the query, and wrap them with `EnumType`
   - [ ] aliases
-  - [ ] unions (to be finished)
+  - [x] unions
   - [ ] Interfaces
   - [ ] Multiple operations
     - Maybe: `client.query({ todos: { id: true }, users: { email: true } })`

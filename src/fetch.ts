@@ -72,7 +72,7 @@ export function fetchClient<Schema extends GenericSchema>({
     }
     const { data, errors } = await request.json()
     if (errors) {
-      console.log({ input, query, variables })
+      console.log(JSON.stringify({ input, query, variables }, null, 2))
       console.log(errors)
       throw new Error(errors[0].message)
     }
