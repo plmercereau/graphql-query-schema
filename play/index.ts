@@ -1,5 +1,5 @@
 import { fetchClient } from '../src'
-import * as schema from '../schemas/hasura'
+import schema from '../schemas/hasura'
 const client = fetchClient({
   schema,
   url: 'http://localhost:1337/v1/graphql',
@@ -8,16 +8,28 @@ const client = fetchClient({
   }
 })
 
-const main = async () => {
-  const todos = await client.query.todos({ select: { user: true, contents: true } })
-  console.log(todos.length)
-  todos[0].contents
-  const user = await client.mutation.insertUser({ select: { email: true, locale: true } })
-  console.log(user)
-  user.locale
+const email = 'bob@bob.com'
 
-  const todo = await client.mutation.insertTodo({})
-  todo.contents
+const main = async () => {
+  let [user] = await client.query.users({
+    select: { email: true, id: true, createdAt: true },
+    variables: { where: { email: { _eq: email } } }
+  })
+  if (!user) {
+    user = await client.mutation.insertUser({
+      variables: { object: { locale: 'en', email } },
+      select: { email: true, id: true, createdAt: true }
+    })
+  }
+  console.log('User', user)
+  const todos = await client.query.todos({ select: { user: true, contents: true } })
+  console.log(`${todos.length} todos`)
+
+  const todo = await client.mutation.insertTodo({
+    variables: { object: { contents: 'encore', userId: user.id } },
+    select: { contents: true }
+  })
+  console.log('Inserted todo', todo.contents)
 }
 
 main()
