@@ -68,13 +68,9 @@ type ParametersOf<
   On = IsUnion<Element> extends true
     ? {
         on?: {
-          [key in NonNullable<Element['__typename']>]?: ParametersOf<
-            Schema,
-            OperationType,
-            Schema['types'][key],
-            FieldType,
-            key
-          >
+          [key in NonNullable<Element['__typename']>]?:
+            | ParametersOf<Schema, OperationType, Schema['types'][key], FieldType, key>
+            | true
         }
       }
     : {}
@@ -142,7 +138,7 @@ export type OperationFactory<
     Result extends WrapArray<
       Operation,
       (ExactParams extends { on: any } ? UnionFields<Schema, ExactParams> : {}) &
-        QueryFields<ExactParams, Element> & { params: ExactParams }
+        QueryFields<ExactParams, Element>
     >,
     ReturnTransformer extends ReturnTransformersFactory<
       Result,

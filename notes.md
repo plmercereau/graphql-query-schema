@@ -7,8 +7,7 @@
 - [ ] unions
   - [ ] if no `on` is given, select all the scalars from all the possible types
         (but not when in an interface)
-  - [ ] types for `on: { Human: true }` and `on: { Human: { select: true }}`
-- [ ] interfaces
+- [ ] Fragments on interfaces (generation ok, but incorrect types)
 
 ## Done
 
@@ -38,6 +37,7 @@
   - [x] find the query roots
   - [x] find the argument types
 - [x] review the nested arguments system - and use the introspection `args` as a reference
+- [x] Union: types for `on: { Human: true }`
 
 ## Sort
 

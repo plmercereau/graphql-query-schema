@@ -11,11 +11,10 @@ describe('Pothos', () => {
   it('should work with unions', async () => {
     const result = await client.query.everyone({
       on: {
-        Human: { select: true },
+        Human: true,
         Dog: { select: { name: true, barks: true } },
         Hamster: { select: { name: true, diet: true } }
-      },
-      select: {}
+      }
     })
 
     expect(result).toMatchInlineSnapshot(`
@@ -39,6 +38,41 @@ describe('Pothos', () => {
           "__typename": "Hamster",
           "diet": "HERBIVOROUS",
           "name": "Hammy",
+        },
+      ]
+    `)
+  })
+
+  it('should work with interfaces', async () => {
+    const result = await client.query.pets({
+      select: { name: true, owner: { select: { firstName: true } } },
+      on: { Dog: { select: { barks: true } } }
+    })
+
+    expect(result).toMatchInlineSnapshot(`
+      [
+        {
+          "__typename": "Dog",
+          "barks": false,
+          "name": "Fido",
+          "owner": {
+            "firstName": "John",
+          },
+        },
+        {
+          "__typename": "Dog",
+          "barks": true,
+          "name": "Rover",
+          "owner": {
+            "firstName": "John",
+          },
+        },
+        {
+          "__typename": "Hamster",
+          "name": "Hammy",
+          "owner": {
+            "firstName": "John",
+          },
         },
       ]
     `)

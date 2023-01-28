@@ -144,11 +144,11 @@ export type EnumType = {
   enumValues?: Readonly<Array<{ name: string }>>
 }
 
-// ! TODO  Not implemented yet
 export type InterfaceType = {
   kind: 'INTERFACE'
   name: string
   ofType?: null
+  fields?: Readonly<Array<FieldDefinition>>
 }
 
 export type TypeRef =
@@ -230,17 +230,17 @@ export const getFieldType = (
 ) => {
   const type = 'type' in definition ? definition.type : definition
   const objectType = getTypeFromRef(schema, getConcreteType(schema, type))
-  if (objectType.kind === 'OBJECT') {
+  if (objectType.kind === 'OBJECT' || objectType.kind === 'INTERFACE') {
     const type = objectType.fields?.find((f) => f.name === fieldName)
     if (!type) {
-      throw new Error(`Type not found ${fieldName}`)
+      throw new Error(`Object type not found ${fieldName}`)
     }
     return type
   }
   if (objectType.kind === 'INPUT_OBJECT') {
     const type = objectType?.inputFields?.find((f) => f.name === fieldName)
     if (!type) {
-      throw new Error(`Type not found ${fieldName}`)
+      throw new Error(`Input object type not found ${fieldName}`)
     }
     return type
   }
