@@ -6,7 +6,6 @@ import {
   WrapArray,
   StripImpossibleProperties,
   ToUnion,
-  IsUnion,
   RequiredWhenChildrenAreRequired,
   PickFirstTupleItemThatExtends,
   IsTrueOrHasOnlyOptionals
@@ -16,12 +15,15 @@ import {
   FieldArgs,
   FieldDefinition,
   GenericSchema,
+  InterfaceType,
   ObjectType,
   OperationRootTypeOf,
   OperationsOf,
-  OperationTypes
+  OperationTypes,
+  UnionType
 } from './schema'
 import { VariablesInputType, VariablesTypes } from './variables'
+import { SetRequired, Exact, RequireAtLeastOne } from 'type-fest'
 
 type ParametersOf<
   Schema extends GenericSchema,
@@ -32,7 +34,10 @@ type ParametersOf<
   FieldTypeRef extends FieldDefinition = Definition extends { fields: readonly any[] }
     ? PickFirstTupleItemThatExtends<Definition['fields'], { name: FieldName }>
     : never,
-  FieldType extends ObjectType = ConcreteTypeOf<Schema, FieldTypeRef['type']>,
+  FieldType extends ObjectType | InterfaceType | UnionType = ConcreteTypeOf<
+    Schema,
+    FieldTypeRef['type']
+  >,
   HasArgs = FieldTypeRef extends { args: readonly any[] }
     ? FieldTypeRef['args']['length'] extends 0
       ? false
@@ -44,7 +49,6 @@ type ParametersOf<
       : FieldArgs<Schema, OperationType, FieldTypeRef['name']>
     : never,
   Fields = {
-    // TODO check if interface works
     [key in keyof Element]?: UnwrapNullableArray<Element[key]> extends object
       ? // * Accept either a list of fields or `true` to select all the fields
         | ParametersOf<
@@ -65,14 +69,25 @@ type ParametersOf<
   // * The `variables` property is required when at least one of the children is required
   // * If there is no possible variables, the `variables` property is not available
   Variables = RequiredWhenChildrenAreRequired<'variables', Args>,
-  On = IsUnion<Element> extends true
+  OnFields = FieldType extends SetRequired<UnionType | InterfaceType, 'possibleTypes'>
     ? {
-        on?: {
-          [key in NonNullable<Element['__typename']>]?:
-            | ParametersOf<Schema, OperationType, Schema['types'][key], FieldType, key>
-            | true
-        }
+        [key in FieldType['possibleTypes'][number] as key['name']]?:
+          | ParametersOf<
+              Schema,
+              OperationType,
+              Schema['types'][key['name']],
+              ConcreteTypeOf<Schema, key>,
+              string & keyof Schema['types'][key['name']]
+            >
+          | true
       }
+    : never,
+  On = FieldType extends SetRequired<UnionType, 'possibleTypes'>
+    ? // * In an union type, the `on` property is required, and at least one union type must be selected
+      { on: RequireAtLeastOne<OnFields> }
+    : FieldType extends SetRequired<InterfaceType, 'possibleTypes'>
+    ? // * In an interface type, the `on` property is optional.
+      { on?: OnFields }
     : {}
 > = Select & Variables & On
 
@@ -80,7 +95,7 @@ type QueryFields<
   Params extends { select?: any },
   Element,
   UnwrappedParams extends { select?: any } = UnwrapArray<Params>
-> = UnwrappedParams | UnwrappedParams extends undefined
+> = UnwrappedParams extends undefined
   ? Element
   : WrapArray<
       NonNullable<Element>,
@@ -113,9 +128,6 @@ type UnionFields<
   } & QueryFields<NonNullable<Fragments[fragmentName]>, Schema['types'][string & fragmentName]>
 }>
 
-// * See: https://stackoverflow.com/a/59230299
-type Exactly<T, U> = T & Record<Exclude<keyof U, keyof T>, never>
-
 export type OperationFactory<
   Schema extends GenericSchema,
   OperationType extends OperationTypes,
@@ -134,11 +146,19 @@ export type OperationFactory<
       OperationRootTypeOf<Schema, OperationType>,
       string & name
     >,
-    ExactParams extends Exactly<Params, ExactParams>,
+    // * See: https://stackoverflow.com/a/59230299
+    ExactParams extends Exact<Params, ExactParams>,
     Result extends WrapArray<
       Operation,
-      (ExactParams extends { on: any } ? UnionFields<Schema, ExactParams> : {}) &
-        QueryFields<ExactParams, Element>
+      ExactParams extends { on: any }
+        ?
+            | (UnionFields<Schema, ExactParams> & QueryFields<ExactParams, Element>)
+            | ({
+                // * We add `__typename` as an union discrimimator.
+                // * Interfaces have no `__typename` property, so we set it to `null` if not present.
+                __typename: Element extends { __typename: any } ? Element['__typename'] : null
+              } & QueryFields<ExactParams, Element>)
+        : QueryFields<ExactParams, Element>
     >,
     ReturnTransformer extends ReturnTransformersFactory<
       Result,

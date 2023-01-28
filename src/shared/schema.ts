@@ -43,13 +43,6 @@ export type FieldArgs<
   Suffix extends string = `${Capitalize<FieldName>}Args`
 > = Schema['types'][`${RootOperationName<Schema, OperationType>}${Suffix}`]
 
-// TODO try one last time with a Relay endpoint e.g. swapi
-// Schema['types'][`Root${Suffix}`] extends object
-//   ? // * Relay syntax
-//     Schema['types'][`Root${Suffix}`]
-//   : // * Standard syntax
-//     Schema['types'][`${RootOperationName<Schema, OperationType>}${Suffix}`]
-
 export type OperationRootTypeOf<
   Schema extends GenericSchema,
   OperationType extends OperationTypes
@@ -58,15 +51,16 @@ export type OperationRootTypeOf<
   { kind: 'OBJECT'; name: RootOperationName<Schema, OperationType, false> }
 >
 
-export type SelectSingleType<S extends GenericSchema, Type extends TypeRef> = Type &
-  PickFirstTupleItemThatExtends<
-    S['introspection']['__schema']['types'],
-    Type extends { name: string }
-      ? { name: Type['name']; kind: Type['kind'] }
-      : { kind: Type['kind'] }
-  >
+export type SelectSingleType<
+  S extends GenericSchema,
+  Type extends TypeRef
+> = PickFirstTupleItemThatExtends<
+  S['introspection']['__schema']['types'],
+  Type extends { name: string }
+    ? { name: Type['name']; kind: Type['kind'] }
+    : { kind: Type['kind'] }
+>
 
-// TODO remove the recursion as we know the possible type depth
 type MAX_RECURSION = 10 // maximum recursion depth
 type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
   ? Acc
@@ -74,6 +68,7 @@ type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] exte
 
 type Pred = [never, ...Enumerate<MAX_RECURSION>]
 
+// TODO remove the recursion as we know the possible type depth
 export type ConcreteTypeOf<
   S extends GenericSchema,
   T extends TypeRef,
@@ -85,7 +80,7 @@ export type ConcreteTypeOf<
     ? ConcreteTypeOf<S, T['ofType'], Pred[D]>
     : T extends ListType
     ? ConcreteTypeOf<S, T['ofType'], Pred[D]>
-    : T extends ObjectType
+    : T extends ObjectType | InterfaceType | UnionType
     ? SelectSingleType<S, T>
     : T
   : never
@@ -133,14 +128,14 @@ export type ScalarType = {
 export type UnionType = {
   kind: 'UNION'
   name: string
-  ofType?: null // TODO check if/when this is used
-  possibleTypes?: Readonly<Array<TypeRef>>
+  ofType?: null
+  possibleTypes?: Readonly<Array<ObjectType | UnionType | InterfaceType>>
 }
 
 export type EnumType = {
   kind: 'ENUM'
   name: string
-  ofType?: null // TODO check if/when this is used
+  ofType?: null
   enumValues?: Readonly<Array<{ name: string }>>
 }
 
@@ -149,6 +144,7 @@ export type InterfaceType = {
   name: string
   ofType?: null
   fields?: Readonly<Array<FieldDefinition>>
+  possibleTypes?: Readonly<Array<ObjectType | UnionType | InterfaceType>>
 }
 
 export type TypeRef =

@@ -46,9 +46,22 @@ describe('Pothos', () => {
   it('should work with interfaces', async () => {
     const result = await client.query.pets({
       select: { name: true, owner: { select: { firstName: true } } },
-      on: { Dog: { select: { barks: true } } }
+      on: { Dog: { select: { barks: true } }, Hamster: true }
     })
 
+    const res = result[0]
+
+    res.__typename // "Dog" | "Hamster" | null
+    res.name // string
+    res.owner.firstName // string
+
+    if (res.__typename === 'Dog') {
+      res.__typename // "Dog"
+      res.barks // boolean
+    }
+    if (res.__typename === 'Hamster') {
+      res.squeaks // boolean
+    }
     expect(result).toMatchInlineSnapshot(`
       [
         {
@@ -69,10 +82,12 @@ describe('Pothos', () => {
         },
         {
           "__typename": "Hamster",
+          "diet": "HERBIVOROUS",
           "name": "Hammy",
           "owner": {
             "firstName": "John",
           },
+          "squeaks": true,
         },
       ]
     `)

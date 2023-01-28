@@ -4,10 +4,6 @@
   - Try other graphql-codegen naming conventions, and pick the one that renders nicest types
 - [ ] Types testing
 - [ ] Extended test schema
-- [ ] unions
-  - [ ] if no `on` is given, select all the scalars from all the possible types
-        (but not when in an interface)
-- [ ] Fragments on interfaces (generation ok, but incorrect types)
 
 ## Done
 
@@ -37,7 +33,11 @@
   - [x] find the query roots
   - [x] find the argument types
 - [x] review the nested arguments system - and use the introspection `args` as a reference
-- [x] Union: types for `on: { Human: true }`
+- [x] Unions
+  - [x] Types for `on: { Human: true }`
+  - [x] When in an union, require at least one type
+- [x] Interfaces
+  - [x] Fragments on interfaces (generation ok, but incorrect types)
 
 ## Sort
 
@@ -48,14 +48,16 @@
 - Test with other Hasura settings e.g. naming conventions
 - CI
 - Other GraphQL features:
-  - [ ] variables (for `client.queryDocument` etc)
+  - [ ] Variables (for `client.queryDocument` etc)
     - detect enums used in arguments when generating the query, and wrap them with `EnumType`
-  - [ ] aliases
-  - [x] unions
-  - [ ] Interfaces
+  - [ ] Aliases
+  - [x] Unions
+  - [x] Interfaces
   - [ ] Multiple operations
     - Maybe: `client.query({ todos: { id: true }, users: { email: true } })`
-- idea: namespace, e.g. `client.query.auth.users()`
+- Idea: namespace, e.g. `client.query.auth.users()`
+- Idea on unions: if no `on` is given, select all the scalars from all the possible types
+  (but not when in an interface)
 
 ## Variables
 
@@ -87,36 +89,3 @@ const x = variable('hello') // type is `hello`
 let value = 'alors'
 const y = variable(value) // type is `never`
 ```
-
-## Args
-
-```json
-"queryType": {
-  "name": "query_root"
-},
-"mutationType": {
-  "name": "mutation_root"
-},
-"subscriptionType": {
-  "name": "subscription_root"
-},
-```
-
-```
-Query_RootAuthUserRolesArgs
-Mutation_RootInsertAuthUserRolesArgs
-```
-
-Decomposed as:
-`Query_Root` + `AuthUserRoles` + `Args`
-`Mutation_Root` + `InsertAuthUserRoles` + `Args`
-
-in the introspection:
-
-```json
-"name": "insertAuthUserRoles"
-"name": "authUserRoles"
-```
-
--> easy to get the type from the operation name e.g. `authUserRoles` or `insertAuthUserRoles`
--> but how to get the type of a nested argument?
