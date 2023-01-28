@@ -66,36 +66,8 @@ insert_permissions:
         - updated_at
         - id
         - uploaded_by_user_id
-  - role: user
-    permission:
-      check: {}
-      columns:
-        - is_uploaded
-        - size
-        - bucket_id
-        - etag
-        - mime_type
-        - name
-        - created_at
-        - updated_at
-        - id
-        - uploaded_by_user_id
 select_permissions:
   - role: anonymous
-    permission:
-      columns:
-        - is_uploaded
-        - size
-        - bucket_id
-        - etag
-        - mime_type
-        - name
-        - created_at
-        - updated_at
-        - id
-        - uploaded_by_user_id
-      filter: {}
-  - role: user
     permission:
       columns:
         - is_uploaded
@@ -125,25 +97,7 @@ update_permissions:
         - uploaded_by_user_id
       filter: {}
       check: {}
-  - role: user
-    permission:
-      columns:
-        - is_uploaded
-        - size
-        - bucket_id
-        - etag
-        - mime_type
-        - name
-        - created_at
-        - updated_at
-        - id
-        - uploaded_by_user_id
-      filter: {}
-      check: {}
 delete_permissions:
   - role: anonymous
-    permission:
-      filter: {}
-  - role: user
     permission:
       filter: {}

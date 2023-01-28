@@ -1,13 +1,11 @@
 ## TODO
 
-- [ ] Convert all arguments as variables in the generated graphql query and types
-  - [x] update the generated query
-  - [x] update the query execution
-  - [ ] update the variable typings
-- [ ] Use the introspection schema to:
-  - [x] find the query roots
-  - [ ] find the argument types
-- [ ] try other graphql-codegen options
+- [ ] identify with other graphql-codegen options could be allowed, and block the required ones
+  - Try other graphql-codegen naming conventions, and pick the one that renders nicest types
+- [ ] Types testing
+- [ ] test unions again
+- [ ] Extended test schema
+- [ ] interfaces
 
 ## Done
 
@@ -30,11 +28,20 @@
   - [ ] non-nullable arguments should be required, for instance this should fail:
     - `client.mutation.insertUser({ variables: { email: 'bob' }})` // `locale` is missing
     - => This information is not present in the GraphQL schema => out
+- [x] Convert all arguments as variables in the generated graphql query and types
+  - [x] update the generated query
+  - [x] update the query execution
+- [x] Use the introspection schema to:
+  - [x] find the query roots
+  - [x] find the argument types
+- [x] review the nested arguments system - and use the introspection `args` as a reference
 
 ## Sort
 
+- use `type-fest` types when possible, e.g. `Exact`, `ConditionalPickDeep`, `RequireAtLeastOne`, etc
+- simplify the TS outputs with https://github.com/sindresorhus/type-fest/blob/main/source/simplify.d.ts
 - Urql / Apollo tests
-- Types testing
+- variables typings
 - Test with other Hasura settings e.g. naming conventions
 - CI
 - Other GraphQL features:
@@ -45,4 +52,68 @@
   - [ ] Interfaces
   - [ ] Multiple operations
     - Maybe: `client.query({ todos: { id: true }, users: { email: true } })`
-- Try other graphql-codegen naming conventions, and pick the one that renders nicest types
+- idea: namespace, e.g. `client.query.auth.users()`
+
+## Variables
+
+To make the distinction between `variable('x')` and a "literal" value:
+
+- https://codemix.com/opaque-types-in-javascript/
+
+To deeply pick the variable types:
+
+- https://github.com/sindresorhus/type-fest/blob/main/source/conditional-pick-deep.d.ts
+
+then flatten them with
+
+```ts
+type PropertyValuesToUnionDeep<T> = T extends Record<string, infer X>
+  ? PropertyValuesToUnionDeep<X>
+  : T
+```
+
+```typescript
+type StringLiteral<T> = T extends `${infer U}` ? U : never
+
+const variable = <T extends string>(arg: T): StringLiteral<T> => {
+  return arg as any
+}
+
+const x = variable('hello') // type is `hello`
+
+let value = 'alors'
+const y = variable(value) // type is `never`
+```
+
+## Args
+
+```json
+"queryType": {
+  "name": "query_root"
+},
+"mutationType": {
+  "name": "mutation_root"
+},
+"subscriptionType": {
+  "name": "subscription_root"
+},
+```
+
+```
+Query_RootAuthUserRolesArgs
+Mutation_RootInsertAuthUserRolesArgs
+```
+
+Decomposed as:
+`Query_Root` + `AuthUserRoles` + `Args`
+`Mutation_Root` + `InsertAuthUserRoles` + `Args`
+
+in the introspection:
+
+```json
+"name": "insertAuthUserRoles"
+"name": "authUserRoles"
+```
+
+-> easy to get the type from the operation name e.g. `authUserRoles` or `insertAuthUserRoles`
+-> but how to get the type of a nested argument?

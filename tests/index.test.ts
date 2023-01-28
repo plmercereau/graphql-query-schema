@@ -1,4 +1,4 @@
-import schema, { Files_Constraint, Files_Update_Column, Order_By } from '../schemas/hasura'
+import schema from '../schemas/hasura'
 import { print } from 'graphql'
 import { describe, expect, it } from 'vitest'
 import { fetchClient } from '../src'
@@ -188,6 +188,7 @@ describe('main', () => {
         }
       }
     })
+
     expect(print(q)).toMatchInlineSnapshot(`
       "mutation ($objects: [Any!]!, $on_conflict: Any) {
         insertFiles(objects: $objects, on_conflict: $on_conflict) {

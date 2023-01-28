@@ -8,16 +8,41 @@ import {
   ToUnion,
   IsUnion,
   OmitOptionalFields,
-  RequiredWhenChildrenAreRequired
+  RequiredWhenChildrenAreRequired,
+  PickFirstTupleItemThatExtends
 } from './type-helpers'
-import { FieldArgs, GenericSchema, OperationsOf, OperationTypes } from './schema'
+import {
+  ConcreteTypeOf,
+  FieldArgs,
+  FieldDefinition,
+  GenericSchema,
+  ObjectType,
+  OperationRootTypeOf,
+  OperationsOf,
+  OperationTypes
+} from './schema'
 import { VariablesInputType, VariablesTypes } from './variables'
 
 type AllParameters<
   Schema extends GenericSchema,
   OperationType extends OperationTypes,
   Element extends Record<string, any>,
-  Args,
+  Definition,
+  FieldName extends string,
+  FieldTypeRef extends FieldDefinition = Definition extends { fields: readonly any[] }
+    ? PickFirstTupleItemThatExtends<Definition['fields'], { name: FieldName }>
+    : never,
+  FieldType extends ObjectType = ConcreteTypeOf<Schema, FieldTypeRef['type']>,
+  HasArgs = FieldTypeRef extends { args: readonly any[] }
+    ? FieldTypeRef['args']['length'] extends 0
+      ? false
+      : true
+    : false,
+  Args = HasArgs extends true
+    ? unknown extends FieldArgs<Schema, OperationType, FieldTypeRef['name']>
+      ? FieldArgs<Schema, OperationType, FieldType['name']>
+      : FieldArgs<Schema, OperationType, FieldTypeRef['name']>
+    : never,
   Fields = IsUnion<Element> extends true
     ? {
         on: // TODO require at least one typename. When using RequireAtLeastOne, the result type is not inferred correctly
@@ -27,7 +52,9 @@ type AllParameters<
             Schema,
             OperationType,
             Schema['types'][key],
-            Args
+            // TODO double check if this is correct
+            FieldType,
+            key
           >
         }
         //>
@@ -39,22 +66,20 @@ type AllParameters<
                   Schema,
                   OperationType,
                   UnwrapNullableArray<Element[key]>,
-                  Element[key] extends any[]
-                    ? FieldArgs<
-                        Schema,
-                        OperationType,
-                        Required<UnwrapArray<Element[key]>>['__typename']
-                      >
-                    : {}
+                  FieldType,
+                  string & key
                 >
               | true
           : // * If the element key is not an object/array of objects, it's a scalar field
             true
       }
-> = {
+> =
   // * The `select` property is optional, as when absent, all the fields are selected
-  select?: Fields
-} & RequiredWhenChildrenAreRequired<'variables', Args> // * The `variables` property is required when at least one of the children is required
+  // * The `variables` property is required when at least one of the children is required
+  // * If there is no possible variables, the `variables` property is not available
+  {
+    select?: Fields
+  } & RequiredWhenChildrenAreRequired<'variables', Args>
 
 type IsTrueOrHasOnlyOptionals<T> = T extends true
   ? true
@@ -123,7 +148,8 @@ export type OperationFactory<
       Schema,
       OperationType,
       NonNullable<Element>,
-      FieldArgs<Schema, OperationType, string & name>
+      OperationRootTypeOf<Schema, OperationType>,
+      string & name
     >,
     ExactParams extends Exactly<Params, ExactParams>,
     Result extends WrapArray<

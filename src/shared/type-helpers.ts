@@ -1,4 +1,4 @@
-import { Split, Join } from 'type-fest'
+import { Split, Join, EmptyObject } from 'type-fest'
 
 export type StripImpossibleProperties<T> = Pick<
   T,
@@ -71,7 +71,18 @@ type CapitalizeEach<T> = T extends [infer I, ...infer R]
 export type CapitalizeSnakeCase<T extends string> = Join<CapitalizeEach<Split<T, '_'>>, '_'>
 
 type RequiredKeys<T> = { [K in keyof T]-?: {} extends Pick<T, K> ? never : K }[keyof T]
+type OptionalKeys<T> = { [K in keyof T]: {} extends Pick<T, K> ? never : K }[keyof T]
 
 export type RequiredWhenChildrenAreRequired<key extends string, T> = RequiredKeys<T> extends never
-  ? { [k in key]?: T }
+  ? OptionalKeys<T> extends never
+    ? EmptyObject
+    : { [k in key]?: T }
   : { [k in key]: T }
+
+export type PickFirstTupleItemThatExtends<T, U> = Readonly<T> extends Readonly<
+  [infer I, ...infer Rest]
+>
+  ? I extends U
+    ? I
+    : PickFirstTupleItemThatExtends<Rest, U>
+  : never

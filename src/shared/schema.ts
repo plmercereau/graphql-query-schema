@@ -1,4 +1,4 @@
-import { CapitalizeSnakeCase } from './type-helpers'
+import { CapitalizeSnakeCase, PickFirstTupleItemThatExtends } from './type-helpers'
 
 export type GenericSchema = Record<string, any> & {
   introspection: Introspection
@@ -10,11 +10,14 @@ export type OperationTypes = 'Query' | 'Mutation' | 'Subscription'
 type RootOperationName<
   Schema extends GenericSchema,
   OperationType extends OperationTypes,
+  capitalize extends boolean = true,
   IntrospectionSchema = Schema['introspection']['__schema'],
   IntrospectionProperty = `${Uncapitalize<OperationType>}Type`
 > = IntrospectionProperty extends keyof IntrospectionSchema
   ? IntrospectionSchema[IntrospectionProperty] extends { name: string }
-    ? CapitalizeSnakeCase<IntrospectionSchema[IntrospectionProperty]['name']>
+    ? capitalize extends true
+      ? CapitalizeSnakeCase<IntrospectionSchema[IntrospectionProperty]['name']>
+      : IntrospectionSchema[IntrospectionProperty]['name']
     : never
   : never
 
@@ -38,11 +41,54 @@ export type FieldArgs<
   OperationType extends OperationTypes,
   FieldName extends string,
   Suffix extends string = `${Capitalize<FieldName>}Args`
-> = Schema['types'][`Root${Suffix}`] extends object
-  ? // * Relay syntax
-    Schema['types'][`Root${Suffix}`]
-  : // * Standard syntax
-    Schema['types'][`${RootOperationName<Schema, OperationType>}${Suffix}`]
+> = Schema['types'][`${RootOperationName<Schema, OperationType>}${Suffix}`]
+
+// TODO try one last time with a Relay endpoint e.g. swapi
+// Schema['types'][`Root${Suffix}`] extends object
+//   ? // * Relay syntax
+//     Schema['types'][`Root${Suffix}`]
+//   : // * Standard syntax
+//     Schema['types'][`${RootOperationName<Schema, OperationType>}${Suffix}`]
+
+export type OperationRootTypeOf<
+  Schema extends GenericSchema,
+  OperationType extends OperationTypes
+> = SelectSingleType<
+  Schema,
+  { kind: 'OBJECT'; name: RootOperationName<Schema, OperationType, false> }
+>
+
+export type SelectSingleType<S extends GenericSchema, Type extends TypeRef> = Type &
+  PickFirstTupleItemThatExtends<
+    S['introspection']['__schema']['types'],
+    Type extends { name: string }
+      ? { name: Type['name']; kind: Type['kind'] }
+      : { kind: Type['kind'] }
+  >
+
+// TODO remove the recursion as we know the possible type depth
+type MAX_RECURSION = 10 // maximum recursion depth
+type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
+  ? Acc
+  : Enumerate<N, [...Acc, Acc['length']]>
+
+type Pred = [never, ...Enumerate<MAX_RECURSION>]
+
+export type ConcreteTypeOf<
+  S extends GenericSchema,
+  T extends TypeRef,
+  D extends number = MAX_RECURSION
+> = [D] extends [0]
+  ? any
+  : T extends TypeRef
+  ? T extends NonNullType
+    ? ConcreteTypeOf<S, T['ofType'], Pred[D]>
+    : T extends ListType
+    ? ConcreteTypeOf<S, T['ofType'], Pred[D]>
+    : T extends ObjectType
+    ? SelectSingleType<S, T>
+    : T
+  : never
 
 export type Introspection = {
   __schema: {
