@@ -2,7 +2,7 @@ import { getIntrospectedSchema, minifyIntrospectionQuery } from '@urql/introspec
 
 import { plugin as typescriptPlugin } from '@graphql-codegen/typescript'
 
-type Unpromise<T> = T extends Promise<infer U> ? U : T
+type UnwrapPromise<T> = T extends Promise<infer U> ? U : T
 
 export const plugin: typeof typescriptPlugin = (schema, documents, config) => {
   // * We don't allow the other @graphql-codegen/typescript options as they could break the generator and the types.
@@ -19,7 +19,7 @@ export const plugin: typeof typescriptPlugin = (schema, documents, config) => {
     includeScalars: true
   })
 
-  const { prepend, content } = typescriptPlugin(schema, documents, conf) as Unpromise<
+  const { prepend, content } = typescriptPlugin(schema, documents, conf) as UnwrapPromise<
     ReturnType<typeof typescriptPlugin>
   >
 
