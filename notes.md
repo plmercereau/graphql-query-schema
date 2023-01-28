@@ -1,7 +1,14 @@
 ## TODO
 
 - [ ] identify with other graphql-codegen options could be allowed, and block the required ones
-  - Try other graphql-codegen naming conventions, and pick the one that renders nicest types
+  - Use `addUnderscoreToArgsType`?
+  - `avoidOptionals`?
+  - `disableDescriptions` -> how to get the description right?
+  - Allow:
+    - Scalars
+    - Try other graphql-codegen naming convention
+      - pick the one that renders nicest types
+      - see if we can let the user pick the naming convention they want
 - [ ] Types testing
 - [ ] Extended test schema
 
@@ -53,8 +60,10 @@
   - [ ] Aliases
   - [x] Unions
   - [x] Interfaces
+  - [ ] Directives
   - [ ] Multiple operations
     - Maybe: `client.query({ todos: { id: true }, users: { email: true } })`
+- Idea: extend specific types, for instance a given JSONB column
 - Idea: namespace, e.g. `client.query.auth.users()`
 - Idea on unions: if no `on` is given, select all the scalars from all the possible types
   (but not when in an interface)
