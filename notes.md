@@ -57,12 +57,14 @@
 - Other GraphQL features:
   - [ ] Variables (for `client.queryDocument` etc)
     - detect enums used in arguments when generating the query, and wrap them with `EnumType`
-  - [ ] Aliases
-  - [x] Unions
-  - [x] Interfaces
-  - [ ] Directives
   - [ ] Multiple operations
     - Maybe: `client.query({ todos: { id: true }, users: { email: true } })`
+  - [ ] Aliases
+  - [ ] Fragments
+  - [ ] Directives
+  - [x] Enums
+  - [x] Unions
+  - [x] Interfaces
 - Idea: extend specific types, for instance a given JSONB column
 - Idea: namespace, e.g. `client.query.auth.users()`
 - Idea on unions: if no `on` is given, select all the scalars from all the possible types
