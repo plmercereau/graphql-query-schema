@@ -11,7 +11,7 @@ describe('Pothos', () => {
   it('should work with unions', async () => {
     const result = await client.query.everyone({
       on: {
-        Human: { select: { firstName: true } },
+        Human: { select: true },
         Dog: { select: { name: true, barks: true } },
         Hamster: { select: { name: true, diet: true } }
       },
@@ -23,6 +23,7 @@ describe('Pothos', () => {
         {
           "__typename": "Human",
           "firstName": "John",
+          "phoneNumber": "123-456-7890",
         },
         {
           "__typename": "Dog",

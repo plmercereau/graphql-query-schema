@@ -3,8 +3,11 @@
 - [ ] identify with other graphql-codegen options could be allowed, and block the required ones
   - Try other graphql-codegen naming conventions, and pick the one that renders nicest types
 - [ ] Types testing
-- [ ] test unions again
 - [ ] Extended test schema
+- [ ] unions
+  - [ ] if no `on` is given, select all the scalars from all the possible types
+        (but not when in an interface)
+  - [ ] types for `on: { Human: true }` and `on: { Human: { select: true }}`
 - [ ] interfaces
 
 ## Done
