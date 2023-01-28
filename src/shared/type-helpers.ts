@@ -17,7 +17,7 @@ export type UnwrapArray<T> = T extends (infer E)[] ? E : NonNullable<T>
 export type WrapArray<T, U> = NonNullable<T> extends any[] ? U[] : U
 
 /** Omit all the optional fields of the type */
-export type OmitOptionalFields<T> = {
+type OmitOptionalFields<T> = {
   [K in keyof T as T[K] extends Required<T>[K] ? K : never]: T[K]
 }
 
@@ -26,18 +26,6 @@ export type MakeOptional<T> = {
 } & {
   [K in keyof T as undefined extends T[K] ? never : K]: T[K]
 }
-
-// ? Keep?
-/** Transform a function according to the type of its first parameter:
- * - if the first parameter has some required keys, it is required
- * - otherwise, the parameter is made optional
- */
-export type FunctionWithOptionalParameter<
-  T extends (arg: any) => any,
-  Arg = Parameters<T>[0]
-> = keyof OmitOptionalFields<Arg> extends string
-  ? (arg: Arg) => ReturnType<T>
-  : (arg?: Arg) => ReturnType<T>
 
 /** Select only the properties of the object that matches the second generic argument */
 export type Select<T, K extends keyof any> = Pick<T, Extract<keyof T, K>>
@@ -86,3 +74,9 @@ export type PickFirstTupleItemThatExtends<T, U> = Readonly<T> extends Readonly<
     ? I
     : PickFirstTupleItemThatExtends<Rest, U>
   : never
+
+export type IsTrueOrHasOnlyOptionals<T> = T extends true
+  ? true
+  : keyof OmitOptionalFields<T> extends never
+  ? true
+  : false

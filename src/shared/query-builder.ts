@@ -27,6 +27,33 @@ const toJson = (
   const inputArguments = (parameters !== true && parameters.variables) || {}
   const args: Record<string, any> = {}
 
+  const onValues = parameters !== true && parameters.on
+  if (onValues) {
+    select['__typename'] = true
+    select['__on'] = Object.keys(onValues).map((fragmentName) => {
+      const childVariablePrefix = variablesPrefix
+        ? `${variablesPrefix}_on_${fragmentName}`
+        : `on_${fragmentName}`
+      const {
+        query,
+        variables: newVariables,
+        variablesValues: newVariablesValues
+      } = toJson(
+        schema,
+        onValues[fragmentName],
+        getTypeFromRef(schema, { kind: 'OBJECT', name: fragmentName }),
+        variables,
+        variablesValues,
+        childVariablePrefix
+      )
+      variables = { ...variables, ...newVariables }
+      variablesValues = { ...variablesValues, ...newVariablesValues }
+      return {
+        __typeName: fragmentName,
+        ...query
+      }
+    })
+  }
   if ('type' in definition) {
     Object.keys(inputArguments).forEach((key) => {
       // TODO camel case the variable names?
@@ -51,29 +78,6 @@ const toJson = (
     Object.entries(values).forEach(([key, value]: [string, any]) => {
       if (reservedKeys.includes(key)) {
         select[key] = value
-      } else if (key === 'on') {
-        select['__typename'] = true
-        select['__on'] = Object.keys(value).map((fragmentName) => {
-          const childVariablePrefix = variablesPrefix ? `${variablesPrefix}_on_${key}` : `on_${key}`
-          const {
-            query,
-            variables: newVariables,
-            variablesValues: newVariablesValues
-          } = toJson(
-            schema,
-            value[fragmentName],
-            getTypeFromRef(schema, { kind: 'OBJECT', name: fragmentName }),
-            variables,
-            variablesValues,
-            childVariablePrefix
-          )
-          variables = { ...variables, ...newVariables }
-          variablesValues = { ...variablesValues, ...newVariablesValues }
-          return {
-            __typeName: fragmentName,
-            ...query
-          }
-        })
       } else {
         // * implement custom variables later
         // if (value instanceof ModifiedVariableType) {

@@ -2,57 +2,127 @@ import SchemaBuilder from '@pothos/core'
 import { createYoga } from 'graphql-yoga'
 import { createServer } from 'node:http'
 
+class Human {
+  public pets: Pet[] = []
+  constructor(public phoneNumber: string, public firstName: string) {}
+}
+
+class Pet {
+  name: string
+  diet: Diet
+  owner: Human
+  constructor(name: string, diet: Diet, owner: Human) {
+    this.name = name
+    this.diet = diet
+    this.owner = owner
+  }
+  // constructor(public name: string, public diet: Diet, public owner: Human) {}
+}
+
+enum Diet {
+  HERBIVOROUS,
+  CARNIVOROUS,
+  OMNIVORIOUS
+}
+
+export class Dog extends Pet {
+  constructor(name: string, owner: Human, public barks: boolean) {
+    super(name, Diet.CARNIVOROUS, owner)
+  }
+}
+
+export class Hamster extends Pet {
+  constructor(name: string, owner: Human, public squeaks: boolean) {
+    super(name, Diet.HERBIVOROUS, owner)
+  }
+}
+
+const human1 = new Human('123-456-7890', 'John')
+const dog1 = new Dog('Fido', human1, false)
+const dog2 = new Dog('Rover', human1, true)
+const hamster1 = new Hamster('Hammy', human1, true)
+human1.pets = [dog1, dog2, hamster1]
+
 const builder = new SchemaBuilder<{
   Objects: {
-    GiraffeStringFact: { factKind: 'string'; fact: string }
-    GiraffeNumericFact: { factKind: 'number'; fact: string; value: number }
+    Pet: Pet
+    Human: Human
+    Dog: Dog
   }
 }>({})
 
-builder.objectType('GiraffeStringFact', {
+const HumanObject = builder.objectType('Human', {
   fields: (t) => ({
-    fact: t.exposeString('fact', {})
+    phoneNumber: t.exposeString('phoneNumber', {}),
+    firstName: t.exposeString('firstName', {}),
+    pets: t.field({
+      type: [Pet],
+      resolve: (h) => h.pets
+    })
   })
 })
 
-const GiraffeNumericFact = builder.objectType('GiraffeNumericFact', {
+const PetObject = builder.interfaceType(Pet, {
+  name: 'Pet',
   fields: (t) => ({
-    fact: t.exposeString('fact', {}),
-    value: t.exposeFloat('value', {})
+    name: t.exposeString('name', {}),
+    owner: t.field({ type: HumanObject, resolve: (p) => p.owner }),
+    diet: t.expose('diet', {
+      type: Diet
+    })
   })
 })
 
-const GiraffeFact = builder.unionType('GiraffeFact', {
-  types: ['GiraffeStringFact', GiraffeNumericFact],
+const DogObject = builder.objectType('Dog', {
+  interfaces: [Pet],
+  isTypeOf: (value) => value instanceof Dog,
+  fields: (t) => ({
+    barks: t.exposeBoolean('barks', {})
+  })
+})
+
+const HamsterObject = builder.objectType(Hamster, {
+  name: 'Hamster',
+  interfaces: [Pet],
+  isTypeOf: (value) => value instanceof Hamster,
+  fields: (t) => ({
+    squeaks: t.exposeBoolean('squeaks', {})
+  })
+})
+
+builder.enumType(Diet, {
+  name: 'Diet'
+})
+
+const Anyone = builder.unionType('Anyone', {
+  types: [DogObject, HamsterObject, HumanObject],
   resolveType: (fact) => {
-    switch (fact.factKind) {
-      case 'number':
-        return GiraffeNumericFact
-      case 'string':
-        return 'GiraffeStringFact'
+    if (fact instanceof Human) {
+      return HumanObject
+    }
+    if (fact instanceof Dog) {
+      return DogObject
+    }
+    if (fact instanceof Hamster) {
+      return HamsterObject
     }
   }
 })
 
-builder.queryField('giraffeFacts', (t) =>
+builder.queryField('everyone', (t) =>
   t.field({
-    type: [GiraffeFact],
+    type: [Anyone],
     resolve: () => {
-      const fact1 = {
-        factKind: 'string',
-        fact: 'A giraffe’s spots are much like human fingerprints. No two individual giraffes have exactly the same pattern'
-      } as const
-
-      const fact2 = {
-        factKind: 'number',
-        fact: 'Top speed (MPH)',
-        value: 35
-      } as const
-
-      return [fact1, fact2]
+      return [human1, dog1, dog2, hamster1]
     }
   })
 )
+
+builder.queryField('pets', (t) =>
+  t.field({ type: [PetObject], resolve: () => [dog1, dog2, hamster1] })
+)
+builder.queryField('dogs', (t) => t.field({ type: [DogObject], resolve: () => [dog1, dog2] }))
+builder.queryField('hamsters', (t) => t.field({ type: [HamsterObject], resolve: () => [hamster1] }))
 
 builder.queryType()
 

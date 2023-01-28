@@ -12,22 +12,48 @@ export type Scalars = {
   Float: number;
 };
 
-export type GiraffeFact = GiraffeNumericFact | GiraffeStringFact;
+export type Anyone = Dog | Hamster | Human;
 
-export type GiraffeNumericFact = {
-  __typename?: 'GiraffeNumericFact';
-  fact: Scalars['String'];
-  value: Scalars['Float'];
+export type Diet =
+  | 'CARNIVOROUS'
+  | 'HERBIVOROUS'
+  | 'OMNIVORIOUS';
+
+export type Dog = Pet & {
+  __typename?: 'Dog';
+  barks: Scalars['Boolean'];
+  diet: Diet;
+  name: Scalars['String'];
+  owner: Human;
 };
 
-export type GiraffeStringFact = {
-  __typename?: 'GiraffeStringFact';
-  fact: Scalars['String'];
+export type Hamster = Pet & {
+  __typename?: 'Hamster';
+  diet: Diet;
+  name: Scalars['String'];
+  owner: Human;
+  squeaks: Scalars['Boolean'];
+};
+
+export type Human = {
+  __typename?: 'Human';
+  firstName: Scalars['String'];
+  pets: Array<Pet>;
+  phoneNumber: Scalars['String'];
+};
+
+export type Pet = {
+  diet: Diet;
+  name: Scalars['String'];
+  owner: Human;
 };
 
 export type Query = {
   __typename?: 'Query';
-  giraffeFacts: Array<GiraffeFact>;
+  dogs: Array<Dog>;
+  everyone: Array<Anyone>;
+  hamsters: Array<Hamster>;
+  pets: Array<Pet>;
 };
 
 
@@ -41,33 +67,72 @@ export default {
       "subscriptionType": null,
       "types": [
         {
+          "kind": "UNION",
+          "name": "Anyone",
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "Dog"
+            },
+            {
+              "kind": "OBJECT",
+              "name": "Hamster"
+            },
+            {
+              "kind": "OBJECT",
+              "name": "Human"
+            }
+          ]
+        },
+        {
           "kind": "SCALAR",
           "name": "Boolean"
         },
         {
-          "kind": "SCALAR",
-          "name": "Float"
-        },
-        {
-          "kind": "UNION",
-          "name": "GiraffeFact",
-          "possibleTypes": [
+          "kind": "ENUM",
+          "name": "Diet",
+          "enumValues": [
             {
-              "kind": "OBJECT",
-              "name": "GiraffeNumericFact"
+              "name": "CARNIVOROUS"
             },
             {
-              "kind": "OBJECT",
-              "name": "GiraffeStringFact"
+              "name": "HERBIVOROUS"
+            },
+            {
+              "name": "OMNIVORIOUS"
             }
           ]
         },
         {
           "kind": "OBJECT",
-          "name": "GiraffeNumericFact",
+          "name": "Dog",
           "fields": [
             {
-              "name": "fact",
+              "name": "barks",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "diet",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "Diet",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "name",
               "type": {
                 "kind": "NON_NULL",
                 "ofType": {
@@ -79,26 +144,125 @@ export default {
               "args": []
             },
             {
-              "name": "value",
+              "name": "owner",
               "type": {
                 "kind": "NON_NULL",
                 "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Float",
+                  "kind": "OBJECT",
+                  "name": "Human",
                   "ofType": null
                 }
               },
               "args": []
             }
           ],
-          "interfaces": []
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Pet"
+            }
+          ]
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Float"
         },
         {
           "kind": "OBJECT",
-          "name": "GiraffeStringFact",
+          "name": "Hamster",
           "fields": [
             {
-              "name": "fact",
+              "name": "diet",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "Diet",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "owner",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Human",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "squeaks",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": [
+            {
+              "kind": "INTERFACE",
+              "name": "Pet"
+            }
+          ]
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Human",
+          "fields": [
+            {
+              "name": "firstName",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pets",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "INTERFACE",
+                      "name": "Pet",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "phoneNumber",
               "type": {
                 "kind": "NON_NULL",
                 "ofType": {
@@ -121,11 +285,82 @@ export default {
           "name": "Int"
         },
         {
+          "kind": "INTERFACE",
+          "name": "Pet",
+          "fields": [
+            {
+              "name": "diet",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "Diet",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "owner",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Human",
+                  "ofType": null
+                }
+              },
+              "args": []
+            }
+          ],
+          "interfaces": [],
+          "possibleTypes": [
+            {
+              "kind": "OBJECT",
+              "name": "Dog"
+            },
+            {
+              "kind": "OBJECT",
+              "name": "Hamster"
+            }
+          ]
+        },
+        {
           "kind": "OBJECT",
           "name": "Query",
           "fields": [
             {
-              "name": "giraffeFacts",
+              "name": "dogs",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "Dog",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "everyone",
               "type": {
                 "kind": "NON_NULL",
                 "ofType": {
@@ -134,7 +369,43 @@ export default {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "UNION",
-                      "name": "GiraffeFact",
+                      "name": "Anyone",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "hamsters",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "OBJECT",
+                      "name": "Hamster",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "args": []
+            },
+            {
+              "name": "pets",
+              "type": {
+                "kind": "NON_NULL",
+                "ofType": {
+                  "kind": "LIST",
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "INTERFACE",
+                      "name": "Pet",
                       "ofType": null
                     }
                   }
@@ -159,8 +430,11 @@ export default {
   } as const,
   types: {} as {
     Scalars: Scalars,
-    GiraffeNumericFact: GiraffeNumericFact,
-    GiraffeStringFact: GiraffeStringFact,
+    Anyone: Anyone,
+    Dog: Dog,
+    Hamster: Hamster,
+    Human: Human,
+    Pet: Pet,
     Query: Query
   }
 }

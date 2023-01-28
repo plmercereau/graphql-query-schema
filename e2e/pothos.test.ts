@@ -9,30 +9,35 @@ const client = fetchClient({
 
 describe('Pothos', () => {
   it('should work with unions', async () => {
-    const result = await client.query.giraffeFacts({
-      select: {
-        on: {
-          GiraffeNumericFact: { select: { value: true } },
-          GiraffeStringFact: { select: { fact: true } }
-        }
-      }
+    const result = await client.query.everyone({
+      on: {
+        Human: { select: { firstName: true } },
+        Dog: { select: { name: true, barks: true } },
+        Hamster: { select: { name: true, diet: true } }
+      },
+      select: {}
     })
 
-    const res = result.at(0)!
-    if (res.__typename === 'GiraffeNumericFact') {
-      res.value
-    } else {
-      res.fact
-    }
     expect(result).toMatchInlineSnapshot(`
       [
         {
-          "__typename": "GiraffeStringFact",
-          "fact": "A giraffe’s spots are much like human fingerprints. No two individual giraffes have exactly the same pattern",
+          "__typename": "Human",
+          "firstName": "John",
         },
         {
-          "__typename": "GiraffeNumericFact",
-          "value": 35,
+          "__typename": "Dog",
+          "barks": false,
+          "name": "Fido",
+        },
+        {
+          "__typename": "Dog",
+          "barks": true,
+          "name": "Rover",
+        },
+        {
+          "__typename": "Hamster",
+          "diet": "HERBIVOROUS",
+          "name": "Hammy",
         },
       ]
     `)

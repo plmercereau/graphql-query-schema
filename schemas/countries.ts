@@ -811,6 +811,7 @@ export default {
     QueryLanguagesArgs: QueryLanguagesArgs,
     State: State,
     StringQueryOperatorInput: StringQueryOperatorInput,
+    _Entity: _Entity,
     _Service: _Service
   }
 }

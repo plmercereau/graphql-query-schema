@@ -27,7 +27,7 @@ export const plugin: typeof typescriptPlugin = (schema, documents, config) => {
   // * https://stackoverflow.com/questions/2008279/validate-a-javascript-function-name
   // TODO we should use a stronger way of getting the type and enum names, for instance to  in using the typescript parser
   const types = [
-    ...Array.from(content.matchAll(/^export type ([$A-Z_][0-9A-Z_$]*) = {/gim))
+    ...Array.from(content.matchAll(/^export type ([$A-Z_][0-9A-Z_$]*) = /gim))
     // * Not required if we generate enumns as types
     // ...Array.from(content.matchAll(/^export enum ([$A-Z_][0-9A-Z_$]*) {/gim))
   ]

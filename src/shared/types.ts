@@ -7,9 +7,9 @@ import {
   StripImpossibleProperties,
   ToUnion,
   IsUnion,
-  OmitOptionalFields,
   RequiredWhenChildrenAreRequired,
-  PickFirstTupleItemThatExtends
+  PickFirstTupleItemThatExtends,
+  IsTrueOrHasOnlyOptionals
 } from './type-helpers'
 import {
   ConcreteTypeOf,
@@ -23,7 +23,7 @@ import {
 } from './schema'
 import { VariablesInputType, VariablesTypes } from './variables'
 
-type AllParameters<
+type ParametersOf<
   Schema extends GenericSchema,
   OperationType extends OperationTypes,
   Element extends Record<string, any>,
@@ -43,91 +43,78 @@ type AllParameters<
       ? FieldArgs<Schema, OperationType, FieldType['name']>
       : FieldArgs<Schema, OperationType, FieldTypeRef['name']>
     : never,
-  Fields = IsUnion<Element> extends true
+  Fields = {
+    // TODO check if interface works
+    [key in keyof Element]?: UnwrapNullableArray<Element[key]> extends object
+      ? // * Accept either a list of fields or `true` to select all the fields
+        | ParametersOf<
+              Schema,
+              OperationType,
+              UnwrapNullableArray<Element[key]>,
+              FieldType,
+              string & key
+            >
+          | true
+      : // * If the element key is not an object/array of objects, it's a scalar field
+        true
+  },
+  Select = {
+    // * The `select` property is optional, as when absent, all the fields are selected
+    select?: Fields
+  },
+  // * The `variables` property is required when at least one of the children is required
+  // * If there is no possible variables, the `variables` property is not available
+  Variables = RequiredWhenChildrenAreRequired<'variables', Args>,
+  On = IsUnion<Element> extends true
     ? {
-        on: // TODO require at least one typename. When using RequireAtLeastOne, the result type is not inferred correctly
-        //RequireAtLeastOne<
-        {
-          [key in NonNullable<Element['__typename']>]?: AllParameters<
+        on?: {
+          [key in NonNullable<Element['__typename']>]?: ParametersOf<
             Schema,
             OperationType,
             Schema['types'][key],
-            // TODO double check if this is correct
             FieldType,
             key
           >
         }
-        //>
       }
-    : {
-        [key in keyof Element]?: UnwrapNullableArray<Element[key]> extends object
-          ? // * Accept either a list of fields or `true` to select all the fields
-            | AllParameters<
-                  Schema,
-                  OperationType,
-                  UnwrapNullableArray<Element[key]>,
-                  FieldType,
-                  string & key
-                >
-              | true
-          : // * If the element key is not an object/array of objects, it's a scalar field
-            true
-      }
-> =
-  // * The `select` property is optional, as when absent, all the fields are selected
-  // * The `variables` property is required when at least one of the children is required
-  // * If there is no possible variables, the `variables` property is not available
-  {
-    select?: Fields
-  } & RequiredWhenChildrenAreRequired<'variables', Args>
-
-type IsTrueOrHasOnlyOptionals<T> = T extends true
-  ? true
-  : keyof OmitOptionalFields<T> extends never
-  ? true
-  : false
+    : {}
+> = Select & Variables & On
 
 type QueryFields<
   Params extends { select?: any },
   Element,
   UnwrappedParams extends { select?: any } = UnwrapArray<Params>
-> = Omit<
-  UnwrappedParams | UnwrappedParams extends undefined
-    ? Element
-    : WrapArray<
-        NonNullable<Element>,
-        IsTrueOrHasOnlyOptionals<UnwrappedParams['select']> extends true
-          ? // * Return all the non-object (scalar) fields
-            StripImpossibleProperties<{
-              [k in keyof NonNullable<Element>]: k extends keyof UnwrapArray<Element>
-                ? UnwrapArray<NonNullable<Element>>[k] extends object
-                  ? never
-                  : UnwrapArray<Element>[k]
-                : never
-            }>
-          : // * The parameter is a list of fields and the element in an object: pick the selected fields
-            StripImpossibleProperties<{
-              [k in keyof UnwrappedParams['select']]: k extends keyof UnwrapArray<Element>
-                ? UnwrapArray<NonNullable<Element>>[k] extends object
-                  ? QueryFields<UnwrappedParams['select'][k], UnwrapArray<Element>[k]>
-                  : UnwrapArray<Element>[k]
-                : never
-            }>
-      >,
-  'on'
->
+> = UnwrappedParams | UnwrappedParams extends undefined
+  ? Element
+  : WrapArray<
+      NonNullable<Element>,
+      IsTrueOrHasOnlyOptionals<UnwrappedParams['select']> extends true
+        ? // * Return all the non-object (scalar) fields
+          StripImpossibleProperties<{
+            [k in keyof NonNullable<Element>]: k extends keyof UnwrapArray<Element>
+              ? UnwrapArray<NonNullable<Element>>[k] extends object
+                ? never
+                : UnwrapArray<Element>[k]
+              : never
+          }>
+        : // * The parameter is a list of fields and the element in an object: pick the selected fields
+          StripImpossibleProperties<{
+            [k in keyof UnwrappedParams['select']]: k extends keyof UnwrapArray<Element>
+              ? UnwrapArray<NonNullable<Element>>[k] extends object
+                ? QueryFields<UnwrappedParams['select'][k], UnwrapArray<Element>[k]>
+                : UnwrapArray<Element>[k]
+              : never
+          }>
+    >
 
 type UnionFields<
   Schema extends GenericSchema,
-  Params extends { select?: any } | undefined,
-  Fragments extends { on: any } = NonNullable<NonNullable<Params>['select']> & { on: {} }
+  Params extends { on: any[] },
+  Fragments = NonNullable<NonNullable<Params>['on']>
 > = ToUnion<{
-  [fragmentName in keyof Fragments['on']]: {
+  [fragmentName in keyof Fragments]: {
     __typename: NonNullable<Schema['types'][string & fragmentName]['__typename']>
-  } & QueryFields<
-    NonNullable<Fragments['on'][fragmentName]>,
-    Schema['types'][string & fragmentName]
-  >
+  } & QueryFields<NonNullable<Fragments[fragmentName]>, Schema['types'][string & fragmentName]>
 }>
 
 // * See: https://stackoverflow.com/a/59230299
@@ -144,7 +131,7 @@ export type OperationFactory<
     Element extends UnwrapArray<Operation>,
     VariablesInput extends VariablesInputType<Schema>,
     Variables extends VariablesTypes<Schema, VariablesInput>,
-    Params extends AllParameters<
+    Params extends ParametersOf<
       Schema,
       OperationType,
       NonNullable<Element>,
@@ -154,9 +141,8 @@ export type OperationFactory<
     ExactParams extends Exactly<Params, ExactParams>,
     Result extends WrapArray<
       Operation,
-      IsUnion<NonNullable<Element>> extends true
-        ? UnionFields<Schema, ExactParams>
-        : QueryFields<ExactParams, Element>
+      (ExactParams extends { on: any } ? UnionFields<Schema, ExactParams> : {}) &
+        QueryFields<ExactParams, Element> & { params: ExactParams }
     >,
     ReturnTransformer extends ReturnTransformersFactory<
       Result,
