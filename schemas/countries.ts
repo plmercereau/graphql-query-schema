@@ -70,37 +70,37 @@ export type Query = {
 };
 
 
-export type Query_EntitiesArgs = {
+export type Query__EntitiesArgs = {
   representations: Array<Scalars['_Any']>;
 };
 
 
-export type QueryContinentArgs = {
+export type Query_ContinentArgs = {
   code: Scalars['ID'];
 };
 
 
-export type QueryContinentsArgs = {
+export type Query_ContinentsArgs = {
   filter?: InputMaybe<ContinentFilterInput>;
 };
 
 
-export type QueryCountriesArgs = {
+export type Query_CountriesArgs = {
   filter?: InputMaybe<CountryFilterInput>;
 };
 
 
-export type QueryCountryArgs = {
+export type Query_CountryArgs = {
   code: Scalars['ID'];
 };
 
 
-export type QueryLanguageArgs = {
+export type Query_LanguageArgs = {
   code: Scalars['ID'];
 };
 
 
-export type QueryLanguagesArgs = {
+export type Query_LanguagesArgs = {
   filter?: InputMaybe<LanguageFilterInput>;
 };
 
@@ -802,13 +802,13 @@ export default {
     Language: Language,
     LanguageFilterInput: LanguageFilterInput,
     Query: Query,
-    Query_EntitiesArgs: Query_EntitiesArgs,
-    QueryContinentArgs: QueryContinentArgs,
-    QueryContinentsArgs: QueryContinentsArgs,
-    QueryCountriesArgs: QueryCountriesArgs,
-    QueryCountryArgs: QueryCountryArgs,
-    QueryLanguageArgs: QueryLanguageArgs,
-    QueryLanguagesArgs: QueryLanguagesArgs,
+    Query__EntitiesArgs: Query__EntitiesArgs,
+    Query_ContinentArgs: Query_ContinentArgs,
+    Query_ContinentsArgs: Query_ContinentsArgs,
+    Query_CountriesArgs: Query_CountriesArgs,
+    Query_CountryArgs: Query_CountryArgs,
+    Query_LanguageArgs: Query_LanguageArgs,
+    Query_LanguagesArgs: Query_LanguagesArgs,
     State: State,
     StringQueryOperatorInput: StringQueryOperatorInput,
     _Entity: _Entity,

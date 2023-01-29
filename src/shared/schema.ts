@@ -40,7 +40,7 @@ export type FieldArgs<
   Schema extends GenericSchema,
   OperationType extends OperationTypes,
   FieldName extends string,
-  Suffix extends string = `${Capitalize<FieldName>}Args`
+  Suffix extends string = `_${Capitalize<FieldName>}Args`
 > = Schema['types'][`${RootOperationName<Schema, OperationType>}${Suffix}`]
 
 export type OperationRootTypeOf<

@@ -42,7 +42,7 @@ export type Film = Node & {
 
 
 /** A single film. */
-export type FilmCharacterConnectionArgs = {
+export type Film_CharacterConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -51,7 +51,7 @@ export type FilmCharacterConnectionArgs = {
 
 
 /** A single film. */
-export type FilmPlanetConnectionArgs = {
+export type Film_PlanetConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -60,7 +60,7 @@ export type FilmPlanetConnectionArgs = {
 
 
 /** A single film. */
-export type FilmSpeciesConnectionArgs = {
+export type Film_SpeciesConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -69,7 +69,7 @@ export type FilmSpeciesConnectionArgs = {
 
 
 /** A single film. */
-export type FilmStarshipConnectionArgs = {
+export type Film_StarshipConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -78,7 +78,7 @@ export type FilmStarshipConnectionArgs = {
 
 
 /** A single film. */
-export type FilmVehicleConnectionArgs = {
+export type Film_VehicleConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -391,7 +391,7 @@ export type Person = Node & {
 
 
 /** An individual person or character within the Star Wars universe. */
-export type PersonFilmConnectionArgs = {
+export type Person_FilmConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -400,7 +400,7 @@ export type PersonFilmConnectionArgs = {
 
 
 /** An individual person or character within the Star Wars universe. */
-export type PersonStarshipConnectionArgs = {
+export type Person_StarshipConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -409,7 +409,7 @@ export type PersonStarshipConnectionArgs = {
 
 
 /** An individual person or character within the Star Wars universe. */
-export type PersonVehicleConnectionArgs = {
+export type Person_VehicleConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -569,7 +569,7 @@ export type Planet = Node & {
  * A large mass, planet or planetoid in the Star Wars Universe, at the time of
  * 0 ABY.
  */
-export type PlanetFilmConnectionArgs = {
+export type Planet_FilmConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -581,7 +581,7 @@ export type PlanetFilmConnectionArgs = {
  * A large mass, planet or planetoid in the Star Wars Universe, at the time of
  * 0 ABY.
  */
-export type PlanetResidentConnectionArgs = {
+export type Planet_ResidentConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -709,7 +709,7 @@ export type Root = {
 };
 
 
-export type RootAllFilmsArgs = {
+export type Root_AllFilmsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -717,7 +717,7 @@ export type RootAllFilmsArgs = {
 };
 
 
-export type RootAllPeopleArgs = {
+export type Root_AllPeopleArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -725,7 +725,7 @@ export type RootAllPeopleArgs = {
 };
 
 
-export type RootAllPlanetsArgs = {
+export type Root_AllPlanetsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -733,7 +733,7 @@ export type RootAllPlanetsArgs = {
 };
 
 
-export type RootAllSpeciesArgs = {
+export type Root_AllSpeciesArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -741,7 +741,7 @@ export type RootAllSpeciesArgs = {
 };
 
 
-export type RootAllStarshipsArgs = {
+export type Root_AllStarshipsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -749,7 +749,7 @@ export type RootAllStarshipsArgs = {
 };
 
 
-export type RootAllVehiclesArgs = {
+export type Root_AllVehiclesArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -757,42 +757,42 @@ export type RootAllVehiclesArgs = {
 };
 
 
-export type RootFilmArgs = {
+export type Root_FilmArgs = {
   filmID?: InputMaybe<Scalars['ID']>;
   id?: InputMaybe<Scalars['ID']>;
 };
 
 
-export type RootNodeArgs = {
+export type Root_NodeArgs = {
   id: Scalars['ID'];
 };
 
 
-export type RootPersonArgs = {
+export type Root_PersonArgs = {
   id?: InputMaybe<Scalars['ID']>;
   personID?: InputMaybe<Scalars['ID']>;
 };
 
 
-export type RootPlanetArgs = {
+export type Root_PlanetArgs = {
   id?: InputMaybe<Scalars['ID']>;
   planetID?: InputMaybe<Scalars['ID']>;
 };
 
 
-export type RootSpeciesArgs = {
+export type Root_SpeciesArgs = {
   id?: InputMaybe<Scalars['ID']>;
   speciesID?: InputMaybe<Scalars['ID']>;
 };
 
 
-export type RootStarshipArgs = {
+export type Root_StarshipArgs = {
   id?: InputMaybe<Scalars['ID']>;
   starshipID?: InputMaybe<Scalars['ID']>;
 };
 
 
-export type RootVehicleArgs = {
+export type Root_VehicleArgs = {
   id?: InputMaybe<Scalars['ID']>;
   vehicleID?: InputMaybe<Scalars['ID']>;
 };
@@ -841,7 +841,7 @@ export type Species = Node & {
 
 
 /** A type of person or character within the Star Wars Universe. */
-export type SpeciesFilmConnectionArgs = {
+export type Species_FilmConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -850,7 +850,7 @@ export type SpeciesFilmConnectionArgs = {
 
 
 /** A type of person or character within the Star Wars Universe. */
-export type SpeciesPersonConnectionArgs = {
+export type Species_PersonConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -1018,7 +1018,7 @@ export type Starship = Node & {
 
 
 /** A single transport craft that has hyperdrive capability. */
-export type StarshipFilmConnectionArgs = {
+export type Starship_FilmConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -1027,7 +1027,7 @@ export type StarshipFilmConnectionArgs = {
 
 
 /** A single transport craft that has hyperdrive capability. */
-export type StarshipPilotConnectionArgs = {
+export type Starship_PilotConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -1182,7 +1182,7 @@ export type Vehicle = Node & {
 
 
 /** A single transport craft that does not have hyperdrive capability */
-export type VehicleFilmConnectionArgs = {
+export type Vehicle_FilmConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -1191,7 +1191,7 @@ export type VehicleFilmConnectionArgs = {
 
 
 /** A single transport craft that does not have hyperdrive capability */
-export type VehiclePilotConnectionArgs = {
+export type Vehicle_PilotConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
@@ -5110,11 +5110,11 @@ export default {
   types: {} as {
     Scalars: Scalars,
     Film: Film,
-    FilmCharacterConnectionArgs: FilmCharacterConnectionArgs,
-    FilmPlanetConnectionArgs: FilmPlanetConnectionArgs,
-    FilmSpeciesConnectionArgs: FilmSpeciesConnectionArgs,
-    FilmStarshipConnectionArgs: FilmStarshipConnectionArgs,
-    FilmVehicleConnectionArgs: FilmVehicleConnectionArgs,
+    Film_CharacterConnectionArgs: Film_CharacterConnectionArgs,
+    Film_PlanetConnectionArgs: Film_PlanetConnectionArgs,
+    Film_SpeciesConnectionArgs: Film_SpeciesConnectionArgs,
+    Film_StarshipConnectionArgs: Film_StarshipConnectionArgs,
+    Film_VehicleConnectionArgs: Film_VehicleConnectionArgs,
     FilmCharactersConnection: FilmCharactersConnection,
     FilmCharactersEdge: FilmCharactersEdge,
     FilmPlanetsConnection: FilmPlanetsConnection,
@@ -5132,9 +5132,9 @@ export default {
     PeopleConnection: PeopleConnection,
     PeopleEdge: PeopleEdge,
     Person: Person,
-    PersonFilmConnectionArgs: PersonFilmConnectionArgs,
-    PersonStarshipConnectionArgs: PersonStarshipConnectionArgs,
-    PersonVehicleConnectionArgs: PersonVehicleConnectionArgs,
+    Person_FilmConnectionArgs: Person_FilmConnectionArgs,
+    Person_StarshipConnectionArgs: Person_StarshipConnectionArgs,
+    Person_VehicleConnectionArgs: Person_VehicleConnectionArgs,
     PersonFilmsConnection: PersonFilmsConnection,
     PersonFilmsEdge: PersonFilmsEdge,
     PersonStarshipsConnection: PersonStarshipsConnection,
@@ -5142,8 +5142,8 @@ export default {
     PersonVehiclesConnection: PersonVehiclesConnection,
     PersonVehiclesEdge: PersonVehiclesEdge,
     Planet: Planet,
-    PlanetFilmConnectionArgs: PlanetFilmConnectionArgs,
-    PlanetResidentConnectionArgs: PlanetResidentConnectionArgs,
+    Planet_FilmConnectionArgs: Planet_FilmConnectionArgs,
+    Planet_ResidentConnectionArgs: Planet_ResidentConnectionArgs,
     PlanetFilmsConnection: PlanetFilmsConnection,
     PlanetFilmsEdge: PlanetFilmsEdge,
     PlanetResidentsConnection: PlanetResidentsConnection,
@@ -5151,22 +5151,22 @@ export default {
     PlanetsConnection: PlanetsConnection,
     PlanetsEdge: PlanetsEdge,
     Root: Root,
-    RootAllFilmsArgs: RootAllFilmsArgs,
-    RootAllPeopleArgs: RootAllPeopleArgs,
-    RootAllPlanetsArgs: RootAllPlanetsArgs,
-    RootAllSpeciesArgs: RootAllSpeciesArgs,
-    RootAllStarshipsArgs: RootAllStarshipsArgs,
-    RootAllVehiclesArgs: RootAllVehiclesArgs,
-    RootFilmArgs: RootFilmArgs,
-    RootNodeArgs: RootNodeArgs,
-    RootPersonArgs: RootPersonArgs,
-    RootPlanetArgs: RootPlanetArgs,
-    RootSpeciesArgs: RootSpeciesArgs,
-    RootStarshipArgs: RootStarshipArgs,
-    RootVehicleArgs: RootVehicleArgs,
+    Root_AllFilmsArgs: Root_AllFilmsArgs,
+    Root_AllPeopleArgs: Root_AllPeopleArgs,
+    Root_AllPlanetsArgs: Root_AllPlanetsArgs,
+    Root_AllSpeciesArgs: Root_AllSpeciesArgs,
+    Root_AllStarshipsArgs: Root_AllStarshipsArgs,
+    Root_AllVehiclesArgs: Root_AllVehiclesArgs,
+    Root_FilmArgs: Root_FilmArgs,
+    Root_NodeArgs: Root_NodeArgs,
+    Root_PersonArgs: Root_PersonArgs,
+    Root_PlanetArgs: Root_PlanetArgs,
+    Root_SpeciesArgs: Root_SpeciesArgs,
+    Root_StarshipArgs: Root_StarshipArgs,
+    Root_VehicleArgs: Root_VehicleArgs,
     Species: Species,
-    SpeciesFilmConnectionArgs: SpeciesFilmConnectionArgs,
-    SpeciesPersonConnectionArgs: SpeciesPersonConnectionArgs,
+    Species_FilmConnectionArgs: Species_FilmConnectionArgs,
+    Species_PersonConnectionArgs: Species_PersonConnectionArgs,
     SpeciesConnection: SpeciesConnection,
     SpeciesEdge: SpeciesEdge,
     SpeciesFilmsConnection: SpeciesFilmsConnection,
@@ -5174,8 +5174,8 @@ export default {
     SpeciesPeopleConnection: SpeciesPeopleConnection,
     SpeciesPeopleEdge: SpeciesPeopleEdge,
     Starship: Starship,
-    StarshipFilmConnectionArgs: StarshipFilmConnectionArgs,
-    StarshipPilotConnectionArgs: StarshipPilotConnectionArgs,
+    Starship_FilmConnectionArgs: Starship_FilmConnectionArgs,
+    Starship_PilotConnectionArgs: Starship_PilotConnectionArgs,
     StarshipFilmsConnection: StarshipFilmsConnection,
     StarshipFilmsEdge: StarshipFilmsEdge,
     StarshipPilotsConnection: StarshipPilotsConnection,
@@ -5183,8 +5183,8 @@ export default {
     StarshipsConnection: StarshipsConnection,
     StarshipsEdge: StarshipsEdge,
     Vehicle: Vehicle,
-    VehicleFilmConnectionArgs: VehicleFilmConnectionArgs,
-    VehiclePilotConnectionArgs: VehiclePilotConnectionArgs,
+    Vehicle_FilmConnectionArgs: Vehicle_FilmConnectionArgs,
+    Vehicle_PilotConnectionArgs: Vehicle_PilotConnectionArgs,
     VehicleFilmsConnection: VehicleFilmsConnection,
     VehicleFilmsEdge: VehicleFilmsEdge,
     VehiclePilotsConnection: VehiclePilotsConnection,

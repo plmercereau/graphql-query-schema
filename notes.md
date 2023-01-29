@@ -1,14 +1,5 @@
 ## TODO
 
-- [ ] identify with other graphql-codegen options could be allowed, and block the required ones
-  - Use `addUnderscoreToArgsType`?
-  - `avoidOptionals`?
-  - `disableDescriptions` -> how to get the description right?
-  - Allow:
-    - Scalars
-    - Try other graphql-codegen naming convention
-      - pick the one that renders nicest types
-      - see if we can let the user pick the naming convention they want
 - [ ] Types testing
 - [ ] Extended test schema
 
@@ -45,13 +36,19 @@
   - [x] When in an union, require at least one type
 - [x] Interfaces
   - [x] Fragments on interfaces (generation ok, but incorrect types)
+- [x] identify with other graphql-codegen options could be allowed, and block the required ones
+  - [x] Use `addUnderscoreToArgsType`
+  - [x] `avoidOptionals` -> no, we need them
+  - [x] don't allow other naming conventions as it may complicate things without bringing much value
+  - [x] Allow custom scalars
 
 ## Sort
 
-- use `type-fest` types when possible, e.g. `Exact`, `ConditionalPickDeep`, `RequireAtLeastOne`, etc
-- simplify the TS outputs with https://github.com/sindresorhus/type-fest/blob/main/source/simplify.d.ts
+- Use `type-fest` types when possible, e.g. `Exact`, `ConditionalPickDeep`, `RequireAtLeastOne`, etc
+- Bundle and tree-shake `type-fest`
+- Simplify the TS outputs with https://github.com/sindresorhus/type-fest/blob/main/source/simplify.d.ts
 - Urql / Apollo tests
-- variables typings
+- Variables typings
 - Test with other Hasura settings e.g. naming conventions
 - CI
 - Other GraphQL features:
@@ -66,7 +63,7 @@
   - [x] Unions
   - [x] Interfaces
 - Idea: extend specific types, for instance a given JSONB column
-- Idea: namespace, e.g. `client.query.auth.users()`
+- Idea: namespace, e.g. `client.query.auth.users()` - will probably complicate things a lot for not much value
 - Idea on unions: if no `on` is given, select all the scalars from all the possible types
   (but not when in an interface)
 

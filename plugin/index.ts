@@ -10,7 +10,10 @@ export const plugin: typeof typescriptPlugin = (schema, documents, config) => {
   const conf: typeof config = {
     scalars,
     declarationKind: 'type',
-    enumsAsTypes: true
+    enumsAsTypes: true,
+    // * Add underscore to args type to avoid conflicts with the generated types
+    // * See: https://the-guild.dev/graphql/codegen/plugins/typescript/typescript#addunderscoretoargstype
+    addUnderscoreToArgsType: true
   }
   const minifiedData = minifyIntrospectionQuery(getIntrospectedSchema(schema), {
     includeDirectives: false,

@@ -87,7 +87,7 @@ export type AuthProviderRequests = {
 
 
 /** Oauth requests, inserted before redirecting to the provider's site. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type AuthProviderRequestsOptionsArgs = {
+export type AuthProviderRequests_OptionsArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
@@ -108,7 +108,7 @@ export type AuthProviderRequests_Aggregate_Fields = {
 
 
 /** aggregate fields of "auth.provider_requests" */
-export type AuthProviderRequests_Aggregate_FieldsCountArgs = {
+export type AuthProviderRequests_Aggregate_Fields_CountArgs = {
   columns?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
@@ -259,7 +259,7 @@ export type AuthProviders = {
 
 
 /** List of available Oauth providers. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type AuthProvidersUserProvidersArgs = {
+export type AuthProviders_UserProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -269,7 +269,7 @@ export type AuthProvidersUserProvidersArgs = {
 
 
 /** List of available Oauth providers. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type AuthProvidersUserProviders_AggregateArgs = {
+export type AuthProviders_UserProviders_AggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -294,7 +294,7 @@ export type AuthProviders_Aggregate_Fields = {
 
 
 /** aggregate fields of "auth.providers" */
-export type AuthProviders_Aggregate_FieldsCountArgs = {
+export type AuthProviders_Aggregate_Fields_CountArgs = {
   columns?: InputMaybe<Array<AuthProviders_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
@@ -439,7 +439,7 @@ export type AuthRefreshTokens_Aggregate_Fields = {
 
 
 /** aggregate fields of "auth.refresh_tokens" */
-export type AuthRefreshTokens_Aggregate_FieldsCountArgs = {
+export type AuthRefreshTokens_Aggregate_Fields_CountArgs = {
   columns?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
@@ -616,7 +616,7 @@ export type AuthRoles = {
 
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type AuthRolesUserRolesArgs = {
+export type AuthRoles_UserRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -626,7 +626,7 @@ export type AuthRolesUserRolesArgs = {
 
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type AuthRolesUserRoles_AggregateArgs = {
+export type AuthRoles_UserRoles_AggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -636,7 +636,7 @@ export type AuthRolesUserRoles_AggregateArgs = {
 
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type AuthRolesUsersByDefaultRoleArgs = {
+export type AuthRoles_UsersByDefaultRoleArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -646,7 +646,7 @@ export type AuthRolesUsersByDefaultRoleArgs = {
 
 
 /** Persistent Hasura roles for users. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type AuthRolesUsersByDefaultRole_AggregateArgs = {
+export type AuthRoles_UsersByDefaultRole_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -671,7 +671,7 @@ export type AuthRoles_Aggregate_Fields = {
 
 
 /** aggregate fields of "auth.roles" */
-export type AuthRoles_Aggregate_FieldsCountArgs = {
+export type AuthRoles_Aggregate_Fields_CountArgs = {
   columns?: InputMaybe<Array<AuthRoles_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
@@ -826,7 +826,7 @@ export type AuthUserProviders_Aggregate_Fields = {
 
 
 /** aggregate fields of "auth.user_providers" */
-export type AuthUserProviders_Aggregate_FieldsCountArgs = {
+export type AuthUserProviders_Aggregate_Fields_CountArgs = {
   columns?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
@@ -1087,7 +1087,7 @@ export type AuthUserRoles_Aggregate_Fields = {
 
 
 /** aggregate fields of "auth.user_roles" */
-export type AuthUserRoles_Aggregate_FieldsCountArgs = {
+export type AuthUserRoles_Aggregate_Fields_CountArgs = {
   columns?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
@@ -1303,7 +1303,7 @@ export type AuthUserSecurityKeys_Aggregate_Fields = {
 
 
 /** aggregate fields of "auth.user_security_keys" */
-export type AuthUserSecurityKeys_Aggregate_FieldsCountArgs = {
+export type AuthUserSecurityKeys_Aggregate_Fields_CountArgs = {
   columns?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
@@ -1636,7 +1636,7 @@ export type Buckets = {
 
 
 /** columns and relationships of "storage.buckets" */
-export type BucketsFilesArgs = {
+export type Buckets_FilesArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -1646,7 +1646,7 @@ export type BucketsFilesArgs = {
 
 
 /** columns and relationships of "storage.buckets" */
-export type BucketsFiles_AggregateArgs = {
+export type Buckets_Files_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -1679,7 +1679,7 @@ export type Buckets_Aggregate_Fields = {
 
 
 /** aggregate fields of "storage.buckets" */
-export type Buckets_Aggregate_FieldsCountArgs = {
+export type Buckets_Aggregate_Fields_CountArgs = {
   columns?: InputMaybe<Array<Buckets_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
@@ -1970,7 +1970,7 @@ export type Categories_Aggregate_Fields = {
 
 
 /** aggregate fields of "categories" */
-export type Categories_Aggregate_FieldsCountArgs = {
+export type Categories_Aggregate_Fields_CountArgs = {
   columns?: InputMaybe<Array<Categories_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
@@ -2200,7 +2200,7 @@ export type Files_Aggregate_Fields = {
 
 
 /** aggregate fields of "storage.files" */
-export type Files_Aggregate_FieldsCountArgs = {
+export type Files_Aggregate_Fields_CountArgs = {
   columns?: InputMaybe<Array<Files_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
@@ -2751,326 +2751,326 @@ export type Mutation_Root = {
 
 
 /** mutation root */
-export type Mutation_RootDeleteAuthProviderArgs = {
+export type Mutation_Root_DeleteAuthProviderArgs = {
   id: Scalars['String'];
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteAuthProviderRequestArgs = {
+export type Mutation_Root_DeleteAuthProviderRequestArgs = {
   id: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteAuthProviderRequestsArgs = {
+export type Mutation_Root_DeleteAuthProviderRequestsArgs = {
   where: AuthProviderRequests_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteAuthProvidersArgs = {
+export type Mutation_Root_DeleteAuthProvidersArgs = {
   where: AuthProviders_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteAuthRefreshTokenArgs = {
+export type Mutation_Root_DeleteAuthRefreshTokenArgs = {
   refreshToken: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteAuthRefreshTokensArgs = {
+export type Mutation_Root_DeleteAuthRefreshTokensArgs = {
   where: AuthRefreshTokens_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteAuthRoleArgs = {
+export type Mutation_Root_DeleteAuthRoleArgs = {
   role: Scalars['String'];
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteAuthRolesArgs = {
+export type Mutation_Root_DeleteAuthRolesArgs = {
   where: AuthRoles_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteAuthUserProviderArgs = {
+export type Mutation_Root_DeleteAuthUserProviderArgs = {
   id: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteAuthUserProvidersArgs = {
+export type Mutation_Root_DeleteAuthUserProvidersArgs = {
   where: AuthUserProviders_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteAuthUserRoleArgs = {
+export type Mutation_Root_DeleteAuthUserRoleArgs = {
   id: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteAuthUserRolesArgs = {
+export type Mutation_Root_DeleteAuthUserRolesArgs = {
   where: AuthUserRoles_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteAuthUserSecurityKeyArgs = {
+export type Mutation_Root_DeleteAuthUserSecurityKeyArgs = {
   id: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteAuthUserSecurityKeysArgs = {
+export type Mutation_Root_DeleteAuthUserSecurityKeysArgs = {
   where: AuthUserSecurityKeys_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteBucketArgs = {
+export type Mutation_Root_DeleteBucketArgs = {
   id: Scalars['String'];
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteBucketsArgs = {
+export type Mutation_Root_DeleteBucketsArgs = {
   where: Buckets_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteFileArgs = {
+export type Mutation_Root_DeleteFileArgs = {
   id: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteFilesArgs = {
+export type Mutation_Root_DeleteFilesArgs = {
   where: Files_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteTodoArgs = {
+export type Mutation_Root_DeleteTodoArgs = {
   id: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteTodosArgs = {
+export type Mutation_Root_DeleteTodosArgs = {
   where: Todos_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteUserArgs = {
+export type Mutation_Root_DeleteUserArgs = {
   id: Scalars['uuid'];
 };
 
 
 /** mutation root */
-export type Mutation_RootDeleteUsersArgs = {
+export type Mutation_Root_DeleteUsersArgs = {
   where: Users_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootDelete_CategoriesArgs = {
+export type Mutation_Root_Delete_CategoriesArgs = {
   where: Categories_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootDelete_Categories_By_PkArgs = {
+export type Mutation_Root_Delete_Categories_By_PkArgs = {
   value: Scalars['String'];
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertAuthProviderArgs = {
+export type Mutation_Root_InsertAuthProviderArgs = {
   object: AuthProviders_Insert_Input;
   on_conflict?: InputMaybe<AuthProviders_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertAuthProviderRequestArgs = {
+export type Mutation_Root_InsertAuthProviderRequestArgs = {
   object: AuthProviderRequests_Insert_Input;
   on_conflict?: InputMaybe<AuthProviderRequests_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertAuthProviderRequestsArgs = {
+export type Mutation_Root_InsertAuthProviderRequestsArgs = {
   objects: Array<AuthProviderRequests_Insert_Input>;
   on_conflict?: InputMaybe<AuthProviderRequests_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertAuthProvidersArgs = {
+export type Mutation_Root_InsertAuthProvidersArgs = {
   objects: Array<AuthProviders_Insert_Input>;
   on_conflict?: InputMaybe<AuthProviders_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertAuthRefreshTokenArgs = {
+export type Mutation_Root_InsertAuthRefreshTokenArgs = {
   object: AuthRefreshTokens_Insert_Input;
   on_conflict?: InputMaybe<AuthRefreshTokens_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertAuthRefreshTokensArgs = {
+export type Mutation_Root_InsertAuthRefreshTokensArgs = {
   objects: Array<AuthRefreshTokens_Insert_Input>;
   on_conflict?: InputMaybe<AuthRefreshTokens_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertAuthRoleArgs = {
+export type Mutation_Root_InsertAuthRoleArgs = {
   object: AuthRoles_Insert_Input;
   on_conflict?: InputMaybe<AuthRoles_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertAuthRolesArgs = {
+export type Mutation_Root_InsertAuthRolesArgs = {
   objects: Array<AuthRoles_Insert_Input>;
   on_conflict?: InputMaybe<AuthRoles_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertAuthUserProviderArgs = {
+export type Mutation_Root_InsertAuthUserProviderArgs = {
   object: AuthUserProviders_Insert_Input;
   on_conflict?: InputMaybe<AuthUserProviders_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertAuthUserProvidersArgs = {
+export type Mutation_Root_InsertAuthUserProvidersArgs = {
   objects: Array<AuthUserProviders_Insert_Input>;
   on_conflict?: InputMaybe<AuthUserProviders_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertAuthUserRoleArgs = {
+export type Mutation_Root_InsertAuthUserRoleArgs = {
   object: AuthUserRoles_Insert_Input;
   on_conflict?: InputMaybe<AuthUserRoles_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertAuthUserRolesArgs = {
+export type Mutation_Root_InsertAuthUserRolesArgs = {
   objects: Array<AuthUserRoles_Insert_Input>;
   on_conflict?: InputMaybe<AuthUserRoles_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertAuthUserSecurityKeyArgs = {
+export type Mutation_Root_InsertAuthUserSecurityKeyArgs = {
   object: AuthUserSecurityKeys_Insert_Input;
   on_conflict?: InputMaybe<AuthUserSecurityKeys_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertAuthUserSecurityKeysArgs = {
+export type Mutation_Root_InsertAuthUserSecurityKeysArgs = {
   objects: Array<AuthUserSecurityKeys_Insert_Input>;
   on_conflict?: InputMaybe<AuthUserSecurityKeys_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertBucketArgs = {
+export type Mutation_Root_InsertBucketArgs = {
   object: Buckets_Insert_Input;
   on_conflict?: InputMaybe<Buckets_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertBucketsArgs = {
+export type Mutation_Root_InsertBucketsArgs = {
   objects: Array<Buckets_Insert_Input>;
   on_conflict?: InputMaybe<Buckets_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertFileArgs = {
+export type Mutation_Root_InsertFileArgs = {
   object: Files_Insert_Input;
   on_conflict?: InputMaybe<Files_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertFilesArgs = {
+export type Mutation_Root_InsertFilesArgs = {
   objects: Array<Files_Insert_Input>;
   on_conflict?: InputMaybe<Files_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertTodoArgs = {
+export type Mutation_Root_InsertTodoArgs = {
   object: Todos_Insert_Input;
   on_conflict?: InputMaybe<Todos_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertTodosArgs = {
+export type Mutation_Root_InsertTodosArgs = {
   objects: Array<Todos_Insert_Input>;
   on_conflict?: InputMaybe<Todos_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertUserArgs = {
+export type Mutation_Root_InsertUserArgs = {
   object: Users_Insert_Input;
   on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsertUsersArgs = {
+export type Mutation_Root_InsertUsersArgs = {
   objects: Array<Users_Insert_Input>;
   on_conflict?: InputMaybe<Users_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsert_CategoriesArgs = {
+export type Mutation_Root_Insert_CategoriesArgs = {
   objects: Array<Categories_Insert_Input>;
   on_conflict?: InputMaybe<Categories_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootInsert_Categories_OneArgs = {
+export type Mutation_Root_Insert_Categories_OneArgs = {
   object: Categories_Insert_Input;
   on_conflict?: InputMaybe<Categories_On_Conflict>;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdateAuthProviderArgs = {
+export type Mutation_Root_UpdateAuthProviderArgs = {
   _set?: InputMaybe<AuthProviders_Set_Input>;
   pk_columns: AuthProviders_Pk_Columns_Input;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdateAuthProviderRequestArgs = {
+export type Mutation_Root_UpdateAuthProviderRequestArgs = {
   _append?: InputMaybe<AuthProviderRequests_Append_Input>;
   _delete_at_path?: InputMaybe<AuthProviderRequests_Delete_At_Path_Input>;
   _delete_elem?: InputMaybe<AuthProviderRequests_Delete_Elem_Input>;
@@ -3082,7 +3082,7 @@ export type Mutation_RootUpdateAuthProviderRequestArgs = {
 
 
 /** mutation root */
-export type Mutation_RootUpdateAuthProviderRequestsArgs = {
+export type Mutation_Root_UpdateAuthProviderRequestsArgs = {
   _append?: InputMaybe<AuthProviderRequests_Append_Input>;
   _delete_at_path?: InputMaybe<AuthProviderRequests_Delete_At_Path_Input>;
   _delete_elem?: InputMaybe<AuthProviderRequests_Delete_Elem_Input>;
@@ -3094,70 +3094,70 @@ export type Mutation_RootUpdateAuthProviderRequestsArgs = {
 
 
 /** mutation root */
-export type Mutation_RootUpdateAuthProvidersArgs = {
+export type Mutation_Root_UpdateAuthProvidersArgs = {
   _set?: InputMaybe<AuthProviders_Set_Input>;
   where: AuthProviders_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdateAuthRefreshTokenArgs = {
+export type Mutation_Root_UpdateAuthRefreshTokenArgs = {
   _set?: InputMaybe<AuthRefreshTokens_Set_Input>;
   pk_columns: AuthRefreshTokens_Pk_Columns_Input;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdateAuthRefreshTokensArgs = {
+export type Mutation_Root_UpdateAuthRefreshTokensArgs = {
   _set?: InputMaybe<AuthRefreshTokens_Set_Input>;
   where: AuthRefreshTokens_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdateAuthRoleArgs = {
+export type Mutation_Root_UpdateAuthRoleArgs = {
   _set?: InputMaybe<AuthRoles_Set_Input>;
   pk_columns: AuthRoles_Pk_Columns_Input;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdateAuthRolesArgs = {
+export type Mutation_Root_UpdateAuthRolesArgs = {
   _set?: InputMaybe<AuthRoles_Set_Input>;
   where: AuthRoles_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdateAuthUserProviderArgs = {
+export type Mutation_Root_UpdateAuthUserProviderArgs = {
   _set?: InputMaybe<AuthUserProviders_Set_Input>;
   pk_columns: AuthUserProviders_Pk_Columns_Input;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdateAuthUserProvidersArgs = {
+export type Mutation_Root_UpdateAuthUserProvidersArgs = {
   _set?: InputMaybe<AuthUserProviders_Set_Input>;
   where: AuthUserProviders_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdateAuthUserRoleArgs = {
+export type Mutation_Root_UpdateAuthUserRoleArgs = {
   _set?: InputMaybe<AuthUserRoles_Set_Input>;
   pk_columns: AuthUserRoles_Pk_Columns_Input;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdateAuthUserRolesArgs = {
+export type Mutation_Root_UpdateAuthUserRolesArgs = {
   _set?: InputMaybe<AuthUserRoles_Set_Input>;
   where: AuthUserRoles_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdateAuthUserSecurityKeyArgs = {
+export type Mutation_Root_UpdateAuthUserSecurityKeyArgs = {
   _inc?: InputMaybe<AuthUserSecurityKeys_Inc_Input>;
   _set?: InputMaybe<AuthUserSecurityKeys_Set_Input>;
   pk_columns: AuthUserSecurityKeys_Pk_Columns_Input;
@@ -3165,7 +3165,7 @@ export type Mutation_RootUpdateAuthUserSecurityKeyArgs = {
 
 
 /** mutation root */
-export type Mutation_RootUpdateAuthUserSecurityKeysArgs = {
+export type Mutation_Root_UpdateAuthUserSecurityKeysArgs = {
   _inc?: InputMaybe<AuthUserSecurityKeys_Inc_Input>;
   _set?: InputMaybe<AuthUserSecurityKeys_Set_Input>;
   where: AuthUserSecurityKeys_Bool_Exp;
@@ -3173,7 +3173,7 @@ export type Mutation_RootUpdateAuthUserSecurityKeysArgs = {
 
 
 /** mutation root */
-export type Mutation_RootUpdateBucketArgs = {
+export type Mutation_Root_UpdateBucketArgs = {
   _inc?: InputMaybe<Buckets_Inc_Input>;
   _set?: InputMaybe<Buckets_Set_Input>;
   pk_columns: Buckets_Pk_Columns_Input;
@@ -3181,7 +3181,7 @@ export type Mutation_RootUpdateBucketArgs = {
 
 
 /** mutation root */
-export type Mutation_RootUpdateBucketsArgs = {
+export type Mutation_Root_UpdateBucketsArgs = {
   _inc?: InputMaybe<Buckets_Inc_Input>;
   _set?: InputMaybe<Buckets_Set_Input>;
   where: Buckets_Bool_Exp;
@@ -3189,7 +3189,7 @@ export type Mutation_RootUpdateBucketsArgs = {
 
 
 /** mutation root */
-export type Mutation_RootUpdateFileArgs = {
+export type Mutation_Root_UpdateFileArgs = {
   _inc?: InputMaybe<Files_Inc_Input>;
   _set?: InputMaybe<Files_Set_Input>;
   pk_columns: Files_Pk_Columns_Input;
@@ -3197,7 +3197,7 @@ export type Mutation_RootUpdateFileArgs = {
 
 
 /** mutation root */
-export type Mutation_RootUpdateFilesArgs = {
+export type Mutation_Root_UpdateFilesArgs = {
   _inc?: InputMaybe<Files_Inc_Input>;
   _set?: InputMaybe<Files_Set_Input>;
   where: Files_Bool_Exp;
@@ -3205,21 +3205,21 @@ export type Mutation_RootUpdateFilesArgs = {
 
 
 /** mutation root */
-export type Mutation_RootUpdateTodoArgs = {
+export type Mutation_Root_UpdateTodoArgs = {
   _set?: InputMaybe<Todos_Set_Input>;
   pk_columns: Todos_Pk_Columns_Input;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdateTodosArgs = {
+export type Mutation_Root_UpdateTodosArgs = {
   _set?: InputMaybe<Todos_Set_Input>;
   where: Todos_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdateUserArgs = {
+export type Mutation_Root_UpdateUserArgs = {
   _append?: InputMaybe<Users_Append_Input>;
   _delete_at_path?: InputMaybe<Users_Delete_At_Path_Input>;
   _delete_elem?: InputMaybe<Users_Delete_Elem_Input>;
@@ -3231,7 +3231,7 @@ export type Mutation_RootUpdateUserArgs = {
 
 
 /** mutation root */
-export type Mutation_RootUpdateUsersArgs = {
+export type Mutation_Root_UpdateUsersArgs = {
   _append?: InputMaybe<Users_Append_Input>;
   _delete_at_path?: InputMaybe<Users_Delete_At_Path_Input>;
   _delete_elem?: InputMaybe<Users_Delete_Elem_Input>;
@@ -3243,87 +3243,87 @@ export type Mutation_RootUpdateUsersArgs = {
 
 
 /** mutation root */
-export type Mutation_RootUpdate_AuthProviderRequests_ManyArgs = {
+export type Mutation_Root_Update_AuthProviderRequests_ManyArgs = {
   updates: Array<AuthProviderRequests_Updates>;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdate_AuthProviders_ManyArgs = {
+export type Mutation_Root_Update_AuthProviders_ManyArgs = {
   updates: Array<AuthProviders_Updates>;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdate_AuthRefreshTokens_ManyArgs = {
+export type Mutation_Root_Update_AuthRefreshTokens_ManyArgs = {
   updates: Array<AuthRefreshTokens_Updates>;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdate_AuthRoles_ManyArgs = {
+export type Mutation_Root_Update_AuthRoles_ManyArgs = {
   updates: Array<AuthRoles_Updates>;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdate_AuthUserProviders_ManyArgs = {
+export type Mutation_Root_Update_AuthUserProviders_ManyArgs = {
   updates: Array<AuthUserProviders_Updates>;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdate_AuthUserRoles_ManyArgs = {
+export type Mutation_Root_Update_AuthUserRoles_ManyArgs = {
   updates: Array<AuthUserRoles_Updates>;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdate_AuthUserSecurityKeys_ManyArgs = {
+export type Mutation_Root_Update_AuthUserSecurityKeys_ManyArgs = {
   updates: Array<AuthUserSecurityKeys_Updates>;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdate_Buckets_ManyArgs = {
+export type Mutation_Root_Update_Buckets_ManyArgs = {
   updates: Array<Buckets_Updates>;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdate_CategoriesArgs = {
+export type Mutation_Root_Update_CategoriesArgs = {
   _set?: InputMaybe<Categories_Set_Input>;
   where: Categories_Bool_Exp;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdate_Categories_By_PkArgs = {
+export type Mutation_Root_Update_Categories_By_PkArgs = {
   _set?: InputMaybe<Categories_Set_Input>;
   pk_columns: Categories_Pk_Columns_Input;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdate_Categories_ManyArgs = {
+export type Mutation_Root_Update_Categories_ManyArgs = {
   updates: Array<Categories_Updates>;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdate_Files_ManyArgs = {
+export type Mutation_Root_Update_Files_ManyArgs = {
   updates: Array<Files_Updates>;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdate_Todos_ManyArgs = {
+export type Mutation_Root_Update_Todos_ManyArgs = {
   updates: Array<Todos_Updates>;
 };
 
 
 /** mutation root */
-export type Mutation_RootUpdate_Users_ManyArgs = {
+export type Mutation_Root_Update_Users_ManyArgs = {
   updates: Array<Users_Updates>;
 };
 
@@ -3419,17 +3419,17 @@ export type Query_Root = {
 };
 
 
-export type Query_RootAuthProviderArgs = {
+export type Query_Root_AuthProviderArgs = {
   id: Scalars['String'];
 };
 
 
-export type Query_RootAuthProviderRequestArgs = {
+export type Query_Root_AuthProviderRequestArgs = {
   id: Scalars['uuid'];
 };
 
 
-export type Query_RootAuthProviderRequestsArgs = {
+export type Query_Root_AuthProviderRequestsArgs = {
   distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3438,7 +3438,7 @@ export type Query_RootAuthProviderRequestsArgs = {
 };
 
 
-export type Query_RootAuthProviderRequestsAggregateArgs = {
+export type Query_Root_AuthProviderRequestsAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3447,7 +3447,7 @@ export type Query_RootAuthProviderRequestsAggregateArgs = {
 };
 
 
-export type Query_RootAuthProvidersArgs = {
+export type Query_Root_AuthProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3456,7 +3456,7 @@ export type Query_RootAuthProvidersArgs = {
 };
 
 
-export type Query_RootAuthProvidersAggregateArgs = {
+export type Query_Root_AuthProvidersAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3465,12 +3465,12 @@ export type Query_RootAuthProvidersAggregateArgs = {
 };
 
 
-export type Query_RootAuthRefreshTokenArgs = {
+export type Query_Root_AuthRefreshTokenArgs = {
   refreshToken: Scalars['uuid'];
 };
 
 
-export type Query_RootAuthRefreshTokensArgs = {
+export type Query_Root_AuthRefreshTokensArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3479,7 +3479,7 @@ export type Query_RootAuthRefreshTokensArgs = {
 };
 
 
-export type Query_RootAuthRefreshTokensAggregateArgs = {
+export type Query_Root_AuthRefreshTokensAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3488,12 +3488,12 @@ export type Query_RootAuthRefreshTokensAggregateArgs = {
 };
 
 
-export type Query_RootAuthRoleArgs = {
+export type Query_Root_AuthRoleArgs = {
   role: Scalars['String'];
 };
 
 
-export type Query_RootAuthRolesArgs = {
+export type Query_Root_AuthRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3502,7 +3502,7 @@ export type Query_RootAuthRolesArgs = {
 };
 
 
-export type Query_RootAuthRolesAggregateArgs = {
+export type Query_Root_AuthRolesAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3511,12 +3511,12 @@ export type Query_RootAuthRolesAggregateArgs = {
 };
 
 
-export type Query_RootAuthUserProviderArgs = {
+export type Query_Root_AuthUserProviderArgs = {
   id: Scalars['uuid'];
 };
 
 
-export type Query_RootAuthUserProvidersArgs = {
+export type Query_Root_AuthUserProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3525,7 +3525,7 @@ export type Query_RootAuthUserProvidersArgs = {
 };
 
 
-export type Query_RootAuthUserProvidersAggregateArgs = {
+export type Query_Root_AuthUserProvidersAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3534,12 +3534,12 @@ export type Query_RootAuthUserProvidersAggregateArgs = {
 };
 
 
-export type Query_RootAuthUserRoleArgs = {
+export type Query_Root_AuthUserRoleArgs = {
   id: Scalars['uuid'];
 };
 
 
-export type Query_RootAuthUserRolesArgs = {
+export type Query_Root_AuthUserRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3548,7 +3548,7 @@ export type Query_RootAuthUserRolesArgs = {
 };
 
 
-export type Query_RootAuthUserRolesAggregateArgs = {
+export type Query_Root_AuthUserRolesAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3557,12 +3557,12 @@ export type Query_RootAuthUserRolesAggregateArgs = {
 };
 
 
-export type Query_RootAuthUserSecurityKeyArgs = {
+export type Query_Root_AuthUserSecurityKeyArgs = {
   id: Scalars['uuid'];
 };
 
 
-export type Query_RootAuthUserSecurityKeysArgs = {
+export type Query_Root_AuthUserSecurityKeysArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3571,7 +3571,7 @@ export type Query_RootAuthUserSecurityKeysArgs = {
 };
 
 
-export type Query_RootAuthUserSecurityKeysAggregateArgs = {
+export type Query_Root_AuthUserSecurityKeysAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3580,12 +3580,12 @@ export type Query_RootAuthUserSecurityKeysAggregateArgs = {
 };
 
 
-export type Query_RootBucketArgs = {
+export type Query_Root_BucketArgs = {
   id: Scalars['String'];
 };
 
 
-export type Query_RootBucketsArgs = {
+export type Query_Root_BucketsArgs = {
   distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3594,7 +3594,7 @@ export type Query_RootBucketsArgs = {
 };
 
 
-export type Query_RootBucketsAggregateArgs = {
+export type Query_Root_BucketsAggregateArgs = {
   distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3603,7 +3603,7 @@ export type Query_RootBucketsAggregateArgs = {
 };
 
 
-export type Query_RootCategoriesArgs = {
+export type Query_Root_CategoriesArgs = {
   distinct_on?: InputMaybe<Array<Categories_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3612,7 +3612,7 @@ export type Query_RootCategoriesArgs = {
 };
 
 
-export type Query_RootCategories_AggregateArgs = {
+export type Query_Root_Categories_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Categories_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3621,17 +3621,17 @@ export type Query_RootCategories_AggregateArgs = {
 };
 
 
-export type Query_RootCategories_By_PkArgs = {
+export type Query_Root_Categories_By_PkArgs = {
   value: Scalars['String'];
 };
 
 
-export type Query_RootFileArgs = {
+export type Query_Root_FileArgs = {
   id: Scalars['uuid'];
 };
 
 
-export type Query_RootFilesArgs = {
+export type Query_Root_FilesArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3640,7 +3640,7 @@ export type Query_RootFilesArgs = {
 };
 
 
-export type Query_RootFilesAggregateArgs = {
+export type Query_Root_FilesAggregateArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3649,12 +3649,12 @@ export type Query_RootFilesAggregateArgs = {
 };
 
 
-export type Query_RootTodoArgs = {
+export type Query_Root_TodoArgs = {
   id: Scalars['uuid'];
 };
 
 
-export type Query_RootTodosArgs = {
+export type Query_Root_TodosArgs = {
   distinct_on?: InputMaybe<Array<Todos_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3663,7 +3663,7 @@ export type Query_RootTodosArgs = {
 };
 
 
-export type Query_RootTodosAggregateArgs = {
+export type Query_Root_TodosAggregateArgs = {
   distinct_on?: InputMaybe<Array<Todos_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3672,12 +3672,12 @@ export type Query_RootTodosAggregateArgs = {
 };
 
 
-export type Query_RootUserArgs = {
+export type Query_Root_UserArgs = {
   id: Scalars['uuid'];
 };
 
 
-export type Query_RootUsersArgs = {
+export type Query_Root_UsersArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3686,7 +3686,7 @@ export type Query_RootUsersArgs = {
 };
 
 
-export type Query_RootUsersAggregateArgs = {
+export type Query_Root_UsersAggregateArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3795,17 +3795,17 @@ export type Subscription_Root = {
 };
 
 
-export type Subscription_RootAuthProviderArgs = {
+export type Subscription_Root_AuthProviderArgs = {
   id: Scalars['String'];
 };
 
 
-export type Subscription_RootAuthProviderRequestArgs = {
+export type Subscription_Root_AuthProviderRequestArgs = {
   id: Scalars['uuid'];
 };
 
 
-export type Subscription_RootAuthProviderRequestsArgs = {
+export type Subscription_Root_AuthProviderRequestsArgs = {
   distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3814,7 +3814,7 @@ export type Subscription_RootAuthProviderRequestsArgs = {
 };
 
 
-export type Subscription_RootAuthProviderRequestsAggregateArgs = {
+export type Subscription_Root_AuthProviderRequestsAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthProviderRequests_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3823,14 +3823,14 @@ export type Subscription_RootAuthProviderRequestsAggregateArgs = {
 };
 
 
-export type Subscription_RootAuthProviderRequests_StreamArgs = {
+export type Subscription_Root_AuthProviderRequests_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthProviderRequests_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthProviderRequests_Bool_Exp>;
 };
 
 
-export type Subscription_RootAuthProvidersArgs = {
+export type Subscription_Root_AuthProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3839,7 +3839,7 @@ export type Subscription_RootAuthProvidersArgs = {
 };
 
 
-export type Subscription_RootAuthProvidersAggregateArgs = {
+export type Subscription_Root_AuthProvidersAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3848,19 +3848,19 @@ export type Subscription_RootAuthProvidersAggregateArgs = {
 };
 
 
-export type Subscription_RootAuthProviders_StreamArgs = {
+export type Subscription_Root_AuthProviders_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthProviders_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthProviders_Bool_Exp>;
 };
 
 
-export type Subscription_RootAuthRefreshTokenArgs = {
+export type Subscription_Root_AuthRefreshTokenArgs = {
   refreshToken: Scalars['uuid'];
 };
 
 
-export type Subscription_RootAuthRefreshTokensArgs = {
+export type Subscription_Root_AuthRefreshTokensArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3869,7 +3869,7 @@ export type Subscription_RootAuthRefreshTokensArgs = {
 };
 
 
-export type Subscription_RootAuthRefreshTokensAggregateArgs = {
+export type Subscription_Root_AuthRefreshTokensAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3878,19 +3878,19 @@ export type Subscription_RootAuthRefreshTokensAggregateArgs = {
 };
 
 
-export type Subscription_RootAuthRefreshTokens_StreamArgs = {
+export type Subscription_Root_AuthRefreshTokens_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthRefreshTokens_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthRefreshTokens_Bool_Exp>;
 };
 
 
-export type Subscription_RootAuthRoleArgs = {
+export type Subscription_Root_AuthRoleArgs = {
   role: Scalars['String'];
 };
 
 
-export type Subscription_RootAuthRolesArgs = {
+export type Subscription_Root_AuthRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3899,7 +3899,7 @@ export type Subscription_RootAuthRolesArgs = {
 };
 
 
-export type Subscription_RootAuthRolesAggregateArgs = {
+export type Subscription_Root_AuthRolesAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3908,19 +3908,19 @@ export type Subscription_RootAuthRolesAggregateArgs = {
 };
 
 
-export type Subscription_RootAuthRoles_StreamArgs = {
+export type Subscription_Root_AuthRoles_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthRoles_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthRoles_Bool_Exp>;
 };
 
 
-export type Subscription_RootAuthUserProviderArgs = {
+export type Subscription_Root_AuthUserProviderArgs = {
   id: Scalars['uuid'];
 };
 
 
-export type Subscription_RootAuthUserProvidersArgs = {
+export type Subscription_Root_AuthUserProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3929,7 +3929,7 @@ export type Subscription_RootAuthUserProvidersArgs = {
 };
 
 
-export type Subscription_RootAuthUserProvidersAggregateArgs = {
+export type Subscription_Root_AuthUserProvidersAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3938,19 +3938,19 @@ export type Subscription_RootAuthUserProvidersAggregateArgs = {
 };
 
 
-export type Subscription_RootAuthUserProviders_StreamArgs = {
+export type Subscription_Root_AuthUserProviders_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthUserProviders_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthUserProviders_Bool_Exp>;
 };
 
 
-export type Subscription_RootAuthUserRoleArgs = {
+export type Subscription_Root_AuthUserRoleArgs = {
   id: Scalars['uuid'];
 };
 
 
-export type Subscription_RootAuthUserRolesArgs = {
+export type Subscription_Root_AuthUserRolesArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3959,7 +3959,7 @@ export type Subscription_RootAuthUserRolesArgs = {
 };
 
 
-export type Subscription_RootAuthUserRolesAggregateArgs = {
+export type Subscription_Root_AuthUserRolesAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3968,19 +3968,19 @@ export type Subscription_RootAuthUserRolesAggregateArgs = {
 };
 
 
-export type Subscription_RootAuthUserRoles_StreamArgs = {
+export type Subscription_Root_AuthUserRoles_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthUserRoles_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthUserRoles_Bool_Exp>;
 };
 
 
-export type Subscription_RootAuthUserSecurityKeyArgs = {
+export type Subscription_Root_AuthUserSecurityKeyArgs = {
   id: Scalars['uuid'];
 };
 
 
-export type Subscription_RootAuthUserSecurityKeysArgs = {
+export type Subscription_Root_AuthUserSecurityKeysArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3989,7 +3989,7 @@ export type Subscription_RootAuthUserSecurityKeysArgs = {
 };
 
 
-export type Subscription_RootAuthUserSecurityKeysAggregateArgs = {
+export type Subscription_Root_AuthUserSecurityKeysAggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -3998,19 +3998,19 @@ export type Subscription_RootAuthUserSecurityKeysAggregateArgs = {
 };
 
 
-export type Subscription_RootAuthUserSecurityKeys_StreamArgs = {
+export type Subscription_Root_AuthUserSecurityKeys_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<AuthUserSecurityKeys_Stream_Cursor_Input>>;
   where?: InputMaybe<AuthUserSecurityKeys_Bool_Exp>;
 };
 
 
-export type Subscription_RootBucketArgs = {
+export type Subscription_Root_BucketArgs = {
   id: Scalars['String'];
 };
 
 
-export type Subscription_RootBucketsArgs = {
+export type Subscription_Root_BucketsArgs = {
   distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4019,7 +4019,7 @@ export type Subscription_RootBucketsArgs = {
 };
 
 
-export type Subscription_RootBucketsAggregateArgs = {
+export type Subscription_Root_BucketsAggregateArgs = {
   distinct_on?: InputMaybe<Array<Buckets_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4028,14 +4028,14 @@ export type Subscription_RootBucketsAggregateArgs = {
 };
 
 
-export type Subscription_RootBuckets_StreamArgs = {
+export type Subscription_Root_Buckets_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Buckets_Stream_Cursor_Input>>;
   where?: InputMaybe<Buckets_Bool_Exp>;
 };
 
 
-export type Subscription_RootCategoriesArgs = {
+export type Subscription_Root_CategoriesArgs = {
   distinct_on?: InputMaybe<Array<Categories_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4044,7 +4044,7 @@ export type Subscription_RootCategoriesArgs = {
 };
 
 
-export type Subscription_RootCategories_AggregateArgs = {
+export type Subscription_Root_Categories_AggregateArgs = {
   distinct_on?: InputMaybe<Array<Categories_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4053,24 +4053,24 @@ export type Subscription_RootCategories_AggregateArgs = {
 };
 
 
-export type Subscription_RootCategories_By_PkArgs = {
+export type Subscription_Root_Categories_By_PkArgs = {
   value: Scalars['String'];
 };
 
 
-export type Subscription_RootCategories_StreamArgs = {
+export type Subscription_Root_Categories_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Categories_Stream_Cursor_Input>>;
   where?: InputMaybe<Categories_Bool_Exp>;
 };
 
 
-export type Subscription_RootFileArgs = {
+export type Subscription_Root_FileArgs = {
   id: Scalars['uuid'];
 };
 
 
-export type Subscription_RootFilesArgs = {
+export type Subscription_Root_FilesArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4079,7 +4079,7 @@ export type Subscription_RootFilesArgs = {
 };
 
 
-export type Subscription_RootFilesAggregateArgs = {
+export type Subscription_Root_FilesAggregateArgs = {
   distinct_on?: InputMaybe<Array<Files_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4088,19 +4088,19 @@ export type Subscription_RootFilesAggregateArgs = {
 };
 
 
-export type Subscription_RootFiles_StreamArgs = {
+export type Subscription_Root_Files_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Files_Stream_Cursor_Input>>;
   where?: InputMaybe<Files_Bool_Exp>;
 };
 
 
-export type Subscription_RootTodoArgs = {
+export type Subscription_Root_TodoArgs = {
   id: Scalars['uuid'];
 };
 
 
-export type Subscription_RootTodosArgs = {
+export type Subscription_Root_TodosArgs = {
   distinct_on?: InputMaybe<Array<Todos_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4109,7 +4109,7 @@ export type Subscription_RootTodosArgs = {
 };
 
 
-export type Subscription_RootTodosAggregateArgs = {
+export type Subscription_Root_TodosAggregateArgs = {
   distinct_on?: InputMaybe<Array<Todos_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4118,19 +4118,19 @@ export type Subscription_RootTodosAggregateArgs = {
 };
 
 
-export type Subscription_RootTodos_StreamArgs = {
+export type Subscription_Root_Todos_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Todos_Stream_Cursor_Input>>;
   where?: InputMaybe<Todos_Bool_Exp>;
 };
 
 
-export type Subscription_RootUserArgs = {
+export type Subscription_Root_UserArgs = {
   id: Scalars['uuid'];
 };
 
 
-export type Subscription_RootUsersArgs = {
+export type Subscription_Root_UsersArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4139,7 +4139,7 @@ export type Subscription_RootUsersArgs = {
 };
 
 
-export type Subscription_RootUsersAggregateArgs = {
+export type Subscription_Root_UsersAggregateArgs = {
   distinct_on?: InputMaybe<Array<Users_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4148,7 +4148,7 @@ export type Subscription_RootUsersAggregateArgs = {
 };
 
 
-export type Subscription_RootUsers_StreamArgs = {
+export type Subscription_Root_Users_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Users_Stream_Cursor_Input>>;
   where?: InputMaybe<Users_Bool_Exp>;
@@ -4197,7 +4197,7 @@ export type Todos_Aggregate_Fields = {
 
 
 /** aggregate fields of "todos" */
-export type Todos_Aggregate_FieldsCountArgs = {
+export type Todos_Aggregate_Fields_CountArgs = {
   columns?: InputMaybe<Array<Todos_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
@@ -4398,13 +4398,13 @@ export type Users = {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type UsersMetadataArgs = {
+export type Users_MetadataArgs = {
   path?: InputMaybe<Scalars['String']>;
 };
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type UsersRefreshTokensArgs = {
+export type Users_RefreshTokensArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4414,7 +4414,7 @@ export type UsersRefreshTokensArgs = {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type UsersRefreshTokens_AggregateArgs = {
+export type Users_RefreshTokens_AggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthRefreshTokens_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4424,7 +4424,7 @@ export type UsersRefreshTokens_AggregateArgs = {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type UsersRolesArgs = {
+export type Users_RolesArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4434,7 +4434,7 @@ export type UsersRolesArgs = {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type UsersRoles_AggregateArgs = {
+export type Users_Roles_AggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserRoles_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4444,7 +4444,7 @@ export type UsersRoles_AggregateArgs = {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type UsersSecurityKeysArgs = {
+export type Users_SecurityKeysArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4454,7 +4454,7 @@ export type UsersSecurityKeysArgs = {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type UsersSecurityKeys_AggregateArgs = {
+export type Users_SecurityKeys_AggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserSecurityKeys_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4464,7 +4464,7 @@ export type UsersSecurityKeys_AggregateArgs = {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type UsersUserProvidersArgs = {
+export type Users_UserProvidersArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4474,7 +4474,7 @@ export type UsersUserProvidersArgs = {
 
 
 /** User account information. Don't modify its structure as Hasura Auth relies on it to function properly. */
-export type UsersUserProviders_AggregateArgs = {
+export type Users_UserProviders_AggregateArgs = {
   distinct_on?: InputMaybe<Array<AuthUserProviders_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
   offset?: InputMaybe<Scalars['Int']>;
@@ -4526,7 +4526,7 @@ export type Users_Aggregate_Fields = {
 
 
 /** aggregate fields of "auth.users" */
-export type Users_Aggregate_FieldsCountArgs = {
+export type Users_Aggregate_Fields_CountArgs = {
   columns?: InputMaybe<Array<Users_Select_Column>>;
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
@@ -28161,10 +28161,10 @@ export default {
     Int_Comparison_Exp: Int_Comparison_Exp,
     String_Comparison_Exp: String_Comparison_Exp,
     AuthProviderRequests: AuthProviderRequests,
-    AuthProviderRequestsOptionsArgs: AuthProviderRequestsOptionsArgs,
+    AuthProviderRequests_OptionsArgs: AuthProviderRequests_OptionsArgs,
     AuthProviderRequests_Aggregate: AuthProviderRequests_Aggregate,
     AuthProviderRequests_Aggregate_Fields: AuthProviderRequests_Aggregate_Fields,
-    AuthProviderRequests_Aggregate_FieldsCountArgs: AuthProviderRequests_Aggregate_FieldsCountArgs,
+    AuthProviderRequests_Aggregate_Fields_CountArgs: AuthProviderRequests_Aggregate_Fields_CountArgs,
     AuthProviderRequests_Append_Input: AuthProviderRequests_Append_Input,
     AuthProviderRequests_Bool_Exp: AuthProviderRequests_Bool_Exp,
     AuthProviderRequests_Delete_At_Path_Input: AuthProviderRequests_Delete_At_Path_Input,
@@ -28183,11 +28183,11 @@ export default {
     AuthProviderRequests_Stream_Cursor_Value_Input: AuthProviderRequests_Stream_Cursor_Value_Input,
     AuthProviderRequests_Updates: AuthProviderRequests_Updates,
     AuthProviders: AuthProviders,
-    AuthProvidersUserProvidersArgs: AuthProvidersUserProvidersArgs,
-    AuthProvidersUserProviders_AggregateArgs: AuthProvidersUserProviders_AggregateArgs,
+    AuthProviders_UserProvidersArgs: AuthProviders_UserProvidersArgs,
+    AuthProviders_UserProviders_AggregateArgs: AuthProviders_UserProviders_AggregateArgs,
     AuthProviders_Aggregate: AuthProviders_Aggregate,
     AuthProviders_Aggregate_Fields: AuthProviders_Aggregate_Fields,
-    AuthProviders_Aggregate_FieldsCountArgs: AuthProviders_Aggregate_FieldsCountArgs,
+    AuthProviders_Aggregate_Fields_CountArgs: AuthProviders_Aggregate_Fields_CountArgs,
     AuthProviders_Bool_Exp: AuthProviders_Bool_Exp,
     AuthProviders_Insert_Input: AuthProviders_Insert_Input,
     AuthProviders_Max_Fields: AuthProviders_Max_Fields,
@@ -28206,7 +28206,7 @@ export default {
     AuthRefreshTokens_Aggregate_Bool_Exp: AuthRefreshTokens_Aggregate_Bool_Exp,
     AuthRefreshTokens_Aggregate_Bool_Exp_Count: AuthRefreshTokens_Aggregate_Bool_Exp_Count,
     AuthRefreshTokens_Aggregate_Fields: AuthRefreshTokens_Aggregate_Fields,
-    AuthRefreshTokens_Aggregate_FieldsCountArgs: AuthRefreshTokens_Aggregate_FieldsCountArgs,
+    AuthRefreshTokens_Aggregate_Fields_CountArgs: AuthRefreshTokens_Aggregate_Fields_CountArgs,
     AuthRefreshTokens_Aggregate_Order_By: AuthRefreshTokens_Aggregate_Order_By,
     AuthRefreshTokens_Arr_Rel_Insert_Input: AuthRefreshTokens_Arr_Rel_Insert_Input,
     AuthRefreshTokens_Bool_Exp: AuthRefreshTokens_Bool_Exp,
@@ -28224,13 +28224,13 @@ export default {
     AuthRefreshTokens_Stream_Cursor_Value_Input: AuthRefreshTokens_Stream_Cursor_Value_Input,
     AuthRefreshTokens_Updates: AuthRefreshTokens_Updates,
     AuthRoles: AuthRoles,
-    AuthRolesUserRolesArgs: AuthRolesUserRolesArgs,
-    AuthRolesUserRoles_AggregateArgs: AuthRolesUserRoles_AggregateArgs,
-    AuthRolesUsersByDefaultRoleArgs: AuthRolesUsersByDefaultRoleArgs,
-    AuthRolesUsersByDefaultRole_AggregateArgs: AuthRolesUsersByDefaultRole_AggregateArgs,
+    AuthRoles_UserRolesArgs: AuthRoles_UserRolesArgs,
+    AuthRoles_UserRoles_AggregateArgs: AuthRoles_UserRoles_AggregateArgs,
+    AuthRoles_UsersByDefaultRoleArgs: AuthRoles_UsersByDefaultRoleArgs,
+    AuthRoles_UsersByDefaultRole_AggregateArgs: AuthRoles_UsersByDefaultRole_AggregateArgs,
     AuthRoles_Aggregate: AuthRoles_Aggregate,
     AuthRoles_Aggregate_Fields: AuthRoles_Aggregate_Fields,
-    AuthRoles_Aggregate_FieldsCountArgs: AuthRoles_Aggregate_FieldsCountArgs,
+    AuthRoles_Aggregate_Fields_CountArgs: AuthRoles_Aggregate_Fields_CountArgs,
     AuthRoles_Bool_Exp: AuthRoles_Bool_Exp,
     AuthRoles_Insert_Input: AuthRoles_Insert_Input,
     AuthRoles_Max_Fields: AuthRoles_Max_Fields,
@@ -28249,7 +28249,7 @@ export default {
     AuthUserProviders_Aggregate_Bool_Exp: AuthUserProviders_Aggregate_Bool_Exp,
     AuthUserProviders_Aggregate_Bool_Exp_Count: AuthUserProviders_Aggregate_Bool_Exp_Count,
     AuthUserProviders_Aggregate_Fields: AuthUserProviders_Aggregate_Fields,
-    AuthUserProviders_Aggregate_FieldsCountArgs: AuthUserProviders_Aggregate_FieldsCountArgs,
+    AuthUserProviders_Aggregate_Fields_CountArgs: AuthUserProviders_Aggregate_Fields_CountArgs,
     AuthUserProviders_Aggregate_Order_By: AuthUserProviders_Aggregate_Order_By,
     AuthUserProviders_Arr_Rel_Insert_Input: AuthUserProviders_Arr_Rel_Insert_Input,
     AuthUserProviders_Bool_Exp: AuthUserProviders_Bool_Exp,
@@ -28271,7 +28271,7 @@ export default {
     AuthUserRoles_Aggregate_Bool_Exp: AuthUserRoles_Aggregate_Bool_Exp,
     AuthUserRoles_Aggregate_Bool_Exp_Count: AuthUserRoles_Aggregate_Bool_Exp_Count,
     AuthUserRoles_Aggregate_Fields: AuthUserRoles_Aggregate_Fields,
-    AuthUserRoles_Aggregate_FieldsCountArgs: AuthUserRoles_Aggregate_FieldsCountArgs,
+    AuthUserRoles_Aggregate_Fields_CountArgs: AuthUserRoles_Aggregate_Fields_CountArgs,
     AuthUserRoles_Aggregate_Order_By: AuthUserRoles_Aggregate_Order_By,
     AuthUserRoles_Arr_Rel_Insert_Input: AuthUserRoles_Arr_Rel_Insert_Input,
     AuthUserRoles_Bool_Exp: AuthUserRoles_Bool_Exp,
@@ -28293,7 +28293,7 @@ export default {
     AuthUserSecurityKeys_Aggregate_Bool_Exp: AuthUserSecurityKeys_Aggregate_Bool_Exp,
     AuthUserSecurityKeys_Aggregate_Bool_Exp_Count: AuthUserSecurityKeys_Aggregate_Bool_Exp_Count,
     AuthUserSecurityKeys_Aggregate_Fields: AuthUserSecurityKeys_Aggregate_Fields,
-    AuthUserSecurityKeys_Aggregate_FieldsCountArgs: AuthUserSecurityKeys_Aggregate_FieldsCountArgs,
+    AuthUserSecurityKeys_Aggregate_Fields_CountArgs: AuthUserSecurityKeys_Aggregate_Fields_CountArgs,
     AuthUserSecurityKeys_Aggregate_Order_By: AuthUserSecurityKeys_Aggregate_Order_By,
     AuthUserSecurityKeys_Arr_Rel_Insert_Input: AuthUserSecurityKeys_Arr_Rel_Insert_Input,
     AuthUserSecurityKeys_Avg_Fields: AuthUserSecurityKeys_Avg_Fields,
@@ -28329,11 +28329,11 @@ export default {
     AuthUserSecurityKeys_Variance_Order_By: AuthUserSecurityKeys_Variance_Order_By,
     Bigint_Comparison_Exp: Bigint_Comparison_Exp,
     Buckets: Buckets,
-    BucketsFilesArgs: BucketsFilesArgs,
-    BucketsFiles_AggregateArgs: BucketsFiles_AggregateArgs,
+    Buckets_FilesArgs: Buckets_FilesArgs,
+    Buckets_Files_AggregateArgs: Buckets_Files_AggregateArgs,
     Buckets_Aggregate: Buckets_Aggregate,
     Buckets_Aggregate_Fields: Buckets_Aggregate_Fields,
-    Buckets_Aggregate_FieldsCountArgs: Buckets_Aggregate_FieldsCountArgs,
+    Buckets_Aggregate_Fields_CountArgs: Buckets_Aggregate_Fields_CountArgs,
     Buckets_Avg_Fields: Buckets_Avg_Fields,
     Buckets_Bool_Exp: Buckets_Bool_Exp,
     Buckets_Inc_Input: Buckets_Inc_Input,
@@ -28360,7 +28360,7 @@ export default {
     Categories: Categories,
     Categories_Aggregate: Categories_Aggregate,
     Categories_Aggregate_Fields: Categories_Aggregate_Fields,
-    Categories_Aggregate_FieldsCountArgs: Categories_Aggregate_FieldsCountArgs,
+    Categories_Aggregate_Fields_CountArgs: Categories_Aggregate_Fields_CountArgs,
     Categories_Bool_Exp: Categories_Bool_Exp,
     Categories_Enum_Comparison_Exp: Categories_Enum_Comparison_Exp,
     Categories_Insert_Input: Categories_Insert_Input,
@@ -28382,7 +28382,7 @@ export default {
     Files_Aggregate_Bool_Exp_Bool_Or: Files_Aggregate_Bool_Exp_Bool_Or,
     Files_Aggregate_Bool_Exp_Count: Files_Aggregate_Bool_Exp_Count,
     Files_Aggregate_Fields: Files_Aggregate_Fields,
-    Files_Aggregate_FieldsCountArgs: Files_Aggregate_FieldsCountArgs,
+    Files_Aggregate_Fields_CountArgs: Files_Aggregate_Fields_CountArgs,
     Files_Aggregate_Order_By: Files_Aggregate_Order_By,
     Files_Arr_Rel_Insert_Input: Files_Arr_Rel_Insert_Input,
     Files_Avg_Fields: Files_Avg_Fields,
@@ -28419,181 +28419,181 @@ export default {
     Jsonb_Cast_Exp: Jsonb_Cast_Exp,
     Jsonb_Comparison_Exp: Jsonb_Comparison_Exp,
     Mutation_Root: Mutation_Root,
-    Mutation_RootDeleteAuthProviderArgs: Mutation_RootDeleteAuthProviderArgs,
-    Mutation_RootDeleteAuthProviderRequestArgs: Mutation_RootDeleteAuthProviderRequestArgs,
-    Mutation_RootDeleteAuthProviderRequestsArgs: Mutation_RootDeleteAuthProviderRequestsArgs,
-    Mutation_RootDeleteAuthProvidersArgs: Mutation_RootDeleteAuthProvidersArgs,
-    Mutation_RootDeleteAuthRefreshTokenArgs: Mutation_RootDeleteAuthRefreshTokenArgs,
-    Mutation_RootDeleteAuthRefreshTokensArgs: Mutation_RootDeleteAuthRefreshTokensArgs,
-    Mutation_RootDeleteAuthRoleArgs: Mutation_RootDeleteAuthRoleArgs,
-    Mutation_RootDeleteAuthRolesArgs: Mutation_RootDeleteAuthRolesArgs,
-    Mutation_RootDeleteAuthUserProviderArgs: Mutation_RootDeleteAuthUserProviderArgs,
-    Mutation_RootDeleteAuthUserProvidersArgs: Mutation_RootDeleteAuthUserProvidersArgs,
-    Mutation_RootDeleteAuthUserRoleArgs: Mutation_RootDeleteAuthUserRoleArgs,
-    Mutation_RootDeleteAuthUserRolesArgs: Mutation_RootDeleteAuthUserRolesArgs,
-    Mutation_RootDeleteAuthUserSecurityKeyArgs: Mutation_RootDeleteAuthUserSecurityKeyArgs,
-    Mutation_RootDeleteAuthUserSecurityKeysArgs: Mutation_RootDeleteAuthUserSecurityKeysArgs,
-    Mutation_RootDeleteBucketArgs: Mutation_RootDeleteBucketArgs,
-    Mutation_RootDeleteBucketsArgs: Mutation_RootDeleteBucketsArgs,
-    Mutation_RootDeleteFileArgs: Mutation_RootDeleteFileArgs,
-    Mutation_RootDeleteFilesArgs: Mutation_RootDeleteFilesArgs,
-    Mutation_RootDeleteTodoArgs: Mutation_RootDeleteTodoArgs,
-    Mutation_RootDeleteTodosArgs: Mutation_RootDeleteTodosArgs,
-    Mutation_RootDeleteUserArgs: Mutation_RootDeleteUserArgs,
-    Mutation_RootDeleteUsersArgs: Mutation_RootDeleteUsersArgs,
-    Mutation_RootDelete_CategoriesArgs: Mutation_RootDelete_CategoriesArgs,
-    Mutation_RootDelete_Categories_By_PkArgs: Mutation_RootDelete_Categories_By_PkArgs,
-    Mutation_RootInsertAuthProviderArgs: Mutation_RootInsertAuthProviderArgs,
-    Mutation_RootInsertAuthProviderRequestArgs: Mutation_RootInsertAuthProviderRequestArgs,
-    Mutation_RootInsertAuthProviderRequestsArgs: Mutation_RootInsertAuthProviderRequestsArgs,
-    Mutation_RootInsertAuthProvidersArgs: Mutation_RootInsertAuthProvidersArgs,
-    Mutation_RootInsertAuthRefreshTokenArgs: Mutation_RootInsertAuthRefreshTokenArgs,
-    Mutation_RootInsertAuthRefreshTokensArgs: Mutation_RootInsertAuthRefreshTokensArgs,
-    Mutation_RootInsertAuthRoleArgs: Mutation_RootInsertAuthRoleArgs,
-    Mutation_RootInsertAuthRolesArgs: Mutation_RootInsertAuthRolesArgs,
-    Mutation_RootInsertAuthUserProviderArgs: Mutation_RootInsertAuthUserProviderArgs,
-    Mutation_RootInsertAuthUserProvidersArgs: Mutation_RootInsertAuthUserProvidersArgs,
-    Mutation_RootInsertAuthUserRoleArgs: Mutation_RootInsertAuthUserRoleArgs,
-    Mutation_RootInsertAuthUserRolesArgs: Mutation_RootInsertAuthUserRolesArgs,
-    Mutation_RootInsertAuthUserSecurityKeyArgs: Mutation_RootInsertAuthUserSecurityKeyArgs,
-    Mutation_RootInsertAuthUserSecurityKeysArgs: Mutation_RootInsertAuthUserSecurityKeysArgs,
-    Mutation_RootInsertBucketArgs: Mutation_RootInsertBucketArgs,
-    Mutation_RootInsertBucketsArgs: Mutation_RootInsertBucketsArgs,
-    Mutation_RootInsertFileArgs: Mutation_RootInsertFileArgs,
-    Mutation_RootInsertFilesArgs: Mutation_RootInsertFilesArgs,
-    Mutation_RootInsertTodoArgs: Mutation_RootInsertTodoArgs,
-    Mutation_RootInsertTodosArgs: Mutation_RootInsertTodosArgs,
-    Mutation_RootInsertUserArgs: Mutation_RootInsertUserArgs,
-    Mutation_RootInsertUsersArgs: Mutation_RootInsertUsersArgs,
-    Mutation_RootInsert_CategoriesArgs: Mutation_RootInsert_CategoriesArgs,
-    Mutation_RootInsert_Categories_OneArgs: Mutation_RootInsert_Categories_OneArgs,
-    Mutation_RootUpdateAuthProviderArgs: Mutation_RootUpdateAuthProviderArgs,
-    Mutation_RootUpdateAuthProviderRequestArgs: Mutation_RootUpdateAuthProviderRequestArgs,
-    Mutation_RootUpdateAuthProviderRequestsArgs: Mutation_RootUpdateAuthProviderRequestsArgs,
-    Mutation_RootUpdateAuthProvidersArgs: Mutation_RootUpdateAuthProvidersArgs,
-    Mutation_RootUpdateAuthRefreshTokenArgs: Mutation_RootUpdateAuthRefreshTokenArgs,
-    Mutation_RootUpdateAuthRefreshTokensArgs: Mutation_RootUpdateAuthRefreshTokensArgs,
-    Mutation_RootUpdateAuthRoleArgs: Mutation_RootUpdateAuthRoleArgs,
-    Mutation_RootUpdateAuthRolesArgs: Mutation_RootUpdateAuthRolesArgs,
-    Mutation_RootUpdateAuthUserProviderArgs: Mutation_RootUpdateAuthUserProviderArgs,
-    Mutation_RootUpdateAuthUserProvidersArgs: Mutation_RootUpdateAuthUserProvidersArgs,
-    Mutation_RootUpdateAuthUserRoleArgs: Mutation_RootUpdateAuthUserRoleArgs,
-    Mutation_RootUpdateAuthUserRolesArgs: Mutation_RootUpdateAuthUserRolesArgs,
-    Mutation_RootUpdateAuthUserSecurityKeyArgs: Mutation_RootUpdateAuthUserSecurityKeyArgs,
-    Mutation_RootUpdateAuthUserSecurityKeysArgs: Mutation_RootUpdateAuthUserSecurityKeysArgs,
-    Mutation_RootUpdateBucketArgs: Mutation_RootUpdateBucketArgs,
-    Mutation_RootUpdateBucketsArgs: Mutation_RootUpdateBucketsArgs,
-    Mutation_RootUpdateFileArgs: Mutation_RootUpdateFileArgs,
-    Mutation_RootUpdateFilesArgs: Mutation_RootUpdateFilesArgs,
-    Mutation_RootUpdateTodoArgs: Mutation_RootUpdateTodoArgs,
-    Mutation_RootUpdateTodosArgs: Mutation_RootUpdateTodosArgs,
-    Mutation_RootUpdateUserArgs: Mutation_RootUpdateUserArgs,
-    Mutation_RootUpdateUsersArgs: Mutation_RootUpdateUsersArgs,
-    Mutation_RootUpdate_AuthProviderRequests_ManyArgs: Mutation_RootUpdate_AuthProviderRequests_ManyArgs,
-    Mutation_RootUpdate_AuthProviders_ManyArgs: Mutation_RootUpdate_AuthProviders_ManyArgs,
-    Mutation_RootUpdate_AuthRefreshTokens_ManyArgs: Mutation_RootUpdate_AuthRefreshTokens_ManyArgs,
-    Mutation_RootUpdate_AuthRoles_ManyArgs: Mutation_RootUpdate_AuthRoles_ManyArgs,
-    Mutation_RootUpdate_AuthUserProviders_ManyArgs: Mutation_RootUpdate_AuthUserProviders_ManyArgs,
-    Mutation_RootUpdate_AuthUserRoles_ManyArgs: Mutation_RootUpdate_AuthUserRoles_ManyArgs,
-    Mutation_RootUpdate_AuthUserSecurityKeys_ManyArgs: Mutation_RootUpdate_AuthUserSecurityKeys_ManyArgs,
-    Mutation_RootUpdate_Buckets_ManyArgs: Mutation_RootUpdate_Buckets_ManyArgs,
-    Mutation_RootUpdate_CategoriesArgs: Mutation_RootUpdate_CategoriesArgs,
-    Mutation_RootUpdate_Categories_By_PkArgs: Mutation_RootUpdate_Categories_By_PkArgs,
-    Mutation_RootUpdate_Categories_ManyArgs: Mutation_RootUpdate_Categories_ManyArgs,
-    Mutation_RootUpdate_Files_ManyArgs: Mutation_RootUpdate_Files_ManyArgs,
-    Mutation_RootUpdate_Todos_ManyArgs: Mutation_RootUpdate_Todos_ManyArgs,
-    Mutation_RootUpdate_Users_ManyArgs: Mutation_RootUpdate_Users_ManyArgs,
+    Mutation_Root_DeleteAuthProviderArgs: Mutation_Root_DeleteAuthProviderArgs,
+    Mutation_Root_DeleteAuthProviderRequestArgs: Mutation_Root_DeleteAuthProviderRequestArgs,
+    Mutation_Root_DeleteAuthProviderRequestsArgs: Mutation_Root_DeleteAuthProviderRequestsArgs,
+    Mutation_Root_DeleteAuthProvidersArgs: Mutation_Root_DeleteAuthProvidersArgs,
+    Mutation_Root_DeleteAuthRefreshTokenArgs: Mutation_Root_DeleteAuthRefreshTokenArgs,
+    Mutation_Root_DeleteAuthRefreshTokensArgs: Mutation_Root_DeleteAuthRefreshTokensArgs,
+    Mutation_Root_DeleteAuthRoleArgs: Mutation_Root_DeleteAuthRoleArgs,
+    Mutation_Root_DeleteAuthRolesArgs: Mutation_Root_DeleteAuthRolesArgs,
+    Mutation_Root_DeleteAuthUserProviderArgs: Mutation_Root_DeleteAuthUserProviderArgs,
+    Mutation_Root_DeleteAuthUserProvidersArgs: Mutation_Root_DeleteAuthUserProvidersArgs,
+    Mutation_Root_DeleteAuthUserRoleArgs: Mutation_Root_DeleteAuthUserRoleArgs,
+    Mutation_Root_DeleteAuthUserRolesArgs: Mutation_Root_DeleteAuthUserRolesArgs,
+    Mutation_Root_DeleteAuthUserSecurityKeyArgs: Mutation_Root_DeleteAuthUserSecurityKeyArgs,
+    Mutation_Root_DeleteAuthUserSecurityKeysArgs: Mutation_Root_DeleteAuthUserSecurityKeysArgs,
+    Mutation_Root_DeleteBucketArgs: Mutation_Root_DeleteBucketArgs,
+    Mutation_Root_DeleteBucketsArgs: Mutation_Root_DeleteBucketsArgs,
+    Mutation_Root_DeleteFileArgs: Mutation_Root_DeleteFileArgs,
+    Mutation_Root_DeleteFilesArgs: Mutation_Root_DeleteFilesArgs,
+    Mutation_Root_DeleteTodoArgs: Mutation_Root_DeleteTodoArgs,
+    Mutation_Root_DeleteTodosArgs: Mutation_Root_DeleteTodosArgs,
+    Mutation_Root_DeleteUserArgs: Mutation_Root_DeleteUserArgs,
+    Mutation_Root_DeleteUsersArgs: Mutation_Root_DeleteUsersArgs,
+    Mutation_Root_Delete_CategoriesArgs: Mutation_Root_Delete_CategoriesArgs,
+    Mutation_Root_Delete_Categories_By_PkArgs: Mutation_Root_Delete_Categories_By_PkArgs,
+    Mutation_Root_InsertAuthProviderArgs: Mutation_Root_InsertAuthProviderArgs,
+    Mutation_Root_InsertAuthProviderRequestArgs: Mutation_Root_InsertAuthProviderRequestArgs,
+    Mutation_Root_InsertAuthProviderRequestsArgs: Mutation_Root_InsertAuthProviderRequestsArgs,
+    Mutation_Root_InsertAuthProvidersArgs: Mutation_Root_InsertAuthProvidersArgs,
+    Mutation_Root_InsertAuthRefreshTokenArgs: Mutation_Root_InsertAuthRefreshTokenArgs,
+    Mutation_Root_InsertAuthRefreshTokensArgs: Mutation_Root_InsertAuthRefreshTokensArgs,
+    Mutation_Root_InsertAuthRoleArgs: Mutation_Root_InsertAuthRoleArgs,
+    Mutation_Root_InsertAuthRolesArgs: Mutation_Root_InsertAuthRolesArgs,
+    Mutation_Root_InsertAuthUserProviderArgs: Mutation_Root_InsertAuthUserProviderArgs,
+    Mutation_Root_InsertAuthUserProvidersArgs: Mutation_Root_InsertAuthUserProvidersArgs,
+    Mutation_Root_InsertAuthUserRoleArgs: Mutation_Root_InsertAuthUserRoleArgs,
+    Mutation_Root_InsertAuthUserRolesArgs: Mutation_Root_InsertAuthUserRolesArgs,
+    Mutation_Root_InsertAuthUserSecurityKeyArgs: Mutation_Root_InsertAuthUserSecurityKeyArgs,
+    Mutation_Root_InsertAuthUserSecurityKeysArgs: Mutation_Root_InsertAuthUserSecurityKeysArgs,
+    Mutation_Root_InsertBucketArgs: Mutation_Root_InsertBucketArgs,
+    Mutation_Root_InsertBucketsArgs: Mutation_Root_InsertBucketsArgs,
+    Mutation_Root_InsertFileArgs: Mutation_Root_InsertFileArgs,
+    Mutation_Root_InsertFilesArgs: Mutation_Root_InsertFilesArgs,
+    Mutation_Root_InsertTodoArgs: Mutation_Root_InsertTodoArgs,
+    Mutation_Root_InsertTodosArgs: Mutation_Root_InsertTodosArgs,
+    Mutation_Root_InsertUserArgs: Mutation_Root_InsertUserArgs,
+    Mutation_Root_InsertUsersArgs: Mutation_Root_InsertUsersArgs,
+    Mutation_Root_Insert_CategoriesArgs: Mutation_Root_Insert_CategoriesArgs,
+    Mutation_Root_Insert_Categories_OneArgs: Mutation_Root_Insert_Categories_OneArgs,
+    Mutation_Root_UpdateAuthProviderArgs: Mutation_Root_UpdateAuthProviderArgs,
+    Mutation_Root_UpdateAuthProviderRequestArgs: Mutation_Root_UpdateAuthProviderRequestArgs,
+    Mutation_Root_UpdateAuthProviderRequestsArgs: Mutation_Root_UpdateAuthProviderRequestsArgs,
+    Mutation_Root_UpdateAuthProvidersArgs: Mutation_Root_UpdateAuthProvidersArgs,
+    Mutation_Root_UpdateAuthRefreshTokenArgs: Mutation_Root_UpdateAuthRefreshTokenArgs,
+    Mutation_Root_UpdateAuthRefreshTokensArgs: Mutation_Root_UpdateAuthRefreshTokensArgs,
+    Mutation_Root_UpdateAuthRoleArgs: Mutation_Root_UpdateAuthRoleArgs,
+    Mutation_Root_UpdateAuthRolesArgs: Mutation_Root_UpdateAuthRolesArgs,
+    Mutation_Root_UpdateAuthUserProviderArgs: Mutation_Root_UpdateAuthUserProviderArgs,
+    Mutation_Root_UpdateAuthUserProvidersArgs: Mutation_Root_UpdateAuthUserProvidersArgs,
+    Mutation_Root_UpdateAuthUserRoleArgs: Mutation_Root_UpdateAuthUserRoleArgs,
+    Mutation_Root_UpdateAuthUserRolesArgs: Mutation_Root_UpdateAuthUserRolesArgs,
+    Mutation_Root_UpdateAuthUserSecurityKeyArgs: Mutation_Root_UpdateAuthUserSecurityKeyArgs,
+    Mutation_Root_UpdateAuthUserSecurityKeysArgs: Mutation_Root_UpdateAuthUserSecurityKeysArgs,
+    Mutation_Root_UpdateBucketArgs: Mutation_Root_UpdateBucketArgs,
+    Mutation_Root_UpdateBucketsArgs: Mutation_Root_UpdateBucketsArgs,
+    Mutation_Root_UpdateFileArgs: Mutation_Root_UpdateFileArgs,
+    Mutation_Root_UpdateFilesArgs: Mutation_Root_UpdateFilesArgs,
+    Mutation_Root_UpdateTodoArgs: Mutation_Root_UpdateTodoArgs,
+    Mutation_Root_UpdateTodosArgs: Mutation_Root_UpdateTodosArgs,
+    Mutation_Root_UpdateUserArgs: Mutation_Root_UpdateUserArgs,
+    Mutation_Root_UpdateUsersArgs: Mutation_Root_UpdateUsersArgs,
+    Mutation_Root_Update_AuthProviderRequests_ManyArgs: Mutation_Root_Update_AuthProviderRequests_ManyArgs,
+    Mutation_Root_Update_AuthProviders_ManyArgs: Mutation_Root_Update_AuthProviders_ManyArgs,
+    Mutation_Root_Update_AuthRefreshTokens_ManyArgs: Mutation_Root_Update_AuthRefreshTokens_ManyArgs,
+    Mutation_Root_Update_AuthRoles_ManyArgs: Mutation_Root_Update_AuthRoles_ManyArgs,
+    Mutation_Root_Update_AuthUserProviders_ManyArgs: Mutation_Root_Update_AuthUserProviders_ManyArgs,
+    Mutation_Root_Update_AuthUserRoles_ManyArgs: Mutation_Root_Update_AuthUserRoles_ManyArgs,
+    Mutation_Root_Update_AuthUserSecurityKeys_ManyArgs: Mutation_Root_Update_AuthUserSecurityKeys_ManyArgs,
+    Mutation_Root_Update_Buckets_ManyArgs: Mutation_Root_Update_Buckets_ManyArgs,
+    Mutation_Root_Update_CategoriesArgs: Mutation_Root_Update_CategoriesArgs,
+    Mutation_Root_Update_Categories_By_PkArgs: Mutation_Root_Update_Categories_By_PkArgs,
+    Mutation_Root_Update_Categories_ManyArgs: Mutation_Root_Update_Categories_ManyArgs,
+    Mutation_Root_Update_Files_ManyArgs: Mutation_Root_Update_Files_ManyArgs,
+    Mutation_Root_Update_Todos_ManyArgs: Mutation_Root_Update_Todos_ManyArgs,
+    Mutation_Root_Update_Users_ManyArgs: Mutation_Root_Update_Users_ManyArgs,
     Query_Root: Query_Root,
-    Query_RootAuthProviderArgs: Query_RootAuthProviderArgs,
-    Query_RootAuthProviderRequestArgs: Query_RootAuthProviderRequestArgs,
-    Query_RootAuthProviderRequestsArgs: Query_RootAuthProviderRequestsArgs,
-    Query_RootAuthProviderRequestsAggregateArgs: Query_RootAuthProviderRequestsAggregateArgs,
-    Query_RootAuthProvidersArgs: Query_RootAuthProvidersArgs,
-    Query_RootAuthProvidersAggregateArgs: Query_RootAuthProvidersAggregateArgs,
-    Query_RootAuthRefreshTokenArgs: Query_RootAuthRefreshTokenArgs,
-    Query_RootAuthRefreshTokensArgs: Query_RootAuthRefreshTokensArgs,
-    Query_RootAuthRefreshTokensAggregateArgs: Query_RootAuthRefreshTokensAggregateArgs,
-    Query_RootAuthRoleArgs: Query_RootAuthRoleArgs,
-    Query_RootAuthRolesArgs: Query_RootAuthRolesArgs,
-    Query_RootAuthRolesAggregateArgs: Query_RootAuthRolesAggregateArgs,
-    Query_RootAuthUserProviderArgs: Query_RootAuthUserProviderArgs,
-    Query_RootAuthUserProvidersArgs: Query_RootAuthUserProvidersArgs,
-    Query_RootAuthUserProvidersAggregateArgs: Query_RootAuthUserProvidersAggregateArgs,
-    Query_RootAuthUserRoleArgs: Query_RootAuthUserRoleArgs,
-    Query_RootAuthUserRolesArgs: Query_RootAuthUserRolesArgs,
-    Query_RootAuthUserRolesAggregateArgs: Query_RootAuthUserRolesAggregateArgs,
-    Query_RootAuthUserSecurityKeyArgs: Query_RootAuthUserSecurityKeyArgs,
-    Query_RootAuthUserSecurityKeysArgs: Query_RootAuthUserSecurityKeysArgs,
-    Query_RootAuthUserSecurityKeysAggregateArgs: Query_RootAuthUserSecurityKeysAggregateArgs,
-    Query_RootBucketArgs: Query_RootBucketArgs,
-    Query_RootBucketsArgs: Query_RootBucketsArgs,
-    Query_RootBucketsAggregateArgs: Query_RootBucketsAggregateArgs,
-    Query_RootCategoriesArgs: Query_RootCategoriesArgs,
-    Query_RootCategories_AggregateArgs: Query_RootCategories_AggregateArgs,
-    Query_RootCategories_By_PkArgs: Query_RootCategories_By_PkArgs,
-    Query_RootFileArgs: Query_RootFileArgs,
-    Query_RootFilesArgs: Query_RootFilesArgs,
-    Query_RootFilesAggregateArgs: Query_RootFilesAggregateArgs,
-    Query_RootTodoArgs: Query_RootTodoArgs,
-    Query_RootTodosArgs: Query_RootTodosArgs,
-    Query_RootTodosAggregateArgs: Query_RootTodosAggregateArgs,
-    Query_RootUserArgs: Query_RootUserArgs,
-    Query_RootUsersArgs: Query_RootUsersArgs,
-    Query_RootUsersAggregateArgs: Query_RootUsersAggregateArgs,
+    Query_Root_AuthProviderArgs: Query_Root_AuthProviderArgs,
+    Query_Root_AuthProviderRequestArgs: Query_Root_AuthProviderRequestArgs,
+    Query_Root_AuthProviderRequestsArgs: Query_Root_AuthProviderRequestsArgs,
+    Query_Root_AuthProviderRequestsAggregateArgs: Query_Root_AuthProviderRequestsAggregateArgs,
+    Query_Root_AuthProvidersArgs: Query_Root_AuthProvidersArgs,
+    Query_Root_AuthProvidersAggregateArgs: Query_Root_AuthProvidersAggregateArgs,
+    Query_Root_AuthRefreshTokenArgs: Query_Root_AuthRefreshTokenArgs,
+    Query_Root_AuthRefreshTokensArgs: Query_Root_AuthRefreshTokensArgs,
+    Query_Root_AuthRefreshTokensAggregateArgs: Query_Root_AuthRefreshTokensAggregateArgs,
+    Query_Root_AuthRoleArgs: Query_Root_AuthRoleArgs,
+    Query_Root_AuthRolesArgs: Query_Root_AuthRolesArgs,
+    Query_Root_AuthRolesAggregateArgs: Query_Root_AuthRolesAggregateArgs,
+    Query_Root_AuthUserProviderArgs: Query_Root_AuthUserProviderArgs,
+    Query_Root_AuthUserProvidersArgs: Query_Root_AuthUserProvidersArgs,
+    Query_Root_AuthUserProvidersAggregateArgs: Query_Root_AuthUserProvidersAggregateArgs,
+    Query_Root_AuthUserRoleArgs: Query_Root_AuthUserRoleArgs,
+    Query_Root_AuthUserRolesArgs: Query_Root_AuthUserRolesArgs,
+    Query_Root_AuthUserRolesAggregateArgs: Query_Root_AuthUserRolesAggregateArgs,
+    Query_Root_AuthUserSecurityKeyArgs: Query_Root_AuthUserSecurityKeyArgs,
+    Query_Root_AuthUserSecurityKeysArgs: Query_Root_AuthUserSecurityKeysArgs,
+    Query_Root_AuthUserSecurityKeysAggregateArgs: Query_Root_AuthUserSecurityKeysAggregateArgs,
+    Query_Root_BucketArgs: Query_Root_BucketArgs,
+    Query_Root_BucketsArgs: Query_Root_BucketsArgs,
+    Query_Root_BucketsAggregateArgs: Query_Root_BucketsAggregateArgs,
+    Query_Root_CategoriesArgs: Query_Root_CategoriesArgs,
+    Query_Root_Categories_AggregateArgs: Query_Root_Categories_AggregateArgs,
+    Query_Root_Categories_By_PkArgs: Query_Root_Categories_By_PkArgs,
+    Query_Root_FileArgs: Query_Root_FileArgs,
+    Query_Root_FilesArgs: Query_Root_FilesArgs,
+    Query_Root_FilesAggregateArgs: Query_Root_FilesAggregateArgs,
+    Query_Root_TodoArgs: Query_Root_TodoArgs,
+    Query_Root_TodosArgs: Query_Root_TodosArgs,
+    Query_Root_TodosAggregateArgs: Query_Root_TodosAggregateArgs,
+    Query_Root_UserArgs: Query_Root_UserArgs,
+    Query_Root_UsersArgs: Query_Root_UsersArgs,
+    Query_Root_UsersAggregateArgs: Query_Root_UsersAggregateArgs,
     Subscription_Root: Subscription_Root,
-    Subscription_RootAuthProviderArgs: Subscription_RootAuthProviderArgs,
-    Subscription_RootAuthProviderRequestArgs: Subscription_RootAuthProviderRequestArgs,
-    Subscription_RootAuthProviderRequestsArgs: Subscription_RootAuthProviderRequestsArgs,
-    Subscription_RootAuthProviderRequestsAggregateArgs: Subscription_RootAuthProviderRequestsAggregateArgs,
-    Subscription_RootAuthProviderRequests_StreamArgs: Subscription_RootAuthProviderRequests_StreamArgs,
-    Subscription_RootAuthProvidersArgs: Subscription_RootAuthProvidersArgs,
-    Subscription_RootAuthProvidersAggregateArgs: Subscription_RootAuthProvidersAggregateArgs,
-    Subscription_RootAuthProviders_StreamArgs: Subscription_RootAuthProviders_StreamArgs,
-    Subscription_RootAuthRefreshTokenArgs: Subscription_RootAuthRefreshTokenArgs,
-    Subscription_RootAuthRefreshTokensArgs: Subscription_RootAuthRefreshTokensArgs,
-    Subscription_RootAuthRefreshTokensAggregateArgs: Subscription_RootAuthRefreshTokensAggregateArgs,
-    Subscription_RootAuthRefreshTokens_StreamArgs: Subscription_RootAuthRefreshTokens_StreamArgs,
-    Subscription_RootAuthRoleArgs: Subscription_RootAuthRoleArgs,
-    Subscription_RootAuthRolesArgs: Subscription_RootAuthRolesArgs,
-    Subscription_RootAuthRolesAggregateArgs: Subscription_RootAuthRolesAggregateArgs,
-    Subscription_RootAuthRoles_StreamArgs: Subscription_RootAuthRoles_StreamArgs,
-    Subscription_RootAuthUserProviderArgs: Subscription_RootAuthUserProviderArgs,
-    Subscription_RootAuthUserProvidersArgs: Subscription_RootAuthUserProvidersArgs,
-    Subscription_RootAuthUserProvidersAggregateArgs: Subscription_RootAuthUserProvidersAggregateArgs,
-    Subscription_RootAuthUserProviders_StreamArgs: Subscription_RootAuthUserProviders_StreamArgs,
-    Subscription_RootAuthUserRoleArgs: Subscription_RootAuthUserRoleArgs,
-    Subscription_RootAuthUserRolesArgs: Subscription_RootAuthUserRolesArgs,
-    Subscription_RootAuthUserRolesAggregateArgs: Subscription_RootAuthUserRolesAggregateArgs,
-    Subscription_RootAuthUserRoles_StreamArgs: Subscription_RootAuthUserRoles_StreamArgs,
-    Subscription_RootAuthUserSecurityKeyArgs: Subscription_RootAuthUserSecurityKeyArgs,
-    Subscription_RootAuthUserSecurityKeysArgs: Subscription_RootAuthUserSecurityKeysArgs,
-    Subscription_RootAuthUserSecurityKeysAggregateArgs: Subscription_RootAuthUserSecurityKeysAggregateArgs,
-    Subscription_RootAuthUserSecurityKeys_StreamArgs: Subscription_RootAuthUserSecurityKeys_StreamArgs,
-    Subscription_RootBucketArgs: Subscription_RootBucketArgs,
-    Subscription_RootBucketsArgs: Subscription_RootBucketsArgs,
-    Subscription_RootBucketsAggregateArgs: Subscription_RootBucketsAggregateArgs,
-    Subscription_RootBuckets_StreamArgs: Subscription_RootBuckets_StreamArgs,
-    Subscription_RootCategoriesArgs: Subscription_RootCategoriesArgs,
-    Subscription_RootCategories_AggregateArgs: Subscription_RootCategories_AggregateArgs,
-    Subscription_RootCategories_By_PkArgs: Subscription_RootCategories_By_PkArgs,
-    Subscription_RootCategories_StreamArgs: Subscription_RootCategories_StreamArgs,
-    Subscription_RootFileArgs: Subscription_RootFileArgs,
-    Subscription_RootFilesArgs: Subscription_RootFilesArgs,
-    Subscription_RootFilesAggregateArgs: Subscription_RootFilesAggregateArgs,
-    Subscription_RootFiles_StreamArgs: Subscription_RootFiles_StreamArgs,
-    Subscription_RootTodoArgs: Subscription_RootTodoArgs,
-    Subscription_RootTodosArgs: Subscription_RootTodosArgs,
-    Subscription_RootTodosAggregateArgs: Subscription_RootTodosAggregateArgs,
-    Subscription_RootTodos_StreamArgs: Subscription_RootTodos_StreamArgs,
-    Subscription_RootUserArgs: Subscription_RootUserArgs,
-    Subscription_RootUsersArgs: Subscription_RootUsersArgs,
-    Subscription_RootUsersAggregateArgs: Subscription_RootUsersAggregateArgs,
-    Subscription_RootUsers_StreamArgs: Subscription_RootUsers_StreamArgs,
+    Subscription_Root_AuthProviderArgs: Subscription_Root_AuthProviderArgs,
+    Subscription_Root_AuthProviderRequestArgs: Subscription_Root_AuthProviderRequestArgs,
+    Subscription_Root_AuthProviderRequestsArgs: Subscription_Root_AuthProviderRequestsArgs,
+    Subscription_Root_AuthProviderRequestsAggregateArgs: Subscription_Root_AuthProviderRequestsAggregateArgs,
+    Subscription_Root_AuthProviderRequests_StreamArgs: Subscription_Root_AuthProviderRequests_StreamArgs,
+    Subscription_Root_AuthProvidersArgs: Subscription_Root_AuthProvidersArgs,
+    Subscription_Root_AuthProvidersAggregateArgs: Subscription_Root_AuthProvidersAggregateArgs,
+    Subscription_Root_AuthProviders_StreamArgs: Subscription_Root_AuthProviders_StreamArgs,
+    Subscription_Root_AuthRefreshTokenArgs: Subscription_Root_AuthRefreshTokenArgs,
+    Subscription_Root_AuthRefreshTokensArgs: Subscription_Root_AuthRefreshTokensArgs,
+    Subscription_Root_AuthRefreshTokensAggregateArgs: Subscription_Root_AuthRefreshTokensAggregateArgs,
+    Subscription_Root_AuthRefreshTokens_StreamArgs: Subscription_Root_AuthRefreshTokens_StreamArgs,
+    Subscription_Root_AuthRoleArgs: Subscription_Root_AuthRoleArgs,
+    Subscription_Root_AuthRolesArgs: Subscription_Root_AuthRolesArgs,
+    Subscription_Root_AuthRolesAggregateArgs: Subscription_Root_AuthRolesAggregateArgs,
+    Subscription_Root_AuthRoles_StreamArgs: Subscription_Root_AuthRoles_StreamArgs,
+    Subscription_Root_AuthUserProviderArgs: Subscription_Root_AuthUserProviderArgs,
+    Subscription_Root_AuthUserProvidersArgs: Subscription_Root_AuthUserProvidersArgs,
+    Subscription_Root_AuthUserProvidersAggregateArgs: Subscription_Root_AuthUserProvidersAggregateArgs,
+    Subscription_Root_AuthUserProviders_StreamArgs: Subscription_Root_AuthUserProviders_StreamArgs,
+    Subscription_Root_AuthUserRoleArgs: Subscription_Root_AuthUserRoleArgs,
+    Subscription_Root_AuthUserRolesArgs: Subscription_Root_AuthUserRolesArgs,
+    Subscription_Root_AuthUserRolesAggregateArgs: Subscription_Root_AuthUserRolesAggregateArgs,
+    Subscription_Root_AuthUserRoles_StreamArgs: Subscription_Root_AuthUserRoles_StreamArgs,
+    Subscription_Root_AuthUserSecurityKeyArgs: Subscription_Root_AuthUserSecurityKeyArgs,
+    Subscription_Root_AuthUserSecurityKeysArgs: Subscription_Root_AuthUserSecurityKeysArgs,
+    Subscription_Root_AuthUserSecurityKeysAggregateArgs: Subscription_Root_AuthUserSecurityKeysAggregateArgs,
+    Subscription_Root_AuthUserSecurityKeys_StreamArgs: Subscription_Root_AuthUserSecurityKeys_StreamArgs,
+    Subscription_Root_BucketArgs: Subscription_Root_BucketArgs,
+    Subscription_Root_BucketsArgs: Subscription_Root_BucketsArgs,
+    Subscription_Root_BucketsAggregateArgs: Subscription_Root_BucketsAggregateArgs,
+    Subscription_Root_Buckets_StreamArgs: Subscription_Root_Buckets_StreamArgs,
+    Subscription_Root_CategoriesArgs: Subscription_Root_CategoriesArgs,
+    Subscription_Root_Categories_AggregateArgs: Subscription_Root_Categories_AggregateArgs,
+    Subscription_Root_Categories_By_PkArgs: Subscription_Root_Categories_By_PkArgs,
+    Subscription_Root_Categories_StreamArgs: Subscription_Root_Categories_StreamArgs,
+    Subscription_Root_FileArgs: Subscription_Root_FileArgs,
+    Subscription_Root_FilesArgs: Subscription_Root_FilesArgs,
+    Subscription_Root_FilesAggregateArgs: Subscription_Root_FilesAggregateArgs,
+    Subscription_Root_Files_StreamArgs: Subscription_Root_Files_StreamArgs,
+    Subscription_Root_TodoArgs: Subscription_Root_TodoArgs,
+    Subscription_Root_TodosArgs: Subscription_Root_TodosArgs,
+    Subscription_Root_TodosAggregateArgs: Subscription_Root_TodosAggregateArgs,
+    Subscription_Root_Todos_StreamArgs: Subscription_Root_Todos_StreamArgs,
+    Subscription_Root_UserArgs: Subscription_Root_UserArgs,
+    Subscription_Root_UsersArgs: Subscription_Root_UsersArgs,
+    Subscription_Root_UsersAggregateArgs: Subscription_Root_UsersAggregateArgs,
+    Subscription_Root_Users_StreamArgs: Subscription_Root_Users_StreamArgs,
     Timestamptz_Comparison_Exp: Timestamptz_Comparison_Exp,
     Todos: Todos,
     Todos_Aggregate: Todos_Aggregate,
     Todos_Aggregate_Fields: Todos_Aggregate_Fields,
-    Todos_Aggregate_FieldsCountArgs: Todos_Aggregate_FieldsCountArgs,
+    Todos_Aggregate_Fields_CountArgs: Todos_Aggregate_Fields_CountArgs,
     Todos_Bool_Exp: Todos_Bool_Exp,
     Todos_Insert_Input: Todos_Insert_Input,
     Todos_Max_Fields: Todos_Max_Fields,
@@ -28607,22 +28607,22 @@ export default {
     Todos_Stream_Cursor_Value_Input: Todos_Stream_Cursor_Value_Input,
     Todos_Updates: Todos_Updates,
     Users: Users,
-    UsersMetadataArgs: UsersMetadataArgs,
-    UsersRefreshTokensArgs: UsersRefreshTokensArgs,
-    UsersRefreshTokens_AggregateArgs: UsersRefreshTokens_AggregateArgs,
-    UsersRolesArgs: UsersRolesArgs,
-    UsersRoles_AggregateArgs: UsersRoles_AggregateArgs,
-    UsersSecurityKeysArgs: UsersSecurityKeysArgs,
-    UsersSecurityKeys_AggregateArgs: UsersSecurityKeys_AggregateArgs,
-    UsersUserProvidersArgs: UsersUserProvidersArgs,
-    UsersUserProviders_AggregateArgs: UsersUserProviders_AggregateArgs,
+    Users_MetadataArgs: Users_MetadataArgs,
+    Users_RefreshTokensArgs: Users_RefreshTokensArgs,
+    Users_RefreshTokens_AggregateArgs: Users_RefreshTokens_AggregateArgs,
+    Users_RolesArgs: Users_RolesArgs,
+    Users_Roles_AggregateArgs: Users_Roles_AggregateArgs,
+    Users_SecurityKeysArgs: Users_SecurityKeysArgs,
+    Users_SecurityKeys_AggregateArgs: Users_SecurityKeys_AggregateArgs,
+    Users_UserProvidersArgs: Users_UserProvidersArgs,
+    Users_UserProviders_AggregateArgs: Users_UserProviders_AggregateArgs,
     Users_Aggregate: Users_Aggregate,
     Users_Aggregate_Bool_Exp: Users_Aggregate_Bool_Exp,
     Users_Aggregate_Bool_Exp_Bool_And: Users_Aggregate_Bool_Exp_Bool_And,
     Users_Aggregate_Bool_Exp_Bool_Or: Users_Aggregate_Bool_Exp_Bool_Or,
     Users_Aggregate_Bool_Exp_Count: Users_Aggregate_Bool_Exp_Count,
     Users_Aggregate_Fields: Users_Aggregate_Fields,
-    Users_Aggregate_FieldsCountArgs: Users_Aggregate_FieldsCountArgs,
+    Users_Aggregate_Fields_CountArgs: Users_Aggregate_Fields_CountArgs,
     Users_Aggregate_Order_By: Users_Aggregate_Order_By,
     Users_Append_Input: Users_Append_Input,
     Users_Arr_Rel_Insert_Input: Users_Arr_Rel_Insert_Input,
