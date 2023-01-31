@@ -1,6 +1,5 @@
 import SchemaBuilder from '@pothos/core'
 import { createYoga } from 'graphql-yoga'
-import { createServer } from 'node:http'
 
 class Human {
   public pets: Pet[] = []
@@ -124,14 +123,9 @@ builder.queryField('pets', (t) =>
 builder.queryField('dogs', (t) => t.field({ type: [DogObject], resolve: () => [dog1, dog2] }))
 builder.queryField('hamsters', (t) => t.field({ type: [HamsterObject], resolve: () => [hamster1] }))
 
-builder.queryType()
+builder.queryType({})
 
-const yoga = createYoga({
-  schema: builder.toSchema()
-})
-
-const server = createServer(yoga)
-
-server.listen(3000, () => {
-  console.log('listening on http://localhost:3000/graphql')
+export default createYoga({
+  schema: builder.toSchema(),
+  graphqlEndpoint: '/'
 })

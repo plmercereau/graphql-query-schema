@@ -1,7 +1,7 @@
 ## TODO
 
 - [ ] Types testing
-- [ ] Extended test schema
+- [ ] Unified test schema
 
 ## Done
 

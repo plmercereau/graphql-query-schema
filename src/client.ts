@@ -1,13 +1,7 @@
 import crossFetch from 'cross-fetch'
-import {
-  toRawGraphQL,
-  ReturnTransformersFactory,
-  OperationFactory,
-  toGraphQLDocument,
-  GenericSchema,
-  getRootOperationNames,
-  OperationTypes
-} from './shared'
+import { toRawGraphQL, toGraphQLDocument } from './query-builder'
+import { GenericSchema, getRootOperationNames, OperationTypes } from './schema'
+import { OperationFactory } from './types'
 
 type Client<Schema extends GenericSchema> = Readonly<{
   [key in Exclude<OperationTypes, 'Subscription'> as Uncapitalize<key>]: OperationFactory<
@@ -56,7 +50,7 @@ export function fetchClient<Schema extends GenericSchema>({
     operation: OperationTypes,
     property: string,
     input: any
-  ): ReturnType<ReturnTransformersFactory<Result>['request']> => {
+  ): Promise<Result> => {
     const { query, variables } = toRawGraphQL(schema, operation, property, input)
     const request = await fetch({
       method: 'POST',

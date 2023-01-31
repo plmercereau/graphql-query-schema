@@ -1,12 +1,7 @@
 generates:
   ./schemas/hasura.ts:
-    schema:
-      - http://localhost:1337/v1/graphql:
-          headers:
-            'x-hasura-admin-secret': nhost-admin-secret
-            # 'x-hasura-role': user
+    schema: http://localhost:1337/v1/graphql
     config:
-      # TODO test with different Hasura naming conventions
       scalars:
         uuid: 'string'
         bigint: 'number'
@@ -25,9 +20,5 @@ generates:
       - ./plugin/index.js
   ./schemas/swapi.ts:
     schema: https://swapi-graphql.netlify.app/.netlify/functions/index
-    plugins:
-      - ./plugin/index.js
-  ./schemas/pothos.ts:
-    schema: http://localhost:3000/graphql
     plugins:
       - ./plugin/index.js

@@ -41,14 +41,15 @@
     "preinstall": "npx only-allow pnpm",
     "build": "tsc plugin/index.ts && vite build",
     "codegen": "graphql-codegen",
-    "test": "vitest run",
+    "test": "run-p test:types test:unit",
     "test:watch": "vitest",
+    "test:unit": "vitest run",
+    "test:types": "tsc -p tsconfig.test.json --noEmit",
     "nhost": "nhost dev --no-browser",
-    "pothos": "tsx pothos/index.ts",
     "e2e": "start-test backend \"3000|http-get://localhost:9695\" e2e:test",
     "e2e:test": "vitest run --dir e2e",
     "e2e:watch": "vitest --dir e2e",
-    "backend": "run-p nhost pothos"
+    "backend": "nhost"
   },
   "dependencies": {
     "@graphql-typed-document-node/core": "^3.1.1",
@@ -64,7 +65,6 @@
     "@graphql-codegen/cli": "^2.16.3",
     "@graphql-codegen/typescript": "^2.7.1",
     "@graphql-codegen/urql-introspection": "^2.2.1",
-    "@pothos/core": "^3.24.0",
     "@types/node": "^18.11.18",
     "@urql/introspection": "^1.0.0",
     "graphql-request": "^5.1.0",

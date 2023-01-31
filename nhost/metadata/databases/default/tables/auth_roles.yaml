@@ -34,6 +34,11 @@ array_relationships:
           name: users
           schema: auth
 select_permissions:
+  - role: anonymous
+    permission:
+      columns:
+        - role
+      filter: {}
   - role: user
     permission:
       columns:

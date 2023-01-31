@@ -22,17 +22,18 @@ import {
   OperationTypes,
   UnionType
 } from './schema'
-import { VariablesInputType, VariablesTypes } from './variables'
-import { SetRequired, Exact, RequireAtLeastOne } from 'type-fest'
+import { SetRequired, RequireAtLeastOne } from 'type-fest'
 
 type ParametersOf<
   Schema extends GenericSchema,
   OperationType extends OperationTypes,
   Element extends Record<string, any>,
   Definition,
-  FieldName extends string,
+  FieldName extends string | undefined,
   FieldTypeRef extends FieldDefinition = Definition extends { fields: readonly any[] }
     ? PickFirstTupleItemThatExtends<Definition['fields'], { name: FieldName }>
+    : Definition extends FieldDefinition
+    ? Definition
     : never,
   FieldType extends ObjectType | InterfaceType | UnionType = ConcreteTypeOf<
     Schema,
@@ -49,6 +50,7 @@ type ParametersOf<
       : FieldArgs<Schema, OperationType, FieldTypeRef['name']>
     : never,
   Fields = {
+    // TODO use rather "key in FieldType['fields'][number]" instead of "key in keyof Element"
     [key in keyof Element]?: UnwrapNullableArray<Element[key]> extends object
       ? // * Accept either a list of fields or `true` to select all the fields
         | ParametersOf<
@@ -76,8 +78,8 @@ type ParametersOf<
               Schema,
               OperationType,
               Schema['types'][key['name']],
-              ConcreteTypeOf<Schema, key>,
-              string & keyof Schema['types'][key['name']]
+              { name: key['name']; type: ConcreteTypeOf<Schema, key> },
+              undefined
             >
           | true
       }
@@ -128,6 +130,9 @@ type UnionFields<
   } & QueryFields<NonNullable<Fragments[fragmentName]>, Schema['types'][string & fragmentName]>
 }>
 
+// * See: https://stackoverflow.com/a/59230299
+type Exactly<T, U> = T & Record<Exclude<keyof U, keyof T>, never>
+
 export type OperationFactory<
   Schema extends GenericSchema,
   OperationType extends OperationTypes,
@@ -137,8 +142,6 @@ export type OperationFactory<
   [name in keyof Operations]: <
     Operation extends Operations[name],
     Element extends UnwrapArray<Operation>,
-    VariablesInput extends VariablesInputType<Schema>,
-    Variables extends VariablesTypes<Schema, VariablesInput>,
     Params extends ParametersOf<
       Schema,
       OperationType,
@@ -147,7 +150,7 @@ export type OperationFactory<
       string & name
     >,
     // * See: https://stackoverflow.com/a/59230299
-    ExactParams extends Exact<Params, ExactParams>,
+    ExactParams extends Exactly<Params, ExactParams>,
     Result extends WrapArray<
       Operation,
       ExactParams extends { on: any }
@@ -162,22 +165,19 @@ export type OperationFactory<
     >,
     ReturnTransformer extends ReturnTransformersFactory<
       Result,
-      Variables,
       string & name
     >[ReturnTransformerName]
   >(
-    // * Parameters are required when variables are required
-    ...parameters: ExactParams extends { variables: any } ? [ExactParams] : [ExactParams?]
+    // * Parameters are required when variables or one `on` fragment are required
+    ...parameters: ExactParams extends { variables: any } | { on: any }
+      ? [ExactParams]
+      : [ExactParams?]
   ) => ReturnType<ReturnTransformer>
 }>
 
-export type ReturnTransformersFactory<
-  Result = any,
-  Variables = any,
-  OperationName extends string = any
-> = {
+export type ReturnTransformersFactory<Result = any, OperationName extends string = any> = {
   /** Typed Document Node client */
-  document: ReturnTransformer<TypedDocumentNode<{ [key in OperationName]: Result }, Variables>>
+  document: ReturnTransformer<TypedDocumentNode<{ [key in OperationName]: Result }, any>>
   /** Run the operation  */
   request: ReturnTransformer<Promise<Result>>
 }

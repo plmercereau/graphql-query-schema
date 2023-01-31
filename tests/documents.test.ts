@@ -1,4 +1,4 @@
-import schema from '../schemas/hasura'
+import schema from './schemas/hasura'
 import { print } from 'graphql'
 import { describe, expect, it } from 'vitest'
 import { fetchClient } from '../src'
@@ -11,7 +11,7 @@ describe('main', () => {
       variables: { id: '6503ef87-d0c2-47a5-80a2-d664a5ae23c1' }
     })
     expect(print(q)).toMatchInlineSnapshot(`
-      "query ($id: Any!) {
+      "query ($id: uuid!) {
         todo(id: $id) {
           id
         }
@@ -29,7 +29,7 @@ describe('main', () => {
       }
     })
     expect(print(q)).toMatchInlineSnapshot(`
-      "query ($id: Any!) {
+      "query ($id: uuid!) {
         todo(id: $id) {
           createdAt
         }
@@ -52,7 +52,7 @@ describe('main', () => {
       }
     })
     expect(print(q)).toMatchInlineSnapshot(`
-      "query ($limit: Any, $where: Any, $order_by: [Any!]) {
+      "query ($limit: Int, $where: todos_bool_exp, $order_by: [todos_order_by!]) {
         todos(limit: $limit, where: $where, order_by: $order_by) {
           createdAt
           contents
@@ -121,24 +121,18 @@ describe('main', () => {
         user: {
           select: {
             email: true,
-            avatarUrl: true,
-            roles_aggregate: { select: { aggregate: { select: { count: true } } } }
+            avatarUrl: true
           }
         }
       }
     })
     expect(print(q)).toMatchInlineSnapshot(`
-      "subscription ($where: Any) {
+      "subscription ($where: todos_bool_exp) {
         todos(where: $where) {
           userId
           user {
             email
             avatarUrl
-            roles_aggregate {
-              aggregate {
-                count
-              }
-            }
           }
         }
       }"
@@ -146,21 +140,21 @@ describe('main', () => {
   })
 
   it('single insert mutation', () => {
-    const q = mutationDocument.insertFile({
+    const q = mutationDocument.insertTodo({
       select: {
         id: true
       },
       variables: {
-        object: { bucketId: 'dew', name: 'dew' },
+        object: { id: 'abc', category: 'essay', contents: 'dew' },
         on_conflict: {
-          constraint: 'files_pkey',
-          update_columns: ['name']
+          constraint: 'todos_pkey',
+          update_columns: ['category', 'contents']
         }
       }
     })
     expect(print(q)).toMatchInlineSnapshot(`
-      "mutation ($object: Any!, $on_conflict: Any) {
-        insertFile(object: $object, on_conflict: $on_conflict) {
+      "mutation ($object: todos_insert_input!, $on_conflict: todos_on_conflict) {
+        insertTodo(object: $object, on_conflict: $on_conflict) {
           id
         }
       }"
@@ -168,7 +162,7 @@ describe('main', () => {
   })
 
   it('multiple inserts mutation', () => {
-    const q = mutationDocument.insertFiles({
+    const q = mutationDocument.insertTodos({
       select: {
         affected_rows: true,
         returning: {
@@ -179,19 +173,19 @@ describe('main', () => {
       },
       variables: {
         objects: [
-          { bucketId: 'dew', name: 'dew' },
-          { bucketId: 'dew', name: 'dew' }
+          { id: 'abc', category: 'essay', contents: 'dew' },
+          { id: 'def', category: 'novel', contents: 'bah' }
         ],
         on_conflict: {
-          constraint: 'files_pkey',
-          update_columns: ['name']
+          constraint: 'todos_pkey',
+          update_columns: ['category', 'contents']
         }
       }
     })
 
     expect(print(q)).toMatchInlineSnapshot(`
-      "mutation ($objects: [Any!]!, $on_conflict: Any) {
-        insertFiles(objects: $objects, on_conflict: $on_conflict) {
+      "mutation ($objects: [todos_insert_input!]!, $on_conflict: todos_on_conflict) {
+        insertTodos(objects: $objects, on_conflict: $on_conflict) {
           affected_rows
           returning {
             id
@@ -202,7 +196,7 @@ describe('main', () => {
   })
 
   it('single deletion mutation', () => {
-    const q = mutationDocument.deleteFile({
+    const q = mutationDocument.deleteTodo({
       select: {
         id: true
       },
@@ -211,8 +205,8 @@ describe('main', () => {
       }
     })
     expect(print(q)).toMatchInlineSnapshot(`
-      "mutation ($id: Any!) {
-        deleteFile(id: $id) {
+      "mutation ($id: uuid!) {
+        deleteTodo(id: $id) {
           id
         }
       }"
@@ -220,17 +214,17 @@ describe('main', () => {
   })
 
   it('multiple deletion mutation', () => {
-    const q = mutationDocument.deleteFiles({
+    const q = mutationDocument.deleteTodos({
       select: {
         affected_rows: true
       },
       variables: {
-        where: { bucketId: { _eq: 'default' } }
+        where: { userId: { _eq: 'abc' } }
       }
     })
     expect(print(q)).toMatchInlineSnapshot(`
-      "mutation ($where: Any!) {
-        deleteFiles(where: $where) {
+      "mutation ($where: todos_bool_exp!) {
+        deleteTodos(where: $where) {
           affected_rows
         }
       }"
